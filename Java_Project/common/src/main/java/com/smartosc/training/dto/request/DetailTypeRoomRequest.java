@@ -1,12 +1,9 @@
 package com.smartosc.training.dto.request;
 
-import com.smartosc.training.entities.DetailTypeRoom;
-import com.smartosc.training.entities.TypeRoom;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.modelmapper.ModelMapper;
 
 import java.math.BigDecimal;
 
@@ -30,16 +27,4 @@ public class DetailTypeRoomRequest {
     private BigDecimal price;
     private BigDecimal additionalPrice;
     private Integer roomAvailable;
-
-    public DetailTypeRoom toEntity(){
-        ModelMapper modelMapper = new ModelMapper();
-        DetailTypeRoom detailTypeRoom = new DetailTypeRoom();
-        modelMapper.map(this, detailTypeRoom);
-        return  detailTypeRoom;
-    }
-
-    public DetailTypeRoomRequest toDTO(DetailTypeRoom detailTypeRoom){
-        ModelMapper modelMapper = new ModelMapper();
-        return modelMapper.map(detailTypeRoom, DetailTypeRoomRequest.class);
-    }
 }

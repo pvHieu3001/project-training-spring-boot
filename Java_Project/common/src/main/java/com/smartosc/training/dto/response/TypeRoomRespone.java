@@ -1,12 +1,10 @@
 package com.smartosc.training.dto.response;
 
 import com.smartosc.training.dto.request.TypeRoomRequest;
-import com.smartosc.training.entities.TypeRoom;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.modelmapper.ModelMapper;
 
 import java.math.BigDecimal;
 
@@ -27,16 +25,4 @@ public class TypeRoomRespone {
     private String name;
     private String imgUrl;
     private BigDecimal totalPrice;
-
-    public TypeRoom toEntity(){
-        ModelMapper modelMapper = new ModelMapper();
-        TypeRoom typeRoom = new TypeRoom();
-        modelMapper.map(this, typeRoom);
-        return  typeRoom;
-    }
-
-    public TypeRoomRespone toDTO(TypeRoom typeRoom){
-        ModelMapper modelMapper = new ModelMapper();
-        return modelMapper.map(typeRoom, TypeRoomRespone.class);
-    }
 }
