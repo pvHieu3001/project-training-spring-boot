@@ -54,9 +54,12 @@ public class User {
       inverseJoinColumns = {@JoinColumn(name = "role_id")})
   private List<Role> roles;
 
-  @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = {CascadeType.DETACH,
+      CascadeType.MERGE, CascadeType.REFRESH})
   private List<Comment> comments;
 
-  @OneToOne(fetch = FetchType.LAZY,mappedBy = "user")
+  @OneToOne(fetch = FetchType.LAZY, mappedBy = "user", cascade = {CascadeType.DETACH,
+      CascadeType.MERGE, CascadeType.REFRESH})
   private StatusOT statusOT;
+
 }
