@@ -2,6 +2,7 @@ package com.smartosc.training.securities;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +17,7 @@ import java.io.Serializable;
  * @created_at 02/07/2020 - 1:49 PM
  * @created_by Huupd
  */
+@Component
 public class JWTAuthenticationEntryPoint implements Serializable, AuthenticationEntryPoint {
     private static final long serialVersionUID = -3001767839389507054L;
     @Override

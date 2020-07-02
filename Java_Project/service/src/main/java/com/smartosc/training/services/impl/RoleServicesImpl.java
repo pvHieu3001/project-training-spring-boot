@@ -1,6 +1,5 @@
 package com.smartosc.training.services.impl;
 
-import com.smartosc.training.dto.request.RoleRequest;
 import com.smartosc.training.dto.response.RoleResponse;
 import com.smartosc.training.entities.Role;
 import com.smartosc.training.repositories.RoleRepository;
@@ -24,6 +23,7 @@ public class RoleServicesImpl implements RoleService {
     @Autowired
     private RoleRepository roleRepository;
 
+    @Autowired
     private ModelMapper modelMapper;
 
     @Override
@@ -35,7 +35,7 @@ public class RoleServicesImpl implements RoleService {
     @Override
     public List<RoleResponse> findByUsersUserName(String userName) {
         List<RoleResponse> roleResponses = new ArrayList<>();
-        List<Role> roleList = roleRepository.findByUsersUserName(userName);
+        List<Role> roleList = roleRepository.findByAccountsUsername(userName);
         for (Role role : roleList ){
             RoleResponse roleResponse = modelMapper.map(role,RoleResponse.class);
             roleResponses.add(roleResponse);
