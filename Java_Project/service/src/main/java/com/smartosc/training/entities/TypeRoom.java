@@ -2,6 +2,7 @@ package com.smartosc.training.entities;
 
 import java.math.BigDecimal;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -43,7 +44,8 @@ public class TypeRoom {
   @JoinColumn(name = "hotel_id")
   private Hotel hotel;
 
-  @OneToMany(fetch = FetchType.LAZY,mappedBy = "typeRoom")
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "typeRoom", cascade = {CascadeType.DETACH,
+      CascadeType.MERGE, CascadeType.REFRESH})
   private List<DetailTypeRoom> detailTypeRooms;
 
 

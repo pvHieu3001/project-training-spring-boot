@@ -1,6 +1,7 @@
 package com.smartosc.training.entities;
 
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -29,6 +30,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Central {
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
@@ -36,7 +38,8 @@ public class Central {
   private String title;
   @Column(nullable = false)
   private String imgUrl;
-  @OneToMany(fetch = FetchType.LAZY, mappedBy = "central")
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "central", cascade = {CascadeType.DETACH,
+      CascadeType.MERGE, CascadeType.REFRESH})
   private List<City> cities;
 
 }

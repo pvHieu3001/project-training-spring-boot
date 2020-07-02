@@ -2,6 +2,7 @@ package com.smartosc.training.entities;
 
 import java.math.BigDecimal;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -31,6 +32,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Hotel {
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
@@ -41,8 +43,10 @@ public class Hotel {
   @ManyToOne
   @JoinColumn(name = "city_id")
   private City city;
-  @OneToMany(fetch = FetchType.LAZY, mappedBy = "hotel")
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "hotel", cascade = {CascadeType.DETACH,
+      CascadeType.MERGE, CascadeType.REFRESH})
   private List<TypeRoom> typeRooms;
-  @OneToMany(fetch = FetchType.LAZY, mappedBy = "hotel")
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "hotel", cascade = {CascadeType.DETACH,
+      CascadeType.MERGE, CascadeType.REFRESH})
   private List<Comment> comments;
 }
