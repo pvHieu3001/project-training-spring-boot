@@ -1,6 +1,7 @@
 package com.smartosc.training.entities;
 
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -37,7 +38,8 @@ public class City {
   private String name;
   private String urlImg;
 
-  @OneToMany(fetch = FetchType.LAZY, mappedBy = "city")
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "city", cascade = {CascadeType.DETACH,
+      CascadeType.MERGE, CascadeType.REFRESH})
   private List<Hotel> hotels;
 
   @ManyToOne
