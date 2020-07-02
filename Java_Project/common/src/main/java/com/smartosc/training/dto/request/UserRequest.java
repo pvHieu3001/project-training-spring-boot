@@ -1,5 +1,9 @@
 package com.smartosc.training.dto.request;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.List;
 
 /**
@@ -10,6 +14,9 @@ import java.util.List;
  * @created_by Hieupv
  * @since 01/07/2020
  */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserRequest {
     private Long id;
     private String username;
