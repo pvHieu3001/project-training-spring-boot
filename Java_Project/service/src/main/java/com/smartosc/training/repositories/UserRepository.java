@@ -1,5 +1,10 @@
 package com.smartosc.training.repositories;
 
+import com.smartosc.training.entities.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.Optional;
+
 /**
  * Fresher-Training
  *
@@ -8,6 +13,6 @@ package com.smartosc.training.repositories;
  * @created_by Namtt
  * @since 02/07/2020
  */
-public class UserRepository {
-
+public interface UserRepository extends JpaRepository<User,Long> {
+    Optional<User> findByUserName(String username);
 }

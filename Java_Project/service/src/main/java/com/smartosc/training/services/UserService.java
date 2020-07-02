@@ -8,6 +8,6 @@ package com.smartosc.training.services;
  * @created_by Namtt
  * @since 02/07/2020
  */
-public class UserService {
+public interface UserService {
 
 }
