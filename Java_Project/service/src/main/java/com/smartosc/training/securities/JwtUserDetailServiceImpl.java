@@ -14,7 +14,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,11 +34,9 @@ public class JwtUserDetailServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String userName) {
-        UserRespone users;
-        try {
-            users = userService.findUserByUserName(userName);
-        } catch (Exception e) {
-            throw new NotFoundException("User was not found in the database");
+        UserRespone users = userService.findUserByUserName(userName);
+        if (users == null || users.getStatus() == 0) {
+            throw new NotFoundException("User " + userName + " was not found in the database");
         }
         List<GrantedAuthority> grantList = new ArrayList<>();
         List<RoleResponse> roleNames = this.roleService.findByUsersUserName(userName);
