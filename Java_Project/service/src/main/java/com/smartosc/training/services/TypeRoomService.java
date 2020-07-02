@@ -12,5 +12,5 @@ import org.springframework.data.domain.Page;
  * @since 02/07/2020
  */
 public interface TypeRoomService {
-    public Page<TypeRoomRespone> findTypeRoomById(Long id, )
+    public Page<TypeRoomRespone> findTypeRoomById(Long id, int page, int limit);
 }
