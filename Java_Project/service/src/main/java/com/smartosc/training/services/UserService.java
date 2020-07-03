@@ -12,13 +12,14 @@ import javassist.NotFoundException;
  * @created_by Namtt
  * @since 02/07/2020
  */
+
 public interface UserService {
     UserRequest createUser(UserRequest userRequest);
-
-    UserRespone findUserByName(String name) throws NotFoundException;
 
     Boolean deleteUserById(Long id) throws NotFoundException;
 
     UserRequest updateUser(Long id, UserRequest userRequest) throws NotFoundException;
+
+    UserRespone findUserByUserName(String name) throws NotFoundException;
 
 }

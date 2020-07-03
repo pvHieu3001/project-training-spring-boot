@@ -12,13 +12,13 @@ import javassist.NotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Fresher-Training
@@ -44,7 +44,7 @@ public class UserServicesImpl implements UserService {
         Role role = new Role();
         List<Role> roles = new ArrayList<>();
 
-        if (userRepository.findByUserName(userRequest.getUsername()) != null) { // check da ton tai hay chua, neu ton tai in ra messeages
+        if (userRepository.findByUsername11(userRequest.getUsername()) != null) { // check da ton tai hay chua, neu ton tai in ra messeages
             throw new DuplicateKeyException(userRequest.getUsername() + "da ton tai");
         }
         // chua ton tai thi thuc hien tiep o duoi
@@ -58,12 +58,12 @@ public class UserServicesImpl implements UserService {
     }
 
     @Override
-    public UserRespone findUserByName(String name) throws NotFoundException {
-        try {
-            Optional<User> account = userRepository.findByUserName(name);
-            return modelMapper.map(account, UserRespone.class);
-        } catch (UsernameNotFoundException e) {
-            throw new UsernameNotFoundException("Not found User with Username: " + name, e);
+    public UserRespone findUserByUserName(String name) throws NotFoundException {
+        Optional<User> userEntity = userRepository.findByUsername11(name);
+        if (userEntity.isPresent()) {
+            return modelMapper.map(userEntity.get(), UserRespone.class);
+        } else {
+            throw new NotFoundException("UnAuthorized");
         }
     }
 
