@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.util.Locale;
 
 /**
  * Fresher-Training
@@ -28,7 +29,7 @@ import javax.validation.Valid;
  * @created_by Huupd
  */
 @RestController
-@RequestMapping
+@RequestMapping(value = "/api/authenticate")
 public class ApiSecurityController {
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -39,8 +40,8 @@ public class ApiSecurityController {
     @Autowired
     private JwtUserDetailServiceImpl userDetailsService;
 
-    @PostMapping(value = "/api/authenticate")
-    public ResponseEntity<Object> createAuthenticationToken(@RequestBody @Valid JwtRequest authenticationRequest) throws NotFoundException {
+    @PostMapping()
+    public ResponseEntity<Object> createAuthenticationToken(@RequestBody @Valid JwtRequest authenticationRequest, Locale locale) throws NotFoundException {
         final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
 
         if (!userDetails.isAccountNonLocked()) {

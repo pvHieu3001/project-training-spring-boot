@@ -19,6 +19,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="admin" options="-parameters" />
       <module name="client" options="-parameters" />
+      <module name="common" options="-parameters" />
       <module name="service" options="-parameters" />
     </option>
   </component>
