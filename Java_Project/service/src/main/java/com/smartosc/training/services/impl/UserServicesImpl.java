@@ -67,22 +67,26 @@ public class UserServicesImpl implements UserService {
         }
     }
 
-//    @Override
-//    public UserRespone findUserByName(String name) throws NotFoundException {
-//        Optional<User> user = userRepository.findByUserName(name);
-//        UserRespone userRespone;
-//        if (user.isPresent()){
-////            userRespone =
-//        }
-//    }
-
     @Override
     public Boolean deleteUserById(Long id) throws NotFoundException {
-        return null;
+        if (userRepository.findById(id).isPresent()) {
+            userRepository.deleteById(id);
+            return true;
+        } else {
+            throw new NotFoundException("Khong tim thay id " + id);
+        }
     }
 
     @Override
-    public UserRequest updateUser(UserRequest userRequest) throws NotFoundException {
-        return null;
+    public UserRequest updateUser(Long id, UserRequest userRequest) throws NotFoundException {
+        if (!userRepository.findById(id).isPresent()) {
+            throw new NullPointerException("Tai khoan khong ton tai");
+        }
+        User user;
+        user = modelMapper.map(userRequest, User.class);
+        user.setId(id);
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+
+        return modelMapper.map(userRepository.save(user), UserRequest.class);
     }
 }

@@ -19,6 +19,6 @@ public interface UserService {
 
     Boolean deleteUserById(Long id) throws NotFoundException;
 
-    UserRequest updateUser(UserRequest userRequest) throws NotFoundException;
+    UserRequest updateUser(Long id, UserRequest userRequest) throws NotFoundException;
 
 }
