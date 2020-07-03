@@ -1,8 +1,6 @@
 package com.smartosc.training.services;
 
 import com.smartosc.training.dto.response.UserRespone;
-import com.smartosc.training.exceptions.NotFoundException;
-import org.springframework.stereotype.Repository;
 
 /**
  * Fresher-Training

@@ -7,6 +7,7 @@ import com.smartosc.training.services.RoleService;
 import com.smartosc.training.services.UserService;
 import com.smartosc.training.services.impl.RoleServicesImpl;
 import com.smartosc.training.services.impl.UserServicesImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -26,10 +27,10 @@ import java.util.List;
  */
 @Component
 public class JwtUserDetailServiceImpl implements UserDetailsService {
-
-    private RoleService roleService = new RoleServicesImpl();
-
-    private UserService userService = new UserServicesImpl();
+    @Autowired
+    private RoleService roleService;
+    @Autowired
+    private UserService userService ;
 
 
     @Override
