@@ -1,9 +1,11 @@
 package com.smartosc.training.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.*;
-
-import java.util.Locale;
+import jdk.nashorn.internal.objects.annotations.Getter;
+import jdk.nashorn.internal.objects.annotations.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * Fresher-Training
@@ -14,10 +16,8 @@ import java.util.Locale;
  */
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
+@Data
 public class APIResponse<T> {
-
     @JsonProperty("status")
     private String status;
 
@@ -28,9 +28,8 @@ public class APIResponse<T> {
     private T data;
 
     public APIResponse(int status, String message) {
-        Locale locale;
         this.status = Integer.toString(status);
-        this.message = ;
+        this.message = message;
     }
 
     public APIResponse(int status, String message, T data) {
