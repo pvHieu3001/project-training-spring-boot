@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * Fresher-Training
@@ -33,12 +34,10 @@ public class TypeRoomServiceImpl implements TypeRoomService {
 
     public List<TypeRoomDTO> findTypeRoomById(Long id) {
         TypeRoomSpecification typeRoomSpecification = new TypeRoomSpecification();
-        List<TypeRoomDTO> result = new ArrayList<>();
         Optional.ofNullable(id).ifPresent(s -> typeRoomSpecification.typeRoomHasId(id));
-        for (TypeRoom typeRoom : typeRoomRepository.findAll(typeRoomSpecification.build())){
-            result.add(modelMapper.map(typeRoom, TypeRoomDTO.class));
-        }
-        return result;
+        return typeRoomRepository.findAll(typeRoomSpecification.build())
+                .stream().map(s -> modelMapper.map(s,TypeRoomDTO.class))
+                .collect(Collectors.toList());
     }
 
     @Override
