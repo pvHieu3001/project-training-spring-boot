@@ -53,6 +53,14 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-jpamodelgen -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-jpamodelgen</artifactId>
+            <version>5.4.13.Final</version>
+            <scope>provided</scope>
+        </dependency>
+
 
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
