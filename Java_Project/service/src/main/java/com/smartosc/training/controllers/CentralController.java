@@ -1,12 +1,10 @@
 package com.smartosc.training.controllers;
 
+import com.smartosc.training.dto.APIResponse;
 import com.smartosc.training.dto.CentralDTO;
-import com.smartosc.training.dto.response.APIResponse;
-import com.smartosc.training.entities.Central;
 import com.smartosc.training.services.CentralService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

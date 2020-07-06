@@ -1,4 +1,5 @@
-package com.smartosc.training.dto.response;
+package com.smartosc.training.dto;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,11 +14,11 @@ import java.util.List;
  * @created_at 02/07/2020 - 1:58 PM
  * @created_by Huupd
  */
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-public class RoleResponse {
+public class RoleDTO {
     private Long id;
     private String name;
-    List<UserRespone> userRespones;
+    List<UserDTO> userDTOS;
 }

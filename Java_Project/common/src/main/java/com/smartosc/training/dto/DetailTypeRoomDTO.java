@@ -1,4 +1,4 @@
-package com.smartosc.training.dto.request;
+package com.smartosc.training.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,7 +19,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @Getter
 @Setter
-public class DetailTypeRoomRequest {
+public class DetailTypeRoomDTO {
     private Long id;
     private String description;
     private Integer maxPerson;

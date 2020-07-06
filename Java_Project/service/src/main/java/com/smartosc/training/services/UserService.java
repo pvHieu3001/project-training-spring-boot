@@ -1,6 +1,7 @@
 package com.smartosc.training.services;
 
-import com.smartosc.training.dto.response.UserRespone;
+
+import com.smartosc.training.dto.UserDTO;
 
 /**
  * Fresher-Training
@@ -12,6 +13,6 @@ import com.smartosc.training.dto.response.UserRespone;
  */
 
 public interface UserService {
-    UserRespone findUserByUserName(String name);
+    UserDTO findUserByUserName(String name);
 
 }
