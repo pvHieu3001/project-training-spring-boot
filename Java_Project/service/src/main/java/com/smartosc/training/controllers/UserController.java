@@ -63,11 +63,11 @@ public class UserController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<APIResponse<UserDTO>> deleteUserById(@PathVariable(value = "id") Long id) throws NotFoundException {
-        UserDTO userRespone = userService.deleteUserById(id);
+        UserDTO userDTO = userService.deleteUserById(id);
         APIResponse<UserDTO> apiResponse = new APIResponse<>();
         apiResponse.setStatus(HttpStatus.OK.toString());
         apiResponse.setMessage("delete success");
-        apiResponse.setData(userRespone);
+        apiResponse.setData(userDTO);
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
 
