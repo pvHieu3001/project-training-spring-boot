@@ -11,6 +11,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,11 +35,22 @@ public class CityController {
 
     @GetMapping
     public ResponseEntity<APIResponse<List<CityDTO>>> getAllCities(Locale locale) {
-        APIResponse<List<CityDTO>> objectAPIResponse = new APIResponse<>();
+        APIResponse<List<CityDTO>> apiResponse = new APIResponse<>();
         List<CityDTO> result = cityService.getAllCities();
-        objectAPIResponse.setData(result);
-        objectAPIResponse.setMessage(messageSource.getMessage("Messsage.status.ok",null, locale));
-        objectAPIResponse.setStatus(HttpStatus.OK.toString());
-        return new ResponseEntity<>(objectAPIResponse, HttpStatus.OK);
+        apiResponse.setData(result);
+        apiResponse.setMessage(messageSource.getMessage("message.status.ok",null, locale));
+        apiResponse.setStatus(HttpStatus.OK.toString());
+        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<APIResponse<CityDTO>> getCityWithHotels(@PathVariable("id") Long id, Locale locale) {
+        APIResponse<CityDTO> apiResponse = new APIResponse<>();
+
+        CityDTO result = cityService.getCityWithHotels(id);
+        apiResponse.setData(result);
+        apiResponse.setMessage(messageSource.getMessage("message.status.ok",null, locale));
+        apiResponse.setStatus(HttpStatus.OK.toString());
+        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
 }

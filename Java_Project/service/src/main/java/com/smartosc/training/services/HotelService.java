@@ -14,4 +14,6 @@ import java.util.List;
  */
 public interface HotelService {
     List<HotelDTO> getAllHotels();
+
+    HotelDTO getHotelByID(Long id);
 }

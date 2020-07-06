@@ -2,6 +2,7 @@ package com.smartosc.training.services.impl;
 
 import com.smartosc.training.dto.*;
 import com.smartosc.training.entities.*;
+import com.smartosc.training.exceptions.NotFoundException;
 import com.smartosc.training.exceptions.NullPointerException;
 import com.smartosc.training.repositories.CityRepository;
 import com.smartosc.training.services.CityService;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Fresher-Training
@@ -30,11 +32,43 @@ public class CityServiceImpl implements CityService {
         for (City city : cityList) {
             Central central = city.getCentral();
             if (central == null) {
-                throw new NullPointerException("M bij ngu rooif");
+                throw new NullPointerException("Có dữ liệu đâu mà lấy đồ ngốc");
             }
             cityDTOList.add(this.convertFromCityToCityDTO(city));
         }
         return cityDTOList;
+    }
+
+    @Override
+    public CityDTO getCityWithHotels(Long id) throws NotFoundException {
+        Optional<City> city = cityRepository.findById(id);
+
+        if (city.isPresent()) {
+            return this.convertFromCityToCityDTO(city.get());
+        }
+        throw new NotFoundException("Thách mi tìm được đấy!");
+    }
+
+    //TODO
+    @Override
+    public CityDTO save(CityDTO cityDTO) {
+        Optional<City> input = cityRepository.findById(cityDTO.getId());
+        if (input.isPresent()) {
+            //update
+            City city = input.get();
+
+            CentralDTO centralDTO = cityDTO.getCentral();
+            Central central = new Central();
+            central.setId(centralDTO.getId());
+            central.setImgUrl(centralDTO.getImgUrl());
+            central.setTitle(centralDTO.getTitle());
+            city.setCentral(central);
+            city.setName(cityDTO.getName());
+            city.setUrlImg(cityDTO.getUrlImg());
+        }
+        //create
+
+        return null;
     }
 
     private CityDTO convertFromCityToCityDTO(City city) {

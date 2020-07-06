@@ -2,6 +2,7 @@ package com.smartosc.training.services.impl;
 
 import com.smartosc.training.dto.*;
 import com.smartosc.training.entities.*;
+import com.smartosc.training.exceptions.NotFoundException;
 import com.smartosc.training.repositories.HotelRepository;
 import com.smartosc.training.services.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Fresher-Training
@@ -32,6 +34,16 @@ public class HotelServiceImpl implements HotelService {
             hotelResponseList.add(this.convertFromHotelToHotelDTO(hotel));
         }
         return hotelResponseList;
+    }
+
+    @Override
+    public HotelDTO getHotelByID(Long id) throws NotFoundException {
+        Optional<Hotel> hotel = hotelRepository.findById(id);
+
+        if (hotel.isPresent()) {
+            return this.convertFromHotelToHotelDTO(hotel.get());
+        }
+        throw new NotFoundException("Thách mi tìm được đấy!");
     }
 
     private HotelDTO convertFromHotelToHotelDTO(Hotel hotel) {

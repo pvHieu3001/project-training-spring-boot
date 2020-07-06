@@ -19,6 +19,7 @@ import java.util.Map;
  * @author Namtt
  * @created_at 02/07/2020 - 10:48 AM
  * @created_by Namtt
+ * @update_by Thanhttt
  * @since 02/07/2020
  */
 public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
@@ -53,6 +54,15 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(NullPointerException.class)
     public ResponseEntity<ErrorObject> customHandleNullPointer(Exception ex, WebRequest request) {
+        ErrorObject errorObject = new ErrorObject();
+        errorObject.setTimestamp(LocalDateTime.now());
+        errorObject.setError(ex.getMessage());
+        errorObject.setStatus(HttpStatus.BAD_REQUEST.value());
+        return new ResponseEntity<>(errorObject, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ErrorObject> customHandleOtherError(Exception ex, WebRequest request) {
         ErrorObject errorObject = new ErrorObject();
         errorObject.setTimestamp(LocalDateTime.now());
         errorObject.setError(ex.getMessage());
