@@ -1,4 +1,4 @@
-package com.smartosc.training.dto.response;
+package com.smartosc.training.dto;
 
 /**
  * Fresher-Training

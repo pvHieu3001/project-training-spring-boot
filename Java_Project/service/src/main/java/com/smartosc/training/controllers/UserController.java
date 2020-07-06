@@ -1,8 +1,7 @@
 package com.smartosc.training.controllers;
 
-import com.smartosc.training.dto.request.UserRequest;
-import com.smartosc.training.dto.response.APIResponse;
-import com.smartosc.training.dto.response.UserRespone;
+import com.smartosc.training.dto.APIResponse;
+import com.smartosc.training.dto.UserDTO;
 import com.smartosc.training.services.UserService;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,10 +28,10 @@ public class UserController {
     private UserService userService;
 
     @GetMapping
-    public ResponseEntity<APIResponse<List<UserRespone>>> getAllUser() {
-        List<UserRespone> userRespones = userService.getAllUser();
+    public ResponseEntity<APIResponse<List<UserDTO>>> getAllUser() {
+        List<UserDTO> userRespones = userService.getAllUser();
 
-        APIResponse<List<UserRespone>> apiResponse = new APIResponse<>();
+        APIResponse<List<UserDTO>> apiResponse = new APIResponse<>();
         apiResponse.setStatus(HttpStatus.OK.toString());
         apiResponse.setMessage("get all thanh cong em oi");
         apiResponse.setData(userRespones);
@@ -41,10 +39,10 @@ public class UserController {
     }
 
     @PostMapping()
-    public ResponseEntity<APIResponse<UserRequest>> createUser(@Valid @RequestBody UserRequest userRequest) {
-        UserRequest request = userService.createUser(userRequest);
+    public ResponseEntity<APIResponse<UserDTO>> createUser(@Valid @RequestBody UserDTO userDTO) {
+        UserDTO request = userService.createUser(userDTO);
 
-        APIResponse<UserRequest> apiResponse = new APIResponse<>();
+        APIResponse<UserDTO> apiResponse = new APIResponse<>();
         apiResponse.setStatus(HttpStatus.OK.toString());
         apiResponse.setMessage("create user success");
         apiResponse.setData(request);
@@ -53,20 +51,20 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<APIResponse<UserRequest>> updateUser(@RequestBody @Valid UserRequest userRequest, @PathVariable(value = "id") Long id) throws NotFoundException {
-        UserRequest userRequest1 = userService.updateUser(id, userRequest);
-        APIResponse<UserRequest> apiResponse = new APIResponse<>();
+    public ResponseEntity<APIResponse<UserDTO>> updateUser(@RequestBody @Valid UserDTO userDTO, @PathVariable(value = "id") Long id) throws NotFoundException {
+        UserDTO userDTO1 = userService.updateUser(id, userDTO);
+        APIResponse<UserDTO> apiResponse = new APIResponse<>();
         apiResponse.setStatus(HttpStatus.OK.toString());
         apiResponse.setMessage("Update user success");
-        apiResponse.setData(userRequest1);
+        apiResponse.setData(userDTO1);
 
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<APIResponse<UserRespone>> deleteUserById(@PathVariable(value = "id") Long id) throws NotFoundException {
-        UserRespone userRespone = userService.deleteUserById(id);
-        APIResponse<UserRespone> apiResponse = new APIResponse<>();
+    public ResponseEntity<APIResponse<UserDTO>> deleteUserById(@PathVariable(value = "id") Long id) throws NotFoundException {
+        UserDTO userRespone = userService.deleteUserById(id);
+        APIResponse<UserDTO> apiResponse = new APIResponse<>();
         apiResponse.setStatus(HttpStatus.OK.toString());
         apiResponse.setMessage("delete success");
         apiResponse.setData(userRespone);

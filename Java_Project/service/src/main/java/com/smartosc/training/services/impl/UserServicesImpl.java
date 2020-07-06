@@ -42,31 +42,32 @@ public class UserServicesImpl implements UserService {
 
     public List<UserDTO> getAllUser() {
         List<User> users = userRepository.findAll(); // chứa list user lấy từ entity
-        List<UserDTO> userRespones = new ArrayList<>(); // khai báo một list rỗng để chứa
+        List<UserDTO> list = new ArrayList<>(); // khai báo một list rỗng để chứa
         for (User user : users) {
             UserDTO userRespone = modelMapper.map(user, UserDTO.class);
-            userRespones.add(userRespone); // add data vào list
+            list.add(userRespone); // add data vào list
         }
-        return userRespones;
+        return list;
     }
 
     @Override
-    public UserDTO createUser(UserDTO userRequest) throws DuplicateKeyException {
+    public UserDTO createUser(UserDTO userDTO) throws DuplicateKeyException {
         User user;
         Role role = new Role();
         List<Role> roles = new ArrayList<>();
 
-        if (userRepository.findByUsername(userRequest.getUsername()) != null) { // check da ton tai hay chua, neu ton tai in ra messeages
-            throw new DuplicateKeyException(userRequest.getUsername() + "da ton tai");
+        if (userRepository.findByUsername(userDTO.getUsername()) != null) { // check da ton tai hay chua, neu ton tai in ra messeages
+            throw new DuplicateKeyException(userDTO.getUsername() + "da ton tai");
         }
         // chua ton tai thi thuc hien tiep o duoi
-        user = modelMapper.map(userRequest, User.class);
-        user.setPassword(bCryptPasswordEncoder.encode(userRequest.getPassword()));
+        user = modelMapper.map(userDTO, User.class);
+        user.setPassword(bCryptPasswordEncoder.encode(userDTO.getPassword()));
         user.setStatus(AuthenEnum.valueOfStatus(AuthenEnum.ACTIVATED));
 
         role.setRoleId(RoleEnum.valueOfStatus(RoleEnum.ROLE_USER));
         roles.add(role);
-        return userRequest;
+        userRepository.save(user);
+        return userDTO;
     }
 
     @Override
