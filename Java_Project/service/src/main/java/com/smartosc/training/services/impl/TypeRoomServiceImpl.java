@@ -1,13 +1,16 @@
 package com.smartosc.training.services.impl;
 
 import com.smartosc.training.dto.response.TypeRoomRespone;
+import com.smartosc.training.entities.TypeRoom;
 import com.smartosc.training.repositories.TypeRoomRepository;
 import com.smartosc.training.services.TypeRoomService;
-import com.smartosc.training.specifications.TypeRoomSpecification;
+import com.smartosc.training.repositories.specifications.TypeRoomSpecification;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -23,11 +26,16 @@ public class TypeRoomServiceImpl implements TypeRoomService {
     @Autowired
     private TypeRoomRepository typeRoomRepository;
     @Autowired
-    private TypeRoomSpecification typeRoomSpecification;
+    private ModelMapper modelMapper;
 
     @Override
-    public Page<TypeRoomRespone> findTypeRoomById(Long id, int page, int limit) {
+    public List<TypeRoomRespone> findTypeRoomById(Long id) {
+        TypeRoomSpecification typeRoomSpecification = TypeRoomSpecification.spec();
+        List<TypeRoomRespone> result = new ArrayList<>();
         Optional.ofNullable(id).ifPresent(s -> typeRoomSpecification.byId(id));
-        return null;
+        for (TypeRoom typeRoom : typeRoomRepository.findAll(typeRoomSpecification.build())){
+            result.add(modelMapper.map(typeRoom, TypeRoomRespone.class));
+        }
+        return result;
     }
 }
