@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import javax.servlet.http.HttpServletRequest;
+
+import org.modelmapper.ModelMapper;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -44,6 +46,11 @@ public class WebConfig implements WebMvcConfigurer {
     messageSource.setAlwaysUseMessageFormat(false);
     messageSource.setDefaultEncoding("UTF-8");
     return messageSource;
+  }
+
+  @Bean
+  public ModelMapper modelMapper(){
+    return new ModelMapper();
   }
 
 
