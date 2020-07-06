@@ -1,5 +1,6 @@
 package com.smartosc.training.services;
 
+import com.smartosc.training.dto.request.TypeRoomRequest;
 import com.smartosc.training.dto.response.TypeRoomRespone;
 import org.springframework.data.domain.Page;
 
@@ -15,4 +16,7 @@ import java.util.List;
  */
 public interface TypeRoomService {
     public List<TypeRoomRespone> findTypeRoomById(Long id);
+    public TypeRoomRespone updateTypeRoom(TypeRoomRequest typeRoomRequest);
+    public TypeRoomRespone createTypeRoom(TypeRoomRequest typeRoomRequest);
+    public void deleteTypeRoom(Long[] id);
 }

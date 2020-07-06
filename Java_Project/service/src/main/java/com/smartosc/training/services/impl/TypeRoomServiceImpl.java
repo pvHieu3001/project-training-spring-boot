@@ -1,10 +1,11 @@
 package com.smartosc.training.services.impl;
 
+import com.smartosc.training.dto.request.TypeRoomRequest;
 import com.smartosc.training.dto.response.TypeRoomRespone;
 import com.smartosc.training.entities.TypeRoom;
 import com.smartosc.training.repositories.TypeRoomRepository;
-import com.smartosc.training.services.TypeRoomService;
 import com.smartosc.training.repositories.specifications.TypeRoomSpecification;
+import com.smartosc.training.services.TypeRoomService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,12 +31,27 @@ public class TypeRoomServiceImpl implements TypeRoomService {
 
     @Override
     public List<TypeRoomRespone> findTypeRoomById(Long id) {
-        TypeRoomSpecification typeRoomSpecification = TypeRoomSpecification.spec();
+        TypeRoomSpecification typeRoomSpecification = new TypeRoomSpecification();
         List<TypeRoomRespone> result = new ArrayList<>();
-        Optional.ofNullable(id).ifPresent(s -> typeRoomSpecification.byId(id));
+        Optional.ofNullable(id).ifPresent(s -> typeRoomSpecification.typeRoomHasId(id));
         for (TypeRoom typeRoom : typeRoomRepository.findAll(typeRoomSpecification.build())){
             result.add(modelMapper.map(typeRoom, TypeRoomRespone.class));
         }
         return result;
+    }
+
+    @Override
+    public TypeRoomRespone updateTypeRoom(TypeRoomRequest typeRoomRequest) {
+        return null;
+    }
+
+    @Override
+    public TypeRoomRespone createTypeRoom(TypeRoomRequest typeRoomRequest) {
+        return null;
+    }
+
+    @Override
+    public void deleteTypeRoom(Long[] id) {
+
     }
 }
