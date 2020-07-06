@@ -1,4 +1,4 @@
-package com.smartosc.training.dto.response;
+package com.smartosc.training.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
  * Fresher-Training
  *
  * @author Huupd
- * @created_at 02/07/2020 - 3:39 PM
+ * @created_at 06/07/2020 - 10:21 AM
  * @created_by Huupd
  */
 @AllArgsConstructor

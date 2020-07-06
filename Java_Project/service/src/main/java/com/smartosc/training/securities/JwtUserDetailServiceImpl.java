@@ -1,7 +1,7 @@
 package com.smartosc.training.securities;
 
-import com.smartosc.training.dto.response.RoleResponse;
-import com.smartosc.training.dto.response.UserRespone;
+import com.smartosc.training.dto.RoleDTO;
+import com.smartosc.training.dto.UserDTO;
 import com.smartosc.training.exceptions.NotFoundException;
 import com.smartosc.training.services.RoleService;
 import com.smartosc.training.services.UserService;
@@ -29,20 +29,20 @@ public class JwtUserDetailServiceImpl implements UserDetailsService {
     @Autowired
     private RoleService roleService;
     @Autowired
-    private UserService userService ;
+    private UserService userService;
 
 
     @SneakyThrows
     @Override
     public UserDetails loadUserByUsername(String userName) {
-        UserRespone users = userService.findUserByUserName(userName);
+        UserDTO users = userService.findUserByUserName(userName);
         if (users == null || users.getStatus() == 0) {
             throw new NotFoundException("User " + userName + " was not found in the database");
         }
         List<GrantedAuthority> grantList = new ArrayList<>();
-        List<RoleResponse> roleNames = this.roleService.findByUsersUserName(userName);
+        List<RoleDTO> roleNames = this.roleService.findByUsersUserName(userName);
         if (roleNames != null) {
-            for (RoleResponse role : roleNames) {
+            for (RoleDTO role : roleNames) {
                 grantList.add(new SimpleGrantedAuthority(role.getName()));
             }
         }

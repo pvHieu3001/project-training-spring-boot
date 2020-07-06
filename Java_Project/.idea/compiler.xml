@@ -10,8 +10,8 @@
         <module name="Fresher-Training" />
         <module name="common" />
         <module name="client" />
-        <module name="admin" />
         <module name="service" />
+        <module name="admin" />
       </profile>
     </annotationProcessing>
   </component>
@@ -19,6 +19,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="admin" options="-parameters" />
       <module name="client" options="-parameters" />
+      <module name="common" options="-parameters" />
       <module name="service" options="-parameters" />
     </option>
   </component>

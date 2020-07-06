@@ -1,7 +1,6 @@
 package com.smartosc.training.services.impl;
 
-import com.smartosc.training.dto.request.UserRequest;
-import com.smartosc.training.dto.response.UserRespone;
+import com.smartosc.training.dto.UserDTO;
 import com.smartosc.training.entities.Role;
 import com.smartosc.training.entities.User;
 import com.smartosc.training.repositories.UserRepository;
@@ -40,18 +39,19 @@ public class UserServicesImpl implements UserService {
 
 
     @Override
-    public List<UserRespone> getAllUser() {
+
+    public List<UserDTO> getAllUser() {
         List<User> users = userRepository.findAll(); // chứa list user lấy từ entity
-        List<UserRespone> userRespones = new ArrayList<>(); // khai báo một list rỗng để chứa
+        List<UserDTO> userRespones = new ArrayList<>(); // khai báo một list rỗng để chứa
         for (User user : users) {
-            UserRespone userRespone = modelMapper.map(user, UserRespone.class);
+            UserDTO userRespone = modelMapper.map(user, UserDTO.class);
             userRespones.add(userRespone); // add data vào list
         }
         return userRespones;
     }
 
     @Override
-    public UserRequest createUser(UserRequest userRequest) throws DuplicateKeyException{
+    public UserDTO createUser(UserDTO userRequest) throws DuplicateKeyException {
         User user;
         Role role = new Role();
         List<Role> roles = new ArrayList<>();
@@ -70,38 +70,39 @@ public class UserServicesImpl implements UserService {
     }
 
     @Override
-    public UserRespone findUserByUserName(String name) throws NotFoundException {
+    public UserDTO findUserByUserName(String name) throws NotFoundException {
+
         Optional<User> userEntity = userRepository.findByUsername11(name);
         if (userEntity.isPresent()) {
-            return modelMapper.map(userEntity.get(), UserRespone.class);
+            return modelMapper.map(userEntity.get(), UserDTO.class);
         } else {
             throw new NotFoundException("UnAuthorized");
         }
     }
 
     @Override
-    public UserRespone deleteUserById(Long id) throws NotFoundException {
+    public UserDTO deleteUserById(Long id) throws NotFoundException {
         Optional<User> optionalUser = userRepository.findById(id);
         if (optionalUser.isPresent()) {
             optionalUser.get().setStatus(0);
             User user = userRepository.save(optionalUser.get());
-            UserRespone userRespone = modelMapper.map(user, UserRespone.class);
-            return userRespone;
+            UserDTO userDTO = modelMapper.map(user, UserDTO.class);
+            return userDTO;
         } else {
             throw new NotFoundException("Khong tim thay id " + id);
         }
     }
 
     @Override
-    public UserRequest updateUser(Long id, UserRequest userRequest) throws NotFoundException {
+    public UserDTO updateUser(Long id, UserDTO userDTO) throws NotFoundException {
         if (!userRepository.findById(id).isPresent()) {
             throw new NotFoundException("Tai khoan khong ton tai");
         }
         User user;
-        user = modelMapper.map(userRequest, User.class);
+        user = modelMapper.map(userDTO, User.class);
         user.setId(id);
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 
-        return modelMapper.map(userRepository.save(user), UserRequest.class);
+        return modelMapper.map(userRepository.save(user), UserDTO.class);
     }
 }

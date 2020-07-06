@@ -1,4 +1,4 @@
-package com.smartosc.training.dto.request;
+package com.smartosc.training.dto;
 
 
 import lombok.AllArgsConstructor;
@@ -17,7 +17,8 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class RoleRequest {
+public class RoleDTO {
     private Long id;
     private String name;
+    List<UserDTO> userDTOS;
 }
