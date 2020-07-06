@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import javax.servlet.http.HttpServletRequest;
+
+import org.modelmapper.ModelMapper;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,8 +32,7 @@ public class WebConfig implements WebMvcConfigurer {
   public LocaleResolver getLocaleResolver() {
     CookieLocaleResolver resolver = new CookieLocaleResolver();
     resolver.setCookieDomain("myAppLocaleCookie");
-//    resolver.setDefaultLocale(Locale.ENGLISH);
-    // 60 minutes
+//    60 minutes
     resolver.setCookieMaxAge(60 * 60);
     return resolver;
 
@@ -46,6 +47,5 @@ public class WebConfig implements WebMvcConfigurer {
     messageSource.setDefaultEncoding("UTF-8");
     return messageSource;
   }
-
 
 }
