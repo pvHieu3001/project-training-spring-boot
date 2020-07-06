@@ -31,12 +31,14 @@ import lombok.Setter;
 @Getter
 @Setter
 public class DetailTypeRoom {
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   private String description;
   private Integer maxPerson;
   private Integer defaultPerson;
+
   private BigDecimal price;
   private BigDecimal additionalPrice;
   private Integer roomAvailable;
@@ -45,6 +47,7 @@ public class DetailTypeRoom {
   @JoinColumn(name = "type_room")
   private TypeRoom typeRoom;
 
-  @OneToOne(fetch = FetchType.LAZY,mappedBy = "detailTypeRoom",cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
+  @OneToOne(fetch = FetchType.LAZY, mappedBy = "detailTypeRoom", cascade = {CascadeType.DETACH,
+      CascadeType.MERGE, CascadeType.REFRESH})
   private StatusOT statusOT;
 }
