@@ -10,6 +10,4 @@ package com.smartosc.training.services;
  */
 public interface CentralService {
 
-
-
 }

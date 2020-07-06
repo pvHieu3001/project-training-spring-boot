@@ -1,4 +1,7 @@
-package com.smartosc.training.dto.response;
+package com.smartosc.training.dto;
+
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -9,13 +12,14 @@ import java.util.List;
  * @author thanhttt
  * @created_at 03/07/2020 - 2:30 PM
  */
-public class HotelResponse {
+@Setter
+@Getter
+public class HotelDTO {
     private Long id;
     private String name;
     private String description;
     private String imgUrl;
     private BigDecimal totalRate;
-    private CityResponse city;
-    private List<TypeRoomRespone> typeRooms;
-    private List<ComentResponse> comments;
+    private CityDTO city;
+    private List<CommentDTO> comments;
 }

@@ -1,4 +1,4 @@
-package com.smartosc.training.dto.request;
+package com.smartosc.training.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,7 +19,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @Getter
 @Setter
-public class TypeRoomRequest {
+public class TypeRoomDTO {
     private Long id;
     private String name;
     private String imgUrl;

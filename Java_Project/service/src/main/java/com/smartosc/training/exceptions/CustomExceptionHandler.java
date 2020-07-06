@@ -50,4 +50,13 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
         errorObject.setStatus(HttpStatus.NOT_FOUND.value());
         return new ResponseEntity<>(errorObject, HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(NullPointerException.class)
+    public ResponseEntity<ErrorObject> customHandleNullPointer(Exception ex, WebRequest request) {
+        ErrorObject errorObject = new ErrorObject();
+        errorObject.setTimestamp(LocalDateTime.now());
+        errorObject.setError(ex.getMessage());
+        errorObject.setStatus(HttpStatus.BAD_REQUEST.value());
+        return new ResponseEntity<>(errorObject, HttpStatus.BAD_REQUEST);
+    }
 }

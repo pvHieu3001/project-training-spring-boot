@@ -1,14 +1,20 @@
 package com.smartosc.training.controllers;
 
-import com.smartosc.training.dto.response.HotelResponse;
+
+import com.smartosc.training.dto.APIResponse;
+import com.smartosc.training.dto.CityDTO;
 import com.smartosc.training.services.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import com.smartosc.training.dto.HotelDTO;
+import org.springframework.context.MessageSource;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Fresher-Training
@@ -22,8 +28,16 @@ public class HotelController {
     @Autowired
     private HotelService hotelService;
 
+    @Autowired
+    private MessageSource messageSource;
+
     @GetMapping
-    public List<HotelResponse> getAllHotels() {
-        return hotelService.getAllHotels();
+    public ResponseEntity<APIResponse<List<HotelDTO>>> getAllHotels(Locale locale) {
+        APIResponse<List<HotelDTO>> objectAPIResponse = new APIResponse<>();
+        List<HotelDTO> result = hotelService.getAllHotels();
+        objectAPIResponse.setData(result);
+        objectAPIResponse.setMessage(messageSource.getMessage("Messsage.status.ok",null, locale));
+        objectAPIResponse.setStatus(HttpStatus.OK.toString());
+        return new ResponseEntity<>(objectAPIResponse, HttpStatus.OK);
     }
 }
