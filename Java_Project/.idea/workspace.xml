@@ -1,57 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="d3eeb4a1-0a72-42ce-9404-1c647e51217b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/APIResponse.java" afterDir="false" />
+    <list default="true" id="b3ccb744-9913-4ae2-84bd-20e63fb2f4e1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/exceptions/LockedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/TypeRoomService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/request/CommentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/CommentDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/request/DetailTypeRoomRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/DetailTypeRoomDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/request/JwtRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/JwtRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/request/RoleRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/RoleDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/request/StatusOTRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/StatusOTDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/request/TypeRoomRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/TypeRoomDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/request/UserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/UserDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/response/APIResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/response/ComentResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/response/DetailTypeRoomRespone.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/response/RoleResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/response/StatusORResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/response/TypeRoomRespone.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/response/UserRespone.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/ApiSecurityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/ApiSecurityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/TypeRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/TypeRoomController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/exceptions/CustomExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/exceptions/CustomExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/securities/JwtUserDetailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/securities/JwtUserDetailServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/RoleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/TypeRoomService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/TypeRoomService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/RoleServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/RoleServicesImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/securities/RequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/securities/RequestFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/TypeRoomServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/TypeRoomServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/UserServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/UserServicesImpl.java" afterDir="false" />
-=======
-
-    <list default="true" id="b3ccb744-9913-4ae2-84bd-20e63fb2f4e1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/request/CityRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/request/HotelRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/response/CityResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/response/HotelReponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/CityController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/HotelController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/CityRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/HotelRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/CityService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/HotelService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/CityServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/HotelServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/specs/HotelSpecs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/resources/application.properties" afterDir="false" />
->>>>>>> b8f9448b67d06c4ad8da397f249f8a0ad502d166
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -232,38 +193,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="714" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594005647672" />
-    <state width="1877" height="498" key="GridCell.Tab.0.bottom" timestamp="1593775716285">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1594020958495">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="498" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593775716285" />
-    <state width="1877" height="498" key="GridCell.Tab.0.center" timestamp="1593775716285">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594020958495" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1594020958494">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="498" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593775716285" />
-    <state width="1877" height="498" key="GridCell.Tab.0.left" timestamp="1593775716285">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594020958494" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1594020958494">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="498" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593775716285" />
-    <state width="1877" height="498" key="GridCell.Tab.0.right" timestamp="1593775716285">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594020958494" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1594020958495">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="498" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593775716285" />
-    <state width="1877" height="498" key="GridCell.Tab.1.bottom" timestamp="1593775716286">
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594020958495" />
+    <state width="1877" height="282" key="GridCell.Tab.1.bottom" timestamp="1594020958495">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="498" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593775716286" />
-    <state width="1877" height="498" key="GridCell.Tab.1.center" timestamp="1593775716285">
+    <state width="1877" height="282" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594020958495" />
+    <state width="1877" height="282" key="GridCell.Tab.1.center" timestamp="1594020958495">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="498" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593775716285" />
-    <state width="1877" height="498" key="GridCell.Tab.1.left" timestamp="1593775716285">
+    <state width="1877" height="282" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594020958495" />
+    <state width="1877" height="282" key="GridCell.Tab.1.left" timestamp="1594020958495">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="498" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593775716285" />
-    <state width="1877" height="498" key="GridCell.Tab.1.right" timestamp="1593775716285">
+    <state width="1877" height="282" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594020958495" />
+    <state width="1877" height="282" key="GridCell.Tab.1.right" timestamp="1594020958495">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="498" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593775716285" />
+    <state width="1877" height="282" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594020958495" />
     <state width="1877" height="249" key="GridCell.Tab.2.bottom" timestamp="1593775716282">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

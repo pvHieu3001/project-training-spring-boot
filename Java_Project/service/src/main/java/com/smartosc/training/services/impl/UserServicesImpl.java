@@ -30,11 +30,11 @@ public class UserServicesImpl implements UserService{
 
     @Override
     public UserDTO findUserByUserName(String name) {
-        Optional<User> userEntity = userRepository.findByUsername11(name);
+        Optional<User> userEntity = userRepository.findByUsername(name);
         if (userEntity.isPresent()) {
             return modelMapper.map(userEntity.get(), UserDTO.class);
         } else {
-            throw new NotFoundException("UnAuthorized");
+            throw new NotFoundException("User "+name+ "Not Found");
         }
     }
 }

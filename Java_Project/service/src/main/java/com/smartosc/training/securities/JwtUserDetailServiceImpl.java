@@ -2,6 +2,7 @@ package com.smartosc.training.securities;
 
 import com.smartosc.training.dto.RoleDTO;
 import com.smartosc.training.dto.UserDTO;
+import com.smartosc.training.exceptions.LockedException;
 import com.smartosc.training.exceptions.NotFoundException;
 import com.smartosc.training.services.RoleService;
 import com.smartosc.training.services.UserService;
@@ -34,8 +35,11 @@ public class JwtUserDetailServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String userName) {
         UserDTO users = userService.findUserByUserName(userName);
-        if (users == null || users.getStatus() == 0) {
+        if (users == null ) {
             throw new NotFoundException("User " + userName + " was not found in the database");
+        }
+        if ( users.getStatus() == 0){
+            throw new LockedException("User " + userName + " was looked");
         }
         List<GrantedAuthority> grantList = new ArrayList<>();
         List<RoleDTO> roleNames = this.roleService.findByUsersUserName(userName);
@@ -44,7 +48,6 @@ public class JwtUserDetailServiceImpl implements UserDetailsService {
                 grantList.add(new SimpleGrantedAuthority(role.getName()));
             }
         }
-
         return new User(users.getUsername(), users.getPassword(), grantList);
     }
 }

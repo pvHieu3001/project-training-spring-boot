@@ -50,4 +50,12 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
         errorObject.setStatus(HttpStatus.NOT_FOUND.value());
         return new ResponseEntity<>(errorObject, HttpStatus.NOT_FOUND);
     }
+    @ExceptionHandler(LockedException.class)
+    public ResponseEntity<ErrorObject> customHandleLocked(Exception ex, WebRequest request) {
+        ErrorObject errorObject = new ErrorObject();
+        errorObject.setTimestamp(LocalDateTime.now());
+        errorObject.setError(ex.getMessage());
+        errorObject.setStatus(HttpStatus.LOCKED.value());
+        return new ResponseEntity<>(errorObject, HttpStatus.LOCKED);
+    }
 }
