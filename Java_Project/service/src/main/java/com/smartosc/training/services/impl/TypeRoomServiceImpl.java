@@ -1,6 +1,6 @@
 package com.smartosc.training.services.impl;
 
-import com.smartosc.training.dto.response.TypeRoomRespone;
+import com.smartosc.training.dto.TypeRoomDTO;
 import com.smartosc.training.repositories.TypeRoomRepository;
 import com.smartosc.training.services.TypeRoomService;
 import com.smartosc.training.specifications.TypeRoomSpecification;
@@ -26,7 +26,7 @@ public class TypeRoomServiceImpl implements TypeRoomService {
     private TypeRoomSpecification typeRoomSpecification;
 
     @Override
-    public Page<TypeRoomRespone> findTypeRoomById(Long id, int page, int limit) {
+    public Page<TypeRoomDTO> findTypeRoomById(Long id, int page, int limit) {
         Optional.ofNullable(id).ifPresent(s -> typeRoomSpecification.byId(id));
         return null;
     }

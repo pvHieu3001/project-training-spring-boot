@@ -1,6 +1,6 @@
 package com.smartosc.training.services.impl;
 
-import com.smartosc.training.dto.response.UserRespone;
+import com.smartosc.training.dto.UserDTO;
 import com.smartosc.training.entities.User;
 import com.smartosc.training.exceptions.NotFoundException;
 import com.smartosc.training.repositories.UserRepository;
@@ -29,10 +29,10 @@ public class UserServicesImpl implements UserService{
 
 
     @Override
-    public UserRespone findUserByUserName(String name) {
+    public UserDTO findUserByUserName(String name) {
         Optional<User> userEntity = userRepository.findByUsername11(name);
         if (userEntity.isPresent()) {
-            return modelMapper.map(userEntity.get(), UserRespone.class);
+            return modelMapper.map(userEntity.get(), UserDTO.class);
         } else {
             throw new NotFoundException("UnAuthorized");
         }

@@ -69,3 +69,13 @@ Mservice/src/main/java/com/smartosc/training/exceptions/NotFoundException.java,
 Rservice/src/main/java/com/smartosc/training/controllers/ApiSecurityController.java,c\1\c1e90108f501df9fe642ec98ea6b550c493e5a96
 „
 Tservice/src/main/java/com/smartosc/training/securities/JwtUserDetailServiceImpl.java,f\9\f9d9d964e77121050b3c17d038f2d5c399684e93
+p
+@service/src/main/java/com/smartosc/training/mappers/Convert.java,3\2\3254ebc5d52fe033b1d0595feb95d1d36af750eb
+
+Oservice/src/main/java/com/smartosc/training/controllers/TypeRoomController.java,3\8\3836ab530f964456140a30e0b3cf83c05db3bd14
+y
+Iservice/src/main/java/com/smartosc/training/services/TypeRoomService.java,f\7\f7739b1ef97afa38959873b18a35de1699e73e6d
+q
+Aservice/src/main/java/com/smartosc/training/config/WebConfig.java,c\1\c1e65e86f7e1273885d1211f4896b05219de0037
+
+Oservice/src/main/java/com/smartosc/training/controllers/TestI18NController.java,9\f\9f281eb50328481a6cac49270f47a2704bdc58d5
