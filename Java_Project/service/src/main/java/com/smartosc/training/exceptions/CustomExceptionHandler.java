@@ -1,16 +1,20 @@
 package com.smartosc.training.exceptions;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 /**
@@ -22,8 +26,11 @@ import java.util.Map;
  * @update_by Thanhttt
  * @since 02/07/2020
  */
+@RestControllerAdvice
 public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 
+    @Autowired
+    MessageSource messageSource;
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
                                                                   HttpHeaders headers,
@@ -44,10 +51,10 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler(NotFoundException.class)
-    public ResponseEntity<ErrorObject> customHandleNotFound(Exception ex, WebRequest request) {
+    public ResponseEntity<ErrorObject> customHandleNotFound(Exception ex, WebRequest request, Locale locale) {
         ErrorObject errorObject = new ErrorObject();
         errorObject.setTimestamp(LocalDateTime.now());
-        errorObject.setError(ex.getMessage());
+        errorObject.setError(messageSource.getMessage(ex.getMessage(),null,locale));
         errorObject.setStatus(HttpStatus.NOT_FOUND.value());
         return new ResponseEntity<>(errorObject, HttpStatus.NOT_FOUND);
     }

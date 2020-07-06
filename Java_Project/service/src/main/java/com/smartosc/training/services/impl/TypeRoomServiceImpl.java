@@ -3,16 +3,18 @@ package com.smartosc.training.services.impl;
 import com.smartosc.training.dto.TypeRoomDTO;
 
 import com.smartosc.training.entities.TypeRoom;
+import com.smartosc.training.exceptions.NotFoundException;
 import com.smartosc.training.repositories.TypeRoomRepository;
 import com.smartosc.training.repositories.specifications.TypeRoomSpecification;
 import com.smartosc.training.services.TypeRoomService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.sql.SQLException;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Fresher-Training
@@ -28,28 +30,40 @@ public class TypeRoomServiceImpl implements TypeRoomService {
     private TypeRoomRepository typeRoomRepository;
     @Autowired
     private ModelMapper modelMapper;
+    @Autowired
+    private MessageSource messageSource;
 
     @Override
-
-
     public List<TypeRoomDTO> findTypeRoomById(Long id) {
-        TypeRoomSpecification typeRoomSpecification = new TypeRoomSpecification();
-        List<TypeRoomDTO> result = new ArrayList<>();
-        Optional.ofNullable(id).ifPresent(s -> typeRoomSpecification.typeRoomHasId(id));
-        for (TypeRoom typeRoom : typeRoomRepository.findAll(typeRoomSpecification.build())){
-            result.add(modelMapper.map(typeRoom, TypeRoomDTO.class));
-        }
-        return result;
+        return typeRoomRepository.findAll(TypeRoomSpecification
+                .spec()
+                .typeRoomHasId(id)
+                .build())
+                .stream().map(s -> modelMapper.map(s,TypeRoomDTO.class))
+                .collect(Collectors.toList()
+                );
     }
 
     @Override
-    public TypeRoomDTO updateTypeRoom(TypeRoomDTO typeRoomDTO) {
-        return null;
+    public TypeRoomDTO updateTypeRoom(TypeRoomDTO typeRoomDTO)  {
+        Optional<TypeRoom> typeRoomOptional = Optional.ofNullable(
+                typeRoomRepository.findById(typeRoomDTO.getId())
+                .orElseThrow(() -> {
+                    return new NotFoundException("aaa");
+                }));
+        TypeRoom typeRoom = typeRoomOptional.get();
+        typeRoom.setImgUrl(typeRoomDTO.getImgUrl());
+        typeRoom.setName(typeRoomDTO.getName());
+        typeRoom.setTotalPrice(typeRoomDTO.getTotalPrice());
+        typeRoom = typeRoomRepository.save(typeRoom);
+        return modelMapper.map(typeRoom, TypeRoomDTO.class);
     }
 
     @Override
     public TypeRoomDTO createTypeRoom(TypeRoomDTO typeRoomDTO) {
-        return null;
+        TypeRoom typeRoom = modelMapper.map(typeRoomDTO, TypeRoom.class);
+        typeRoom = typeRoomRepository.save(typeRoom);
+        return modelMapper.map(typeRoom, TypeRoomDTO.class);
     }
 
     @Override
