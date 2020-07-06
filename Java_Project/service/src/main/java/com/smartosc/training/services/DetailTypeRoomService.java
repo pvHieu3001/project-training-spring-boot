@@ -1,6 +1,6 @@
 package com.smartosc.training.services;
 
-import com.smartosc.training.dto.response.TypeRoomRespone;
+import com.smartosc.training.dto.TypeRoomDTO;
 
 import java.util.List;
 
@@ -13,5 +13,5 @@ import java.util.List;
  * @since 02/07/2020
  */
 public interface DetailTypeRoomService {
-    public List<TypeRoomRespone> findTypeRoomById(Long id);
+    public List<TypeRoomDTO> findTypeRoomById(Long id);
 }

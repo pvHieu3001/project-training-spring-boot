@@ -1,7 +1,7 @@
 package com.smartosc.training.services.impl;
 
-import com.smartosc.training.dto.request.TypeRoomRequest;
-import com.smartosc.training.dto.response.TypeRoomRespone;
+import com.smartosc.training.dto.TypeRoomDTO;
+
 import com.smartosc.training.entities.TypeRoom;
 import com.smartosc.training.repositories.TypeRoomRepository;
 import com.smartosc.training.repositories.specifications.TypeRoomSpecification;
@@ -30,23 +30,24 @@ public class TypeRoomServiceImpl implements TypeRoomService {
     private ModelMapper modelMapper;
 
     @Override
-    public List<TypeRoomRespone> findTypeRoomById(Long id) {
+
+    public List<TypeRoomDTO> findTypeRoomById(Long id) {
         TypeRoomSpecification typeRoomSpecification = new TypeRoomSpecification();
-        List<TypeRoomRespone> result = new ArrayList<>();
+        List<TypeRoomDTO> result = new ArrayList<>();
         Optional.ofNullable(id).ifPresent(s -> typeRoomSpecification.typeRoomHasId(id));
         for (TypeRoom typeRoom : typeRoomRepository.findAll(typeRoomSpecification.build())){
-            result.add(modelMapper.map(typeRoom, TypeRoomRespone.class));
+            result.add(modelMapper.map(typeRoom, TypeRoomDTO.class));
         }
         return result;
     }
 
     @Override
-    public TypeRoomRespone updateTypeRoom(TypeRoomRequest typeRoomRequest) {
+    public TypeRoomDTO updateTypeRoom(TypeRoomDTO typeRoomDTO) {
         return null;
     }
 
     @Override
-    public TypeRoomRespone createTypeRoom(TypeRoomRequest typeRoomRequest) {
+    public TypeRoomDTO createTypeRoom(TypeRoomDTO typeRoomDTO) {
         return null;
     }
 

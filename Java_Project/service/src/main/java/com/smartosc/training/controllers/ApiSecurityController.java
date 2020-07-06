@@ -1,8 +1,7 @@
 package com.smartosc.training.controllers;
 
-import com.smartosc.training.dto.request.JwtRequest;
-import com.smartosc.training.dto.response.APIResponse;
-import com.smartosc.training.exceptions.NotFoundException;
+import com.smartosc.training.dto.APIResponse;
+import com.smartosc.training.dto.JwtRequest;
 import com.smartosc.training.securities.JWTUtils;
 import com.smartosc.training.securities.JwtUserDetailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;

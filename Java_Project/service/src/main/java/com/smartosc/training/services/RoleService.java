@@ -1,7 +1,6 @@
 package com.smartosc.training.services;
 
-import com.smartosc.training.dto.request.RoleRequest;
-import com.smartosc.training.dto.response.RoleResponse;
+import com.smartosc.training.dto.RoleDTO;
 
 import java.util.List;
 
@@ -13,6 +12,6 @@ import java.util.List;
  * @created_by Huupd
  */
 public interface RoleService {
-    public RoleResponse findByName(String username);
-    List<RoleResponse> findByUsersUserName(String userName);
+    public RoleDTO findByName(String username);
+    List<RoleDTO> findByUsersUserName(String userName);
 }

@@ -1,4 +1,4 @@
-package com.smartosc.training.dto.request;
+package com.smartosc.training.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
