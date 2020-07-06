@@ -17,5 +17,4 @@ public interface CentralService {
 
   List<CentralDTO> getAllCentral(String keyword);
 
-
 }
