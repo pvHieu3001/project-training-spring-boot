@@ -9,10 +9,10 @@ import java.util.List;
 /**
  * Fresher-Training
  *
- * @author Hieupv
- * @created_at 01/07/2020 - 11:09 AM
- * @created_by Hieupv
- * @since 01/07/2020
+ * @author Tung lam
+ * @created_at 06/07/2020 - 10:41
+ * @created_by Tung lam
+ * @since 06/07/2020
  */
 @Data
 @NoArgsConstructor

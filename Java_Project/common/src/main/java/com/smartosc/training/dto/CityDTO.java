@@ -1,4 +1,3 @@
-
 package com.smartosc.training.dto;
 /*
  * @author thanhttt
