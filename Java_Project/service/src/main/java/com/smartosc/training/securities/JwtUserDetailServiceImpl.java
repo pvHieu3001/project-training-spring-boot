@@ -6,6 +6,7 @@ import com.smartosc.training.exceptions.LockedException;
 import com.smartosc.training.exceptions.NotFoundException;
 import com.smartosc.training.services.RoleService;
 import com.smartosc.training.services.UserService;
+import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -29,17 +30,19 @@ public class JwtUserDetailServiceImpl implements UserDetailsService {
     @Autowired
     private RoleService roleService;
     @Autowired
-    private UserService userService ;
+    private UserService userService;
 
 
+    @SneakyThrows
     @Override
     public UserDetails loadUserByUsername(String userName) {
         UserDTO users = userService.findUserByUserName(userName);
         if (users == null ) {
-            throw new NotFoundException("User " + userName + " was not found in the database");
+            throw new NotFoundException("Authenticate.locked.account");
         }
         if ( users.getStatus() == 0){
             throw new LockedException("User " + userName + " was looked");
+
         }
         List<GrantedAuthority> grantList = new ArrayList<>();
         List<RoleDTO> roleNames = this.roleService.findByUsersUserName(userName);

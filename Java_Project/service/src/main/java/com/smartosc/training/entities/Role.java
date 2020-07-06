@@ -10,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -36,7 +35,7 @@ public class Role {
     @Column
     private String name;
 
-    @ManyToMany(fetch = FetchType.LAZY,mappedBy = "roles")
+    @ManyToMany(mappedBy = "roles")
     private List<User> accounts;
 
 }
