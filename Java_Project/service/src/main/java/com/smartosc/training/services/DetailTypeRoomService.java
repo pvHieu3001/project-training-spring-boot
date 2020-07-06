@@ -12,9 +12,6 @@ import java.util.List;
  * @created_by Hieupv
  * @since 02/07/2020
  */
-public interface TypeRoomService {
+public interface DetailTypeRoomService {
     public List<TypeRoomDTO> findTypeRoomById(Long id);
-    public TypeRoomDTO updateTypeRoom(TypeRoomDTO typeRoomRequest);
-    public TypeRoomDTO createTypeRoom(TypeRoomDTO typeRoomRequest);
-    public void deleteTypeRoom(Long[] id);
 }
