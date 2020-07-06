@@ -1,4 +1,4 @@
-package com.smartosc.training.specifications;
+package com.smartosc.training.repositories.specifications;
 
 import com.smartosc.training.entities.Central;
 import com.smartosc.training.entities.Central_;

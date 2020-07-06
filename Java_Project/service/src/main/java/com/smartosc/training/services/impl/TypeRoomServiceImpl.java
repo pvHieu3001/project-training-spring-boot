@@ -32,6 +32,7 @@ public class TypeRoomServiceImpl implements TypeRoomService {
 
     @Override
 
+
     public List<TypeRoomDTO> findTypeRoomById(Long id) {
         TypeRoomSpecification typeRoomSpecification = new TypeRoomSpecification();
         Optional.ofNullable(id).ifPresent(s -> typeRoomSpecification.typeRoomHasId(id));
