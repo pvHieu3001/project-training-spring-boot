@@ -38,6 +38,17 @@ public class UserController {
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
 
+    @GetMapping("/spec")
+    public ResponseEntity<APIResponse<List<UserDTO>>> getAllUserWithSpec() {
+        List<UserDTO> userRespones = userService.getAllUserWithSpec();
+
+        APIResponse<List<UserDTO>> apiResponse = new APIResponse<>();
+        apiResponse.setStatus(HttpStatus.OK.toString());
+        apiResponse.setMessage("get all thanh cong em oi");
+        apiResponse.setData(userRespones);
+        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
+    }
+
     @PostMapping()
     public ResponseEntity<APIResponse<UserDTO>> createUser(@Valid @RequestBody UserDTO userDTO) {
         UserDTO request = userService.createUser(userDTO);

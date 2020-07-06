@@ -42,4 +42,5 @@ public final class CentralSpecification {
   public Specification<Central> build() {
     return Specification.where(specifications.stream().reduce(all(), Specification::and));
   }
+  
 }

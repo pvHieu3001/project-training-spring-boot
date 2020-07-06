@@ -17,6 +17,7 @@ import com.smartosc.training.dto.UserDTO;
 
 public interface UserService {
     List<UserDTO> getAllUser();
+    List<UserDTO> getAllUserWithSpec();
 
     UserDTO createUser(UserDTO userRequest);
 
@@ -25,5 +26,6 @@ public interface UserService {
     UserDTO updateUser(Long id, UserDTO userRequest) throws NotFoundException;
 
     UserDTO findUserByUserName(String name) throws NotFoundException;
+
 
 }

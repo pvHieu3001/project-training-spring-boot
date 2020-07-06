@@ -8,10 +8,12 @@ import com.smartosc.training.entities.Role;
 import com.smartosc.training.entities.StatusOT;
 import com.smartosc.training.entities.User;
 import com.smartosc.training.repositories.UserRepository;
+import com.smartosc.training.repositories.specifications.UserSpecifications;
 import com.smartosc.training.services.UserService;
 import com.smartosc.training.utils.AuthenEnum;
 import com.smartosc.training.utils.RoleEnum;
 import javassist.NotFoundException;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
@@ -31,6 +33,7 @@ import java.util.List;
  * @created_by Huupd
  */
 @Service
+@Slf4j
 public class UserServicesImpl implements UserService {
     @Autowired
     UserRepository userRepository;
@@ -51,8 +54,41 @@ public class UserServicesImpl implements UserService {
             UserDTO userRespone = modelMapper.map(user, UserDTO.class);
             list.add(userRespone); // add data vào list
         }
+        log.info("Get all user success");
         return list;
     }
+
+    @Override
+    public List<UserDTO> getAllUserWithSpec() {
+        UserSpecifications userSpecifications = UserSpecifications.spec();
+        List<User> userEntitys = userRepository.findAll(userSpecifications.build());
+        List<UserDTO> userDTOS = new ArrayList<>();
+        for (User userEntity : userEntitys) {
+            UserDTO userDTO = new UserDTO();
+            userDTO.setId(userEntity.getId());
+            userDTO.setUsername(userEntity.getUsername());
+            userDTO.setEmail(userEntity.getEmail());
+            userDTO.setPassword(userEntity.getPassword());
+            userDTO.setStatus(userEntity.getStatus());
+            List<Role> roleList = userEntity.getRoles();
+            List<RoleDTO> roleDTOS = new ArrayList<>();
+            for (Role role : roleList) {
+                RoleDTO roleDTO = new RoleDTO();
+                roleDTO.setId(role.getRoleId());
+                roleDTO.setName(role.getName());
+                roleDTOS.add(roleDTO);
+            }
+            userDTO.setRoles(roleDTOS);
+            List<CommentDTO> commentDTOS = new ArrayList<>();
+            userDTO.setComments(commentDTOS);
+            StatusOTDTO statusOTDTOS = new StatusOTDTO();
+            userDTO.setStatusOT(statusOTDTOS);
+            userDTOS.add(userDTO);
+        }
+        return userDTOS;
+    }
+
+
     @Override
     public UserDTO createUser(UserDTO userDTO) throws DuplicateKeyException {
         User user;
@@ -70,6 +106,7 @@ public class UserServicesImpl implements UserService {
         role.setRoleId(RoleEnum.valueOfStatus(RoleEnum.ROLE_USER));
         roles.add(role);
         userRepository.save(user);
+        log.info("Create user success");
         return userDTO;
     }
 
@@ -84,9 +121,9 @@ public class UserServicesImpl implements UserService {
             userDTO.setEmail(userEntity.getEmail());
             userDTO.setPassword(userEntity.getPassword());
             userDTO.setStatus(userEntity.getStatus());
-            List<Role> roleList =  userEntity.getRoles();
+            List<Role> roleList = userEntity.getRoles();
             List<RoleDTO> roleDTOS = new ArrayList<>();
-            for (Role role: roleList){
+            for (Role role : roleList) {
                 RoleDTO roleDTO = new RoleDTO();
                 roleDTO.setId(role.getRoleId());
                 roleDTO.setName(role.getName());
@@ -97,7 +134,7 @@ public class UserServicesImpl implements UserService {
             userDTO.setComments(commentDTOS);
             StatusOTDTO statusOTDTOS = new StatusOTDTO();
             userDTO.setStatusOT(statusOTDTOS);
-            return  userDTO;
+            return userDTO;
         } else {
             throw new NotFoundException("User " + name + "Not Found");
         }

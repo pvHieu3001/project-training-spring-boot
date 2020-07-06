@@ -2,6 +2,7 @@ package com.smartosc.training.repositories;
 
 import com.smartosc.training.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -18,8 +19,7 @@ import java.util.Optional;
  * @since 02/07/2020
  */
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
-
+public interface UserRepository extends JpaRepository<User, Long> , JpaSpecificationExecutor<User> {
     User findByUsername(String username);
 
 
