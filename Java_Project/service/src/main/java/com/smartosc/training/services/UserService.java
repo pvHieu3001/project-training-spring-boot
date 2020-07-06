@@ -1,5 +1,7 @@
 package com.smartosc.training.services;
 
+import com.smartosc.training.dto.response.UserRespone;
+
 /**
  * Fresher-Training
  *
@@ -8,6 +10,8 @@ package com.smartosc.training.services;
  * @created_by Namtt
  * @since 02/07/2020
  */
-public class UserService {
+
+public interface UserService {
+    UserRespone findUserByUserName(String name);
 
 }

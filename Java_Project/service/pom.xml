@@ -6,9 +6,9 @@
     <artifactId>service</artifactId>
 
     <parent>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <groupId>org.springframework.boot</groupId>
-        <version>2.2.2.RELEASE</version>
+        <artifactId>fresher-parent</artifactId>
+        <groupId>com.smartosc.training</groupId>
+        <version>0.0.1-SNAPSHOT</version>
         <relativePath/>
     </parent>
 
@@ -20,6 +20,11 @@
         <slf4j.version>1.7.12</slf4j.version>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-jpamodelgen</artifactId>
+            <version>5.4.13.Final</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -113,7 +118,17 @@
         </dependency>
 
 
-
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-jpamodelgen</artifactId>
+            <version>5.4.13.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>com.smartosc.training</groupId>
+            <artifactId>common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -123,6 +138,5 @@
             </plugin>
         </plugins>
     </build>
-
 
 </project>
