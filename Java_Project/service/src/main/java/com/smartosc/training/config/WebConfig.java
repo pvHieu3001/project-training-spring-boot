@@ -48,10 +48,4 @@ public class WebConfig implements WebMvcConfigurer {
     return messageSource;
   }
 
-  @Bean
-  public ModelMapper modelMapper(){
-    return new ModelMapper();
-  }
-
-
 }

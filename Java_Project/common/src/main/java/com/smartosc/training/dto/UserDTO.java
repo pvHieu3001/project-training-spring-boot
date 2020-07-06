@@ -1,4 +1,4 @@
-package com.smartosc.training.dto.request;
+package com.smartosc.training.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,13 +17,13 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserRequest {
+public class UserDTO {
     private Long id;
     private String username;
     private String password;
     private String email;
     private int status;
-    private List<RoleRequest> roles;
-    private List<CommentRequest> comments;
-    private StatusOTRequest statusOT;
+    private List<RoleDTO> roles;
+    private List<CommentDTO> comments;
+    private StatusOTDTO statusOT;
 }

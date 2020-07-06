@@ -1,4 +1,4 @@
-package com.smartosc.training.dto.response;
+package com.smartosc.training.dto;
 
 /**
  * Fresher-Training
@@ -7,5 +7,5 @@ package com.smartosc.training.dto.response;
  * @created_at 02/07/2020 - 2:04 PM
  * @created_by Huupd
  */
-public class StatusORResponse {
+public class StatusOTDTO {
 }
