@@ -32,7 +32,7 @@ public class TypeRoomServiceImpl implements TypeRoomService {
     public List<TypeRoomRespone> findTypeRoomById(Long id) {
         TypeRoomSpecification typeRoomSpecification = TypeRoomSpecification.spec();
         List<TypeRoomRespone> result = new ArrayList<>();
-        Optional.ofNullable(id).ifPresent(s -> typeRoomSpecification.byId(id));
+        Optional.ofNullable(id).ifPresent(s -> typeRoomSpecification.typeRoomHasId(id));
         for (TypeRoom typeRoom : typeRoomRepository.findAll(typeRoomSpecification.build())){
             result.add(modelMapper.map(typeRoom, TypeRoomRespone.class));
         }

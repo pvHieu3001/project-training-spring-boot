@@ -26,7 +26,7 @@ public class TypeRoomSpecification {
     }
 
     //find by id
-    private TypeRoomSpecification typeRoomHasId(Long id) {
+    public TypeRoomSpecification typeRoomHasId(Long id) {
         personSpecs.add((Root<TypeRoom> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) ->
                     criteriaBuilder.equal(root.get(TypeRoom_.ID), id)
         );

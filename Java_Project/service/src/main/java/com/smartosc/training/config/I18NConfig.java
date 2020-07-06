@@ -25,7 +25,7 @@ import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
  * @since 02/07/2020
  */
 @Configuration
-public class WebConfig implements WebMvcConfigurer {
+public class I18NConfig implements WebMvcConfigurer {
 
 
   @Bean(name = "localeResolver")
@@ -46,11 +46,6 @@ public class WebConfig implements WebMvcConfigurer {
     messageSource.setAlwaysUseMessageFormat(false);
     messageSource.setDefaultEncoding("UTF-8");
     return messageSource;
-  }
-
-  @Bean
-  public ModelMapper modelMapper(){
-    return new ModelMapper();
   }
 
 
