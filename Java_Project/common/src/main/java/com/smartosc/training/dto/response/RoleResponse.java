@@ -19,5 +19,4 @@ import java.util.List;
 public class RoleResponse {
     private Long id;
     private String name;
-    List<UserRespone> userRespones;
 }

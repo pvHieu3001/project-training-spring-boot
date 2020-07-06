@@ -1,6 +1,5 @@
 package com.smartosc.training.services;
 
-import com.smartosc.training.dto.request.RoleRequest;
 import com.smartosc.training.dto.response.RoleResponse;
 
 import java.util.List;

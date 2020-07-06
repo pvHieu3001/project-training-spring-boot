@@ -20,5 +20,4 @@ import java.util.List;
 public class RoleRequest {
     private Long id;
     private String name;
-    List<UserRequest> userRequests;
 }
