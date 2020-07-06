@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-Java_Project/admin/target/
-Java_Project/common/target/
-Java_Project/service/target/
-=======
+
 Java_Project/.idea/uiDesigner.xml
 Java_Project/.idea/dataSources.local.xml
 Java_Project/.idea/compiler.xml
@@ -41,4 +37,3 @@ build/
 ### VS Code ###
 .vscode/
 
->>>>>>> master
