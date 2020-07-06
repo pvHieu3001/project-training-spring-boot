@@ -1,26 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-
     <list default="true" id="b3ccb744-9913-4ae2-84bd-20e63fb2f4e1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/request/CityRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/request/HotelRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/response/CityResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/response/HotelReponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/CityController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/HotelController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/CityRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/HotelRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/CityService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/HotelService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/CityServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/HotelServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/specs/HotelSpecs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/response/HotelResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/response/HotelReponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/config/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/HotelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/HotelRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/HotelRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/HotelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/HotelService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/HotelServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/HotelServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/TypeRoomServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/TypeRoomServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -131,32 +122,6 @@
       </method>
     </configuration>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:hotelbooking@192.90.20.232" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:hotelbooking@192.90.20.232" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@9bb6bf8" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:hotelbooking@192.90.20.232 [2]" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-            </expand>
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -170,49 +135,54 @@
       <workItem from="1593572049266" duration="128000" />
       <workItem from="1593574609302" duration="1686000" />
       <workItem from="1593660937761" duration="6564000" />
+      <workItem from="1594008004667" duration="683000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="535" y="169" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593761175232">
+    <state x="535" y="169" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594008313054">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="535" y="169" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593761175232" />
-    <state width="1877" height="498" key="GridCell.Tab.0.bottom" timestamp="1593764032073">
+    <state x="535" y="169" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594008313054" />
+    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1594006351481">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="498" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593764032073" />
-    <state width="1877" height="498" key="GridCell.Tab.0.center" timestamp="1593764032073">
+    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1594006351481" />
+    <state width="1877" height="437" key="GridCell.Tab.0.bottom" timestamp="1594008656763">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="498" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593764032073" />
-    <state width="1877" height="498" key="GridCell.Tab.0.left" timestamp="1593764032073">
+    <state width="1877" height="437" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594008656763" />
+    <state width="1877" height="437" key="GridCell.Tab.0.center" timestamp="1594008656755">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="498" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593764032073" />
-    <state width="1877" height="498" key="GridCell.Tab.0.right" timestamp="1593764032073">
+    <state width="1877" height="437" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594008656755" />
+    <state width="1877" height="437" key="GridCell.Tab.0.left" timestamp="1594008656755">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="498" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593764032073" />
-    <state width="1877" height="498" key="GridCell.Tab.1.bottom" timestamp="1593764032073">
+    <state width="1877" height="437" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594008656755" />
+    <state width="1877" height="437" key="GridCell.Tab.0.right" timestamp="1594008656755">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="498" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593764032073" />
-    <state width="1877" height="498" key="GridCell.Tab.1.center" timestamp="1593764032073">
+    <state width="1877" height="437" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594008656755" />
+    <state width="1877" height="437" key="GridCell.Tab.1.bottom" timestamp="1594008656763">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="498" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593764032073" />
-    <state width="1877" height="498" key="GridCell.Tab.1.left" timestamp="1593764032073">
+    <state width="1877" height="437" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594008656763" />
+    <state width="1877" height="437" key="GridCell.Tab.1.center" timestamp="1594008656763">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="498" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593764032073" />
-    <state width="1877" height="498" key="GridCell.Tab.1.right" timestamp="1593764032073">
+    <state width="1877" height="437" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594008656763" />
+    <state width="1877" height="437" key="GridCell.Tab.1.left" timestamp="1594008656763">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="498" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593764032073" />
+    <state width="1877" height="437" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594008656763" />
+    <state width="1877" height="437" key="GridCell.Tab.1.right" timestamp="1594008656763">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="437" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594008656763" />
     <state x="667" y="276" width="586" height="488" key="find.popup" timestamp="1593575873565">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
