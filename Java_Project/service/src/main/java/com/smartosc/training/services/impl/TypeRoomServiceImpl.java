@@ -31,6 +31,7 @@ public class TypeRoomServiceImpl implements TypeRoomService {
 
     @Override
 
+
     public List<TypeRoomDTO> findTypeRoomById(Long id) {
         TypeRoomSpecification typeRoomSpecification = new TypeRoomSpecification();
         List<TypeRoomDTO> result = new ArrayList<>();
