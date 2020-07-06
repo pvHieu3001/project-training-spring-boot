@@ -2,7 +2,7 @@ package com.smartosc.training.services;
 
 import com.smartosc.training.dto.TypeRoomDTO;
 import javassist.NotFoundException;
-import org.springframework.data.domain.Page;
+
 
 import java.util.List;
 

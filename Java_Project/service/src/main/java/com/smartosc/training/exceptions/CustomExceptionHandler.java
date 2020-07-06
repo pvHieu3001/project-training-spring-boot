@@ -23,6 +23,7 @@ import java.util.Map;
  * @author Namtt
  * @created_at 02/07/2020 - 10:48 AM
  * @created_by Namtt
+ * @update_by Thanhttt
  * @since 02/07/2020
  */
 @RestControllerAdvice
@@ -56,5 +57,23 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
         errorObject.setError(messageSource.getMessage(ex.getMessage(),null,locale));
         errorObject.setStatus(HttpStatus.NOT_FOUND.value());
         return new ResponseEntity<>(errorObject, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(NullPointerException.class)
+    public ResponseEntity<ErrorObject> customHandleNullPointer(Exception ex, WebRequest request) {
+        ErrorObject errorObject = new ErrorObject();
+        errorObject.setTimestamp(LocalDateTime.now());
+        errorObject.setError(ex.getMessage());
+        errorObject.setStatus(HttpStatus.BAD_REQUEST.value());
+        return new ResponseEntity<>(errorObject, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ErrorObject> customHandleOtherError(Exception ex, WebRequest request) {
+        ErrorObject errorObject = new ErrorObject();
+        errorObject.setTimestamp(LocalDateTime.now());
+        errorObject.setError(ex.getMessage());
+        errorObject.setStatus(HttpStatus.BAD_REQUEST.value());
+        return new ResponseEntity<>(errorObject, HttpStatus.BAD_REQUEST);
     }
 }
