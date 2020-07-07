@@ -5,14 +5,13 @@ import com.smartosc.training.dto.RoleDTO;
 import com.smartosc.training.dto.StatusOTDTO;
 import com.smartosc.training.dto.UserDTO;
 import com.smartosc.training.entities.Role;
-import com.smartosc.training.entities.StatusOT;
 import com.smartosc.training.entities.User;
+import com.smartosc.training.exceptions.NotFoundException;
 import com.smartosc.training.repositories.UserRepository;
 import com.smartosc.training.repositories.specifications.UserSpecifications;
 import com.smartosc.training.services.UserService;
 import com.smartosc.training.utils.AuthenEnum;
 import com.smartosc.training.utils.RoleEnum;
-import javassist.NotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +47,7 @@ public class UserServicesImpl implements UserService {
     @Override
 
     public List<UserDTO> getAllUser() {
-        List<User> users = userRepository.findAll(); // chứa list user lấy từ entity
+        List<User> users = userRepository.findAll();
         List<UserDTO> list = new ArrayList<>(); // khai báo một list rỗng để chứa
         for (User user : users) {
             UserDTO userRespone = modelMapper.map(user, UserDTO.class);
@@ -59,35 +58,47 @@ public class UserServicesImpl implements UserService {
     }
 
     @Override
-    public List<UserDTO> getAllUserWithSpec() {
-        UserSpecifications userSpecifications = UserSpecifications.spec();
-        List<User> userEntitys = userRepository.findAll(userSpecifications.build());
-        List<UserDTO> userDTOS = new ArrayList<>();
-        for (User userEntity : userEntitys) {
-            UserDTO userDTO = new UserDTO();
-            userDTO.setId(userEntity.getId());
-            userDTO.setUsername(userEntity.getUsername());
-            userDTO.setEmail(userEntity.getEmail());
-            userDTO.setPassword(userEntity.getPassword());
-            userDTO.setStatus(userEntity.getStatus());
-            List<Role> roleList = userEntity.getRoles();
-            List<RoleDTO> roleDTOS = new ArrayList<>();
-            for (Role role : roleList) {
-                RoleDTO roleDTO = new RoleDTO();
-                roleDTO.setId(role.getRoleId());
-                roleDTO.setName(role.getName());
-                roleDTOS.add(roleDTO);
-            }
-            userDTO.setRoles(roleDTOS);
-            List<CommentDTO> commentDTOS = new ArrayList<>();
-            userDTO.setComments(commentDTOS);
-            StatusOTDTO statusOTDTOS = new StatusOTDTO();
-            userDTO.setStatusOT(statusOTDTOS);
-            userDTOS.add(userDTO);
+    public List<UserDTO> getAllUserStatusTrue() {
+        List<User> users = userRepository.findAllByStatus1();
+        List<UserDTO> list = new ArrayList<>(); // khai báo một list rỗng để chứa
+        for (User user : users) {
+            UserDTO userRespone = modelMapper.map(user, UserDTO.class);
+            list.add(userRespone); // add data vào list
         }
-        return userDTOS;
+        log.info("Get all user with status true success");
+        return list;
     }
 
+    @Override
+    public List<UserDTO> getAllUserWithSpec() {
+        UserSpecifications userSpecifications = UserSpecifications.spec();
+        List<UserDTO> list = new ArrayList<>(); // khai báo một list rỗng để chứa
+        List<User> userEntitys = userRepository.findAll(userSpecifications.buildGetAll());
+
+        for (User user : userEntitys) {
+            UserDTO userRespone = modelMapper.map(user, UserDTO.class);
+            list.add(userRespone);
+        }
+        log.info("Get all user success");
+        return list;
+    }
+
+    @Override
+    public List<UserDTO> getUserById(Long id) throws NotFoundException{
+        UserSpecifications userSpecifications = UserSpecifications.spec();
+        List<UserDTO> list = new ArrayList<>(); // khai báo một list rỗng để chứa
+        Optional.ofNullable(id).ifPresent(s -> userSpecifications.buildGetById(id));
+        List<User> userEntitys = userRepository.findAll(userSpecifications.buildGetAll());
+        if (userEntitys.size() == 0) {
+            throw new NotFoundException("Id not found");
+        }
+        for (User user : userEntitys) {
+            UserDTO userRespone = modelMapper.map(user, UserDTO.class);
+            list.add(userRespone);
+        }
+        log.info("Get  user by id  success");
+        return list;
+    }
 
     @Override
     public UserDTO createUser(UserDTO userDTO) throws DuplicateKeyException {
@@ -139,6 +150,7 @@ public class UserServicesImpl implements UserService {
             throw new NotFoundException("User " + name + "Not Found");
         }
     }
+
 
     @Override
     public UserDTO deleteUserById(Long id) throws NotFoundException {

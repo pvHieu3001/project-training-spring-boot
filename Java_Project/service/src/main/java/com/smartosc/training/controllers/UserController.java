@@ -37,7 +37,16 @@ public class UserController {
         apiResponse.setData(userRespones);
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
+    @GetMapping("/status")
+    public ResponseEntity<APIResponse<List<UserDTO>>> getAllUserStatusTrue() {
+        List<UserDTO> userRespones = userService.getAllUserStatusTrue();
 
+        APIResponse<List<UserDTO>> apiResponse = new APIResponse<>();
+        apiResponse.setStatus(HttpStatus.OK.toString());
+        apiResponse.setMessage("Messsage.status.ok");
+        apiResponse.setData(userRespones);
+        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
+    }
     @GetMapping("/spec")
     public ResponseEntity<APIResponse<List<UserDTO>>> getAllUserWithSpec() {
         List<UserDTO> userRespones = userService.getAllUserWithSpec();
@@ -49,6 +58,17 @@ public class UserController {
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
 
+
+    @GetMapping("/spec/{id}")
+    public ResponseEntity<APIResponse<List<UserDTO>>> getAllUserWithSpecId(@PathVariable(value = "id") Long id) {
+        List<UserDTO> userRespones = userService.getUserById(id);
+
+        APIResponse<List<UserDTO>> apiResponse = new APIResponse<>();
+        apiResponse.setStatus(HttpStatus.OK.toString());
+        apiResponse.setMessage("NotFound.user.id");
+        apiResponse.setData(userRespones);
+        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
+    }
     @PostMapping()
     public ResponseEntity<APIResponse<UserDTO>> createUser(@Valid @RequestBody UserDTO userDTO) {
         UserDTO request = userService.createUser(userDTO);

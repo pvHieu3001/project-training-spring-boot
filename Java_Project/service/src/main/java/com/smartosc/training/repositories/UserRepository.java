@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -21,6 +22,9 @@ import java.util.Optional;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> , JpaSpecificationExecutor<User> {
     User findByUsername(String username);
+
+    @Query(value = "select u.id,u.username,u.email,u.password,u.status from user u where u.status = 1;",nativeQuery = true)
+    List<User> findAllByStatus1();
 
 
 }
