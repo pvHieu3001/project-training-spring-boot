@@ -4,7 +4,6 @@ import com.smartosc.training.dto.APIResponse;
 import com.smartosc.training.dto.CentralDTO;
 import com.smartosc.training.dto.TypeRoomDTO;
 import com.smartosc.training.services.TypeRoomService;
-import com.smartosc.training.services.impl.TypeRoomServiceImpl;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Locale;
-import java.util.ResourceBundle;
 
 /**
  * Fresher-Training

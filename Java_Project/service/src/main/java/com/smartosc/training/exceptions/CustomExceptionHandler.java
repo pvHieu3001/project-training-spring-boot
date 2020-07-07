@@ -31,6 +31,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 
     @Autowired
     MessageSource messageSource;
+
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
                                                                   HttpHeaders headers,
@@ -54,25 +55,34 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
     public ResponseEntity<ErrorObject> customHandleNotFound(Exception ex, WebRequest request, Locale locale) {
         ErrorObject errorObject = new ErrorObject();
         errorObject.setTimestamp(LocalDateTime.now());
-        errorObject.setError(messageSource.getMessage(ex.getMessage(),null,locale));
+        errorObject.setError(messageSource.getMessage(ex.getMessage(), null, locale));
         errorObject.setStatus(HttpStatus.NOT_FOUND.value());
         return new ResponseEntity<>(errorObject, HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler(NullPointerException.class)
-    public ResponseEntity<ErrorObject> customHandleNullPointer(Exception ex, WebRequest request) {
+    @ExceptionHandler(LockedException.class)
+    public ResponseEntity<ErrorObject> customHandleLocked(Exception ex, WebRequest request, Locale locale) {
         ErrorObject errorObject = new ErrorObject();
         errorObject.setTimestamp(LocalDateTime.now());
-        errorObject.setError(ex.getMessage());
+        errorObject.setError(messageSource.getMessage(ex.getMessage(), null, locale));
+        errorObject.setStatus(HttpStatus.LOCKED.value());
+        return new ResponseEntity<>(errorObject, HttpStatus.LOCKED);
+    }
+
+    @ExceptionHandler(NullPointerException.class)
+    public ResponseEntity<ErrorObject> customHandleNullPointer(Exception ex, WebRequest request, Locale locale) {
+        ErrorObject errorObject = new ErrorObject();
+        errorObject.setTimestamp(LocalDateTime.now());
+        errorObject.setError(messageSource.getMessage(ex.getMessage(), null, locale));
         errorObject.setStatus(HttpStatus.BAD_REQUEST.value());
         return new ResponseEntity<>(errorObject, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ErrorObject> customHandleOtherError(Exception ex, WebRequest request) {
+    public ResponseEntity<ErrorObject> customHandleOtherError(Exception ex, WebRequest request, Locale locale) {
         ErrorObject errorObject = new ErrorObject();
         errorObject.setTimestamp(LocalDateTime.now());
-        errorObject.setError(ex.getMessage());
+        errorObject.setError(messageSource.getMessage(ex.getMessage(), null, locale));
         errorObject.setStatus(HttpStatus.BAD_REQUEST.value());
         return new ResponseEntity<>(errorObject, HttpStatus.BAD_REQUEST);
     }
