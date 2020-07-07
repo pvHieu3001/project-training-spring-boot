@@ -26,4 +26,6 @@ public interface UserService {
 
     UserDTO findUserByUserName(String name) throws NotFoundException;
 
+    List<UserDTO> getAllUserWithSpec();
+
 }

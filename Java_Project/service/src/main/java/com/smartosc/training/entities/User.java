@@ -48,7 +48,7 @@ public class User {
   @Column(nullable = false)
   private Integer status;
 
-  @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE,
+  @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.DETACH, CascadeType.MERGE,
       CascadeType.REFRESH})
   @JoinTable(name = "user_role", joinColumns = {@JoinColumn(name = "account_id")},
       inverseJoinColumns = {@JoinColumn(name = "role_id")})

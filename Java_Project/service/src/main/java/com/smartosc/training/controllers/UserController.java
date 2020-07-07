@@ -29,12 +29,23 @@ public class UserController {
 
     @GetMapping
     public ResponseEntity<APIResponse<List<UserDTO>>> getAllUser() {
-        List<UserDTO> userRespones = userService.getAllUser();
+        List<UserDTO> userDTOS = userService.getAllUser();
 
         APIResponse<List<UserDTO>> apiResponse = new APIResponse<>();
         apiResponse.setStatus(HttpStatus.OK.toString());
         apiResponse.setMessage("get all thanh cong em oi");
-        apiResponse.setData(userRespones);
+        apiResponse.setData(userDTOS);
+        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
+    }
+
+    @GetMapping({"/spec"})
+    public ResponseEntity<APIResponse<List<UserDTO>>> getAllUserWithSpec() {
+        List<UserDTO> userDTOS = userService.getAllUserWithSpec();
+
+        APIResponse<List<UserDTO>> apiResponse = new APIResponse<>();
+        apiResponse.setStatus(HttpStatus.OK.toString());
+        apiResponse.setMessage("get all with spec seccess");
+        apiResponse.setData(userDTOS);
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
 
@@ -70,5 +81,6 @@ public class UserController {
         apiResponse.setData(userDTO);
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
+
 
 }
