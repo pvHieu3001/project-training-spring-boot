@@ -24,4 +24,5 @@ public class ErrorObject {
     private LocalDateTime timestamp;
     private int status;
     private String error;
+    private String detail;
 }

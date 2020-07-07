@@ -60,20 +60,32 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler(NullPointerException.class)
-    public ResponseEntity<ErrorObject> customHandleNullPointer(Exception ex, WebRequest request) {
+    public ResponseEntity<ErrorObject> customHandleNullPointer(NullPointerException ex, WebRequest request) {
         ErrorObject errorObject = new ErrorObject();
         errorObject.setTimestamp(LocalDateTime.now());
         errorObject.setError(ex.getMessage());
         errorObject.setStatus(HttpStatus.BAD_REQUEST.value());
+        errorObject.setDetail(request.getDescription(false));
         return new ResponseEntity<>(errorObject, HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(DuplicateException.class)
+    public ResponseEntity<ErrorObject> customHandleDuplicateException(DuplicateException ex, WebRequest request) {
+        ErrorObject errorObject = new ErrorObject();
+        errorObject.setTimestamp(LocalDateTime.now());
+        errorObject.setError(ex.getMessage());
+        errorObject.setStatus(HttpStatus.BAD_REQUEST.value());
+        errorObject.setDetail(request.getDescription(false));
+        return new ResponseEntity<>(errorObject, HttpStatus.BAD_REQUEST);
+    }
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorObject> customHandleOtherError(Exception ex, WebRequest request) {
         ErrorObject errorObject = new ErrorObject();
         errorObject.setTimestamp(LocalDateTime.now());
         errorObject.setError(ex.getMessage());
         errorObject.setStatus(HttpStatus.BAD_REQUEST.value());
+        errorObject.setDetail(request.getDescription(false));
         return new ResponseEntity<>(errorObject, HttpStatus.BAD_REQUEST);
     }
+
 }

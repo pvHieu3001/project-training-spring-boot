@@ -36,19 +36,18 @@ public class HotelController {
         APIResponse<List<HotelDTO>> objectAPIResponse = new APIResponse<>();
         List<HotelDTO> result = hotelService.getAllHotels();
         objectAPIResponse.setData(result);
-        objectAPIResponse.setMessage(messageSource.getMessage("message.status.ok",null, locale));
-        objectAPIResponse.setStatus(HttpStatus.OK.toString());
+        objectAPIResponse.setMessage(messageSource.getMessage("message.getAll.success",null, locale));
+        objectAPIResponse.setStatus(HttpStatus.OK.value());
         return new ResponseEntity<>(objectAPIResponse, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<APIResponse<HotelDTO>> getHotelByID(@PathVariable("id") Long id, Locale locale) {
         APIResponse<HotelDTO> apiResponse = new APIResponse<>();
-
         HotelDTO result = hotelService.getHotelByID(id);
         apiResponse.setData(result);
-        apiResponse.setMessage(messageSource.getMessage("message.status.ok",null, locale));
-        apiResponse.setStatus(HttpStatus.OK.toString());
+        apiResponse.setMessage(messageSource.getMessage("message.getById.success",null, locale));
+        apiResponse.setStatus(HttpStatus.OK.value());
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
 }
