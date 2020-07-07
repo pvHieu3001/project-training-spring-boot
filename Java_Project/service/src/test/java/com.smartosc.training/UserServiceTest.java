@@ -1,5 +1,3 @@
-package com.smartosc.training;
-
 import com.smartosc.training.repositories.RoleRepository;
 import com.smartosc.training.repositories.UserRepository;
 import com.smartosc.training.services.UserService;
