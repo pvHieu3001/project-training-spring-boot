@@ -2,31 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3ccb744-9913-4ae2-84bd-20e63fb2f4e1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/exceptions/DuplicateException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/test/java/controllers/CityControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/test/java/controllers/HotelControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/test/java/services/CityServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/test/java/services/HotelServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javax.ejb.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javax.jms.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javax.resource.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javax.servlet.jsp.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javax.servlet.jsp.jstl.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/exceptions/LockedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/UserSpecification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/UserSpecifications.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/APIResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/APIResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/CityDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/CityDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/ApiSecurityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/ApiSecurityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/CentralController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/CentralController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/CityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/CityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/DetailTypeRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/DetailTypeRoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/HotelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/TypeRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/TypeRoomController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/entities/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/entities/Role.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/exceptions/CustomExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/exceptions/CustomExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/exceptions/ErrorObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/exceptions/ErrorObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/CityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/CityRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/CityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/CityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/HotelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/HotelService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/CityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/CityServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/HotelServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/HotelServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/CentralSpecification.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/CentralSpecification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/securities/JwtUserDetailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/securities/JwtUserDetailServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/securities/RequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/securities/RequestFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/TypeRoomService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/TypeRoomService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/UserServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/UserServicesImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/main/resources/i18n/messages_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/resources/i18n/messages_en.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/resources/i18n/messages_vi.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/resources/i18n/messages_vi.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +99,7 @@
       <recent name="com.smartosc.training.services.impl" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CityControllerTest.getWithPage">
+  <component name="RunManager" selected="Spring Boot.ServiceApplication">
     <configuration name="CityControllerTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="service" />
       <extension name="coverage">
@@ -241,7 +237,7 @@
       <workItem from="1593574609302" duration="1686000" />
       <workItem from="1593660937761" duration="6564000" />
       <workItem from="1594004750639" duration="1249000" />
-      <workItem from="1594086643670" duration="23085000" />
+      <workItem from="1594086643670" duration="23565000" />
     </task>
     <servers />
   </component>
@@ -277,22 +273,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1594092073277" />
-    <state width="1877" height="376" key="GridCell.Tab.0.bottom" timestamp="1594116004017">
+    <state width="1097" height="376" key="GridCell.Tab.0.bottom" timestamp="1594117443317">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="376" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594116004017" />
-    <state width="1877" height="376" key="GridCell.Tab.0.center" timestamp="1594116004017">
+    <state width="1097" height="376" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594117443317" />
+    <state width="1097" height="376" key="GridCell.Tab.0.center" timestamp="1594117443317">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="376" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594116004017" />
-    <state width="1877" height="376" key="GridCell.Tab.0.left" timestamp="1594116004017">
+    <state width="1097" height="376" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594117443317" />
+    <state width="1097" height="376" key="GridCell.Tab.0.left" timestamp="1594117443317">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="376" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594116004017" />
-    <state width="1877" height="376" key="GridCell.Tab.0.right" timestamp="1594116004017">
+    <state width="1097" height="376" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594117443317" />
+    <state width="1097" height="376" key="GridCell.Tab.0.right" timestamp="1594117443317">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="376" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594116004017" />
+    <state width="1097" height="376" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594117443317" />
     <state width="1877" height="206" key="GridCell.Tab.1.bottom" timestamp="1594115979344">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

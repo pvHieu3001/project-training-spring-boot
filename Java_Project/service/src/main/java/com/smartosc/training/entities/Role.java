@@ -35,7 +35,7 @@ public class Role {
     @Column
     private String name;
 
-    @ManyToMany(fetch = FetchType.LAZY,mappedBy = "roles")
+    @ManyToMany(mappedBy = "roles")
     private List<User> accounts;
 
 }
