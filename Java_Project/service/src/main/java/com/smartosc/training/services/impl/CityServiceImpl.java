@@ -2,11 +2,14 @@ package com.smartosc.training.services.impl;
 
 import com.smartosc.training.dto.*;
 import com.smartosc.training.entities.*;
+import com.smartosc.training.exceptions.DuplicateException;
 import com.smartosc.training.exceptions.NotFoundException;
 import com.smartosc.training.exceptions.NullPointerException;
 import com.smartosc.training.repositories.CityRepository;
 import com.smartosc.training.services.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -49,26 +52,50 @@ public class CityServiceImpl implements CityService {
         throw new NotFoundException("Thách mi tìm được đấy!");
     }
 
-    //TODO
     @Override
-    public CityDTO save(CityDTO cityDTO) {
-        Optional<City> input = cityRepository.findById(cityDTO.getId());
+    public Page<CityDTO> getCitiesWithPagination(Pageable pageable) {
+        Page<City> cityDTOPage = cityRepository.findAll(pageable);
+        return cityDTOPage.map(this::convertFromCityToCityDTO);
+    }
+
+    @Override
+    public CityDTO createNew(CityDTO cityDTO) {
+
+        Optional<City> input = cityRepository.findByName(cityDTO.getName());
         if (input.isPresent()) {
-            //update
-            City city = input.get();
-
-            CentralDTO centralDTO = cityDTO.getCentral();
-            Central central = new Central();
-            central.setId(centralDTO.getId());
-            central.setImgUrl(centralDTO.getImgUrl());
-            central.setTitle(centralDTO.getTitle());
-            city.setCentral(central);
-            city.setName(cityDTO.getName());
-            city.setUrlImg(cityDTO.getUrlImg());
+            throw new DuplicateException("Lặp lại rồi nha chế. Lấy tên khác đi");
         }
-        //create
+        City city = new City();
 
-        return null;
+        this.convertCityDTOToCity(city, cityDTO);
+
+        return cityDTO;
+    }
+
+    @Override
+    public CityDTO updateInformation(CityDTO cityDTO) {
+
+        Optional<City> cityID = cityRepository.findById(cityDTO.getId());
+        if (cityID.isPresent()) {
+            City city = cityID.get();
+            this.convertCityDTOToCity(city, cityDTO);
+            return cityDTO;
+        }
+        else {
+            throw new NotFoundException("Có éo đâu mà đòi update");
+        }
+    }
+
+    private void convertCityDTOToCity(City city, CityDTO cityDTO){
+        CentralDTO centralDTO = cityDTO.getCentral();
+        Central central = new Central();
+        central.setId(centralDTO.getId());
+        central.setImgUrl(centralDTO.getImgUrl());
+        central.setTitle(centralDTO.getTitle());
+        city.setCentral(central);
+        city.setName(cityDTO.getName());
+        city.setUrlImg(cityDTO.getUrlImg());
+        cityRepository.save(city);
     }
 
     private CityDTO convertFromCityToCityDTO(City city) {
