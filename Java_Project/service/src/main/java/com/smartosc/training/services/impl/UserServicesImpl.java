@@ -133,6 +133,7 @@ public class UserServicesImpl implements UserService {
             List<Role> roleList = userEntity.getRoles();
             List<RoleDTO> roleDTOS = new ArrayList<>();
             for (Role role : roleList) {
+
                 RoleDTO roleDTO = new RoleDTO();
                 roleDTO.setId(role.getRoleId());
                 roleDTO.setName(role.getName());
@@ -144,6 +145,7 @@ public class UserServicesImpl implements UserService {
             StatusOTDTO statusOTDTOS = new StatusOTDTO();
             userDTO.setStatusOT(statusOTDTOS);
             return userDTO;
+
         } else {
             throw new NotFoundException("User " + name + "Not Found");
         }

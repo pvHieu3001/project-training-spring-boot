@@ -23,8 +23,8 @@ import java.util.Locale;
  * @since 02/07/2020
  */
 @RestController
-@RequestMapping("/api/type-room")
-public class TypeRoomController {
+@RequestMapping("/api/detail-type-room")
+public class DetailTypeRoomController {
     @Autowired
     private TypeRoomService typeRoomService;
 
