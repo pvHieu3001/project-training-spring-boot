@@ -32,7 +32,7 @@ public class UserController {
         List<UserDTO> userDTOS = userService.getAllUser();
 
         APIResponse<List<UserDTO>> apiResponse = new APIResponse<>();
-        apiResponse.setStatus(HttpStatus.OK.toString());
+        apiResponse.setStatus(HttpStatus.OK.value());
         apiResponse.setMessage("get all thanh cong em oi");
         apiResponse.setData(userDTOS);
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
@@ -43,7 +43,7 @@ public class UserController {
         List<UserDTO> userDTOS = userService.getAllUserWithSpec();
 
         APIResponse<List<UserDTO>> apiResponse = new APIResponse<>();
-        apiResponse.setStatus(HttpStatus.OK.toString());
+        apiResponse.setStatus(HttpStatus.OK.value());
         apiResponse.setMessage("get all with spec seccess");
         apiResponse.setData(userDTOS);
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
@@ -53,7 +53,7 @@ public class UserController {
         List<UserDTO> userRespones = userService.getAllUserStatusTrue();
 
         APIResponse<List<UserDTO>> apiResponse = new APIResponse<>();
-        apiResponse.setStatus(HttpStatus.OK.toString());
+        apiResponse.setStatus(HttpStatus.OK.value());
         apiResponse.setMessage("Messsage.status.ok");
         apiResponse.setData(userRespones);
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
@@ -64,7 +64,7 @@ public class UserController {
         List<UserDTO> userRespones = userService.getUserById(id);
 
         APIResponse<List<UserDTO>> apiResponse = new APIResponse<>();
-        apiResponse.setStatus(HttpStatus.OK.toString());
+        apiResponse.setStatus(HttpStatus.OK.value());
         apiResponse.setMessage("NotFound.user.id");
         apiResponse.setData(userRespones);
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
@@ -74,7 +74,7 @@ public class UserController {
         UserDTO request = userService.createUser(userDTO);
 
         APIResponse<UserDTO> apiResponse = new APIResponse<>();
-        apiResponse.setStatus(HttpStatus.OK.toString());
+        apiResponse.setStatus(HttpStatus.OK.value());
         apiResponse.setMessage("create user success");
         apiResponse.setData(request);
 
@@ -85,7 +85,7 @@ public class UserController {
     public ResponseEntity<APIResponse<UserDTO>> updateUser(@RequestBody @Valid UserDTO userDTO, @PathVariable(value = "id") Long id) throws NotFoundException {
         UserDTO userDTO1 = userService.updateUser(id, userDTO);
         APIResponse<UserDTO> apiResponse = new APIResponse<>();
-        apiResponse.setStatus(HttpStatus.OK.toString());
+        apiResponse.setStatus(HttpStatus.OK.value());
         apiResponse.setMessage("Update user success");
         apiResponse.setData(userDTO1);
 
@@ -96,7 +96,7 @@ public class UserController {
     public ResponseEntity<APIResponse<UserDTO>> deleteUserById(@PathVariable(value = "id") Long id) throws NotFoundException {
         UserDTO userDTO = userService.deleteUserById(id);
         APIResponse<UserDTO> apiResponse = new APIResponse<>();
-        apiResponse.setStatus(HttpStatus.OK.toString());
+        apiResponse.setStatus(HttpStatus.OK.value());
         apiResponse.setMessage("delete success");
         apiResponse.setData(userDTO);
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);

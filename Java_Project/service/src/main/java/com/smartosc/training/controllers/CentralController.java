@@ -35,7 +35,7 @@ public class CentralController {
     List<CentralDTO> centralDTOS = centralService.getAllCentral(keyword);
 
     APIResponse apiResponse = new APIResponse();
-    apiResponse.setStatus(HttpStatus.OK.toString());
+    apiResponse.setStatus(HttpStatus.OK.value());
     apiResponse.setData(centralDTOS);
     apiResponse.setMessage("Lay ra thanh cong roi day :) ");
 

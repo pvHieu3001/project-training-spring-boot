@@ -34,7 +34,7 @@ public class TypeRoomController {
     @GetMapping("/{id}")
     public ResponseEntity<APIResponse<List<CentralDTO>>> findById(@PathVariable("id") Long id, Locale locale){
         return new ResponseEntity(new APIResponse<>(
-                HttpStatus.OK.toString(),
+                HttpStatus.OK.value(),
                 messageSource.getMessage("hello", null, locale),
                 typeRoomService.findTypeRoomById(id)
         ), HttpStatus.OK);
@@ -43,7 +43,7 @@ public class TypeRoomController {
     @PutMapping
     public ResponseEntity<APIResponse<TypeRoomDTO>> updateTypeRoom(@RequestBody TypeRoomDTO typeRoomDTO, Locale locale) throws NotFoundException {
         return new ResponseEntity(new APIResponse<>(
-                HttpStatus.OK.toString(),
+                HttpStatus.OK.value(),
                 messageSource.getMessage("hello", null, locale),
                 typeRoomService.updateTypeRoom(typeRoomDTO)
         ), HttpStatus.OK);
@@ -52,7 +52,7 @@ public class TypeRoomController {
     @PostMapping
     public ResponseEntity<APIResponse<TypeRoomDTO>> createTypeRoom(@RequestBody TypeRoomDTO typeRoomDTO, Locale locale){
         return new ResponseEntity(new APIResponse<>(
-                HttpStatus.OK.toString(),
+                HttpStatus.OK.value(),
                 messageSource.getMessage("hello", null, locale),
                 typeRoomService.createTypeRoom(typeRoomDTO)
         ), HttpStatus.OK);

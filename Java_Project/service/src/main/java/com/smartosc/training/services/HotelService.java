@@ -16,4 +16,6 @@ public interface HotelService {
     List<HotelDTO> getAllHotels();
 
     HotelDTO getHotelByID(Long id);
+
+    HotelDTO createNew(HotelDTO hotelDTO);
 }

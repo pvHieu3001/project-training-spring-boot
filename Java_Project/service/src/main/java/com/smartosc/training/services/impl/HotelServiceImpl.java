@@ -46,6 +46,11 @@ public class HotelServiceImpl implements HotelService {
         throw new NotFoundException("Thách mi tìm được đấy!");
     }
 
+    @Override
+    public HotelDTO createNew(HotelDTO hotelDTO) {
+        return null;
+    }
+
     private HotelDTO convertFromHotelToHotelDTO(Hotel hotel) {
         HotelDTO hotelDTO = new HotelDTO();
 

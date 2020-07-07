@@ -8,12 +8,12 @@ import com.smartosc.training.services.CityService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Locale;
@@ -38,8 +38,9 @@ public class CityController {
         APIResponse<List<CityDTO>> apiResponse = new APIResponse<>();
         List<CityDTO> result = cityService.getAllCities();
         apiResponse.setData(result);
-        apiResponse.setMessage(messageSource.getMessage("message.status.ok",null, locale));
-        apiResponse.setStatus(HttpStatus.OK.toString());
+        apiResponse.setMessage("message.getAll.success");
+        apiResponse.setMessage(messageSource.getMessage("message.getAll.success",null, locale));
+        apiResponse.setStatus(HttpStatus.OK.value());
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
 
@@ -49,8 +50,45 @@ public class CityController {
 
         CityDTO result = cityService.getCityWithHotels(id);
         apiResponse.setData(result);
-        apiResponse.setMessage(messageSource.getMessage("message.status.ok",null, locale));
-        apiResponse.setStatus(HttpStatus.OK.toString());
+        apiResponse.setMessage(messageSource.getMessage("message.getById.success",null, locale));
+        apiResponse.setStatus(HttpStatus.OK.value());
+        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
+    }
+
+    @GetMapping("/menu")
+    public ResponseEntity<APIResponse<Page<CityDTO>>> getWithPage(@RequestParam(value = "page", defaultValue = "1") int page,
+                                                 @RequestParam(value = "size") int size, Locale locale) {
+
+        APIResponse<Page<CityDTO>> apiResponse = new APIResponse<>();
+
+        Pageable pageable = PageRequest.of(page,size);
+
+        Page<CityDTO> result = cityService.getCitiesWithPagination(pageable);
+        apiResponse.setData(result);
+        apiResponse.setMessage(messageSource.getMessage("message.getAll.success",null, locale));
+        apiResponse.setStatus(HttpStatus.OK.value());
+        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
+    }
+
+    @PostMapping()
+    public ResponseEntity<APIResponse<CityDTO>> createNew(@RequestBody CityDTO input, Locale locale) {
+        APIResponse<CityDTO> apiResponse = new APIResponse<>();
+
+        CityDTO result = cityService.createNew(input);
+        apiResponse.setData(result);
+        apiResponse.setMessage(messageSource.getMessage("message.create.success",null, locale));
+        apiResponse.setStatus(HttpStatus.OK.value());
+        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
+    }
+
+    @PutMapping()
+    public ResponseEntity<APIResponse<CityDTO>> updateInformation(@RequestBody CityDTO input, Locale locale) {
+        APIResponse<CityDTO> apiResponse = new APIResponse<>();
+
+        CityDTO result = cityService.updateInformation(input);
+        apiResponse.setData(result);
+        apiResponse.setMessage(messageSource.getMessage("message.create.success",null, locale));
+        apiResponse.setStatus(HttpStatus.OK.value());
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
 }
