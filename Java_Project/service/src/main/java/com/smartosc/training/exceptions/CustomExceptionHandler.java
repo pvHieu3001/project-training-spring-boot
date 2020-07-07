@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
@@ -21,6 +22,7 @@ import java.util.Map;
  * @created_by Namtt
  * @since 02/07/2020
  */
+@RestControllerAdvice
 public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 
     @Override
@@ -49,5 +51,13 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
         errorObject.setError(ex.getMessage());
         errorObject.setStatus(HttpStatus.NOT_FOUND.value());
         return new ResponseEntity<>(errorObject, HttpStatus.NOT_FOUND);
+    }
+    @ExceptionHandler(LockedException.class)
+    public ResponseEntity<ErrorObject> customHandleLocked(Exception ex, WebRequest request) {
+        ErrorObject errorObject = new ErrorObject();
+        errorObject.setTimestamp(LocalDateTime.now());
+        errorObject.setError(ex.getMessage());
+        errorObject.setStatus(HttpStatus.LOCKED.value());
+        return new ResponseEntity<>(errorObject, HttpStatus.LOCKED);
     }
 }

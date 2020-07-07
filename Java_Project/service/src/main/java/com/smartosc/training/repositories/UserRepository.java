@@ -4,11 +4,10 @@ import com.smartosc.training.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 
-import java.util.Optional;
+import java.util.List;
 
 /**
  * Fresher-Training
@@ -19,10 +18,11 @@ import java.util.Optional;
  * @since 02/07/2020
  */
 @Repository
-public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificationExecutor<User> {
-    @Query("FROM User u  WHERE  u.username LIKE %:username%")
-    Optional<User> findByUsername11(@Param("username") String username);
+public interface UserRepository extends JpaRepository<User, Long> , JpaSpecificationExecutor<User> {
+    User findByUsername(String username);
 
-    User findByUsername(String name);
+    @Query(value = "select u.id,u.username,u.email,u.password,u.status from user u where u.status = 1;",nativeQuery = true)
+    List<User> findAllByStatus1();
+
 
 }

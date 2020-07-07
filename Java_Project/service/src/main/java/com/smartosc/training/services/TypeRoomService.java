@@ -1,13 +1,15 @@
 package com.smartosc.training.services;
 
 import com.smartosc.training.dto.TypeRoomDTO;
-import org.springframework.data.domain.Page;
+
+
 
 import java.util.List;
 
 /**
  * Fresher-Training
  *
+
  * @author Hieupv
  * @created_at 02/07/2020 - 1:59 PM
  * @created_by Hieupv
@@ -18,4 +20,5 @@ public interface TypeRoomService {
     public TypeRoomDTO updateTypeRoom(TypeRoomDTO typeRoomRequest);
     public TypeRoomDTO createTypeRoom(TypeRoomDTO typeRoomRequest);
     public void deleteTypeRoom(Long[] id);
+
 }
