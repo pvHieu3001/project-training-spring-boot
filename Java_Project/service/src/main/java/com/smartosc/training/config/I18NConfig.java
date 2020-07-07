@@ -27,7 +27,6 @@ public class I18NConfig implements WebMvcConfigurer {
 //    60 minutes
         resolver.setCookieMaxAge(60 * 60);
         return resolver;
-
     }
 
     @Bean(name = "messageSource")
