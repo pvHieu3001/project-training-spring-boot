@@ -1,11 +1,17 @@
 package com.smartosc.training.exceptions;
 
+import com.smartosc.training.dto.ErrorResponse;
+import java.util.Locale;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
@@ -21,33 +27,58 @@ import java.util.Map;
  * @created_by Namtt
  * @since 02/07/2020
  */
+@RestControllerAdvice
 public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @Override
-    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
-                                                                  HttpHeaders headers,
-                                                                  HttpStatus status, WebRequest request) {
+  @Autowired private MessageSource messageSource;
 
-        Map<String, String> errorMessageMap = new HashMap<>();
+  @Override
+  protected ResponseEntity<Object> handleMethodArgumentNotValid(
+      MethodArgumentNotValidException ex,
+      HttpHeaders headers,
+      HttpStatus status,
+      WebRequest request) {
 
-        ex.getBindingResult().getAllErrors().forEach(e -> {
-            if (e instanceof FieldError) {
-                errorMessageMap.put(((FieldError) e).getField(), e.getDefaultMessage());
-            }
-        });
-        ErrorObject errorObject = new ErrorObject();
-        errorObject.setMessages(errorMessageMap);
+    Map<String, String> errorMessageMap = new HashMap<>();
 
-        return new ResponseEntity<>(errorObject, HttpStatus.BAD_REQUEST);
+    ex.getBindingResult()
+        .getAllErrors()
+        .forEach(
+            e -> {
+              if (e instanceof FieldError) {
+                errorMessageMap.put(
+                    ((FieldError) e).getField(),
+                    messageSource.getMessage(
+                        e.getDefaultMessage(), null, request.getLocale()));
+              }
+            });
 
-    }
+    ErrorResponse errorResponse = new ErrorResponse();
 
-    @ExceptionHandler(NotFoundException.class)
-    public ResponseEntity<ErrorObject> customHandleNotFound(Exception ex, WebRequest request) {
-        ErrorObject errorObject = new ErrorObject();
-        errorObject.setTimestamp(LocalDateTime.now());
-        errorObject.setError(ex.getMessage());
-        errorObject.setStatus(HttpStatus.NOT_FOUND.value());
-        return new ResponseEntity<>(errorObject, HttpStatus.NOT_FOUND);
-    }
+    errorResponse.setStatus(HttpStatus.BAD_REQUEST.value());
+    errorResponse.setTimestamp(LocalDateTime.now());
+    errorResponse.setMessages(errorMessageMap);
+
+    return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+  }
+
+  @ExceptionHandler(NotFoundException.class)
+  public ResponseEntity<ErrorResponse> customHandleNotFound(
+      NotFoundException ex, WebRequest request, Locale locale) {
+    ErrorResponse errorResponse = new ErrorResponse();
+    errorResponse.setTimestamp(LocalDateTime.now());
+    errorResponse.setError(messageSource.getMessage(ex.getMessage(), null, locale));
+    errorResponse.setStatus(HttpStatus.NOT_FOUND.value());
+    return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
+  }
+
+  @ExceptionHandler(DuplicateKeyException.class)
+  public ResponseEntity<ErrorResponse> customHandleDuplicate(
+      DuplicateKeyException ex, WebRequest request, Locale locale) {
+    ErrorResponse errorResponse = new ErrorResponse();
+    errorResponse.setTimestamp(LocalDateTime.now());
+    errorResponse.setError(messageSource.getMessage(ex.getMessage(), null, locale));
+    errorResponse.setStatus(HttpStatus.BAD_REQUEST.value());
+    return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+  }
 }

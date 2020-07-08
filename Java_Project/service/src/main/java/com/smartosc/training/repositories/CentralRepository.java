@@ -3,6 +3,7 @@ package com.smartosc.training.repositories;
 import com.smartosc.training.entities.Central;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Query;
 
 /**
  * Fresher-Training

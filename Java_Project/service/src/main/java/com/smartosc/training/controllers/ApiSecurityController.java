@@ -56,7 +56,7 @@ public class ApiSecurityController {
         APIResponse<Object> objectAPIResponse = new APIResponse<>();
         objectAPIResponse.setData(token);
         objectAPIResponse.setMessage(messageSource.getMessage("Messsage.status.ok",null,locale));
-        objectAPIResponse.setStatus(HttpStatus.OK.toString());
+        objectAPIResponse.setStatus(HttpStatus.OK.value());
 
         return new ResponseEntity<>(objectAPIResponse,HttpStatus.OK);
     }

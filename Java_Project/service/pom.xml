@@ -53,12 +53,7 @@
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-jpamodelgen -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-jpamodelgen</artifactId>
-            <version>5.4.13.Final</version>
-            <scope>provided</scope>
-        </dependency>
+
 
 
         <dependency>
@@ -123,6 +118,7 @@
             <artifactId>hibernate-jpamodelgen</artifactId>
             <version>5.4.13.Final</version>
         </dependency>
+
         <dependency>
             <groupId>com.smartosc.training</groupId>
             <artifactId>common</artifactId>
