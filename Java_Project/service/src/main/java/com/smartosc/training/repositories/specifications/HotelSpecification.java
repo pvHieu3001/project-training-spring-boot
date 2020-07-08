@@ -1,4 +1,4 @@
-package com.smartosc.training.specs;
+package com.smartosc.training.repositories.specifications;
 
 import com.smartosc.training.entities.*;
 import org.springframework.data.jpa.domain.Specification;
@@ -11,7 +11,7 @@ import javax.persistence.criteria.*;
  * @author thanhttt
  * @created_at 03/07/2020 - 8:39 AM
  */
-public class    HotelSpecs {
+public class HotelSpecification {
     public static Specification<Hotel> geHotelsByNameSpec(String name) {
         return new Specification<Hotel>() {
             @Override

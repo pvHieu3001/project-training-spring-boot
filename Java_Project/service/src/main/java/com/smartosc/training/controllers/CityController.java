@@ -87,7 +87,7 @@ public class CityController {
 
         CityDTO result = cityService.updateInformation(input);
         apiResponse.setData(result);
-        apiResponse.setMessage(messageSource.getMessage("message.create.success",null, locale));
+        apiResponse.setMessage(messageSource.getMessage("message.update.success",null, locale));
         apiResponse.setStatus(HttpStatus.OK.value());
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
