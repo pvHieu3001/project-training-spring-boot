@@ -1,6 +1,7 @@
 package com.smartosc.training.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.Locale;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,6 +16,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class APIResponse<T> {
+
+
     @JsonProperty("status")
     private int status;
 

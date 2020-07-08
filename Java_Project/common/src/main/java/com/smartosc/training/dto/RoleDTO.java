@@ -20,5 +20,5 @@ import java.util.List;
 public class RoleDTO {
     private Long id;
     private String name;
-    List<UserDTO> userDTOS;
+    List<UserDTO> accounts;
 }
