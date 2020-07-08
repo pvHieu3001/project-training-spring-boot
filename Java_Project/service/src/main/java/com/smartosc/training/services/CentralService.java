@@ -20,4 +20,5 @@ public interface CentralService {
   CentralDTO createCentral(CentralDTO centralDTO);
 
   CentralDTO updateCentral(Long id,CentralDTO centralDTO);
+
 }

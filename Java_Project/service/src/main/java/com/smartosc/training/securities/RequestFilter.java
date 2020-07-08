@@ -44,7 +44,9 @@ public class RequestFilter extends OncePerRequestFilter {
             } catch (IllegalArgumentException e) {
                 throw new IllegalArgumentException("Unable to get JWT Token");
             }
-        }else {
+        } else if(request.getRequestURI().indexOf("authenticate")>0){
+            chain.doFilter(request, response);
+        } else {
             logger.warn("JWT Token does not begin with Bearer String");
         }
         // Once we get the token validate it.

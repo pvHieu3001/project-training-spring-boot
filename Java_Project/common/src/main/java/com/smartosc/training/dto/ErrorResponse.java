@@ -25,4 +25,5 @@ public class ErrorResponse {
     private int status;
     private Map<String, String> messages;
     private String error;
+    private String detail;
 }

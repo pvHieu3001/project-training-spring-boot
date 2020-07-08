@@ -1,13 +1,17 @@
 package com.smartosc.training.controllers;
 
+import com.smartosc.training.dto.APIResponse;
+import com.smartosc.training.dto.CentralDTO;
+import com.smartosc.training.dto.TypeRoomDTO;
 import com.smartosc.training.services.TypeRoomService;
-import com.smartosc.training.services.impl.TypeRoomServiceImpl;
+import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.context.MessageSource;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Locale;
 
 /**
@@ -24,8 +28,33 @@ public class TypeRoomController {
     @Autowired
     private TypeRoomService typeRoomService;
 
+    @Autowired
+    private MessageSource messageSource;
+
     @GetMapping("/{id}")
-    public Object index(@PathVariable("id") Long id){
-        return typeRoomService.findTypeRoomById(id);
+    public ResponseEntity<APIResponse<List<CentralDTO>>> findById(@PathVariable("id") Long id, Locale locale){
+        return new ResponseEntity(new APIResponse<>(
+                HttpStatus.OK.value(),
+                messageSource.getMessage("hello", null, locale),
+                typeRoomService.findTypeRoomById(id)
+        ), HttpStatus.OK);
+    }
+
+    @PutMapping
+    public ResponseEntity<APIResponse<TypeRoomDTO>> updateTypeRoom(@RequestBody TypeRoomDTO typeRoomDTO, Locale locale) throws NotFoundException {
+        return new ResponseEntity(new APIResponse<>(
+                HttpStatus.OK.value(),
+                messageSource.getMessage("hello", null, locale),
+                typeRoomService.updateTypeRoom(typeRoomDTO)
+        ), HttpStatus.OK);
+    }
+
+    @PostMapping
+    public ResponseEntity<APIResponse<TypeRoomDTO>> createTypeRoom(@RequestBody TypeRoomDTO typeRoomDTO, Locale locale){
+        return new ResponseEntity(new APIResponse<>(
+                HttpStatus.OK.value(),
+                messageSource.getMessage("hello", null, locale),
+                typeRoomService.createTypeRoom(typeRoomDTO)
+        ), HttpStatus.OK);
     }
 }
