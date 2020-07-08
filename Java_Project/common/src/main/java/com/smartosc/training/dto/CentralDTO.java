@@ -1,9 +1,13 @@
 package com.smartosc.training.dto;
 
-import lombok.Getter;
-import lombok.Setter;
 
+import com.smartosc.training.validations.TitleConstraint;
 import java.util.List;
+import lombok.AllArgsConstructor;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  * Fresher-Training
@@ -13,9 +17,13 @@ import java.util.List;
  */
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class CentralDTO {
-    private Long id;
-    private String title;
-    private String imgUrl;
-    private List<CityDTO> cities;
+
+
+  private Long id;
+  @TitleConstraint private String title;
+  private String imgUrl;
+  private List<CityDTO> cityDTOS;
 }

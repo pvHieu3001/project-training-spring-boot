@@ -20,16 +20,6 @@ import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 public class I18NConfig implements WebMvcConfigurer {
 
 
-    @Bean(name = "localeResolver")
-    public LocaleResolver getLocaleResolver() {
-        CookieLocaleResolver resolver = new CookieLocaleResolver();
-        resolver.setCookieDomain("myAppLocaleCookie");
-//    60 minutes
-        resolver.setCookieMaxAge(60 * 60);
-        return resolver;
-
-    }
-
     @Bean(name = "messageSource")
     public MessageSource getMessageSource() {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();

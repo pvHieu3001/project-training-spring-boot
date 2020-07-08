@@ -1,7 +1,10 @@
 package com.smartosc.training.exceptions;
 
+import com.smartosc.training.dto.ErrorResponse;
+import java.util.Locale;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,73 +32,55 @@ import java.util.Map;
 @RestControllerAdvice
 public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @Autowired
-    MessageSource messageSource;
+  @Autowired private MessageSource messageSource;
 
-    @Override
-    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
-                                                                  HttpHeaders headers,
-                                                                  HttpStatus status, WebRequest request) {
+  @Override
+  protected ResponseEntity<Object> handleMethodArgumentNotValid(
+      MethodArgumentNotValidException ex,
+      HttpHeaders headers,
+      HttpStatus status,
+      WebRequest request) {
 
-        Map<String, String> errorMessageMap = new HashMap<>();
+    Map<String, String> errorMessageMap = new HashMap<>();
 
-        ex.getBindingResult().getAllErrors().forEach(e -> {
-            if (e instanceof FieldError) {
-                errorMessageMap.put(((FieldError) e).getField(), e.getDefaultMessage());
-            }
-        });
-        ErrorObject errorObject = new ErrorObject();
-        errorObject.setMessages(errorMessageMap);
+    ex.getBindingResult()
+        .getAllErrors()
+        .forEach(
+            e -> {
+              if (e instanceof FieldError) {
+                errorMessageMap.put(
+                    ((FieldError) e).getField(),
+                    messageSource.getMessage(
+                        e.getDefaultMessage(), null, request.getLocale()));
+              }
+            });
 
-        return new ResponseEntity<>(errorObject, HttpStatus.BAD_REQUEST);
+    ErrorResponse errorResponse = new ErrorResponse();
 
-    }
+    errorResponse.setStatus(HttpStatus.BAD_REQUEST.value());
+    errorResponse.setTimestamp(LocalDateTime.now());
+    errorResponse.setMessages(errorMessageMap);
 
-    @ExceptionHandler(NotFoundException.class)
-    public ResponseEntity<ErrorObject> customHandleNotFound(Exception ex, WebRequest request, Locale locale) {
-        ErrorObject errorObject = new ErrorObject();
-        errorObject.setTimestamp(LocalDateTime.now());
-        errorObject.setError(messageSource.getMessage(ex.getMessage(), null, locale));
-        errorObject.setStatus(HttpStatus.NOT_FOUND.value());
-        return new ResponseEntity<>(errorObject, HttpStatus.NOT_FOUND);
-    }
+    return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+  }
 
-    @ExceptionHandler(LockedException.class)
-    public ResponseEntity<ErrorObject> customHandleLocked(Exception ex, WebRequest request, Locale locale) {
-        ErrorObject errorObject = new ErrorObject();
-        errorObject.setTimestamp(LocalDateTime.now());
-        errorObject.setError(messageSource.getMessage(ex.getMessage(), null, locale));
-        errorObject.setStatus(HttpStatus.LOCKED.value());
-        return new ResponseEntity<>(errorObject, HttpStatus.LOCKED);
-    }
+  @ExceptionHandler(NotFoundException.class)
+  public ResponseEntity<ErrorResponse> customHandleNotFound(
+      NotFoundException ex, WebRequest request, Locale locale) {
+    ErrorResponse errorResponse = new ErrorResponse();
+    errorResponse.setTimestamp(LocalDateTime.now());
+    errorResponse.setError(messageSource.getMessage(ex.getMessage(), null, locale));
+    errorResponse.setStatus(HttpStatus.NOT_FOUND.value());
+    return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
+  }
 
-    @ExceptionHandler(NullPointerException.class)
-    public ResponseEntity<ErrorObject> customHandleNullPointer(NullPointerException ex, WebRequest request, Locale locale) {
-        ErrorObject errorObject = new ErrorObject();
-        errorObject.setTimestamp(LocalDateTime.now());
-        errorObject.setError(messageSource.getMessage(ex.getMessage(), null, locale));
-        errorObject.setStatus(HttpStatus.BAD_REQUEST.value());
-        errorObject.setDetail(request.getDescription(false));
-        return new ResponseEntity<>(errorObject, HttpStatus.BAD_REQUEST);
-    }
-
-    @ExceptionHandler(DuplicateException.class)
-    public ResponseEntity<ErrorObject> customHandleDuplicateException(DuplicateException ex, WebRequest request) {
-        ErrorObject errorObject = new ErrorObject();
-        errorObject.setTimestamp(LocalDateTime.now());
-        errorObject.setError(ex.getMessage());
-        errorObject.setStatus(HttpStatus.BAD_REQUEST.value());
-        errorObject.setDetail(request.getDescription(false));
-        return new ResponseEntity<>(errorObject, HttpStatus.BAD_REQUEST);
-    }
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<ErrorObject> customHandleOtherError(Exception ex, WebRequest request, Locale locale) {
-        ErrorObject errorObject = new ErrorObject();
-        errorObject.setTimestamp(LocalDateTime.now());
-        errorObject.setError(messageSource.getMessage(ex.getMessage(), null, locale));
-        errorObject.setStatus(HttpStatus.BAD_REQUEST.value());
-        errorObject.setDetail(request.getDescription(false));
-        return new ResponseEntity<>(errorObject, HttpStatus.BAD_REQUEST);
-    }
-
+  @ExceptionHandler(DuplicateKeyException.class)
+  public ResponseEntity<ErrorResponse> customHandleDuplicate(
+      DuplicateKeyException ex, WebRequest request, Locale locale) {
+    ErrorResponse errorResponse = new ErrorResponse();
+    errorResponse.setTimestamp(LocalDateTime.now());
+    errorResponse.setError(messageSource.getMessage(ex.getMessage(), null, locale));
+    errorResponse.setStatus(HttpStatus.BAD_REQUEST.value());
+    return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+  }
 }
