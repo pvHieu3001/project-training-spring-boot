@@ -4,7 +4,6 @@ import com.smartosc.training.dto.*;
 import com.smartosc.training.entities.*;
 import com.smartosc.training.exceptions.DuplicateException;
 import com.smartosc.training.exceptions.NotFoundException;
-import com.smartosc.training.exceptions.NullPointerException;
 import com.smartosc.training.repositories.CityRepository;
 import com.smartosc.training.services.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +27,7 @@ public class CityServiceImpl implements CityService {
     private CityRepository cityRepository;
 
     @Override
-    public List<CityDTO> getAllCities() throws NullPointerException {
+    public List<CityDTO> getAllCities() {
         List<CityDTO> cityDTOList = new ArrayList<>();
         List<City> cityList = cityRepository.findAll();
 
@@ -39,7 +38,7 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
-    public CityDTO getCityWithHotels(Long id) throws NotFoundException {
+    public CityDTO getCityWithHotels(Long id) {
         Optional<City> city = cityRepository.findById(id);
 
         if (city.isPresent()) {

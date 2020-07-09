@@ -82,7 +82,7 @@ public class UserServicesImpl implements UserService {
     }
 
     @Override
-    public List<UserDTO> getUserById(Long id) throws NotFoundException {
+    public List<UserDTO> getUserById(Long id) {
         UserSpecifications userSpecifications = UserSpecifications.spec();
         List<UserDTO> list = new ArrayList<>(); // khai báo một list rỗng để chứa
         Optional.ofNullable(id).ifPresent(s -> userSpecifications.buildGetById(id));
@@ -121,7 +121,7 @@ public class UserServicesImpl implements UserService {
     }
 
     @Override
-    public UserDTO findUserByUserName(String name) throws NotFoundException {
+    public UserDTO findUserByUserName(String name) {
         User userEntity = userRepository.findByUsername(name);
         if (userEntity != null) {
             UserDTO userDTO = new UserDTO();
@@ -152,7 +152,7 @@ public class UserServicesImpl implements UserService {
     }
 
     @Override
-    public UserDTO deleteUserById(Long id) throws NotFoundException {
+    public UserDTO deleteUserById(Long id) {
         Optional<User> optionalUser = userRepository.findById(id);
         if (optionalUser.isPresent()) {
             optionalUser.get().setStatus(0);
@@ -165,7 +165,7 @@ public class UserServicesImpl implements UserService {
     }
 
     @Override
-    public UserDTO updateUser(Long id, UserDTO userDTO) throws NotFoundException {
+    public UserDTO updateUser(Long id, UserDTO userDTO) {
         if (!userRepository.findById(id).isPresent()) {
             throw new NotFoundException("Tai khoan khong ton tai");
         }
