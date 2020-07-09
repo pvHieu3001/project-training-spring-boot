@@ -48,4 +48,5 @@ public class UserSpecifications {
         specializations.add(getUserById(id));
     }
 
+
 }

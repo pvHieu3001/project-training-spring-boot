@@ -38,4 +38,8 @@ public class Role {
     @ManyToMany(mappedBy = "roles")
     private List<User> accounts;
 
+    public Role(Long id,String name){
+        this.roleId = id;
+        this.name = name;
+    }
 }

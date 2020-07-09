@@ -2,14 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3ccb744-9913-4ae2-84bd-20e63fb2f4e1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/service/src/test/java/com.smartosc.training/UserServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/config/I18NConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/config/I18NConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/RoleDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/RoleDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/entities/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/entities/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/UserSpecifications.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/UserSpecifications.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/UserServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/UserServicesImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/test/java/com.smartosc.training/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/test/java/com.smartosc.training/UserServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageOptionsProvider">
+    <option name="myAddOrReplace" value="0" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="71" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -108,6 +119,107 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.ServiceApplication">
+    <configuration name="UserServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.smartosc.training.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.smartosc.training" />
+      <option name="MAIN_CLASS_NAME" value="com.smartosc.training.UserServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest.testDeleteByIdSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.smartosc.training.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.smartosc.training" />
+      <option name="MAIN_CLASS_NAME" value="com.smartosc.training.UserServiceTest" />
+      <option name="METHOD_NAME" value="testDeleteByIdSuccess" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest.testGetAllUserFail" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="service" />
+      <useClassPathOnly />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.smartosc.training.*" />
+          <option name="ENABLED" value="false" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="com.smartosc.training.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.smartosc.training" />
+      <option name="MAIN_CLASS_NAME" value="com.smartosc.training.UserServiceTest" />
+      <option name="METHOD_NAME" value="testGetAllUserFail" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest.testGetByIdSpecSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.smartosc.training.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.smartosc.training" />
+      <option name="MAIN_CLASS_NAME" value="com.smartosc.training.UserServiceTest" />
+      <option name="METHOD_NAME" value="testGetByIdSpecSuccess" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest.testUpdateUserFail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.smartosc.training.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.smartosc.training" />
+      <option name="MAIN_CLASS_NAME" value="com.smartosc.training.UserServiceTest" />
+      <option name="METHOD_NAME" value="testUpdateUserFail" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest.testUpdateUserSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.smartosc.training.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.smartosc.training" />
+      <option name="MAIN_CLASS_NAME" value="com.smartosc.training.UserServiceTest" />
+      <option name="METHOD_NAME" value="testUpdateUserSuccess" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AdminApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="admin" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.smartosc.training.AdminApplication" />
@@ -129,6 +241,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JUnit.UserServiceTest.testGetAllUserFail" />
+      <item itemvalue="JUnit.UserServiceTest.testDeleteByIdSuccess" />
+      <item itemvalue="JUnit.UserServiceTest.testUpdateUserSuccess" />
+      <item itemvalue="JUnit.UserServiceTest.testUpdateUserFail" />
+      <item itemvalue="JUnit.UserServiceTest.testGetByIdSpecSuccess" />
+      <item itemvalue="JUnit.UserServiceTest" />
+      <item itemvalue="Spring Boot.AdminApplication" />
+      <item itemvalue="Spring Boot.ClientApplication" />
+      <item itemvalue="Spring Boot.ServiceApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.UserServiceTest.testGetByIdSpecSuccess" />
+        <item itemvalue="JUnit.UserServiceTest" />
+        <item itemvalue="JUnit.UserServiceTest.testUpdateUserFail" />
+        <item itemvalue="JUnit.UserServiceTest.testUpdateUserSuccess" />
+        <item itemvalue="JUnit.UserServiceTest.testDeleteByIdSuccess" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -167,7 +299,9 @@
       <workItem from="1593660937761" duration="6564000" />
       <workItem from="1594004750639" duration="1249000" />
       <workItem from="1594023439750" duration="8832000" />
-      <workItem from="1594089649872" duration="15466000" />
+      <workItem from="1594089649872" duration="17982000" />
+      <workItem from="1594176005833" duration="20774000" />
+      <workItem from="1594263541078" duration="4709000" />
     </task>
     <servers />
   </component>
@@ -175,66 +309,74 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="535" y="169" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593761175232">
+    <state x="535" y="169" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594179806080">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="535" y="169" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593761175232" />
+    <state x="535" y="169" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594179806080" />
     <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1594106385287">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1594106385287" />
+    <state x="811" y="290" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1594179802119">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="811" y="290" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594179802119" />
+    <state x="810" y="298" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1594177600151">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="810" y="298" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594177600151" />
     <state x="714" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1594005647672">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="714" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594005647672" />
-    <state width="1877" height="410" key="GridCell.Tab.0.bottom" timestamp="1594117637055">
+    <state width="1877" height="208" key="GridCell.Tab.0.bottom" timestamp="1594268108473">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="410" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594117637055" />
-    <state width="1877" height="410" key="GridCell.Tab.0.center" timestamp="1594117637055">
+    <state width="1877" height="208" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594268108473" />
+    <state width="1877" height="208" key="GridCell.Tab.0.center" timestamp="1594268108473">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="410" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594117637055" />
-    <state width="1877" height="410" key="GridCell.Tab.0.left" timestamp="1594117637055">
+    <state width="1877" height="208" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594268108473" />
+    <state width="1877" height="208" key="GridCell.Tab.0.left" timestamp="1594268108472">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="410" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594117637055" />
-    <state width="1877" height="410" key="GridCell.Tab.0.right" timestamp="1594117637055">
+    <state width="1877" height="208" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594268108472" />
+    <state width="1877" height="208" key="GridCell.Tab.0.right" timestamp="1594268108473">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="410" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594117637055" />
-    <state width="1877" height="410" key="GridCell.Tab.1.bottom" timestamp="1594117637056">
+    <state width="1877" height="208" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594268108473" />
+    <state width="1877" height="208" key="GridCell.Tab.1.bottom" timestamp="1594268108473">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="410" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594117637056" />
-    <state width="1877" height="410" key="GridCell.Tab.1.center" timestamp="1594117637056">
+    <state width="1877" height="208" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594268108473" />
+    <state width="1877" height="208" key="GridCell.Tab.1.center" timestamp="1594268108473">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="410" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594117637056" />
-    <state width="1877" height="410" key="GridCell.Tab.1.left" timestamp="1594117637055">
+    <state width="1877" height="208" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594268108473" />
+    <state width="1877" height="208" key="GridCell.Tab.1.left" timestamp="1594268108473">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="410" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594117637055" />
-    <state width="1877" height="410" key="GridCell.Tab.1.right" timestamp="1594117637056">
+    <state width="1877" height="208" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594268108473" />
+    <state width="1877" height="208" key="GridCell.Tab.1.right" timestamp="1594268108473">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="410" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594117637056" />
-    <state width="1877" height="374" key="GridCell.Tab.2.bottom" timestamp="1594105152204">
+    <state width="1877" height="208" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594268108473" />
+    <state width="1877" height="322" key="GridCell.Tab.2.bottom" timestamp="1594207419460">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="374" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594105152204" />
-    <state width="1877" height="374" key="GridCell.Tab.2.center" timestamp="1594105152204">
+    <state width="1877" height="322" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594207419460" />
+    <state width="1877" height="322" key="GridCell.Tab.2.center" timestamp="1594207419460">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="374" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594105152204" />
-    <state width="1877" height="374" key="GridCell.Tab.2.left" timestamp="1594105152204">
+    <state width="1877" height="322" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594207419460" />
+    <state width="1877" height="322" key="GridCell.Tab.2.left" timestamp="1594207419460">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="374" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594105152204" />
-    <state width="1877" height="374" key="GridCell.Tab.2.right" timestamp="1594105152204">
+    <state width="1877" height="322" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594207419460" />
+    <state width="1877" height="322" key="GridCell.Tab.2.right" timestamp="1594207419460">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="374" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594105152204" />
+    <state width="1877" height="322" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594207419460" />
     <state x="490" y="175" key="Maven.ArtifactSearchDialog" timestamp="1594028750262">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -247,9 +389,105 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="342" y="228" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1593574782564" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1594028587414">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1594192024555">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1594028587414" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1594192024555" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/service/src/test/java/com.smartosc.training/UserServiceTest.java</url>
+          <line>148</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/UserServicesImpl.java</url>
+          <line>96</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/UserServicesImpl.java</url>
+          <line>109</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/service/src/test/java/com.smartosc.training/UserServiceTest.java</url>
+          <line>146</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/service/src/test/java/com.smartosc.training/UserServiceTest.java</url>
+          <line>98</line>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/UserServicesImpl.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/UserServicesImpl.java</url>
+          <line>104</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/service/src/test/java/com.smartosc.training/UserServiceTest.java</url>
+          <line>144</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testFindUserByUserNameSuccess.ic" NAME="UserServiceTest.testFindUserByUserNameSuccess Coverage Results" MODIFIED="1594194192355" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.smartosc.training.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testGetAllUserFail.ic" NAME="UserServiceTest.testGetAllUserFail Coverage Results" MODIFIED="1594177659338" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.smartosc.training.services.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest.ic" NAME="UserServiceTest Coverage Results" MODIFIED="1594203218962" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.smartosc.training.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testGetAllUserStatusSpecFail.ic" NAME="UserServiceTest.testGetAllUserStatusSpecFail Coverage Results" MODIFIED="1594179315653" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.smartosc.training.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testGetAllUserSuccess.ic" NAME="UserServiceTest.testGetAllUserSuccess Coverage Results" MODIFIED="1594177443297" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.smartosc.training.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testGetAllUserStatusFail.ic" NAME="UserServiceTest.testGetAllUserStatusFail Coverage Results" MODIFIED="1594177885371" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.smartosc.training.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testDeleteByIdFail.ic" NAME="UserServiceTest.testDeleteByIdFail Coverage Results" MODIFIED="1594195181384" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.smartosc.training.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testGetAllUserStatusTrueSuccess.ic" NAME="UserServiceTest.testGetAllUserStatusTrueSuccess Coverage Results" MODIFIED="1594177843221" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.smartosc.training.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testUpdateUserFail.ic" NAME="UserServiceTest.testUpdateUserFail Coverage Results" MODIFIED="1594199481168" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.smartosc.training.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testGetByIdSpecSuccess.ic" NAME="UserServiceTest.testGetByIdSpecSuccess Coverage Results" MODIFIED="1594181569603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.smartosc.training.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testUpdateUserSuccess.ic" NAME="UserServiceTest.testUpdateUserSuccess Coverage Results" MODIFIED="1594199256347" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.smartosc.training.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testCreateUserFail.ic" NAME="UserServiceTest.testCreateUserFail Coverage Results" MODIFIED="1594192368781" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.smartosc.training.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testCreateUserSuccess.ic" NAME="UserServiceTest.testCreateUserSuccess Coverage Results" MODIFIED="1594192166398" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.smartosc.training.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testGetAllUserWithSpecSuccess.ic" NAME="UserServiceTest.testGetAllUserWithSpecSuccess Coverage Results" MODIFIED="1594179812445" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.smartosc.training.services.impl.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testFindUserByUserNameFail.ic" NAME="UserServiceTest.testFindUserByUserNameFail Coverage Results" MODIFIED="1594194240252" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.smartosc.training.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testDeleteByIdSuccess.ic" NAME="UserServiceTest.testDeleteByIdSuccess Coverage Results" MODIFIED="1594195333256" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.smartosc.training.*</FILTER>
+    </SUITE>
   </component>
 </project>

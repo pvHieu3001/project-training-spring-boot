@@ -65,7 +65,7 @@ public class UserController {
 
         APIResponse<List<UserDTO>> apiResponse = new APIResponse<>();
         apiResponse.setStatus(HttpStatus.OK.toString());
-        apiResponse.setMessage("NotFound.user.id");
+        apiResponse.setMessage("Success");
         apiResponse.setData(userRespones);
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
