@@ -31,8 +31,11 @@ public class HotelServiceImpl implements HotelService {
     @Autowired
     private HotelRepository hotelRepository;
 
-    @Autowired
-    private ModelMapper modelMapper;
+    public HotelServiceImpl(){}
+
+    public HotelServiceImpl(HotelRepository repository) {
+        this.hotelRepository = repository;
+    }
 
     @Override
     public List<HotelDTO> getAllHotels() {

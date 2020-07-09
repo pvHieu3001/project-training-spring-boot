@@ -18,12 +18,19 @@ import java.util.List;
 public class HotelSpecification {
     private final List<Specification<Hotel>> personSpecs = new ArrayList<>();
 
-    public static Specification<Hotel> geHotelsByNameSpec(String name) {
+    public static Specification<Hotel> geHotelsByNameSpec(final String searchTerm) {
         return new Specification<Hotel>() {
             @Override
             public Predicate toPredicate(Root<Hotel> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
-                Predicate equalPredicate = criteriaBuilder.equal(root.get(Hotel_.name), name);
-                return equalPredicate;
+                String likePattern = getLikePattern(searchTerm);
+                return criteriaBuilder.like(criteriaBuilder.lower(root.<String>get(Hotel_.name)), likePattern);
+            }
+
+            private String getLikePattern(final String searchTerm) {
+                StringBuilder pattern = new StringBuilder();
+                pattern.append(searchTerm.toLowerCase());
+                pattern.append("%");
+                return pattern.toString();
             }
         };
     }

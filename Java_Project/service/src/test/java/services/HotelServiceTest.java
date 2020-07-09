@@ -1,5 +1,6 @@
 package services;
 
+import com.smartosc.training.controllers.HotelController;
 import com.smartosc.training.dto.CityDTO;
 import com.smartosc.training.dto.HotelDTO;
 import com.smartosc.training.dto.TypeRoomDTO;
@@ -7,24 +8,22 @@ import com.smartosc.training.entities.*;
 import com.smartosc.training.exceptions.DuplicateException;
 import com.smartosc.training.exceptions.NotFoundException;
 import com.smartosc.training.repositories.HotelRepository;
+import com.smartosc.training.repositories.specifications.HotelSpecification;
 import com.smartosc.training.services.HotelService;
 import com.smartosc.training.services.impl.HotelServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.mockito.*;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.data.jpa.domain.Specification;
 
+import javax.persistence.criteria.*;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
+import static java.util.Locale.US;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
@@ -51,6 +50,10 @@ public class HotelServiceTest {
     private Optional<Hotel> optionalHotel;
     private List<HotelDTO> hotelDTOList;
     private HotelDTO hotelDTO, testInput;
+
+    private static final String SEARCH_TERM = "Hotel 1";
+    private HotelController controller;
+
 
     @Before
     public void setUp(){
@@ -88,6 +91,7 @@ public class HotelServiceTest {
         hotelList.add(hotel);
         hotelList.add(hotel1);
         hotelList.add(hotel2);
+
     }
 
     @Test
@@ -153,6 +157,35 @@ public class HotelServiceTest {
         when(hotelRepository.findById(anyLong())).thenReturn(Optional.of(new Hotel()));
         hotelService.deleteHotel(anyLong());
         verify(hotelRepository, times(1)).deleteById(anyLong());
+    }
+
+    @Test
+    public void geHotelsByName() {
+        List<Hotel> expected = new ArrayList<>();
+        expected.add(hotel);
+        when(hotelRepository.findAll(HotelSpecification.geHotelsByNameSpec(SEARCH_TERM))).thenReturn(expected);
+
+        controller = new HotelController();
+
+//        verify(hotelRepository, times(1)).findByName(SEARCH_TERM);
+//        verifyNoMoreInteractions(hotelService);
+        List<HotelDTO> actual = hotelService.geHotelsByName(SEARCH_TERM);
+
+        assertEquals(expected.get(0).getName(), "Hotel 1");
+    }
+
+
+
+    private void assertDtos(List<Hotel> expected, List<HotelDTO> actual) {
+        assertEquals(expected.size(), actual.size());
+
+        for (int index = 0; index < expected.size(); index++) {
+            Hotel model = expected.get(index);
+            HotelDTO dto = actual.get(index);
+
+            assertEquals(model.getId(), dto.getId());
+            assertEquals(model.getName(), dto.getName());
+        }
     }
 
     @Test

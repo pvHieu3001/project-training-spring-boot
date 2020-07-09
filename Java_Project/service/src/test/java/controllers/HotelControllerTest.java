@@ -3,6 +3,7 @@ package controllers;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.smartosc.training.controllers.HotelController;
 import com.smartosc.training.dto.*;
+import com.smartosc.training.entities.Hotel;
 import com.smartosc.training.exceptions.CustomExceptionHandler;
 import com.smartosc.training.services.HotelService;
 import org.junit.Before;
@@ -130,6 +131,10 @@ public class HotelControllerTest {
                 delete("/api/hotels/{id}", anyLong())
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
+    }
+
+    @Test
+    public void geHotelsByName() {
     }
 
     private static String asJsonString(final Object obj) {
