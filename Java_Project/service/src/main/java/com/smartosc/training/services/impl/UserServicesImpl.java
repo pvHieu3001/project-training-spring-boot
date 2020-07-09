@@ -80,7 +80,7 @@ public class UserServicesImpl implements UserService {
     public List<UserDTO> getAllUserWithSpec() {
         UserSpecifications userSpecifications = UserSpecifications.spec();
         List<UserDTO> list = new ArrayList<>(); // khai báo một list rỗng để chứa
-        List<User> userEntitys = userRepository.findAll(userSpecifications.buildGetAll());
+        List<User> userEntitys = userRepository.findAll(userSpecifications.all());
         if (userEntitys.size() > 0){
             for (User user : userEntitys) {
                 UserDTO userRespone = modelMapper.map(user, UserDTO.class);
@@ -96,8 +96,8 @@ public class UserServicesImpl implements UserService {
     public List<UserDTO> getUserById(Long id) throws NotFoundException{
         UserSpecifications userSpecifications = UserSpecifications.spec();
         List<UserDTO> list = new ArrayList<>();
-        Optional.ofNullable(id).ifPresent(s -> userSpecifications.buildGetById(id));
-        List<User> userEntitys = userRepository.findAll(userSpecifications.buildGetAll());
+        Optional.ofNullable(id).ifPresent(s -> userSpecifications.byUserId(id));
+        List<User> userEntitys = userRepository.findAll(userSpecifications.all());
         if (userEntitys.size() == 0) {
             log.info("get id fail,id not found");
             throw new NotFoundException("Id not found");
