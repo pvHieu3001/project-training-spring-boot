@@ -32,8 +32,6 @@ public class JwtUserDetailServiceImpl implements UserDetailsService {
     @Autowired
     private UserService userService;
 
-
-    @SneakyThrows
     @Override
     public UserDetails loadUserByUsername(String userName) {
         UserDTO users = userService.findUserByUserName(userName);

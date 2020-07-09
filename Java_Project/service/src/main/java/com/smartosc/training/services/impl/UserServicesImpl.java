@@ -139,11 +139,11 @@ public class UserServicesImpl implements UserService {
                 roleDTO.setName(role.getName());
                 roleDTOS.add(roleDTO);
             }
-            userDTO.setRoles(roleDTOS);
+            userDTO.setRoleDTOS(roleDTOS);
             List<CommentDTO> commentDTOS = new ArrayList<>();
-            userDTO.setComments(commentDTOS);
+            userDTO.setCommentDTOS(commentDTOS);
             StatusOTDTO statusOTDTOS = new StatusOTDTO();
-            userDTO.setStatusOT(statusOTDTOS);
+            userDTO.setStatusOTDTO(statusOTDTOS);
             return userDTO;
 
         } else {
