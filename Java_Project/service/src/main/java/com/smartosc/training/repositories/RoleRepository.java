@@ -15,7 +15,7 @@ import java.util.List;
  */
 @Repository
 public interface RoleRepository extends JpaRepository<Role,Long> {
-    List<Role> findByAccountsUsername(String username);
+    List<Role> findAllByAccountsUsername(String username);
 
     Role findByName(String name);
 }

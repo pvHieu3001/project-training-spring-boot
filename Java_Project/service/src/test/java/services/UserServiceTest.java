@@ -1,4 +1,4 @@
-package com.smartosc.training;
+package services;
 
 import com.smartosc.training.dto.CommentDTO;
 import com.smartosc.training.dto.RoleDTO;
@@ -9,7 +9,6 @@ import com.smartosc.training.entities.Role;
 import com.smartosc.training.entities.StatusOT;
 import com.smartosc.training.entities.User;
 import com.smartosc.training.exceptions.NotFoundException;
-import com.smartosc.training.repositories.RoleRepository;
 import com.smartosc.training.repositories.UserRepository;
 import com.smartosc.training.repositories.specifications.UserSpecifications;
 import com.smartosc.training.services.UserService;

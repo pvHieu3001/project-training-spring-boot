@@ -35,7 +35,7 @@ public class RoleServicesImpl implements RoleService {
     @Override
     public List<RoleDTO> findByUsersUserName(String userName) {
         List<RoleDTO> roleResponses = new ArrayList<>();
-        List<Role> roleList = roleRepository.findByAccountsUsername(userName);
+        List<Role> roleList = roleRepository.findAllByAccountsUsername(userName);
         for (Role role : roleList ){
             RoleDTO roleResponse = modelMapper.map(role,RoleDTO.class);
             roleResponses.add(roleResponse);

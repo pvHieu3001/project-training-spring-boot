@@ -1,6 +1,7 @@
 package com.smartosc.training.services;
 
-import com.smartosc.training.dto.TypeRoomDTO;
+import com.smartosc.training.dto.DetailTypeRoomDTO;
+import javassist.NotFoundException;
 
 import java.util.List;
 
@@ -13,5 +14,8 @@ import java.util.List;
  * @since 02/07/2020
  */
 public interface DetailTypeRoomService {
-    public List<TypeRoomDTO> findTypeRoomById(Long id);
+    public List<DetailTypeRoomDTO> findDetailTypeRoomById(Long id);
+    public DetailTypeRoomDTO updateDetailTypeRoom(DetailTypeRoomDTO detailTypeRoomDTO) throws NotFoundException;
+    public DetailTypeRoomDTO createDetailTypeRoom(DetailTypeRoomDTO detailTypeRoomDTO);
+    public void deleteDetailTypeRoom(Long[] id);
 }

@@ -5,12 +5,14 @@ import com.smartosc.training.dto.UserDTO;
 import com.smartosc.training.services.UserService;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Fresher-Training
@@ -23,69 +25,73 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
+    @Autowired
+    private MessageSource messageSource;
 
     @Autowired
     private UserService userService;
 
     @GetMapping
-    public ResponseEntity<APIResponse<List<UserDTO>>> getAllUser() {
-        List<UserDTO> userRespones = userService.getAllUser();
+    public ResponseEntity<APIResponse<List<UserDTO>>> getAllUser(Locale locale) {
+        List<UserDTO> userDTOS = userService.getAllUser();
 
         APIResponse<List<UserDTO>> apiResponse = new APIResponse<>();
-        apiResponse.setStatus(HttpStatus.OK.toString());
-        apiResponse.setMessage("get all thanh cong em oi");
-        apiResponse.setData(userRespones);
+        apiResponse.setStatus(HttpStatus.OK.value());
+        apiResponse.setMessage(messageSource.getMessage("message.getAll.user.success", null, locale));
+        apiResponse.setData(userDTOS);
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
+
+    @GetMapping({"/spec"})
+    public ResponseEntity<APIResponse<List<UserDTO>>> getAllUserWithSpec(Locale locale) {
+        List<UserDTO> userDTOS = userService.getAllUserWithSpec();
+
+        APIResponse<List<UserDTO>> apiResponse = new APIResponse<>();
+        apiResponse.setStatus(HttpStatus.OK.value());
+        apiResponse.setMessage(messageSource.getMessage("message.getAll.user.success", null, locale));
+        apiResponse.setData(userDTOS);
+        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
+    }
+
     @GetMapping("/status")
-    public ResponseEntity<APIResponse<List<UserDTO>>> getAllUserStatusTrue() {
-        List<UserDTO> userRespones = userService.getAllUserStatusTrue();
+    public ResponseEntity<APIResponse<List<UserDTO>>> getAllUserStatusTrue(Locale locale) {
+        List<UserDTO> userDTOS = userService.getAllUserStatusTrue();
 
         APIResponse<List<UserDTO>> apiResponse = new APIResponse<>();
-        apiResponse.setStatus(HttpStatus.OK.toString());
-        apiResponse.setMessage("Messsage.status.ok");
-        apiResponse.setData(userRespones);
+        apiResponse.setStatus(HttpStatus.OK.value());
+        apiResponse.setMessage(messageSource.getMessage("Message.status.ok", null, locale));
+        apiResponse.setData(userDTOS);
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
-    @GetMapping("/spec")
-    public ResponseEntity<APIResponse<List<UserDTO>>> getAllUserWithSpec() {
-        List<UserDTO> userRespones = userService.getAllUserWithSpec();
-
-        APIResponse<List<UserDTO>> apiResponse = new APIResponse<>();
-        apiResponse.setStatus(HttpStatus.OK.toString());
-        apiResponse.setMessage("get all thanh cong em oi");
-        apiResponse.setData(userRespones);
-        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
-    }
-
 
     @GetMapping("/spec/{id}")
-    public ResponseEntity<APIResponse<List<UserDTO>>> getAllUserWithSpecId(@PathVariable(value = "id") Long id) {
-        List<UserDTO> userRespones = userService.getUserById(id);
+    public ResponseEntity<APIResponse<List<UserDTO>>> getAllUserWithSpecId(@PathVariable(value = "id") Long id, Locale locale) {
+        List<UserDTO> userDTOS = userService.getUserById(id);
 
         APIResponse<List<UserDTO>> apiResponse = new APIResponse<>();
-        apiResponse.setStatus(HttpStatus.OK.toString());
-        apiResponse.setMessage("Success");
-        apiResponse.setData(userRespones);
+        apiResponse.setStatus(HttpStatus.OK.value());
+        apiResponse.setMessage(messageSource.getMessage("Message.user.id", null, locale));
+        apiResponse.setData(userDTOS);
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
+
     @PostMapping()
-    public ResponseEntity<APIResponse<UserDTO>> createUser(@Valid @RequestBody UserDTO userDTO) {
+    public ResponseEntity<APIResponse<UserDTO>> createUser(@Valid @RequestBody UserDTO userDTO, Locale locale) {
         UserDTO request = userService.createUser(userDTO);
 
         APIResponse<UserDTO> apiResponse = new APIResponse<>();
-        apiResponse.setStatus(HttpStatus.OK.toString());
-        apiResponse.setMessage("create user success");
+        apiResponse.setStatus(HttpStatus.OK.value());
+        apiResponse.setMessage(messageSource.getMessage("message.create.user.success", null, locale));
         apiResponse.setData(request);
 
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<APIResponse<UserDTO>> updateUser(@RequestBody @Valid UserDTO userDTO, @PathVariable(value = "id") Long id) throws NotFoundException {
+    public ResponseEntity<APIResponse<UserDTO>> updateUser(@RequestBody @Valid UserDTO userDTO, @PathVariable(value = "id") Long id) {
         UserDTO userDTO1 = userService.updateUser(id, userDTO);
         APIResponse<UserDTO> apiResponse = new APIResponse<>();
-        apiResponse.setStatus(HttpStatus.OK.toString());
+        apiResponse.setStatus(HttpStatus.OK.value());
         apiResponse.setMessage("Update user success");
         apiResponse.setData(userDTO1);
 
@@ -93,13 +99,12 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<APIResponse<UserDTO>> deleteUserById(@PathVariable(value = "id") Long id) throws NotFoundException {
+    public ResponseEntity<APIResponse<UserDTO>> deleteUserById(@PathVariable(value = "id") Long id) {
         UserDTO userDTO = userService.deleteUserById(id);
         APIResponse<UserDTO> apiResponse = new APIResponse<>();
-        apiResponse.setStatus(HttpStatus.OK.toString());
+        apiResponse.setStatus(HttpStatus.OK.value());
         apiResponse.setMessage("delete success");
         apiResponse.setData(userDTO);
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
-
 }

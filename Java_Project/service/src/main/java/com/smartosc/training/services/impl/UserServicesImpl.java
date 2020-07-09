@@ -43,9 +43,7 @@ public class UserServicesImpl implements UserService {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-
     @Override
-
     public List<UserDTO> getAllUser() {
         List<User> users = userRepository.findAll();
         List<UserDTO> list = new ArrayList<>(); // khai báo một list rỗng để chứa
@@ -93,7 +91,7 @@ public class UserServicesImpl implements UserService {
     }
 
     @Override
-    public List<UserDTO> getUserById(Long id) throws NotFoundException{
+    public List<UserDTO> getUserById(Long id) {
         UserSpecifications userSpecifications = UserSpecifications.spec();
         List<UserDTO> list = new ArrayList<>();
         Optional.ofNullable(id).ifPresent(s -> userSpecifications.byUserId(id));
@@ -103,12 +101,13 @@ public class UserServicesImpl implements UserService {
             throw new NotFoundException("Id not found");
         }
         for (User user : userEntitys) {
-            UserDTO userRespone = modelMapper.map(user, UserDTO.class);
-            list.add(userRespone);
+            UserDTO userDTO = modelMapper.map(user, UserDTO.class);
+            list.add(userDTO);
         }
         log.info("Get  user by id  success");
         return list;
     }
+
 
     @Override
     public UserDTO createUser(UserDTO userDTO) throws DuplicateKeyException {
@@ -133,8 +132,7 @@ public class UserServicesImpl implements UserService {
     }
 
     @Override
-    public UserDTO findUserByUserName(String name) throws NotFoundException {
-
+    public UserDTO findUserByUserName(String name) {
         User userEntity = userRepository.findByUsername(name);
         if (userEntity != null) {
             UserDTO userDTO = new UserDTO();
@@ -146,6 +144,7 @@ public class UserServicesImpl implements UserService {
             List<Role> roleList = userEntity.getRoles();
             List<RoleDTO> roleDTOS = new ArrayList<>();
             for (Role role : roleList) {
+
                 RoleDTO roleDTO = new RoleDTO();
                 roleDTO.setId(role.getRoleId());
                 roleDTO.setName(role.getName());
@@ -158,14 +157,14 @@ public class UserServicesImpl implements UserService {
             userDTO.setStatusOTDTO(statusOTDTOS);
             log.info("Find User by name success!");
             return userDTO;
+
         } else {
             throw new NotFoundException("User " + name + "Not Found");
         }
     }
 
-
     @Override
-    public UserDTO deleteUserById(Long id) throws NotFoundException {
+    public UserDTO deleteUserById(Long id) {
         Optional<User> optionalUser = userRepository.findById(id);
         if (optionalUser.isPresent()) {
             optionalUser.get().setStatus(0);
@@ -182,6 +181,7 @@ public class UserServicesImpl implements UserService {
     public UserDTO updateUser(Long id, UserDTO userDTO) throws NotFoundException {
         Optional<User> optionalUser = userRepository.findById(id);
         if (optionalUser.isPresent()) {
+
             throw new NotFoundException("Tai khoan khong ton tai");
         }
         User user;

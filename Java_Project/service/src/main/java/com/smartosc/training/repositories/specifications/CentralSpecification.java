@@ -2,8 +2,11 @@ package com.smartosc.training.repositories.specifications;
 
 import com.smartosc.training.entities.Central;
 import com.smartosc.training.entities.Central_;
+import com.smartosc.training.exceptions.NotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.util.StringUtils;
 
@@ -17,30 +20,44 @@ import org.springframework.util.StringUtils;
  */
 public final class CentralSpecification {
 
-  private final List<Specification<Central>> specifications = new ArrayList<>();
+    private final List<Specification<Central>> specifications = new ArrayList<>();
 
-  public static CentralSpecification spec() {
-    return new CentralSpecification();
-  }
+    public static CentralSpecification spec() {
+        return new CentralSpecification();
+    }
 
   public void byTitle(String title) {
-    specifications.add(hasTitle(title));
+    if (!hasTitle(title).equals(Collections.EMPTY_LIST) || title.isEmpty()) {
+      specifications.add(hasTitle(title));
+    } else {
+      throw new NotFoundException("NotFound.central.title");
+    }
   }
 
-  private Specification<Central> hasTitle(String title) {
-    return StringUtils.isEmpty(title) ? all() : (root, criteriaQuery, criteriaBuilder) -> {
+    private Specification<Central> hasTitle(String title) {
+        return StringUtils.isEmpty(title) ? all() : (root, criteriaQuery, criteriaBuilder) -> {
+            criteriaQuery.distinct(true);
+            return criteriaBuilder.like(root.get(Central_.TITLE), "%" + title + "%");
+        };
+    }
+
+  public void byId(Long id) {
+    specifications.add(hasId(id));
+  }
+
+  public Specification<Central> hasId(Long id) {
+    return StringUtils.isEmpty(id) ? all() : ((root, criteriaQuery, criteriaBuilder) -> {
       criteriaQuery.distinct(true);
-      return criteriaBuilder.like(root.get(Central_.TITLE), "%" + title + "%");
-    };
+      return criteriaBuilder.equal(root.get(Central_.ID), id);
+    });
   }
 
-  public static Specification<Central> all() {
-    return ((root, criteriaQuery, criteriaBuilder) -> criteriaBuilder
-        .equal(criteriaBuilder.literal(1), 1));
-  }
+    public static Specification<Central> all() {
+        return ((root, criteriaQuery, criteriaBuilder) -> criteriaBuilder
+                .equal(criteriaBuilder.literal(1), 1));
+}
 
-  public Specification<Central> build() {
-    return Specification.where(specifications.stream().reduce(all(), Specification::and));
-  }
-  
+    public Specification<Central> build() {
+        return Specification.where(specifications.stream().reduce(all(), Specification::and));
+    }
 }

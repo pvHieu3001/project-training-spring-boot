@@ -1,7 +1,6 @@
 package com.smartosc.training.repositories.specifications;
 
 import com.smartosc.training.entities.DetailTypeRoom;
-import com.smartosc.training.entities.TypeRoom;
 import com.smartosc.training.entities.TypeRoom_;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
@@ -28,7 +27,7 @@ public class DetailTypeRoomSpecification {
     }
 
     //find by id
-    private DetailTypeRoomSpecification detailTypeRoomHasId(Long id) {
+    public DetailTypeRoomSpecification detailTypeRoomHasId(Long id) {
         personSpecs.add((Root<DetailTypeRoom> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) ->
                     criteriaBuilder.equal(root.get(TypeRoom_.ID), id)
         );

@@ -1,178 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3ccb744-9913-4ae2-84bd-20e63fb2f4e1" name="Default Changelist" comment="">
+    <list default="true" id="0dc4de3c-99f3-49e1-ac43-ebf386f52899" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/validations/TitleConstraint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/validations/TitleValidate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/DockerFile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/build.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/config/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/config/SwaggerConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/config/WebMvcConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/DetailTypeRoomController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/exceptions/DuplicateException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/exceptions/NullPointerException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/UserSpecification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/DetailTypeRoomServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/test/java/controllers/CityControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/test/java/controllers/HotelControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/test/java/controllers/UserControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/test/java/services/CityServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/test/java/services/HotelServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/APIResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/APIResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/CentralDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/CentralDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/CityDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/CityDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/CommentDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/CommentDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/HotelDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/HotelDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/RoleDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/RoleDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/config/I18NConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/config/I18NConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/ApiSecurityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/ApiSecurityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/CentralController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/CentralController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/CityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/CityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/HotelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/TypeRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/TypeRoomController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/entities/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/entities/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/UserSpecifications.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/UserSpecifications.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/exceptions/CustomExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/exceptions/CustomExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/exceptions/ErrorObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/ErrorResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/mappers/CentralConvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/mappers/CentralConvert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/CityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/CityRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/DetailTypeRoomRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/DetailTypeRoomRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/HotelRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/HotelRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/RoleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/CentralSpecification.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/CentralSpecification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/DetailTypeRoomSpecification.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/DetailTypeRoomSpecification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/TypeRoomSpecification.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/TypeRoomSpecification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/securities/JwtUserDetailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/securities/JwtUserDetailServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/CentralService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/CentralService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/CityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/CityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/DetailTypeRoomService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/DetailTypeRoomService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/HotelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/HotelService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/TypeRoomService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/TypeRoomService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/CentralServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/CentralServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/CityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/CityServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/HotelServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/HotelServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/RoleServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/RoleServicesImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/TypeRoomServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/TypeRoomServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/UserServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/UserServicesImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/test/java/com.smartosc.training/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/test/java/com.smartosc.training/UserServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/specs/HotelSpecs.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/HotelSpecification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/resources/i18n/messages_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/resources/i18n/messages_en.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/resources/i18n/messages_vi.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/resources/i18n/messages_vi.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/test/java/com.smartosc.training/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/test/java/services/UserServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="CoverageOptionsProvider">
-    <option name="myAddOrReplace" value="0" />
-  </component>
   <component name="CoverageViewManager">
-    <option name="myElementSize" value="71" />
-  </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="hotelbooking@192.90.20.232 [2]" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="hotelbooking@192.90.20.232 [2]" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="hotelbooking@192.90.20.232 [2]" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="hotelbooking: schema" type="ebfa3cd1:MariaImplModel$Schema" />
-      </path>
-    </expand>
-    <select />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
+    <option name="myElementSize" value="162" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="GitToolBoxStore">
-    <option name="recentBranches">
-      <RecentBranches>
-        <option name="branchesForRepo">
-          <list>
-            <RecentBranchesForRepo>
-              <option name="branches">
-                <list>
-                  <RecentBranch>
-                    <option name="branchName" value="pvhiu-crud-room" />
-                    <option name="lastUsedInstant" value="1593661156" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="master" />
-                    <option name="lastUsedInstant" value="1593661155" />
-                  </RecentBranch>
-                </list>
-              </option>
-              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$/.." />
-            </RecentBranchesForRepo>
-          </list>
-        </option>
-      </RecentBranches>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectId" id="1e4Dc5XpCF8BVY7bcTcfSuoA7e6" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="1eRNR1G6Ap72QaYDPekCUz3Fbkz" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DatabaseDriversLRU" value="mysql" />
-    <property name="RequestMappingsPanelOrder0" value="0" />
-    <property name="RequestMappingsPanelOrder1" value="1" />
-    <property name="RequestMappingsPanelWidth0" value="75" />
-    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="restartRequiresConfirmation" value="false" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/service/src/test/java" />
   </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\PC\Documents\Github\SmartOSC\Project1\Java_Project\service\src\main\java\com\smartosc\training" />
-      <recent name="C:\Users\PC\Documents\Github\SmartOSC\Project1\Java_Project\service\src\main\resources" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\PC\Documents\Github\SmartOSC\Project1\Java_Project\service\src\main\resources" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Spring Boot.ServiceApplication">
+  <component name="RunManager" selected="JUnit.UserServiceTest">
     <configuration name="UserServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.smartosc.training.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.smartosc.training" />
-      <option name="MAIN_CLASS_NAME" value="com.smartosc.training.UserServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceTest.testDeleteByIdSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.smartosc.training.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.smartosc.training" />
-      <option name="MAIN_CLASS_NAME" value="com.smartosc.training.UserServiceTest" />
-      <option name="METHOD_NAME" value="testDeleteByIdSuccess" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceTest.testGetAllUserFail" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="service" />
       <useClassPathOnly />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.smartosc.training.*" />
-          <option name="ENABLED" value="false" />
+          <option name="PATTERN" value="services.*" />
+          <option name="ENABLED" value="true" />
         </pattern>
         <pattern>
-          <option name="PATTERN" value="com.smartosc.training.services.*" />
+          <option name="PATTERN" value="com.smartosc.training.services.impl.UserServicesImpl" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.smartosc.training" />
-      <option name="MAIN_CLASS_NAME" value="com.smartosc.training.UserServiceTest" />
-      <option name="METHOD_NAME" value="testGetAllUserFail" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="services" />
+      <option name="MAIN_CLASS_NAME" value="services.UserServiceTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="PARAMETERS" value="" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTest.testGetByIdSpecSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="service" />
       <extension name="coverage">
         <pattern>
@@ -180,128 +130,33 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.smartosc.training" />
-      <option name="MAIN_CLASS_NAME" value="com.smartosc.training.UserServiceTest" />
-      <option name="METHOD_NAME" value="testGetByIdSpecSuccess" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceTest.testUpdateUserFail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.smartosc.training.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.smartosc.training" />
-      <option name="MAIN_CLASS_NAME" value="com.smartosc.training.UserServiceTest" />
-      <option name="METHOD_NAME" value="testUpdateUserFail" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceTest.testUpdateUserSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.smartosc.training.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.smartosc.training" />
-      <option name="MAIN_CLASS_NAME" value="com.smartosc.training.UserServiceTest" />
-      <option name="METHOD_NAME" value="testUpdateUserSuccess" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AdminApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="admin" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.smartosc.training.AdminApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ClientApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="client" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.smartosc.training.ClientApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.smartosc.training.ServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.UserServiceTest.testGetAllUserFail" />
-      <item itemvalue="JUnit.UserServiceTest.testDeleteByIdSuccess" />
-      <item itemvalue="JUnit.UserServiceTest.testUpdateUserSuccess" />
-      <item itemvalue="JUnit.UserServiceTest.testUpdateUserFail" />
-      <item itemvalue="JUnit.UserServiceTest.testGetByIdSpecSuccess" />
       <item itemvalue="JUnit.UserServiceTest" />
-      <item itemvalue="Spring Boot.AdminApplication" />
-      <item itemvalue="Spring Boot.ClientApplication" />
       <item itemvalue="Spring Boot.ServiceApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserServiceTest.testGetByIdSpecSuccess" />
         <item itemvalue="JUnit.UserServiceTest" />
-        <item itemvalue="JUnit.UserServiceTest.testUpdateUserFail" />
-        <item itemvalue="JUnit.UserServiceTest.testUpdateUserSuccess" />
-        <item itemvalue="JUnit.UserServiceTest.testDeleteByIdSuccess" />
+        <item itemvalue="Spring Boot.ServiceApplication" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:hotelbooking@192.90.20.232 [2]" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:hotelbooking@192.90.20.232 [2]" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@499c72bf" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-            </expand>
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b3ccb744-9913-4ae2-84bd-20e63fb2f4e1" name="Default Changelist" comment="" />
-      <created>1593572047870</created>
+      <changelist id="0dc4de3c-99f3-49e1-ac43-ebf386f52899" name="Default Changelist" comment="" />
+      <created>1594280433625</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1593572047870</updated>
-      <workItem from="1593572049266" duration="128000" />
-      <workItem from="1593574609302" duration="1686000" />
-      <workItem from="1593660937761" duration="6564000" />
-      <workItem from="1594004750639" duration="1249000" />
-      <workItem from="1594023439750" duration="8832000" />
-      <workItem from="1594089649872" duration="17982000" />
-      <workItem from="1594176005833" duration="20774000" />
-      <workItem from="1594263541078" duration="4709000" />
+      <updated>1594280433625</updated>
+      <workItem from="1594280434841" duration="605000" />
     </task>
     <servers />
   </component>
@@ -309,185 +164,76 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="535" y="169" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594179806080">
+    <state x="557" y="187" key="#UserServiceTest" timestamp="1594280874225">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="535" y="169" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594179806080" />
-    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1594106385287">
+    <state x="557" y="170" key="#UserServiceTest.testFindUserByUserNameSuccess" timestamp="1594280908541">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1594106385287" />
-    <state x="811" y="290" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1594179802119">
+    <state x="557" y="170" key="#UserServiceTest.testFindUserByUserNameSuccess/0.0.1920.1040@0.0.1920.1040" timestamp="1594280908541" />
+    <state x="557" y="187" key="#UserServiceTest/0.0.1920.1040@0.0.1920.1040" timestamp="1594280874225" />
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594281040576">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="811" y="290" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594179802119" />
-    <state x="810" y="298" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1594177600151">
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594281040576" />
+    <state x="690" y="296" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1594281005682">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="810" y="298" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594177600151" />
-    <state x="714" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1594005647672">
+    <state x="690" y="296" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594281005682" />
+    <state x="689" y="304" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1594281038441">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="714" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594005647672" />
-    <state width="1877" height="208" key="GridCell.Tab.0.bottom" timestamp="1594268108473">
+    <state x="689" y="304" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594281038441" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1594281046206">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="208" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594268108473" />
-    <state width="1877" height="208" key="GridCell.Tab.0.center" timestamp="1594268108473">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594281046206" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1594281046206">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="208" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594268108473" />
-    <state width="1877" height="208" key="GridCell.Tab.0.left" timestamp="1594268108472">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594281046206" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1594281046205">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="208" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594268108472" />
-    <state width="1877" height="208" key="GridCell.Tab.0.right" timestamp="1594268108473">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594281046205" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1594281046206">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="208" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594268108473" />
-    <state width="1877" height="208" key="GridCell.Tab.1.bottom" timestamp="1594268108473">
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594281046206" />
+    <state width="1877" height="282" key="GridCell.Tab.1.bottom" timestamp="1594280808696">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="208" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594268108473" />
-    <state width="1877" height="208" key="GridCell.Tab.1.center" timestamp="1594268108473">
+    <state width="1877" height="282" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594280808696" />
+    <state width="1877" height="282" key="GridCell.Tab.1.center" timestamp="1594280808696">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="208" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594268108473" />
-    <state width="1877" height="208" key="GridCell.Tab.1.left" timestamp="1594268108473">
+    <state width="1877" height="282" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594280808696" />
+    <state width="1877" height="282" key="GridCell.Tab.1.left" timestamp="1594280808696">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="208" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594268108473" />
-    <state width="1877" height="208" key="GridCell.Tab.1.right" timestamp="1594268108473">
+    <state width="1877" height="282" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594280808696" />
+    <state width="1877" height="282" key="GridCell.Tab.1.right" timestamp="1594280808696">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="208" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594268108473" />
-    <state width="1877" height="322" key="GridCell.Tab.2.bottom" timestamp="1594207419460">
+    <state width="1877" height="282" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594280808696" />
+    <state x="776" y="298" key="chooseDestDirectoryDialog" timestamp="1594280744995">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="322" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594207419460" />
-    <state width="1877" height="322" key="GridCell.Tab.2.center" timestamp="1594207419460">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="322" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594207419460" />
-    <state width="1877" height="322" key="GridCell.Tab.2.left" timestamp="1594207419460">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="322" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594207419460" />
-    <state width="1877" height="322" key="GridCell.Tab.2.right" timestamp="1594207419460">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="322" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594207419460" />
-    <state x="490" y="175" key="Maven.ArtifactSearchDialog" timestamp="1594028750262">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="490" y="175" key="Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594028750262" />
-    <state x="667" y="276" width="586" height="488" key="find.popup" timestamp="1593575873565">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="667" y="276" width="586" height="488" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1593575873565" />
-    <state x="342" y="228" key="new project wizard" timestamp="1593574782564">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="342" y="228" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1593574782564" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1594192024555">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1594192024555" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/service/src/test/java/com.smartosc.training/UserServiceTest.java</url>
-          <line>148</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/UserServicesImpl.java</url>
-          <line>96</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/UserServicesImpl.java</url>
-          <line>109</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/service/src/test/java/com.smartosc.training/UserServiceTest.java</url>
-          <line>146</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/service/src/test/java/com.smartosc.training/UserServiceTest.java</url>
-          <line>98</line>
-          <option name="timeStamp" value="46" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/UserServicesImpl.java</url>
-          <line>49</line>
-          <option name="timeStamp" value="47" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/UserServicesImpl.java</url>
-          <line>104</line>
-          <option name="timeStamp" value="49" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/service/src/test/java/com.smartosc.training/UserServiceTest.java</url>
-          <line>144</line>
-          <option name="timeStamp" value="50" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="776" y="298" key="chooseDestDirectoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594280744995" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testFindUserByUserNameSuccess.ic" NAME="UserServiceTest.testFindUserByUserNameSuccess Coverage Results" MODIFIED="1594194192355" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.smartosc.training.*</FILTER>
+    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testFindUserByUserNameSuccess.ic" NAME="UserServiceTest.testFindUserByUserNameSuccess Coverage Results" MODIFIED="1594280892824" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>services.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testGetAllUserFail.ic" NAME="UserServiceTest.testGetAllUserFail Coverage Results" MODIFIED="1594177659338" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.smartosc.training.services.*</FILTER>
+    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest.ic" NAME="UserServiceTest Coverage Results" MODIFIED="1594281046129" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>services.*</FILTER>
+      <FILTER>com.smartosc.training.services.impl.UserServicesImpl</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest.ic" NAME="UserServiceTest Coverage Results" MODIFIED="1594203218962" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.smartosc.training.*</FILTER>
+    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testCreateUserFail.ic" NAME="UserServiceTest.testCreateUserFail Coverage Results" MODIFIED="1594280912326" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>services.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testGetAllUserStatusSpecFail.ic" NAME="UserServiceTest.testGetAllUserStatusSpecFail Coverage Results" MODIFIED="1594179315653" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.smartosc.training.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testGetAllUserSuccess.ic" NAME="UserServiceTest.testGetAllUserSuccess Coverage Results" MODIFIED="1594177443297" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.smartosc.training.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testGetAllUserStatusFail.ic" NAME="UserServiceTest.testGetAllUserStatusFail Coverage Results" MODIFIED="1594177885371" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.smartosc.training.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testDeleteByIdFail.ic" NAME="UserServiceTest.testDeleteByIdFail Coverage Results" MODIFIED="1594195181384" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.smartosc.training.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testGetAllUserStatusTrueSuccess.ic" NAME="UserServiceTest.testGetAllUserStatusTrueSuccess Coverage Results" MODIFIED="1594177843221" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.smartosc.training.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testUpdateUserFail.ic" NAME="UserServiceTest.testUpdateUserFail Coverage Results" MODIFIED="1594199481168" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.smartosc.training.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testGetByIdSpecSuccess.ic" NAME="UserServiceTest.testGetByIdSpecSuccess Coverage Results" MODIFIED="1594181569603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.smartosc.training.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testUpdateUserSuccess.ic" NAME="UserServiceTest.testUpdateUserSuccess Coverage Results" MODIFIED="1594199256347" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.smartosc.training.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testCreateUserFail.ic" NAME="UserServiceTest.testCreateUserFail Coverage Results" MODIFIED="1594192368781" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.smartosc.training.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testCreateUserSuccess.ic" NAME="UserServiceTest.testCreateUserSuccess Coverage Results" MODIFIED="1594192166398" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.smartosc.training.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testGetAllUserWithSpecSuccess.ic" NAME="UserServiceTest.testGetAllUserWithSpecSuccess Coverage Results" MODIFIED="1594179812445" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.smartosc.training.services.impl.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testFindUserByUserNameFail.ic" NAME="UserServiceTest.testFindUserByUserNameFail Coverage Results" MODIFIED="1594194240252" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.smartosc.training.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testDeleteByIdSuccess.ic" NAME="UserServiceTest.testDeleteByIdSuccess Coverage Results" MODIFIED="1594195333256" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.smartosc.training.*</FILTER>
+    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testGetAllUserStatusSpecFail.ic" NAME="UserServiceTest.testGetAllUserStatusSpecFail Coverage Results" MODIFIED="1594280925373" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>services.*</FILTER>
     </SUITE>
   </component>
 </project>
