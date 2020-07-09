@@ -32,5 +32,9 @@ public class Role {
     @ManyToMany(mappedBy = "roles",fetch = FetchType.LAZY)
     private List<User> accounts;
 
+    public Role(Long id,String name){
+        this.roleId = id;
+        this.name = name;
+    }
 
 }
