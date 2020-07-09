@@ -1,9 +1,7 @@
 package com.smartosc.training.dto;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
@@ -14,11 +12,18 @@ import java.util.List;
  * @created_at 02/07/2020 - 1:58 PM
  * @created_by Huupd
  */
-@Data
+@Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 public class RoleDTO {
     private Long id;
     private String name;
-    List<UserDTO> accounts;
+    List<UserDTO> userDTOS;
+
+    public RoleDTO(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
 }

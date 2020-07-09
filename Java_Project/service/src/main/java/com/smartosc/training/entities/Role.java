@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.criteria.Root;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -37,5 +39,6 @@ public class Role {
 
     @ManyToMany(mappedBy = "roles",fetch = FetchType.LAZY)
     private List<User> accounts;
+
 
 }
