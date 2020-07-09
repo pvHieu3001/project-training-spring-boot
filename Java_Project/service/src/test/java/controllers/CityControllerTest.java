@@ -1,5 +1,3 @@
-package controllers;
-
 import com.smartosc.training.controllers.CityController;
 import com.smartosc.training.dto.CentralDTO;
 import com.smartosc.training.dto.CityDTO;
@@ -8,7 +6,6 @@ import com.smartosc.training.exceptions.CustomExceptionHandler;
 import com.smartosc.training.services.CityService;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;

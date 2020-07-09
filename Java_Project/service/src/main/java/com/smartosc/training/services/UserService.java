@@ -26,7 +26,7 @@ public interface UserService {
 
     UserDTO deleteUserById(Long id) throws NotFoundException;
 
-    UserDTO updateUser(Long id, UserDTO userRequest) throws NotFoundException;
+    UserDTO updateUser(Long id, UserDTO userDTO) throws NotFoundException;
 
     UserDTO findUserByUserName(String name) throws NotFoundException;
 

@@ -29,11 +29,12 @@ public class UserServiceTest {
     private RoleRepository roleRepository;
 
     @Before
-    public void init(){
+    public void init() {
     }
 
     @Test
-    public void testGetAllUserSuccess(){
+    public void GetAllUserSuccess() {
+
 
 
     }

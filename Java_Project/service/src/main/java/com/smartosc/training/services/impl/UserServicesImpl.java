@@ -86,13 +86,13 @@ public class UserServicesImpl implements UserService {
         UserSpecifications userSpecifications = UserSpecifications.spec();
         List<UserDTO> list = new ArrayList<>(); // khai báo một list rỗng để chứa
         Optional.ofNullable(id).ifPresent(s -> userSpecifications.buildGetById(id));
-        List<User> userEntitys = userRepository.findAll(userSpecifications.buildGetAll());
-        if (userEntitys.size() == 0) {
+        List<User> userList = userRepository.findAll(userSpecifications.buildGetAll());
+        if (userList.size() == 0) {
             throw new NotFoundException("Id not found");
         }
-        for (User user : userEntitys) {
-            UserDTO userRespone = modelMapper.map(user, UserDTO.class);
-            list.add(userRespone);
+        for (User user : userList) {
+            UserDTO userDTO = modelMapper.map(user, UserDTO.class);
+            list.add(userDTO);
         }
         log.info("Get  user by id  success");
         return list;
