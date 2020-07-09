@@ -130,6 +130,14 @@
             <artifactId>jackson-databind</artifactId>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.powermock/powermock-module-junit4 -->
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-module-junit4</artifactId>
+            <version>1.5.1</version>
+            <scope>test</scope>
+        </dependency>
+
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>

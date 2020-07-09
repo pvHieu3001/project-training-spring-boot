@@ -70,7 +70,7 @@ public class UserController {
 
         APIResponse<List<UserDTO>> apiResponse = new APIResponse<>();
         apiResponse.setStatus(HttpStatus.OK.value());
-        apiResponse.setMessage(messageSource.getMessage("Message.user.id", null, locale));
+        apiResponse.setMessage(messageSource.getMessage("Message.status.ok", null, locale));
         apiResponse.setData(userDTOS);
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }

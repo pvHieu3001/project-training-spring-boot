@@ -1,7 +1,6 @@
 package com.smartosc.training.repositories.specifications;
 
 import com.smartosc.training.entities.User;
-import com.smartosc.training.entities.User_;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
@@ -33,15 +32,27 @@ public class UserSpecifications {
     public Specification<User> build() {
         return Specification.where(specializations.stream().reduce(all(), Specification::and));
     }
+
     //find by Id
     public Specification<User> hasId(Long id) {
-        return StringUtils.isEmpty(id) ? all() : (root, query, criteriaBuilder) -> {
+        return (root, query, criteriaBuilder) -> {
             query.distinct(true);
-            return criteriaBuilder.equal(root.get(User_.ID), id);
+            if (id != null) {
+             //  return criteriaBuilder.equal(root.get(User_.ID), id);
+                return criteriaBuilder.equal(root.get("id"), criteriaBuilder.literal(id));
+            } else {
+                return null;
+            }
         };
     }
+//        return StringUtils.isEmpty(id) ? all() : (root, query, criteriaBuilder) -> {
+//            query.distinct(true);
+//            return criteriaBuilder.equal(root.get(User_.ID), id);
+//        };
 
-    public void byUserId(Long id) {
-        specializations.add(hasId(id));
-    }
+//}
+//
+//    public void byUserId(Long id) {
+//        specializations.add(hasId(id));
+//    }
 }
