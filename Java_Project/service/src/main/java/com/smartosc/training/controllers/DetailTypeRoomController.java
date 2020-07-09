@@ -7,6 +7,7 @@ import com.smartosc.training.services.TypeRoomService;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -36,7 +37,7 @@ public class DetailTypeRoomController {
         return new ResponseEntity(new APIResponse<>(
                 HttpStatus.OK.value(),
                 messageSource.getMessage("hello", null, locale),
-                typeRoomService.findTypeRoomById(id)
+                typeRoomService.findTypeRoomById(id, null)
         ), HttpStatus.OK);
     }
 
