@@ -10,6 +10,7 @@ import com.smartosc.training.services.TypeRoomService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
@@ -30,15 +31,13 @@ public class TypeRoomServiceImpl implements TypeRoomService {
     private TypeRoomRepository typeRoomRepository;
     @Autowired
     private ModelMapper modelMapper;
-    @Autowired
-    private MessageSource messageSource;
 
     @Override
-    public List<TypeRoomDTO> findTypeRoomById(Long id) {
+    public List<TypeRoomDTO> findTypeRoomById(Long id, Pageable pageable) {
         return typeRoomRepository.findAll(TypeRoomSpecification
                 .spec()
                 .typeRoomHasId(id)
-                .build())
+                .build(), pageable)
                 .stream().map(s -> modelMapper.map(s,TypeRoomDTO.class))
                 .collect(Collectors.toList()
                 );
@@ -49,7 +48,7 @@ public class TypeRoomServiceImpl implements TypeRoomService {
         Optional<TypeRoom> typeRoomOptional = Optional.ofNullable(
                 typeRoomRepository.findById(typeRoomDTO.getId())
                 .orElseThrow(() -> {
-                    return new NotFoundException("aaa");
+                    return new NotFoundException("error.msg.type_room.data.notfound");
                 }));
         TypeRoom typeRoom = typeRoomOptional.get();
         typeRoom.setImgUrl(typeRoomDTO.getImgUrl());
