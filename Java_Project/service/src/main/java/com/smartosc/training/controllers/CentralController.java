@@ -2,7 +2,6 @@ package com.smartosc.training.controllers;
 
 import com.smartosc.training.dto.APIResponse;
 import com.smartosc.training.dto.CentralDTO;
-import com.smartosc.training.entities.Central;
 import com.smartosc.training.services.CentralService;
 import java.util.List;
 import java.util.Locale;
@@ -43,7 +42,7 @@ public class CentralController {
 
     List<CentralDTO> centralDTOS = centralService.getAllCentral(keyword, id);
 
-    return new ResponseEntity(
+    return new ResponseEntity<>(
         new APIResponse<>(
             HttpStatus.OK.value(),
             messageSource.getMessage("Get.Central.Success", null, locale),
@@ -55,7 +54,7 @@ public class CentralController {
   public ResponseEntity<APIResponse<CentralDTO>> updateCentral(
       @PathVariable("id") Long id, @Valid @RequestBody CentralDTO centralDTO, Locale locale) {
     CentralDTO central = centralService.updateCentral(id, centralDTO);
-    return new ResponseEntity(
+    return new ResponseEntity<>(
         new APIResponse<>(
             HttpStatus.OK.value(),
             messageSource.getMessage("Update.Central.Success", null, locale),

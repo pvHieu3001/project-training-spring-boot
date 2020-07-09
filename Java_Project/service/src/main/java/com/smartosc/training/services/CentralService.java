@@ -1,8 +1,8 @@
 package com.smartosc.training.services;
 
 import com.smartosc.training.dto.CentralDTO;
+
 import java.util.List;
-import org.springframework.stereotype.Service;
 
 /**
  * Fresher-Training

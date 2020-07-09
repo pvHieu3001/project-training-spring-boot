@@ -1,8 +1,6 @@
 package com.smartosc.training.services;
 
 import com.smartosc.training.dto.HotelDTO;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 

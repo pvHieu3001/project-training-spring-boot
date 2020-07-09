@@ -6,11 +6,7 @@ import com.smartosc.training.exceptions.DuplicateException;
 import com.smartosc.training.exceptions.NotFoundException;
 import com.smartosc.training.repositories.HotelRepository;
 import com.smartosc.training.services.HotelService;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -39,7 +35,7 @@ public class HotelServiceImpl implements HotelService {
     }
 
     @Override
-    public HotelDTO getHotelByID(Long id) throws NotFoundException {
+    public HotelDTO getHotelByID(Long id) {
         Optional<Hotel> hotel = hotelRepository.findById(id);
 
         if (hotel.isPresent()) {
@@ -77,7 +73,7 @@ public class HotelServiceImpl implements HotelService {
 
     @Override
     public void deleteHotel(Long id) {
-        if(hotelRepository.findById(id).isPresent()) {
+        if (hotelRepository.findById(id).isPresent()) {
             hotelRepository.deleteById(id);
         } else {
             throw new NotFoundException("Có éo đâu mà đòi delete");

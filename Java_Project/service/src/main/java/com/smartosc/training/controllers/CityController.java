@@ -2,10 +2,7 @@ package com.smartosc.training.controllers;
 
 import com.smartosc.training.dto.APIResponse;
 import com.smartosc.training.dto.CityDTO;
-import com.smartosc.training.entities.Central;
-import com.smartosc.training.entities.Hotel;
 import com.smartosc.training.services.CityService;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.data.domain.Page;
@@ -38,7 +35,6 @@ public class CityController {
         APIResponse<List<CityDTO>> apiResponse = new APIResponse<>();
         List<CityDTO> result = cityService.getAllCities();
         apiResponse.setData(result);
-        apiResponse.setMessage("message.getAll.success");
         apiResponse.setMessage(messageSource.getMessage("message.getAll.success",null, locale));
         apiResponse.setStatus(HttpStatus.OK.value());
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);

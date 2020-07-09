@@ -24,13 +24,13 @@ public interface UserService {
 
     UserDTO createUser(UserDTO userRequest);
 
-    UserDTO deleteUserById(Long id) throws NotFoundException;
+    UserDTO deleteUserById(Long id);
 
-    UserDTO updateUser(Long id, UserDTO userDTO) throws NotFoundException;
+    UserDTO updateUser(Long id, UserDTO userDTO);
 
-    UserDTO findUserByUserName(String name) throws NotFoundException;
+    UserDTO findUserByUserName(String name);
 
-    List<UserDTO> getUserById(Long id) throws NotFoundException;
+    List<UserDTO> getUserById(Long id);
 
 
 
