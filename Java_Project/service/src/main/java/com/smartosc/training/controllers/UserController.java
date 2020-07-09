@@ -55,7 +55,7 @@ public class UserController {
 
         APIResponse<List<UserDTO>> apiResponse = new APIResponse<>();
         apiResponse.setStatus(HttpStatus.OK.value());
-        apiResponse.setMessage("Messsage.status.ok");
+        apiResponse.setMessage("Message.status.ok");
         apiResponse.setData(userDTOS);
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }

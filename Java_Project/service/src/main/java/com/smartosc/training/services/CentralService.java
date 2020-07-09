@@ -15,6 +15,10 @@ import org.springframework.stereotype.Service;
 
 public interface CentralService {
 
-  List<CentralDTO> getAllCentral(String keyword);
+  List<CentralDTO> getAllCentral(String keyword,Long id);
+
+  CentralDTO createCentral(CentralDTO centralDTO);
+
+  CentralDTO updateCentral(Long id,CentralDTO centralDTO);
 
 }
