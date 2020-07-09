@@ -2,6 +2,7 @@ package com.smartosc.training.services;
 
 import com.smartosc.training.dto.HotelDTO;
 
+
 import java.util.List;
 
 /**
@@ -20,4 +21,6 @@ public interface HotelService {
     HotelDTO updateHotel(HotelDTO hotelDTO);
 
     void deleteHotel(Long id);
+
+    List<HotelDTO> geHotelsByName(String key);
 }

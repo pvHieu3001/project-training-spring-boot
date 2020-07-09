@@ -18,6 +18,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.math.BigDecimal;
@@ -125,12 +126,9 @@ public class HotelControllerTest {
 
     @Test
     public void deleteHotelById() throws Exception {
-        final Long id = 1L;
-        when(hotelService.getHotelByID(id)).thenReturn(null);
-
-        doNothing().when(hotelService).deleteHotel(hotelDTO.getId());
-
-        mockMvc.perform(delete("/api/hotels/{id}", id))
+        mockMvc.perform(MockMvcRequestBuilders.
+                delete("/api/hotels/{id}", anyLong())
+                .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
 

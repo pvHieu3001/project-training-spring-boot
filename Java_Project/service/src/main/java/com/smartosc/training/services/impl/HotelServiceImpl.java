@@ -5,7 +5,9 @@ import com.smartosc.training.entities.*;
 import com.smartosc.training.exceptions.DuplicateException;
 import com.smartosc.training.exceptions.NotFoundException;
 import com.smartosc.training.repositories.HotelRepository;
+import com.smartosc.training.repositories.specifications.HotelSpecification;
 import com.smartosc.training.services.HotelService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +25,9 @@ import java.util.Optional;
 public class HotelServiceImpl implements HotelService {
     @Autowired
     private HotelRepository hotelRepository;
+
+    @Autowired
+    private ModelMapper modelMapper;
 
     @Override
     public List<HotelDTO> getAllHotels() {
@@ -78,6 +83,17 @@ public class HotelServiceImpl implements HotelService {
         } else {
             throw new NotFoundException("Có éo đâu mà đòi delete");
         }
+    }
+
+    @Override
+    public List<HotelDTO> geHotelsByName(String key) {
+        List<Hotel> list = hotelRepository.findAll(HotelSpecification.geHotelsByNameSpec(key));
+
+        List<HotelDTO> hotelResponseList = new ArrayList<>();
+        for (Hotel hotel : list) {
+            hotelResponseList.add(this.convertFromHotelToHotelDTO(hotel));
+        }
+        return hotelResponseList;
     }
 
     private Hotel convertFromDtoToEntity(Hotel hotel, HotelDTO hotelDTO) {
