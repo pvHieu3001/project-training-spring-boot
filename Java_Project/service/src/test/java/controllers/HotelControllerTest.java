@@ -3,12 +3,10 @@ package controllers;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.smartosc.training.controllers.HotelController;
 import com.smartosc.training.dto.*;
-import com.smartosc.training.entities.Hotel;
 import com.smartosc.training.exceptions.CustomExceptionHandler;
 import com.smartosc.training.services.HotelService;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -17,19 +15,15 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.context.MessageSource;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
-import java.util.Optional;
 
 import static org.hamcrest.Matchers.is;
 import static org.mockito.ArgumentMatchers.any;
@@ -38,6 +32,7 @@ import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 
 /**
  * Fresher-Training
@@ -131,12 +126,9 @@ public class HotelControllerTest {
 
     @Test
     public void deleteHotelById() throws Exception {
-        final Long id = 1L;
-        when(hotelService.getHotelByID(id)).thenReturn(null);
-
-        doNothing().when(hotelService).deleteHotel(hotelDTO.getId());
-
-        mockMvc.perform(delete("/api/hotels/{id}", id))
+        mockMvc.perform(MockMvcRequestBuilders.
+                delete("/api/hotels/{id}", anyLong())
+                .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
 

@@ -48,14 +48,14 @@ public class ApiSecurityController {
         final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
 
         if (!userDetails.isAccountNonLocked()) {
-            return new ResponseEntity(new APIResponse(HttpStatus.OK.value(), messageSource.getMessage("Authenticate.locked.account",null,locale)), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new APIResponse<>(HttpStatus.OK.value(), messageSource.getMessage("Authenticate.locked.account",null,locale)), HttpStatus.BAD_REQUEST);
         }
         authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
 
         final String token = jwtTokenUtil.generateToken(userDetails);
         APIResponse<Object> objectAPIResponse = new APIResponse<>();
         objectAPIResponse.setData(token);
-        objectAPIResponse.setMessage(messageSource.getMessage("Messsage.status.ok",null,locale));
+        objectAPIResponse.setMessage(messageSource.getMessage("Message.status.ok",null,locale));
         objectAPIResponse.setStatus(HttpStatus.OK.value());
 
         return new ResponseEntity<>(objectAPIResponse,HttpStatus.OK);

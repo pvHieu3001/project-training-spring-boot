@@ -82,17 +82,17 @@ public class UserServicesImpl implements UserService {
     }
 
     @Override
-    public List<UserDTO> getUserById(Long id) throws NotFoundException {
+    public List<UserDTO> getUserById(Long id) {
         UserSpecifications userSpecifications = UserSpecifications.spec();
         List<UserDTO> list = new ArrayList<>(); // khai báo một list rỗng để chứa
         Optional.ofNullable(id).ifPresent(s -> userSpecifications.buildGetById(id));
-        List<User> userEntitys = userRepository.findAll(userSpecifications.buildGetAll());
-        if (userEntitys.size() == 0) {
+        List<User> userList = userRepository.findAll(userSpecifications.buildGetAll());
+        if (userList.size() == 0) {
             throw new NotFoundException("Id not found");
         }
-        for (User user : userEntitys) {
-            UserDTO userRespone = modelMapper.map(user, UserDTO.class);
-            list.add(userRespone);
+        for (User user : userList) {
+            UserDTO userDTO = modelMapper.map(user, UserDTO.class);
+            list.add(userDTO);
         }
         log.info("Get  user by id  success");
         return list;
@@ -121,7 +121,7 @@ public class UserServicesImpl implements UserService {
     }
 
     @Override
-    public UserDTO findUserByUserName(String name) throws NotFoundException {
+    public UserDTO findUserByUserName(String name) {
         User userEntity = userRepository.findByUsername(name);
         if (userEntity != null) {
             UserDTO userDTO = new UserDTO();
@@ -139,11 +139,11 @@ public class UserServicesImpl implements UserService {
                 roleDTO.setName(role.getName());
                 roleDTOS.add(roleDTO);
             }
-            userDTO.setRoles(roleDTOS);
+            userDTO.setRoleDTOS(roleDTOS);
             List<CommentDTO> commentDTOS = new ArrayList<>();
-            userDTO.setComments(commentDTOS);
+            userDTO.setCommentDTOS(commentDTOS);
             StatusOTDTO statusOTDTOS = new StatusOTDTO();
-            userDTO.setStatusOT(statusOTDTOS);
+            userDTO.setStatusOTDTO(statusOTDTOS);
             return userDTO;
 
         } else {
@@ -152,7 +152,7 @@ public class UserServicesImpl implements UserService {
     }
 
     @Override
-    public UserDTO deleteUserById(Long id) throws NotFoundException {
+    public UserDTO deleteUserById(Long id) {
         Optional<User> optionalUser = userRepository.findById(id);
         if (optionalUser.isPresent()) {
             optionalUser.get().setStatus(0);
@@ -165,7 +165,7 @@ public class UserServicesImpl implements UserService {
     }
 
     @Override
-    public UserDTO updateUser(Long id, UserDTO userDTO) throws NotFoundException {
+    public UserDTO updateUser(Long id, UserDTO userDTO) {
         if (!userRepository.findById(id).isPresent()) {
             throw new NotFoundException("Tai khoan khong ton tai");
         }

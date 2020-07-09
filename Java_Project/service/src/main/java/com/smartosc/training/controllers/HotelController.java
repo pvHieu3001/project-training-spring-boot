@@ -2,8 +2,6 @@ package com.smartosc.training.controllers;
 
 
 import com.smartosc.training.dto.APIResponse;
-import com.smartosc.training.dto.CityDTO;
-import com.smartosc.training.entities.Hotel;
 import com.smartosc.training.services.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.smartosc.training.dto.HotelDTO;
@@ -78,4 +76,13 @@ public class HotelController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<APIResponse<List<HotelDTO>>> getHotelByKey(@RequestParam("key") String key, Locale locale) {
+        APIResponse<List<HotelDTO>> apiResponse = new APIResponse<>();
+        List<HotelDTO> result = hotelService.geHotelsByName(key);
+        apiResponse.setData(result);
+        apiResponse.setMessage(messageSource.getMessage("message.search.success",null, locale));
+        apiResponse.setStatus(HttpStatus.OK.value());
+        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
+    }
 }

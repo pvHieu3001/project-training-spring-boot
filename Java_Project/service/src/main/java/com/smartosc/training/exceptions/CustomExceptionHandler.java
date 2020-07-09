@@ -1,7 +1,6 @@
 package com.smartosc.training.exceptions;
 
 import com.smartosc.training.dto.ErrorResponse;
-import java.util.Locale;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.dao.DuplicateKeyException;

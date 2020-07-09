@@ -17,6 +17,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -26,8 +28,8 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.Mockito.*;
 
 /**
  * Fresher-Training
@@ -142,6 +144,23 @@ public class HotelServiceTest {
         when(hotelRepository.findById(testInput.getId())).thenReturn(Optional.empty());
         Assertions.assertThrows(NotFoundException.class,()->{
             hotelService.updateHotel(testInput);
+        });
+    }
+
+    @Test
+    public void deleteHotelByID() {
+
+        when(hotelRepository.findById(anyLong())).thenReturn(Optional.of(new Hotel()));
+        hotelService.deleteHotel(anyLong());
+        verify(hotelRepository, times(1)).deleteById(anyLong());
+    }
+
+    @Test
+    public void deleteHotelByIDFailed() {
+
+        when(hotelRepository.findById(anyLong())).thenReturn(Optional.empty());
+        Assertions.assertThrows(NotFoundException.class,()->{
+            hotelService.deleteHotel(any());
         });
     }
 }

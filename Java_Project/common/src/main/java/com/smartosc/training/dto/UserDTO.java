@@ -23,7 +23,7 @@ public class UserDTO {
     private String password;
     private String email;
     private int status;
-    private List<RoleDTO> roles;
-    private List<CommentDTO> comments;
-    private StatusOTDTO statusOT;
+    private List<RoleDTO> roleDTOS;
+    private List<CommentDTO> commentDTOS;
+    private StatusOTDTO statusOTDTO;
 }
