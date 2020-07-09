@@ -2,9 +2,11 @@ package com.smartosc.training.services.impl;
 
 import com.smartosc.training.dto.*;
 import com.smartosc.training.entities.*;
+import com.smartosc.training.exceptions.DuplicateException;
 import com.smartosc.training.exceptions.NotFoundException;
 import com.smartosc.training.repositories.HotelRepository;
 import com.smartosc.training.services.HotelService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -42,13 +44,75 @@ public class HotelServiceImpl implements HotelService {
 
         if (hotel.isPresent()) {
             return this.convertFromHotelToHotelDTO(hotel.get());
+        } else {
+            throw new NotFoundException("Thách mi tìm được đấy!");
         }
-        throw new NotFoundException("Thách mi tìm được đấy!");
     }
 
     @Override
     public HotelDTO createNew(HotelDTO hotelDTO) {
-        return null;
+
+        Optional<Hotel> input = hotelRepository.findByName(hotelDTO.getName());
+        if (input.isPresent()) {
+            throw new DuplicateException("Lặp lại rồi nha chế. Lấy tên khác đi");
+        }
+        Hotel hotel = new Hotel();
+
+        this.convertFromDtoToEntity(hotel, hotelDTO);
+
+        return hotelDTO;
+    }
+
+    @Override
+    public HotelDTO updateHotel(HotelDTO hotelDTO) {
+        Optional<Hotel> hotelID = hotelRepository.findById(hotelDTO.getId());
+        if (hotelID.isPresent()) {
+            Hotel hotel = hotelID.get();
+            this.convertFromDtoToEntity(hotel, hotelDTO);
+            return hotelDTO;
+        } else {
+            throw new NotFoundException("Có éo đâu mà đòi update");
+        }
+    }
+
+    @Override
+    public void deleteHotel(Long id) {
+        if(hotelRepository.findById(id).isPresent()) {
+            hotelRepository.deleteById(id);
+        } else {
+            throw new NotFoundException("Có éo đâu mà đòi delete");
+        }
+    }
+
+    private Hotel convertFromDtoToEntity(Hotel hotel, HotelDTO hotelDTO) {
+        CityDTO cityDTO = hotelDTO.getCity();
+        City city = new City();
+        city.setId(cityDTO.getId());
+        hotel.setCity(city);
+
+        hotel.setDescription(hotelDTO.getDescription());
+        hotel.setImgUrl(hotelDTO.getImgUrl());
+        hotel.setName(hotelDTO.getName());
+        hotel.setTotalRate(hotelDTO.getTotalRate());
+
+        List<TypeRoomDTO> typeRoomDTOList = hotelDTO.getTypeRooms();
+        List<TypeRoom> typeRoomList = new ArrayList<>();
+        if (typeRoomDTOList != null) {
+            for (TypeRoomDTO typeRoomDTO : typeRoomDTOList) {
+                TypeRoom typeRoom = new TypeRoom();
+
+                typeRoom.setId(typeRoomDTO.getId());
+                typeRoom.setImgUrl(typeRoomDTO.getImgUrl());
+                typeRoom.setName(typeRoomDTO.getName());
+                typeRoom.setTotalPrice(typeRoomDTO.getTotalPrice());
+                typeRoomList.add(typeRoom);
+            }
+        }
+        hotel.setTypeRooms(typeRoomList);
+
+        hotelRepository.save(hotel);
+
+        return hotel;
     }
 
     private HotelDTO convertFromHotelToHotelDTO(Hotel hotel) {
@@ -85,13 +149,27 @@ public class HotelServiceImpl implements HotelService {
             commentDTOList.add(commentDTO);
         }
 
-        hotelDTO.setId(hotelDTO.getId());
+        List<TypeRoom> typeRoomList = hotel.getTypeRooms();
+        List<TypeRoomDTO> typeRoomDTOList = new ArrayList<>();
+
+        for (TypeRoom typeRoom : typeRoomList) {
+            TypeRoomDTO typeRoomDTO = new TypeRoomDTO();
+            typeRoomDTO.setId(typeRoom.getId());
+            typeRoomDTO.setName(typeRoom.getName());
+            typeRoomDTO.setImgUrl(typeRoom.getImgUrl());
+            typeRoomDTO.setTotalPrice(typeRoom.getTotalPrice());
+
+            typeRoomDTOList.add(typeRoomDTO);
+        }
+
+        hotelDTO.setId(hotel.getId());
         hotelDTO.setName(hotel.getName());
         hotelDTO.setComments(commentDTOList);
         hotelDTO.setImgUrl(hotel.getImgUrl());
         hotelDTO.setDescription(hotel.getDescription());
         hotelDTO.setCity(cityDTO);
         hotelDTO.setTotalRate(hotel.getTotalRate());
+        hotelDTO.setTypeRooms(typeRoomDTOList);
 
         return hotelDTO;
     }

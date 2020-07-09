@@ -1,6 +1,8 @@
 package com.smartosc.training.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
@@ -14,6 +16,8 @@ import java.util.List;
  */
 @Setter
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class HotelDTO {
     private Long id;
     private String name;
@@ -22,4 +26,5 @@ public class HotelDTO {
     private BigDecimal totalRate;
     private CityDTO city;
     private List<CommentDTO> comments;
+    private List<TypeRoomDTO> typeRooms;
 }

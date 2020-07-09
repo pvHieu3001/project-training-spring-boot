@@ -48,8 +48,9 @@ public class CityServiceImpl implements CityService {
 
         if (city.isPresent()) {
             return this.convertFromCityToCityDTO(city.get());
+        } else {
+            throw new NotFoundException("Thách mi tìm được đấy!");
         }
-        throw new NotFoundException("Thách mi tìm được đấy!");
     }
 
     @Override
@@ -63,7 +64,7 @@ public class CityServiceImpl implements CityService {
 
         Optional<City> input = cityRepository.findByName(cityDTO.getName());
         if (input.isPresent()) {
-            throw new DuplicateException("Lặp lại rồi nha chế. Lấy tên khác đi");
+            throw new DuplicateException("Lặp lại rồi nha chế. Lấy tên khác đi cu");
         }
         City city = new City();
 
