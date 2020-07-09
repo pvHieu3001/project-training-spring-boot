@@ -103,6 +103,4 @@ public class UserController {
         apiResponse.setData(userDTO);
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
-
-
 }
