@@ -2,8 +2,11 @@ package com.smartosc.training.repositories.specifications;
 
 import com.smartosc.training.entities.*;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.criteria.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Fresher-Training
@@ -11,7 +14,10 @@ import javax.persistence.criteria.*;
  * @author thanhttt
  * @created_at 03/07/2020 - 8:39 AM
  */
+@Component
 public class HotelSpecification {
+    private final List<Specification<Hotel>> personSpecs = new ArrayList<>();
+
     public static Specification<Hotel> geHotelsByNameSpec(String name) {
         return new Specification<Hotel>() {
             @Override
@@ -21,6 +27,8 @@ public class HotelSpecification {
             }
         };
     }
+
+
 
     public static Specification<Hotel> getHotelsByCity(City city) {
         return new Specification<Hotel>() {
@@ -43,4 +51,6 @@ public class HotelSpecification {
             }
         };
     }
+
+
 }
