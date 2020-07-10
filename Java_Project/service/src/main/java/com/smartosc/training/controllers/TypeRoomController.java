@@ -1,7 +1,6 @@
 package com.smartosc.training.controllers;
 
 import com.smartosc.training.dto.APIResponse;
-import com.smartosc.training.dto.CentralDTO;
 import com.smartosc.training.dto.TypeRoomDTO;
 import com.smartosc.training.services.TypeRoomService;
 import io.swagger.annotations.ApiImplicitParam;

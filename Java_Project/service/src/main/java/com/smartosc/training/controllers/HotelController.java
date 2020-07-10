@@ -2,9 +2,9 @@ package com.smartosc.training.controllers;
 
 
 import com.smartosc.training.dto.APIResponse;
+import com.smartosc.training.dto.HotelDTO;
 import com.smartosc.training.services.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.smartosc.training.dto.HotelDTO;
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
