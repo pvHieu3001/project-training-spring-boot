@@ -2,12 +2,12 @@ package com.smartosc.training.dto;
 
 
 import com.smartosc.training.validations.TitleConstraint;
-import java.util.List;
 import lombok.AllArgsConstructor;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 /**
  * Fresher-Training

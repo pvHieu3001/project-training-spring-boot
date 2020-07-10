@@ -3,7 +3,6 @@ package com.smartosc.training.controllers;
 import com.smartosc.training.dto.APIResponse;
 import com.smartosc.training.dto.UserDTO;
 import com.smartosc.training.services.UserService;
-import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;

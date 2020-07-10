@@ -4,7 +4,6 @@ package com.smartosc.training.services;
 import java.util.List;
 
 import com.smartosc.training.dto.UserDTO;
-import com.smartosc.training.exceptions.NotFoundException;
 
 /**
  * Fresher-Training
