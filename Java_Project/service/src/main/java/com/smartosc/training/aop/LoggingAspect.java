@@ -28,7 +28,7 @@ import java.util.List;
 @Aspect
 @Component
 @Slf4j
-public class RetryConfiguration {
+public class LoggingAspect {
     @Autowired
     private ApiLogServiceImpl apiLogService;
 
@@ -36,19 +36,20 @@ public class RetryConfiguration {
     public void service() {
     }
 
-    @Around("service()")
-    public Object aroundServiceMethod(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
-        Object result = proceedingJoinPoint.proceed();
-        return result;
-    }
+//    @Around("service()")
+//    public Object aroundServiceMethod(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+//        Object result = proceedingJoinPoint.proceed();
+//        return result;
+//    }
 
-    @AfterThrowing(pointcut = "service()", throwing = "ex")
-    public void logAfterThrowing(JoinPoint joinPoint, Throwable ex) throws IllegalAccessException {
+    @Around("execution(* com.smartosc.training.services.*.*(..))")
+    public Object logAroundController(ProceedingJoinPoint joinPoint) throws Throwable {
+        Object result = joinPoint.proceed();
+
         CodeSignature codeSignature = (CodeSignature) joinPoint.getSignature();
-        log.error("Exception in {}() with message = {}", codeSignature.getDeclaringTypeName(), ex.getMessage());
         ApiLog apiLog = new ApiLog();
         apiLog.setCalledTime(Calendar.getInstance().getTime());
-        apiLog.setErrorMessage(ex.getMessage());
+        apiLog.setErrorMessage("hahah");
         apiLog.setRetryNum(1);
         List<String> args = new ArrayList<>();
         String[] argNames = codeSignature.getParameterNames();
@@ -59,5 +60,6 @@ public class RetryConfiguration {
         apiLog.setData(String.join(", ", args));
         apiLogService.saveApiLog(apiLog);
         log.error(String.join(", ", args));
+        return result;
     }
 }

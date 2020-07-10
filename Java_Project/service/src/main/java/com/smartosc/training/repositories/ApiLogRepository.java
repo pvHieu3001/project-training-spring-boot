@@ -1,5 +1,6 @@
 package com.smartosc.training.repositories;
 
+import com.smartosc.training.entities.ApiLog;
 import com.smartosc.training.entities.TypeRoom;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
@@ -14,5 +15,5 @@ import org.springframework.stereotype.Repository;
  * @since 02/07/2020
  */
 @Repository
-public interface TypeRoomRepository extends JpaRepository<TypeRoom, Long>, JpaSpecificationExecutor<TypeRoom> {
+public interface ApiLogRepository extends JpaRepository<ApiLog, Long> {
 }

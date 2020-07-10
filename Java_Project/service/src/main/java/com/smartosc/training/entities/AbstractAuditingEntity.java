@@ -1,9 +1,5 @@
-/*
- * Copyright (C) 2020 Viettel Digital Services. All rights reserved.
- * VIETTEL PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
- */
 
-package com.viettel.arpu.model.entity;
+package com.smartosc.training.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;

@@ -2,15 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0dc4de3c-99f3-49e1-ac43-ebf386f52899" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/service/src/test/java/controllers/DetailTypeRoomControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/test/java/controllers/TypeRoomControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/test/java/services/DetailTypeRoomServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/test/java/services/TypeRoomServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/BaseResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/aop/LoggingAspect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/entities/AbstractAuditingEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/entities/ApiLog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/ApiLogRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/ApiLogServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/TypeRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/TypeRoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/TypeRoomService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/TypeRoomService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/TypeRoomServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/TypeRoomServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/test/java/services/CityServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/test/java/services/CityServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +53,14 @@
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/Microsoft.SkypeApp_kzf8qxf38zg5c!App/All (2)/arpu" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
-  <component name="RunManager" selected="JUnit.TypeRoomServiceTest.findTypeRoomById">
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.smartosc.training.dto" />
+      <recent name="com.smartosc.training.repositories" />
+      <recent name="com.smartosc.training.entities" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.ServiceApplication">
     <configuration name="CityServiceTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="service" />
       <extension name="coverage">
@@ -134,13 +139,13 @@
       <item itemvalue="JUnit.CityServiceTest (1)" />
       <item itemvalue="JUnit.HotelServiceTest" />
       <item itemvalue="JUnit.UserServiceTest" />
-      <item itemvalue="Spring Boot.ServiceApplication" />
       <item itemvalue="JUnit.TypeRoomServiceTest.findTypeRoomById" />
+      <item itemvalue="Spring Boot.ServiceApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TypeRoomServiceTest.findTypeRoomById" />
         <item itemvalue="Spring Boot.ServiceApplication" />
+        <item itemvalue="JUnit.TypeRoomServiceTest.findTypeRoomById" />
         <item itemvalue="JUnit.UserServiceTest" />
         <item itemvalue="JUnit.HotelServiceTest" />
         <item itemvalue="JUnit.CityServiceTest (1)" />
@@ -159,6 +164,7 @@
       <updated>1594280433625</updated>
       <workItem from="1594280434841" duration="605000" />
       <workItem from="1594281716549" duration="9462000" />
+      <workItem from="1594370592343" duration="5630000" />
     </task>
     <servers />
   </component>
@@ -190,38 +196,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1594292507426" />
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1594293785279">
+    <state width="1877" height="308" key="GridCell.Tab.0.bottom" timestamp="1594378599850">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594293785279" />
-    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1594293785279">
+    <state width="1877" height="308" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594378599850" />
+    <state width="1877" height="308" key="GridCell.Tab.0.center" timestamp="1594378599850">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594293785279" />
-    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1594293785279">
+    <state width="1877" height="308" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594378599850" />
+    <state width="1877" height="308" key="GridCell.Tab.0.left" timestamp="1594378599850">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594293785279" />
-    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1594293785279">
+    <state width="1877" height="308" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594378599850" />
+    <state width="1877" height="308" key="GridCell.Tab.0.right" timestamp="1594378599850">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594293785279" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1594293577348">
+    <state width="1877" height="308" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594378599850" />
+    <state width="1877" height="308" key="GridCell.Tab.1.bottom" timestamp="1594378599850">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594293577348" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1594293577348">
+    <state width="1877" height="308" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594378599850" />
+    <state width="1877" height="308" key="GridCell.Tab.1.center" timestamp="1594378599850">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594293577348" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1594293577348">
+    <state width="1877" height="308" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594378599850" />
+    <state width="1877" height="308" key="GridCell.Tab.1.left" timestamp="1594378599850">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594293577348" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1594293577348">
+    <state width="1877" height="308" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594378599850" />
+    <state width="1877" height="308" key="GridCell.Tab.1.right" timestamp="1594378599850">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594293577348" />
+    <state width="1877" height="308" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594378599850" />
     <state x="776" y="298" key="chooseDestDirectoryDialog" timestamp="1594280744995">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

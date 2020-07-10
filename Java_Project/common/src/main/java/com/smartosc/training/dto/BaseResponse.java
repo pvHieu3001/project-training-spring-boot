@@ -3,7 +3,7 @@
  * VIETTEL PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  */
 
-package com.viettel.arpu.model.response.mb;
+package com.smartosc.training.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
@@ -19,7 +19,7 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-public class MbBaseResponse {
+public class BaseResponse {
     private String errorCode;
     private String errorDesc;
     @JsonIgnore
