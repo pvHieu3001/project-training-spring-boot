@@ -35,13 +35,11 @@ public class HotelSpecification {
         };
     }
 
-
-
     public static Specification<Hotel> getHotelsByCity(City city) {
         return new Specification<Hotel>() {
             @Override
             public Predicate toPredicate(Root<Hotel> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
-                Join<Hotel, City> hotelJoin = root.join(Hotel_.CITY);
+                Join<Hotel, City> hotelJoin = root.join(Hotel_.city);
                 Predicate equalPredicate = criteriaBuilder.equal(hotelJoin.get(City_.name), city);
                 return equalPredicate;
             }

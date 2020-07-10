@@ -1,9 +1,6 @@
 package com.smartosc.training.services;
 
 import com.smartosc.training.dto.HotelDTO;
-import com.smartosc.training.entities.Hotel;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -25,4 +22,6 @@ public interface HotelService {
     void deleteHotel(Long id);
 
     List<HotelDTO> geHotelsByName(String key);
+
+    List<HotelDTO> geListHotelFollowedByCity(String key);
 }

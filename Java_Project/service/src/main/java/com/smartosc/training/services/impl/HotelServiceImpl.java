@@ -4,21 +4,16 @@ import com.smartosc.training.dto.*;
 import com.smartosc.training.entities.*;
 import com.smartosc.training.exceptions.DuplicateException;
 import com.smartosc.training.exceptions.NotFoundException;
+import com.smartosc.training.repositories.CityRepository;
 import com.smartosc.training.repositories.HotelRepository;
 import com.smartosc.training.repositories.specifications.HotelSpecification;
-import com.smartosc.training.repositories.specifications.TypeRoomSpecification;
 import com.smartosc.training.services.HotelService;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 /**
  * Fresher-Training
@@ -31,11 +26,8 @@ public class HotelServiceImpl implements HotelService {
     @Autowired
     private HotelRepository hotelRepository;
 
-    public HotelServiceImpl(){}
-
-    public HotelServiceImpl(HotelRepository repository) {
-        this.hotelRepository = repository;
-    }
+    @Autowired
+    private CityRepository cityRepository;
 
     @Override
     public List<HotelDTO> getAllHotels() {
@@ -99,6 +91,23 @@ public class HotelServiceImpl implements HotelService {
 
         List<HotelDTO> hotelResponseList = new ArrayList<>();
         for (Hotel hotel : list) {
+            hotelResponseList.add(this.convertFromHotelToHotelDTO(hotel));
+        }
+        if (hotelResponseList.size() > 0) {
+            return hotelResponseList;
+        } else {
+            throw new NotFoundException("Không tìm thấy gì đâu");
+        }
+    }
+
+    @Override
+    public List<HotelDTO> geListHotelFollowedByCity(String key) {
+        Optional<City> city = cityRepository.findByName(key);
+
+        List<Hotel> hotelList = hotelRepository.findAll(HotelSpecification.getHotelsByCity(city.get()));
+
+        List<HotelDTO> hotelResponseList = new ArrayList<>();
+        for (Hotel hotel : hotelList) {
             hotelResponseList.add(this.convertFromHotelToHotelDTO(hotel));
         }
         return hotelResponseList;

@@ -3,7 +3,6 @@ package controllers;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.smartosc.training.controllers.HotelController;
 import com.smartosc.training.dto.*;
-import com.smartosc.training.entities.Hotel;
 import com.smartosc.training.exceptions.CustomExceptionHandler;
 import com.smartosc.training.services.HotelService;
 import org.junit.Before;
@@ -134,7 +133,8 @@ public class HotelControllerTest {
     }
 
     @Test
-    public void geHotelsByName() {
+    public void getHotelByKey() throws Exception {
+
     }
 
     private static String asJsonString(final Object obj) {

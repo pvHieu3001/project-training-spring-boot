@@ -87,4 +87,14 @@ public class HotelController {
         apiResponse.setStatus(HttpStatus.OK.value());
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
+
+    @GetMapping("/followedBy")
+    public ResponseEntity<APIResponse<List<HotelDTO>>> geListHotelFollowedByCity(@RequestParam("key") String key, Locale locale) {
+        APIResponse<List<HotelDTO>> apiResponse = new APIResponse<>();
+        List<HotelDTO> result = hotelService.geListHotelFollowedByCity(key);
+        apiResponse.setData(result);
+        apiResponse.setMessage(messageSource.getMessage("message.search.success",null, locale));
+        apiResponse.setStatus(HttpStatus.OK.value());
+        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
+    }
 }

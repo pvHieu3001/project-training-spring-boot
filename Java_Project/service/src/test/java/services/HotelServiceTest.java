@@ -1,6 +1,5 @@
 package services;
 
-import com.smartosc.training.controllers.HotelController;
 import com.smartosc.training.dto.CityDTO;
 import com.smartosc.training.dto.HotelDTO;
 import com.smartosc.training.dto.TypeRoomDTO;
@@ -19,11 +18,9 @@ import org.mockito.*;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.data.jpa.domain.Specification;
 
-import javax.persistence.criteria.*;
 import java.math.BigDecimal;
 import java.util.*;
 
-import static java.util.Locale.US;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
@@ -52,14 +49,12 @@ public class HotelServiceTest {
     private HotelDTO hotelDTO, testInput;
 
     private static final String SEARCH_TERM = "Hotel 1";
-    private HotelController controller;
-
 
     @Before
-    public void setUp(){
+    public void setUp() {
         MockitoAnnotations.initMocks(this);
 
-        Central central = new Central(1L, "Hotel 1","Hotel 1", new ArrayList<>());
+        Central central = new Central(1L, "Hotel 1", "Hotel 1", new ArrayList<>());
         City city5 = new City(5L, "City 5", "city3.jpg", hotelList, central);
 
         hotelList = new ArrayList<>();
@@ -68,7 +63,6 @@ public class HotelServiceTest {
         Comment comment1 = new Comment(2L, "Comment2", 123, new User(), new Hotel());
         commentList.add(comment);
         commentList.add(comment1);
-
 
 
         List<TypeRoom> typeRoomList = new ArrayList<>();
@@ -91,7 +85,6 @@ public class HotelServiceTest {
         hotelList.add(hotel);
         hotelList.add(hotel1);
         hotelList.add(hotel2);
-
     }
 
     @Test
@@ -112,7 +105,7 @@ public class HotelServiceTest {
     @Test
     public void getHotelByIDFailed() {
         when(hotelRepository.findById(testInput.getId())).thenReturn(Optional.empty());
-        Assertions.assertThrows(NotFoundException.class,()->{
+        Assertions.assertThrows(NotFoundException.class, () -> {
             hotelService.getHotelByID(testInput.getId());
         });
     }
@@ -128,7 +121,7 @@ public class HotelServiceTest {
     @Test
     public void createNewFailedByDuplicate() {
         when(hotelRepository.findByName(testInput.getName())).thenReturn(optionalHotel);
-        Assertions.assertThrows(DuplicateException.class,()->{
+        Assertions.assertThrows(DuplicateException.class, () -> {
             hotelService.createNew(testInput);
         });
     }
@@ -146,7 +139,7 @@ public class HotelServiceTest {
     @Test
     public void updateInformationFailed() {
         when(hotelRepository.findById(testInput.getId())).thenReturn(Optional.empty());
-        Assertions.assertThrows(NotFoundException.class,()->{
+        Assertions.assertThrows(NotFoundException.class, () -> {
             hotelService.updateHotel(testInput);
         });
     }
@@ -160,40 +153,35 @@ public class HotelServiceTest {
     }
 
     @Test
-    public void geHotelsByName() {
-        List<Hotel> expected = new ArrayList<>();
-        expected.add(hotel);
-        when(hotelRepository.findAll(HotelSpecification.geHotelsByNameSpec(SEARCH_TERM))).thenReturn(expected);
-
-        controller = new HotelController();
-
-//        verify(hotelRepository, times(1)).findByName(SEARCH_TERM);
-//        verifyNoMoreInteractions(hotelService);
-        List<HotelDTO> actual = hotelService.geHotelsByName(SEARCH_TERM);
-
-        assertEquals(expected.get(0).getName(), "Hotel 1");
-    }
-
-
-
-    private void assertDtos(List<Hotel> expected, List<HotelDTO> actual) {
-        assertEquals(expected.size(), actual.size());
-
-        for (int index = 0; index < expected.size(); index++) {
-            Hotel model = expected.get(index);
-            HotelDTO dto = actual.get(index);
-
-            assertEquals(model.getId(), dto.getId());
-            assertEquals(model.getName(), dto.getName());
-        }
-    }
-
-    @Test
     public void deleteHotelByIDFailed() {
 
         when(hotelRepository.findById(anyLong())).thenReturn(Optional.empty());
-        Assertions.assertThrows(NotFoundException.class,()->{
+        Assertions.assertThrows(NotFoundException.class, () -> {
             hotelService.deleteHotel(any());
         });
+    }
+
+    @Test
+    public void geHotelsByName() {
+        List<Hotel> expected = new ArrayList<>();
+        expected.add(hotel);
+        when(hotelRepository.findAll(any(Specification.class))).thenReturn(expected);
+        List<HotelDTO> actual = hotelService.geHotelsByName(SEARCH_TERM);
+
+        verify(hotelRepository, times(1)).findAll(any(Specification.class));
+        verifyNoMoreInteractions(hotelRepository);
+
+        hotelDTOList = hotelService.getAllHotels();
+        assertEquals(expected.size(), actual.size());
+    }
+
+    @Test
+    public void geHotelsByNameFailed() {
+        List<Hotel> expected = new ArrayList<>();
+        when(hotelRepository.findAll(any(Specification.class))).thenReturn(expected);
+        Assertions.assertThrows(NotFoundException.class, () -> {
+            hotelService.geHotelsByName(SEARCH_TERM);
+        });
+
     }
 }
