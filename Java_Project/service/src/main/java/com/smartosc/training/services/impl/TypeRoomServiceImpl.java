@@ -63,9 +63,4 @@ public class TypeRoomServiceImpl implements TypeRoomService {
         typeRoom = typeRoomRepository.save(typeRoom);
         return modelMapper.map(typeRoom, TypeRoomDTO.class);
     }
-
-    @Override
-    public void deleteTypeRoom(Long[] id) {
-
-    }
 }
