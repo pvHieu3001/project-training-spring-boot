@@ -47,50 +47,60 @@ public class UserServicesImpl implements UserService {
     public List<UserDTO> getAllUser() {
         List<User> users = userRepository.findAll();
         List<UserDTO> list = new ArrayList<>(); // khai báo một list rỗng để chứa
-        for (User user : users) {
-            UserDTO userRespone = modelMapper.map(user, UserDTO.class);
-            list.add(userRespone); // add data vào list
+        if (users.size() > 0){
+            for (User user : users) {
+                UserDTO userRespone = modelMapper.map(user, UserDTO.class);
+                list.add(userRespone); // add data vào list
+            }
+            log.info("Get all user success");
+            return list;
         }
-        log.info("Get all user success");
-        return list;
+        log.info("Get all user fail,not found user");
+        throw  new  NotFoundException("Not found user");
     }
 
     @Override
     public List<UserDTO> getAllUserStatusTrue() {
         List<User> users = userRepository.findAllByStatus1();
         List<UserDTO> list = new ArrayList<>(); // khai báo một list rỗng để chứa
-        for (User user : users) {
-            UserDTO userRespone = modelMapper.map(user, UserDTO.class);
-            list.add(userRespone); // add data vào list
+        if (users.size() > 0){
+            for (User user : users) {
+                UserDTO userRespone = modelMapper.map(user, UserDTO.class);
+                list.add(userRespone); // add data vào list
+            }
+            log.info("Get all user with status true success");
+            return list;
         }
-        log.info("Get all user with status true success");
-        return list;
+        throw  new NotFoundException("Not found user with status = 1");
     }
 
     @Override
     public List<UserDTO> getAllUserWithSpec() {
         UserSpecifications userSpecifications = UserSpecifications.spec();
         List<UserDTO> list = new ArrayList<>(); // khai báo một list rỗng để chứa
-        List<User> userEntitys = userRepository.findAll(userSpecifications.buildGetAll());
-
-        for (User user : userEntitys) {
-            UserDTO userRespone = modelMapper.map(user, UserDTO.class);
-            list.add(userRespone);
+        List<User> userEntitys = userRepository.findAll(userSpecifications.all());
+        if (userEntitys.size() > 0){
+            for (User user : userEntitys) {
+                UserDTO userRespone = modelMapper.map(user, UserDTO.class);
+                list.add(userRespone);
+            }
+            log.info("Get all user success");
+            return list;
         }
-        log.info("Get all user success");
-        return list;
+        throw  new NotFoundException("Not found user with spec()");
     }
 
     @Override
     public List<UserDTO> getUserById(Long id) {
         UserSpecifications userSpecifications = UserSpecifications.spec();
-        List<UserDTO> list = new ArrayList<>(); // khai báo một list rỗng để chứa
-        Optional.ofNullable(id).ifPresent(s -> userSpecifications.buildGetById(id));
-        List<User> userList = userRepository.findAll(userSpecifications.buildGetAll());
-        if (userList.size() == 0) {
+        List<UserDTO> list = new ArrayList<>();
+        Optional.ofNullable(id).ifPresent(s -> userSpecifications.byUserId(id));
+        List<User> userEntitys = userRepository.findAll(userSpecifications.all());
+        if (userEntitys.size() == 0) {
+            log.info("get id fail,id not found");
             throw new NotFoundException("Id not found");
         }
-        for (User user : userList) {
+        for (User user : userEntitys) {
             UserDTO userDTO = modelMapper.map(user, UserDTO.class);
             list.add(userDTO);
         }
@@ -106,6 +116,7 @@ public class UserServicesImpl implements UserService {
         List<Role> roles = new ArrayList<>();
 
         if (userRepository.findByUsername(userDTO.getUsername()) != null) { // check da ton tai hay chua, neu ton tai in ra messeages
+            log.info("user exist");
             throw new DuplicateKeyException(userDTO.getUsername() + "da ton tai");
         }
         // chua ton tai thi thuc hien tiep o duoi
@@ -144,6 +155,7 @@ public class UserServicesImpl implements UserService {
             userDTO.setCommentDTOS(commentDTOS);
             StatusOTDTO statusOTDTOS = new StatusOTDTO();
             userDTO.setStatusOTDTO(statusOTDTOS);
+            log.info("Find User by name success!");
             return userDTO;
 
         } else {
@@ -160,13 +172,16 @@ public class UserServicesImpl implements UserService {
             UserDTO userDTO = modelMapper.map(user, UserDTO.class);
             return userDTO;
         } else {
+            log.info("Not found user!");
             throw new NotFoundException("Khong tim thay id " + id);
         }
     }
 
     @Override
-    public UserDTO updateUser(Long id, UserDTO userDTO) {
-        if (!userRepository.findById(id).isPresent()) {
+    public UserDTO updateUser(Long id, UserDTO userDTO) throws NotFoundException {
+        Optional<User> optionalUser = userRepository.findById(id);
+        if (optionalUser.isPresent()) {
+
             throw new NotFoundException("Tai khoan khong ton tai");
         }
         User user;

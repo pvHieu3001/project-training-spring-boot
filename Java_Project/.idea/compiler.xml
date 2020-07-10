@@ -10,8 +10,8 @@
         <module name="Fresher-Training" />
         <module name="common" />
         <module name="client" />
-        <module name="admin" />
         <module name="service" />
+        <module name="admin" />
       </profile>
     </annotationProcessing>
   </component>
