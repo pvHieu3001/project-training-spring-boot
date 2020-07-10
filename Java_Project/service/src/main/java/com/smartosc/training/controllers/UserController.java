@@ -59,7 +59,7 @@ public class UserController {
 
         APIResponse<List<UserDTO>> apiResponse = new APIResponse<>();
         apiResponse.setStatus(HttpStatus.OK.value());
-        apiResponse.setMessage(messageSource.getMessage("Message.status.ok", null, locale));
+        apiResponse.setMessage(messageSource.getMessage("message.getAll.user.success", null, locale));
         apiResponse.setData(userDTOS);
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
@@ -70,7 +70,7 @@ public class UserController {
 
         APIResponse<List<UserDTO>> apiResponse = new APIResponse<>();
         apiResponse.setStatus(HttpStatus.OK.value());
-        apiResponse.setMessage(messageSource.getMessage("Message.user.id", null, locale));
+        apiResponse.setMessage(messageSource.getMessage("Message.status.ok", null, locale));
         apiResponse.setData(userDTOS);
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
@@ -88,22 +88,22 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<APIResponse<UserDTO>> updateUser(@RequestBody @Valid UserDTO userDTO, @PathVariable(value = "id") Long id) {
+    public ResponseEntity<APIResponse<UserDTO>> updateUser(@RequestBody @Valid UserDTO userDTO, @PathVariable(value = "id") Long id, Locale locale) {
         UserDTO userDTO1 = userService.updateUser(id, userDTO);
         APIResponse<UserDTO> apiResponse = new APIResponse<>();
         apiResponse.setStatus(HttpStatus.OK.value());
-        apiResponse.setMessage("Update user success");
+        apiResponse.setMessage(messageSource.getMessage("message.create.update.success", null, locale));
         apiResponse.setData(userDTO1);
 
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<APIResponse<UserDTO>> deleteUserById(@PathVariable(value = "id") Long id) {
+    public ResponseEntity<APIResponse<UserDTO>> deleteUserById(@PathVariable(value = "id") Long id, Locale locale) {
         UserDTO userDTO = userService.deleteUserById(id);
         APIResponse<UserDTO> apiResponse = new APIResponse<>();
         apiResponse.setStatus(HttpStatus.OK.value());
-        apiResponse.setMessage("delete success");
+        apiResponse.setMessage(messageSource.getMessage("message.create.delete.success", null, locale));
         apiResponse.setData(userDTO);
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
