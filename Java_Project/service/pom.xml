@@ -156,6 +156,7 @@
             <artifactId>springfox-bean-validators</artifactId>
             <version>${springfox-swagger2.version}</version>
         </dependency>
+
     </dependencies>
 
     <build>
