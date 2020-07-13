@@ -33,15 +33,17 @@ public class UserSpecifications {
     public Specification<User> build() {
         return Specification.where(specializations.stream().reduce(all(), Specification::and));
     }
+
     //find by Id
     public Specification<User> hasId(Long id) {
-        return StringUtils.isEmpty(id) ? all() : (root, query, criteriaBuilder) -> {
+        return (root, query, criteriaBuilder) -> {
             query.distinct(true);
-            return criteriaBuilder.equal(root.get(User_.ID), id);
+            if (id != null) {
+               return criteriaBuilder.equal(root.get(User_.ID), id);
+               //return criteriaBuilder.equal(root.get("id"), criteriaBuilder.literal(id));
+            } else {
+                return null;
+            }
         };
-    }
-
-    public void byUserId(Long id) {
-        specializations.add(hasId(id));
     }
 }

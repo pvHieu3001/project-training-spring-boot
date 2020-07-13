@@ -1,4 +1,6 @@
-package com.smartosc.training.validations;
+package com.smartosc.training.validations.anotation;
+
+import com.smartosc.training.validations.TitleValidate;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
