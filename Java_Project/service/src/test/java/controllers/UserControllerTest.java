@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.smartosc.training.controllers.UserController;
 import com.smartosc.training.dto.CommentDTO;
 import com.smartosc.training.dto.RoleDTO;
-import com.smartosc.training.dto.StatusOTDTO;
 import com.smartosc.training.dto.UserDTO;
 import com.smartosc.training.entities.User;
 import com.smartosc.training.services.UserService;
@@ -65,7 +64,6 @@ public class UserControllerTest {
 
     private List<CommentDTO> commentDTOList;
 
-    private StatusOTDTO statusOTDTO;
 
     private List<User> userList;
 
@@ -79,13 +77,12 @@ public class UserControllerTest {
         roleDTOList.add(roleDTO);
 
         userDTOList = new ArrayList<>();
-        userDTO = new UserDTO(1L, "lamchuot", "12345", "lamchuot0@gmail.com", 1, roleDTOList, commentDTOList, statusOTDTO);
+        userDTO = new UserDTO(1L, "lamchuot", "12345", "lamchuot0@gmail.com", 1, roleDTOList, commentDTOList);
         userDTOList.add(userDTO);
 
 
         commentDTOList = new ArrayList<>();
 
-        statusOTDTO = new StatusOTDTO();
         this.mockMvc = MockMvcBuilders.standaloneSetup(userController).build();
         objectMapper = new ObjectMapper();
     }
