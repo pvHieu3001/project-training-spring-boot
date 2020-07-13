@@ -48,7 +48,7 @@ public class ApiSecurityController {
         final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
 
         if (!userDetails.isAccountNonLocked()) {
-            return new ResponseEntity(new APIResponse(HttpStatus.OK.value(), messageSource.getMessage("Authenticate.locked.account",null,locale)), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new APIResponse<>(HttpStatus.OK.value(), messageSource.getMessage("Authenticate.locked.account",null,locale)), HttpStatus.BAD_REQUEST);
         }
         authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
 

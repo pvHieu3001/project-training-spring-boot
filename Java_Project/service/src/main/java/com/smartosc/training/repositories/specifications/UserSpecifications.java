@@ -6,7 +6,6 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
-import javax.persistence.criteria.Predicate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,26 +25,23 @@ public class UserSpecifications {
         return new UserSpecifications();
     }
 
-    //find all user
-    public Specification<User> getAllUser() {
-        return ((root, query, criteriaBuilder) -> criteriaBuilder.equal(criteriaBuilder.literal(1), 1));
+    //find all
+    public Specification<User> all() {
+        return (root, query, criteriaBuilder) -> criteriaBuilder.equal(criteriaBuilder.literal(1), 1);
     }
 
-    public Specification<User> buildGetAll() {
-        return Specification.where(specializations.stream().reduce(getAllUser(), Specification::and));
+    public Specification<User> build() {
+        return Specification.where(specializations.stream().reduce(all(), Specification::and));
     }
-
     //find by Id
-    public Specification<User> getUserById(Long id) {
-        return StringUtils.isEmpty(id) ? getAllUser() : (root, query, criteriaBuilder) ->
-        {
+    public Specification<User> hasId(Long id) {
+        return StringUtils.isEmpty(id) ? all() : (root, query, criteriaBuilder) -> {
             query.distinct(true);
             return criteriaBuilder.equal(root.get(User_.ID), id);
         };
     }
 
-    public void buildGetById(Long id) {
-        specializations.add(getUserById(id));
+    public void byUserId(Long id) {
+        specializations.add(hasId(id));
     }
-
 }

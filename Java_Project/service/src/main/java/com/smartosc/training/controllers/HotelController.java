@@ -2,16 +2,13 @@ package com.smartosc.training.controllers;
 
 
 import com.smartosc.training.dto.APIResponse;
+import com.smartosc.training.dto.HotelDTO;
 import com.smartosc.training.services.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.smartosc.training.dto.HotelDTO;
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Locale;
@@ -47,6 +44,44 @@ public class HotelController {
         HotelDTO result = hotelService.getHotelByID(id);
         apiResponse.setData(result);
         apiResponse.setMessage(messageSource.getMessage("message.getById.success",null, locale));
+        apiResponse.setStatus(HttpStatus.OK.value());
+        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
+    }
+
+    @PostMapping()
+    public ResponseEntity<APIResponse<HotelDTO>> createNewHotel(@RequestBody HotelDTO input, Locale locale) {
+        APIResponse<HotelDTO> apiResponse = new APIResponse<>();
+
+        HotelDTO result = hotelService.createNew(input);
+        apiResponse.setData(result);
+        apiResponse.setMessage(messageSource.getMessage("message.create.success",null, locale));
+        apiResponse.setStatus(HttpStatus.OK.value());
+        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
+    }
+
+    @PutMapping
+    public ResponseEntity<APIResponse<HotelDTO>> updateInformation(@RequestBody HotelDTO input, Locale locale) {
+        APIResponse<HotelDTO> apiResponse = new APIResponse<>();
+
+        HotelDTO result = hotelService.updateHotel(input);
+        apiResponse.setData(result);
+        apiResponse.setMessage(messageSource.getMessage("message.update.success",null, locale));
+        apiResponse.setStatus(HttpStatus.OK.value());
+        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<APIResponse> deleteHotelById(@PathVariable("id") Long id) {
+        hotelService.deleteHotel(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<APIResponse<List<HotelDTO>>> getHotelByKey(@RequestParam("key") String key, Locale locale) {
+        APIResponse<List<HotelDTO>> apiResponse = new APIResponse<>();
+        List<HotelDTO> result = hotelService.geHotelsByName(key);
+        apiResponse.setData(result);
+        apiResponse.setMessage(messageSource.getMessage("message.search.success",null, locale));
         apiResponse.setStatus(HttpStatus.OK.value());
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }

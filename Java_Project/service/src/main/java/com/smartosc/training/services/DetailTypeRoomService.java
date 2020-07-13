@@ -1,7 +1,6 @@
 package com.smartosc.training.services;
 
 import com.smartosc.training.dto.DetailTypeRoomDTO;
-import com.smartosc.training.dto.TypeRoomDTO;
 import javassist.NotFoundException;
 
 import java.util.List;

@@ -4,7 +4,6 @@ import com.smartosc.training.dto.*;
 import com.smartosc.training.entities.*;
 import com.smartosc.training.exceptions.DuplicateException;
 import com.smartosc.training.exceptions.NotFoundException;
-import com.smartosc.training.exceptions.NullPointerException;
 import com.smartosc.training.repositories.CityRepository;
 import com.smartosc.training.services.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,28 +27,25 @@ public class CityServiceImpl implements CityService {
     private CityRepository cityRepository;
 
     @Override
-    public List<CityDTO> getAllCities() throws NullPointerException {
+    public List<CityDTO> getAllCities() {
         List<CityDTO> cityDTOList = new ArrayList<>();
         List<City> cityList = cityRepository.findAll();
 
         for (City city : cityList) {
-            Central central = city.getCentral();
-            if (central == null) {
-                throw new NullPointerException("Có dữ liệu đâu mà lấy đồ ngốc");
-            }
             cityDTOList.add(this.convertFromCityToCityDTO(city));
         }
         return cityDTOList;
     }
 
     @Override
-    public CityDTO getCityWithHotels(Long id) throws NotFoundException {
+    public CityDTO getCityWithHotels(Long id) {
         Optional<City> city = cityRepository.findById(id);
 
         if (city.isPresent()) {
             return this.convertFromCityToCityDTO(city.get());
+        } else {
+            throw new NotFoundException("Thách mi tìm được đấy!");
         }
-        throw new NotFoundException("Thách mi tìm được đấy!");
     }
 
     @Override
@@ -63,7 +59,7 @@ public class CityServiceImpl implements CityService {
 
         Optional<City> input = cityRepository.findByName(cityDTO.getName());
         if (input.isPresent()) {
-            throw new DuplicateException("Lặp lại rồi nha chế. Lấy tên khác đi");
+            throw new DuplicateException("Lặp lại rồi nha chế. Lấy tên khác đi cu");
         }
         City city = new City();
 
@@ -107,12 +103,7 @@ public class CityServiceImpl implements CityService {
         centralDTO.setImgUrl(central.getImgUrl());
         centralDTO.setTitle(central.getTitle());
 
-
         List<Hotel> hotelList = city.getHotels();
-        if (hotelList.isEmpty()) {
-            List<HotelDTO> hotelDTOList = new ArrayList<>();
-            cityDTO.setHotels(hotelDTOList);
-        }
         List<HotelDTO> hotelDTOList = new ArrayList<>();
         for (Hotel hotel : hotelList) {
             HotelDTO hotelDTO = new HotelDTO();

@@ -1,8 +1,7 @@
 package com.smartosc.training.services;
 
 import com.smartosc.training.dto.HotelDTO;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+
 
 import java.util.List;
 
@@ -18,4 +17,10 @@ public interface HotelService {
     HotelDTO getHotelByID(Long id);
 
     HotelDTO createNew(HotelDTO hotelDTO);
+
+    HotelDTO updateHotel(HotelDTO hotelDTO);
+
+    void deleteHotel(Long id);
+
+    List<HotelDTO> geHotelsByName(String key);
 }

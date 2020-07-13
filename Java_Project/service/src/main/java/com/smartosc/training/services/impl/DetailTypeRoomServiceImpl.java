@@ -44,9 +44,7 @@ public class DetailTypeRoomServiceImpl implements DetailTypeRoomService {
     public DetailTypeRoomDTO updateDetailTypeRoom(DetailTypeRoomDTO detailTypeRoomDTO)  {
         Optional<DetailTypeRoom> detailTypeRoomOptional = Optional.ofNullable(
                 detailTypeRoomRepository.findById(detailTypeRoomDTO.getId())
-                .orElseThrow(() -> {
-                    return new NotFoundException("aaa");
-                }));
+                .orElseThrow(() -> new NotFoundException("aaa")));
         DetailTypeRoom detailTypeRoom = detailTypeRoomOptional.get();
         detailTypeRoom.setAdditionalPrice(detailTypeRoomDTO.getAdditionalPrice());
         detailTypeRoom.setDefaultPerson(detailTypeRoomDTO.getDefaultPerson());

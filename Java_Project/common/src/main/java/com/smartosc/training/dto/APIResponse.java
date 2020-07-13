@@ -1,8 +1,6 @@
 package com.smartosc.training.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.util.Locale;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
