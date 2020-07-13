@@ -10,6 +10,7 @@ import com.smartosc.training.services.TypeRoomService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -33,14 +34,12 @@ public class TypeRoomServiceImpl implements TypeRoomService {
     private ModelMapper modelMapper;
 
     @Override
-    public List<TypeRoomDTO> findTypeRoomById(Long id, Pageable pageable) {
+    public Page<TypeRoomDTO> findTypeRoomById(Long id, Pageable pageable) {
         return typeRoomRepository.findAll(TypeRoomSpecification
                 .spec()
                 .typeRoomHasId(id)
                 .build(), pageable)
-                .stream().map(s -> modelMapper.map(s,TypeRoomDTO.class))
-                .collect(Collectors.toList()
-                );
+                .map(s -> modelMapper.map(s,TypeRoomDTO.class));
     }
 
     @Override
@@ -63,10 +62,5 @@ public class TypeRoomServiceImpl implements TypeRoomService {
         TypeRoom typeRoom = modelMapper.map(typeRoomDTO, TypeRoom.class);
         typeRoom = typeRoomRepository.save(typeRoom);
         return modelMapper.map(typeRoom, TypeRoomDTO.class);
-    }
-
-    @Override
-    public void deleteTypeRoom(Long[] id) {
-
     }
 }

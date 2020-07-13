@@ -25,5 +25,4 @@ public class UserDTO {
     private int status;
     private List<RoleDTO> roleDTOS;
     private List<CommentDTO> commentDTOS;
-    private StatusOTDTO statusOTDTO;
 }
