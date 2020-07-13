@@ -1,7 +1,6 @@
 package com.smartosc.training.services.impl;
 
 import com.smartosc.training.dto.CentralDTO;
-import com.smartosc.training.entities.Central;
 import com.smartosc.training.exceptions.NotFoundException;
 import com.smartosc.training.mappers.CentralConvert;
 import com.smartosc.training.repositories.CentralRepository;
@@ -37,18 +36,17 @@ public class CentralServiceImpl implements CentralService {
 
   @Override
   public CentralDTO createCentral(CentralDTO centralDTO) {
-    if (this.getAllCentral(centralDTO.getTitle(), null).isEmpty()) {
+    if (!centralRepository.findByTitle(centralDTO.getTitle()).isPresent()) {
       return CentralConvert.convertToDTO(
           centralRepository.save(CentralConvert.convertToEntity(centralDTO)));
-    }
-    else {
+    } else {
       throw new DuplicateKeyException("Duplicate.central.title");
     }
   }
 
   @Override
   public CentralDTO updateCentral(Long id, CentralDTO centralDTO) {
-    if (this.getAllCentral(null, id).isEmpty()) {
+    if (centralRepository.findById(id).isPresent()) {
       throw new NotFoundException("NotFound.central.id");
     }
     centralDTO.setId(id);

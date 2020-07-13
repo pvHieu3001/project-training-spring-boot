@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 
 /**
  * Fresher-Training
@@ -17,7 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 public class CentralConvert {
 
-  @Autowired private static ModelMapper MODEL_MAPPER;
+  @Autowired private static ModelMapper MODEL_MAPPER = new ModelMapper();
 
   public static CentralDTO convertToDTO(Central central) {
     return MODEL_MAPPER.map(central, CentralDTO.class);

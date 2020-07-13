@@ -1,5 +1,6 @@
 package com.smartosc.training.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -38,6 +39,8 @@ public class Central {
   private String title;
   @Column(nullable = false)
   private String imgUrl;
+
+  @JsonIgnore
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "central", cascade = {CascadeType.DETACH,
       CascadeType.MERGE, CascadeType.REFRESH})
   private List<City> cities;
