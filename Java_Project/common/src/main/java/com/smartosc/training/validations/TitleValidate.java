@@ -1,5 +1,7 @@
 package com.smartosc.training.validations;
 
+import com.smartosc.training.validations.anotation.TitleConstraint;
+
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
