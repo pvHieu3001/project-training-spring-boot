@@ -8,7 +8,6 @@ import com.smartosc.training.repositories.specifications.DetailTypeRoomSpecifica
 import com.smartosc.training.services.DetailTypeRoomService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,8 +28,6 @@ public class DetailTypeRoomServiceImpl implements DetailTypeRoomService {
     private DetailTypeRoomRepository detailTypeRoomRepository;
     @Autowired
     private ModelMapper modelMapper;
-    @Autowired
-    private MessageSource messageSource;
 
     @Override
     public List<DetailTypeRoomDTO> findDetailTypeRoomById(Long id) {

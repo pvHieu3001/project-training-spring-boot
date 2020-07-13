@@ -47,7 +47,5 @@ public class DetailTypeRoom {
   @JoinColumn(name = "type_room")
   private TypeRoom typeRoom;
 
-  @OneToOne(fetch = FetchType.LAZY, mappedBy = "detailTypeRoom", cascade = {CascadeType.DETACH,
-      CascadeType.MERGE, CascadeType.REFRESH})
-  private StatusOT statusOT;
+
 }
