@@ -20,8 +20,10 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.modelmapper.ModelMapper;
 import org.springframework.dao.DuplicateKeyException;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import javax.persistence.criteria.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -53,6 +55,23 @@ public class UserServiceTest {
 
     @Mock
     private UserSpecifications userSpecifications;
+    @Mock
+    private Root<User> root;
+
+    @Mock
+    private CriteriaQuery<?> query;
+
+    @Mock
+    private CriteriaBuilder cb;
+
+    @Mock
+    private Predicate predicate;
+
+    @Mock
+    private Path path;
+
+    @Mock
+    private Expression expression;
 
     private List<UserDTO> userDTOList;
     private List<User> userList;
@@ -81,7 +100,6 @@ public class UserServiceTest {
         userDTO2 = new UserDTO(2L, "admin2", "123456", "admin222@gmail.com", 1, roleDTOList, commentDTOS);
         userDTOList.add(userDTO);
         userDTOList.add(userDTO2);
-        userSpecifications = userSpecifications.spec();
     }
 
     @Test
@@ -116,7 +134,7 @@ public class UserServiceTest {
 
     @Test
     public void testGetAllUserWithSpecSuccess() {
-        when(userRepository.findAll(userSpecifications.all())).thenReturn(userList);
+        when(userRepository.findAll(userSpecifications.spec().all())).thenReturn(userList);
         List<UserDTO> userDTOS = userService.getAllUserWithSpec();
         Assert.assertEquals(1, userDTOS.size());
     }
@@ -124,17 +142,20 @@ public class UserServiceTest {
     @Test(expected = NotFoundException.class)
     public void testGetAllUserStatusSpecFail() {
         List<User> users = new ArrayList<>();
-        userSpecifications = userSpecifications.spec();
-        when(userRepository.findAll(userSpecifications.all())).thenReturn(users);
+        when(userRepository.findAll(userSpecifications.spec().all())).thenReturn(users);
         List<UserDTO> userDTOS = userService.getAllUserWithSpec();
         Assert.assertEquals(NotFoundException.class, userDTOS);
     }
 
     @Test
     public void testGetByIdSpecSuccess() {
-        when(userRepository.findAll(userSpecifications.hasId(1L))).thenReturn(userList);
+        when( userRepository.findAll(Specification.where(userSpecifications.spec().hasId(anyLong())))).thenReturn(userList);
+//        when(root.get("code")).thenReturn(path);
+//        when(cb.equal(expression,any())).thenReturn(predicate);
+//        Specification<User> actual = userSpecifications.all();
+//        predicate = actual.toPredicate(root, query, cb);
         List<UserDTO> userDTOS = userService.getUserById(1L);
-        Assert.assertEquals(1, userList.size());
+        Assert.assertEquals(1, userDTOS.size());
     }
 
     @Test
