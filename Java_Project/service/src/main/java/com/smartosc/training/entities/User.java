@@ -58,8 +58,4 @@ public class User {
       CascadeType.MERGE, CascadeType.REFRESH})
   private List<Comment> comments;
 
-  @OneToOne(fetch = FetchType.LAZY, mappedBy = "user", cascade = {CascadeType.DETACH,
-      CascadeType.MERGE, CascadeType.REFRESH})
-  private StatusOT statusOT;
-
 }

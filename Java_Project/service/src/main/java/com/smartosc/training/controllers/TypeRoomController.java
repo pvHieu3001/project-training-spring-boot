@@ -1,7 +1,6 @@
 package com.smartosc.training.controllers;
 
 import com.smartosc.training.dto.APIResponse;
-import com.smartosc.training.dto.CentralDTO;
 import com.smartosc.training.dto.TypeRoomDTO;
 import com.smartosc.training.services.TypeRoomService;
 import io.swagger.annotations.ApiImplicitParam;
@@ -48,7 +47,7 @@ public class TypeRoomController {
         return new ResponseEntity(new APIResponse<>(
                 HttpStatus.OK.value(),
                 messageSource.getMessage("msg.success", null, locale),
-                typeRoomService.findTypeRoomById(id, pageable)
+                typeRoomService.findTypeRoomById(id, pageable).getContent()
         ), HttpStatus.OK);
     }
 
