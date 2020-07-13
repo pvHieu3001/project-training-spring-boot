@@ -3,26 +3,21 @@ package com.smartosc.training.aop;
 import com.smartosc.training.entities.ApiLog;
 import com.smartosc.training.services.impl.ApiLogServiceImpl;
 import lombok.extern.slf4j.Slf4j;
-import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.CodeSignature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.retry.annotation.Backoff;
-import org.springframework.retry.annotation.Recover;
-import org.springframework.retry.annotation.Retryable;
 import org.springframework.retry.support.RetryTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.ResourceAccessException;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * Fresher-Training
@@ -65,14 +60,9 @@ public class LoggingAspect {
 
     @Around("execution(* com.smartosc.training.services.*.*(..))")
     public Object logAroundController(ProceedingJoinPoint joinPoint) throws Throwable {
-        retryTemplate.execute(retryCallback -> {
-                    Object result;
                     CodeSignature codeSignature = (CodeSignature) joinPoint.getSignature();
                     ApiLog apiLog = new ApiLog();
                     apiLog.setCalledTime(Calendar.getInstance().getTime());
-
-                    apiLog.setRetryNum(++retryCount);
-                    log.info("Attempting at {} time(s)", retryCount);
                     List<String> args = new ArrayList<>();
                     String[] argNames = codeSignature.getParameterNames();
                     Object[] argValues = joinPoint.getArgs();
@@ -80,28 +70,26 @@ public class LoggingAspect {
                         args.add(argNames[i] + ":" + argValues[i].toString());
                     }
                     apiLog.setData(String.join(", ", args));
-                    try {
-                        result = joinPoint.proceed();
-                    } catch (ResourceAccessException e) {
-                        log.error("time out exception", e);
-                        apiLog.setErrorMessage(e.getMessage());
-                        throw e;
-                    } catch (Exception e) {
-                        log.error("Server exception", e);
-                        apiLog.setErrorMessage(e.getMessage());
-                        throw e;
-                    } finally {
-                        apiLogService.saveApiLog(apiLog);
-                    }
-                    log.error(String.join(", ", args));
-                    return result;
-                }
-//        },
-//        recoveryCallback -> {
-//            log.info("Recovering");
-//            return null;
-//        }
-        );
-        return null;
+                    retryTemplate.execute(retryCallback -> {
+                        Object result;
+                        try {
+                            log.info("Attempting at {} time(s)", ++retryCount);
+                            result = joinPoint.proceed();
+                        } catch (ResourceAccessException e) {
+                            log.error("time out exception");
+                            apiLog.setErrorMessage(e.getMessage());
+                            throw e;
+                        } catch (Exception e) {
+                            log.error("Server exception");
+                            apiLog.setErrorMessage(e.getMessage());
+                            throw e;
+                        } finally {
+                            apiLog.setRetryNum(retryCount);
+                            apiLogService.saveApiLog(apiLog);
+                        }
+                        log.error(String.join(", ", args));
+                        return result;
+                    });
+        return joinPoint.proceed();
     }
 }

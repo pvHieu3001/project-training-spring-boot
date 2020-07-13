@@ -1,3 +1,26 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://example.com"
            targetNamespace="http://example.com" elementFormDefault="qualified">
+    <xs:element name="typeRoomRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:string"/>
+                <xs:element name="img_url" type="xs:string"/>
+                <xs:element name="name" type="xs:string"/>
+                <xs:element name="total_price" type="xs:string"/>
+                <xs:element name="hotel_id" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="typeRoomResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:string"/>
+                <xs:element name="img_url" type="xs:string"/>
+                <xs:element name="name" type="xs:string"/>
+                <xs:element name="total_price" type="xs:string"/>
+                <xs:element name="hotel_id" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 </xs:schema>

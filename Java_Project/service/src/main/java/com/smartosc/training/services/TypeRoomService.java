@@ -21,4 +21,5 @@ public interface TypeRoomService {
     public Page<TypeRoomDTO> findTypeRoomById(Long id, Pageable pageable);
     public TypeRoomDTO updateTypeRoom(TypeRoomDTO typeRoomRequest) throws NotFoundException;
     public TypeRoomDTO createTypeRoom(TypeRoomDTO typeRoomRequest);
+    public TypeRoomDTO findTypeRoomByName(String name);
 }

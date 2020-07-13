@@ -43,6 +43,11 @@ public class TypeRoomServiceImpl implements TypeRoomService {
     }
 
     @Override
+    public TypeRoomDTO findTypeRoomByName(String name) {
+        return modelMapper.map(typeRoomRepository.findByName(name),TypeRoomDTO.class);
+    }
+
+    @Override
     public TypeRoomDTO updateTypeRoom(TypeRoomDTO typeRoomDTO)  {
         Optional<TypeRoom> typeRoomOptional = Optional.ofNullable(
                 typeRoomRepository.findById(typeRoomDTO.getId())

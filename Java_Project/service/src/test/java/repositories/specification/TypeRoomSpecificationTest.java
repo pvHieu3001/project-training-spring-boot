@@ -21,7 +21,7 @@ public class TypeRoomSpecificationTest {
         @Test
         @DisplayName("typeRoomHasId when input null return not null")
         void testGreaterThanOrEqualToFromDateReturnNullWhenInputNull() {
-            assertNotNull(TypeRoomSpecification.spec().typeRoomHasId(null), "should return not null");
+            assertNotNull(TypeRoomSpecification.spec().typeRoomHasId(null).build(), "should return not null");
         }
     }
 
@@ -30,7 +30,7 @@ public class TypeRoomSpecificationTest {
         @Test
         @DisplayName("typeRoomHasId when input null return not null")
         void testGreaterThanOrEqualToFromDateReturnNullWhenInputNull() {
-            assertNotNull(TypeRoomSpecification.spec().typeRoomHasId(1L), "should return not null");
+            assertNotNull(TypeRoomSpecification.spec().typeRoomHasId(1L).build(), "should return not null");
         }
     }
 }

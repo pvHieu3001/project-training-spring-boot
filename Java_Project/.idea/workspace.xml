@@ -2,13 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0dc4de3c-99f3-49e1-ac43-ebf386f52899" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/BaseResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/aop/LoggingAspect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/entities/AbstractAuditingEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/entities/ApiLog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/ApiLogRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/ApiLogServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/config/XmlConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/aop/LoggingAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/aop/LoggingAspect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/TypeRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/TypeRoomController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/endpoints/TypeRoomEndPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/endpoints/TypeRoomEndPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/TypeRoomRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/TypeRoomRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/TypeRoomService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/TypeRoomService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/TypeRoomServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/TypeRoomServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/resources/typeroom.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/resources/typeroom.xsd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/test/java/repositories/specification/TypeRoomSpecificationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/test/java/repositories/specification/TypeRoomSpecificationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +20,44 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageViewManager">
-    <option name="myElementSize" value="162" />
+    <option name="myElementSize" value="94" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="hotelbooking@192.90.20.232" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="hotelbooking@192.90.20.232" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="hotelbooking@192.90.20.232" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="hotelbooking: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="hotelbooking@192.90.20.232" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="hotelbooking: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+        <item name="type_room: table" type="dbc44a63:MariaImplModel$Table" />
+      </path>
+    </expand>
+    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -27,6 +68,31 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="pvhiu-crud-room" />
+                    <option name="lastUsedInstant" value="1594606923" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1594606819" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$/.." />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -50,73 +116,79 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/service/src/test/java" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/Microsoft.SkypeApp_kzf8qxf38zg5c!App/All (2)/arpu" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../soap-demo" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.smartosc.training.config" />
       <recent name="com.smartosc.training.dto" />
       <recent name="com.smartosc.training.repositories" />
       <recent name="com.smartosc.training.entities" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.ServiceApplication">
-    <configuration name="CityServiceTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TypeRoomSpecificationTest$SpecificationReturnData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="services.*" />
+          <option name="PATTERN" value="repositories.specification.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="services" />
-      <option name="MAIN_CLASS_NAME" value="services.CityServiceTest" />
+      <option name="PACKAGE_NAME" value="repositories.specification" />
+      <option name="MAIN_CLASS_NAME" value="repositories.specification.TypeRoomSpecificationTest$SpecificationReturnData" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HotelServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TypeRoomSpecificationTest$SpecificationReturnData.testGreaterThanOrEqualToFromDateReturnNullWhenInputNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="service" />
+      <useClassPathOnly />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="services.*" />
+          <option name="PATTERN" value="com.smartosc.training.repositories.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="services" />
-      <option name="MAIN_CLASS_NAME" value="services.HotelServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TypeRoomServiceTest.findTypeRoomById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="services" />
-      <option name="MAIN_CLASS_NAME" value="services.TypeRoomServiceTest" />
-      <option name="METHOD_NAME" value="findTypeRoomById" />
+      <option name="PACKAGE_NAME" value="repositories.specification" />
+      <option name="MAIN_CLASS_NAME" value="repositories.specification.TypeRoomSpecificationTest$SpecificationReturnData" />
+      <option name="METHOD_NAME" value="testGreaterThanOrEqualToFromDateReturnNullWhenInputNull" />
       <option name="TEST_OBJECT" value="method" />
+      <option name="PARAMETERS" value="" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TypeRoomSpecificationTest$SpecificationReturnNull.testGreaterThanOrEqualToFromDateReturnNullWhenInputNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="service" />
+      <useClassPathOnly />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="services.*" />
+          <option name="PATTERN" value="com.smartosc.training.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="services" />
-      <option name="MAIN_CLASS_NAME" value="services.UserServiceTest" />
+      <option name="PACKAGE_NAME" value="repositories.specification" />
+      <option name="MAIN_CLASS_NAME" value="repositories.specification.TypeRoomSpecificationTest$SpecificationReturnNull" />
+      <option name="METHOD_NAME" value="testGreaterThanOrEqualToFromDateReturnNullWhenInputNull" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TypeRoomSpecificationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="repositories.specification.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="repositories.specification" />
+      <option name="MAIN_CLASS_NAME" value="repositories.specification.TypeRoomSpecificationTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -136,19 +208,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.CityServiceTest (1)" />
-      <item itemvalue="JUnit.HotelServiceTest" />
-      <item itemvalue="JUnit.UserServiceTest" />
-      <item itemvalue="JUnit.TypeRoomServiceTest.findTypeRoomById" />
       <item itemvalue="Spring Boot.ServiceApplication" />
+      <item itemvalue="JUnit.TypeRoomSpecificationTest$SpecificationReturnNull.testGreaterThanOrEqualToFromDateReturnNullWhenInputNull" />
+      <item itemvalue="JUnit.TypeRoomSpecificationTest$SpecificationReturnData" />
+      <item itemvalue="JUnit.TypeRoomSpecificationTest" />
+      <item itemvalue="JUnit.TypeRoomSpecificationTest$SpecificationReturnData.testGreaterThanOrEqualToFromDateReturnNullWhenInputNull" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.ServiceApplication" />
-        <item itemvalue="JUnit.TypeRoomServiceTest.findTypeRoomById" />
-        <item itemvalue="JUnit.UserServiceTest" />
-        <item itemvalue="JUnit.HotelServiceTest" />
-        <item itemvalue="JUnit.CityServiceTest (1)" />
+        <item itemvalue="JUnit.TypeRoomSpecificationTest$SpecificationReturnData.testGreaterThanOrEqualToFromDateReturnNullWhenInputNull" />
+        <item itemvalue="JUnit.TypeRoomSpecificationTest$SpecificationReturnData" />
+        <item itemvalue="JUnit.TypeRoomSpecificationTest" />
+        <item itemvalue="JUnit.TypeRoomSpecificationTest$SpecificationReturnNull.testGreaterThanOrEqualToFromDateReturnNullWhenInputNull" />
       </list>
     </recent_temporary>
   </component>
@@ -172,6 +244,14 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="563" y="200" key="#TypeRoomSpecificationTest$SpecificationReturnData.testGreaterThanOrEqualToFromDateReturnNullWhenInputNull" timestamp="1594623805236">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="563" y="200" key="#TypeRoomSpecificationTest$SpecificationReturnData.testGreaterThanOrEqualToFromDateReturnNullWhenInputNull/0.0.1920.1040@0.0.1920.1040" timestamp="1594623805236" />
+    <state x="563" y="200" key="#TypeRoomSpecificationTest$SpecificationReturnNull.testGreaterThanOrEqualToFromDateReturnNullWhenInputNull" timestamp="1594623232546">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="563" y="200" key="#TypeRoomSpecificationTest$SpecificationReturnNull.testGreaterThanOrEqualToFromDateReturnNullWhenInputNull/0.0.1920.1040@0.0.1920.1040" timestamp="1594623232546" />
     <state x="557" y="187" key="#UserServiceTest" timestamp="1594280874225">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -184,50 +264,66 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594281040576" />
-    <state x="690" y="296" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1594281005682">
+    <state x="690" y="296" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1594623802506">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="296" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594281005682" />
+    <state x="690" y="296" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594623802506" />
     <state x="689" y="304" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1594281038441">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="689" y="304" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594281038441" />
-    <state x="740" y="278" key="FileChooserDialogImpl" timestamp="1594292507426">
+    <state x="740" y="278" key="FileChooserDialogImpl" timestamp="1594607049063">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1594292507426" />
-    <state width="1877" height="308" key="GridCell.Tab.0.bottom" timestamp="1594378599850">
+    <state x="740" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1594607049063" />
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1594635526396">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="308" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594378599850" />
-    <state width="1877" height="308" key="GridCell.Tab.0.center" timestamp="1594378599850">
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594635526396" />
+    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1594635526396">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="308" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594378599850" />
-    <state width="1877" height="308" key="GridCell.Tab.0.left" timestamp="1594378599850">
+    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594635526396" />
+    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1594635526396">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="308" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594378599850" />
-    <state width="1877" height="308" key="GridCell.Tab.0.right" timestamp="1594378599850">
+    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594635526396" />
+    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1594635526396">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="308" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594378599850" />
-    <state width="1877" height="308" key="GridCell.Tab.1.bottom" timestamp="1594378599850">
+    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594635526396" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1594635526397">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="308" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594378599850" />
-    <state width="1877" height="308" key="GridCell.Tab.1.center" timestamp="1594378599850">
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594635526397" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1594635526396">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="308" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594378599850" />
-    <state width="1877" height="308" key="GridCell.Tab.1.left" timestamp="1594378599850">
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594635526396" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1594635526396">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="308" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594378599850" />
-    <state width="1877" height="308" key="GridCell.Tab.1.right" timestamp="1594378599850">
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594635526396" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1594635526397">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="308" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594378599850" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594635526397" />
+    <state width="1877" height="348" key="GridCell.Tab.2.bottom" timestamp="1594635526397">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594635526397" />
+    <state width="1877" height="348" key="GridCell.Tab.2.center" timestamp="1594635526397">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594635526397" />
+    <state width="1877" height="348" key="GridCell.Tab.2.left" timestamp="1594635526397">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594635526397" />
+    <state width="1877" height="348" key="GridCell.Tab.2.right" timestamp="1594635526397">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594635526397" />
     <state x="776" y="298" key="chooseDestDirectoryDialog" timestamp="1594280744995">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -242,14 +338,44 @@
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/TypeRoomServiceImpl.java</url>
-          <line>37</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/service/src/test/java/services/TypeRoomServiceTest.java</url>
           <line>69</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/service/src/main/java/com/smartosc/training/endpoints/TypeRoomEndPoint.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/service/src/main/java/com/smartosc/training/endpoints/TypeRoomEndPoint.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/service/src/test/java/repositories/specification/TypeRoomSpecificationTest.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/service/src/test/java/repositories/specification/TypeRoomSpecificationTest.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/TypeRoomSpecification.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/TypeRoomSpecification.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/TypeRoomSpecification.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -257,6 +383,9 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testFindUserByUserNameSuccess.ic" NAME="UserServiceTest.testFindUserByUserNameSuccess Coverage Results" MODIFIED="1594280892824" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>services.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Fresher_Training$TypeRoomSpecificationTest_SpecificationReturnData.ic" NAME="TypeRoomSpecificationTest$SpecificationReturnData Coverage Results" MODIFIED="1594623500400" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>repositories.specification.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest.ic" NAME="UserServiceTest Coverage Results" MODIFIED="1594281046129" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>services.*</FILTER>
@@ -267,6 +396,15 @@
     </SUITE>
     <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testGetAllUserStatusSpecFail.ic" NAME="UserServiceTest.testGetAllUserStatusSpecFail Coverage Results" MODIFIED="1594280925373" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>services.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Fresher_Training$TypeRoomSpecificationTest.ic" NAME="TypeRoomSpecificationTest Coverage Results" MODIFIED="1594623440584" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>repositories.specification.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Fresher_Training$TypeRoomSpecificationTest_SpecificationReturnNull_testGreaterThanOrEqualToFromDateReturnNullWhenInputNull.ic" NAME="TypeRoomSpecificationTest$SpecificationReturnNull.testGreaterThanOrEqualToFromDateReturnNullWhenInputNull Coverage Results" MODIFIED="1594623413105" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.smartosc.training.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Fresher_Training$TypeRoomSpecificationTest_SpecificationReturnData_testGreaterThanOrEqualToFromDateReturnNullWhenInputNull.ic" NAME="TypeRoomSpecificationTest$SpecificationReturnData.testGreaterThanOrEqualToFromDateReturnNullWhenInputNull Coverage Results" MODIFIED="1594623809646" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.smartosc.training.repositories.*</FILTER>
     </SUITE>
   </component>
 </project>

@@ -43,11 +43,20 @@ public class TypeRoomController {
                     value = "sort by")
     })
     @GetMapping("/{id}")
-    public ResponseEntity<APIResponse<List<TypeRoomDTO>>> findById(@PathVariable("id") Long id, Locale locale, @ApiIgnore Pageable pageable){
+    public ResponseEntity<APIResponse<List<TypeRoomDTO>>> findTypeRoomById(@PathVariable("id") Long id, Locale locale, @ApiIgnore Pageable pageable){
         return new ResponseEntity(new APIResponse<>(
                 HttpStatus.OK.value(),
                 messageSource.getMessage("msg.success", null, locale),
                 typeRoomService.findTypeRoomById(id, pageable).getContent()
+        ), HttpStatus.OK);
+    }
+
+    @GetMapping("/search/{name}")
+    public ResponseEntity<APIResponse<List<TypeRoomDTO>>> findByTypeRoomName(@PathVariable("name") String name, Locale locale){
+        return new ResponseEntity(new APIResponse<>(
+                HttpStatus.OK.value(),
+                messageSource.getMessage("msg.success", null, locale),
+                typeRoomService.findTypeRoomByName(name)
         ), HttpStatus.OK);
     }
 
