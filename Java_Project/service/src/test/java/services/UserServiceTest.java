@@ -2,11 +2,9 @@ package services;
 
 import com.smartosc.training.dto.CommentDTO;
 import com.smartosc.training.dto.RoleDTO;
-import com.smartosc.training.dto.StatusOTDTO;
 import com.smartosc.training.dto.UserDTO;
 import com.smartosc.training.entities.Comment;
 import com.smartosc.training.entities.Role;
-import com.smartosc.training.entities.StatusOT;
 import com.smartosc.training.entities.User;
 import com.smartosc.training.exceptions.NotFoundException;
 import com.smartosc.training.repositories.UserRepository;
@@ -81,8 +79,6 @@ public class UserServiceTest {
     private List<Role> roleList;
     private List<CommentDTO> commentDTOS;
     private List<Comment> comments;
-    private StatusOTDTO statusOTDTO;
-    private StatusOT statusOT;
     private UserDTO userDTO;
     private UserDTO userDTO2;
     private User user;
@@ -93,17 +89,15 @@ public class UserServiceTest {
         userDTOList = new ArrayList<>();
         roleDTOList = new ArrayList<>();
         commentDTOS = new ArrayList<>();
-        statusOTDTO = new StatusOTDTO();
         userList = new ArrayList<>();
         role = new Role(1L,"ROLE_ADMIN");
         roleList = new ArrayList<>();
         roleList.add(role);
         comments = new ArrayList<>();
-        statusOT = new StatusOT();
-        user = new User(1L, "admin", "123", "admin@gmail.com", 1, roleList, comments, statusOT);
+        user = new User(1L, "admin", "123", "admin@gmail.com", 1, roleList, comments);
         userList.add(user);
-        userDTO = new UserDTO(1L, "admin", "123", "admin@gmail.com", 1, roleDTOList, commentDTOS, statusOTDTO);
-        userDTO2 = new UserDTO(2L, "admin2", "123456", "admin222@gmail.com", 1, roleDTOList, commentDTOS, statusOTDTO);
+        userDTO = new UserDTO(1L, "admin", "123", "admin@gmail.com", 1, roleDTOList, commentDTOS);
+        userDTO2 = new UserDTO(2L, "admin2", "123456", "admin222@gmail.com", 1, roleDTOList, commentDTOS);
         userDTOList.add(userDTO);
         userDTOList.add(userDTO2);
     }

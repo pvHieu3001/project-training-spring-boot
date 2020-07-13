@@ -3,7 +3,6 @@ package com.smartosc.training.controllers;
 import com.smartosc.training.dto.APIResponse;
 import com.smartosc.training.dto.UserDTO;
 import com.smartosc.training.services.UserService;
-import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
@@ -59,7 +58,7 @@ public class UserController {
 
         APIResponse<List<UserDTO>> apiResponse = new APIResponse<>();
         apiResponse.setStatus(HttpStatus.OK.value());
-        apiResponse.setMessage(messageSource.getMessage("Message.status.ok", null, locale));
+        apiResponse.setMessage(messageSource.getMessage("message.getAll.user.success", null, locale));
         apiResponse.setData(userDTOS);
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
@@ -88,22 +87,22 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<APIResponse<UserDTO>> updateUser(@Valid @RequestBody UserDTO userDTO, @PathVariable(value = "id") Long id) {
+    public ResponseEntity<APIResponse<UserDTO>> updateUser(@Valid @RequestBody UserDTO userDTO, @PathVariable(value = "id") Long id, Locale locale) {
         UserDTO userDTO1 = userService.updateUser(id, userDTO);
         APIResponse<UserDTO> apiResponse = new APIResponse<>();
         apiResponse.setStatus(HttpStatus.OK.value());
-        apiResponse.setMessage("Update user success");
+        apiResponse.setMessage(messageSource.getMessage("message.create.update.success", null, locale));
         apiResponse.setData(userDTO1);
 
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<APIResponse<UserDTO>> deleteUserById(@PathVariable(value = "id") Long id) {
+    public ResponseEntity<APIResponse<UserDTO>> deleteUserById(@PathVariable(value = "id") Long id, Locale locale) {
         UserDTO userDTO = userService.deleteUserById(id);
         APIResponse<UserDTO> apiResponse = new APIResponse<>();
         apiResponse.setStatus(HttpStatus.OK.value());
-        apiResponse.setMessage("delete success");
+        apiResponse.setMessage(messageSource.getMessage("message.create.delete.success", null, locale));
         apiResponse.setData(userDTO);
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }

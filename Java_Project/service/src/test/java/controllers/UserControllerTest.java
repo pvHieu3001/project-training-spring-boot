@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.smartosc.training.controllers.UserController;
 import com.smartosc.training.dto.CommentDTO;
 import com.smartosc.training.dto.RoleDTO;
-import com.smartosc.training.dto.StatusOTDTO;
 import com.smartosc.training.dto.UserDTO;
 import com.smartosc.training.entities.User;
 import com.smartosc.training.services.UserService;
@@ -14,6 +13,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.context.MessageSource;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
@@ -49,6 +49,8 @@ public class UserControllerTest {
 
     @Mock
     private UserService userService;
+    @Mock
+    private MessageSource messageSource;
 
     private ObjectMapper objectMapper;
 
@@ -62,7 +64,6 @@ public class UserControllerTest {
 
     private List<CommentDTO> commentDTOList;
 
-    private StatusOTDTO statusOTDTO;
 
     private List<User> userList;
 
@@ -76,13 +77,12 @@ public class UserControllerTest {
         roleDTOList.add(roleDTO);
 
         userDTOList = new ArrayList<>();
-        userDTO = new UserDTO(1L, "lamchuot", "12345", "lamchuot0@gmail.com", 1, roleDTOList, commentDTOList, statusOTDTO);
+        userDTO = new UserDTO(1L, "lamchuot", "12345", "lamchuot0@gmail.com", 1, roleDTOList, commentDTOList);
         userDTOList.add(userDTO);
 
 
         commentDTOList = new ArrayList<>();
 
-        statusOTDTO = new StatusOTDTO();
         this.mockMvc = MockMvcBuilders.standaloneSetup(userController).build();
         objectMapper = new ObjectMapper();
     }
@@ -92,6 +92,7 @@ public class UserControllerTest {
     @Test
     public void TestGetAllUser() throws Exception {
         lenient().when(userService.getAllUser()).thenReturn(userDTOList);
+        lenient().when(messageSource.getMessage(any(), any(), any())).thenReturn("message.getAll.user.success");
         this.mockMvc.perform(get(url)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -102,6 +103,7 @@ public class UserControllerTest {
     @Test
     public void TestCreateUser() throws Exception {
         lenient().when(userService.createUser(any(UserDTO.class))).thenReturn(userDTO);
+        lenient().when(messageSource.getMessage(any(), any(), any())).thenReturn("message.getAll.user.success");
         this.mockMvc.perform(post(url, userDTO).contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(userDTO)))
                 .andExpect(status().isOk())
@@ -112,6 +114,7 @@ public class UserControllerTest {
     @Test
     public void TestUpdateUser() throws Exception {
         lenient().when(userService.updateUser(anyLong(), any(UserDTO.class))).thenReturn(userDTO);
+        lenient().when(messageSource.getMessage(any(), any(), any())).thenReturn("message.getAll.user.success");
         this.mockMvc.perform(put("/api/user/{id}", userDTO.getId(), userDTO)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(userDTO)))
@@ -123,6 +126,7 @@ public class UserControllerTest {
     @Test
     public void TestDeleteUserById() throws Exception {
         lenient().when(userService.deleteUserById(any())).thenReturn(userDTO);
+        lenient().when(messageSource.getMessage(any(), any(), any())).thenReturn("message.getAll.user.success");
         this.mockMvc.perform(delete("/api/user/{id}", userDTO.getId())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(userDTO)))
@@ -134,6 +138,7 @@ public class UserControllerTest {
     @Test
     public void TestGetUserById() throws Exception {
         lenient().when(userService.getUserById(any())).thenReturn(userDTOList);
+        lenient().when(messageSource.getMessage(any(), any(), any())).thenReturn("message.getAll.user.success");
         this.mockMvc.perform(get(url, userDTO.getId())
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -144,6 +149,7 @@ public class UserControllerTest {
     @Test
     public void TestFindUserByUserName() throws Exception {
         lenient().when(userService.findUserByUserName(any())).thenReturn(userDTO);
+        lenient().when(messageSource.getMessage(any(), any(), any())).thenReturn("message.getAll.user.success");
         this.mockMvc.perform(get(url, userDTO.getId())
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -154,6 +160,7 @@ public class UserControllerTest {
     @Test
     public void GetAllUserWithSpec() throws Exception {
         lenient().when(userService.getAllUserWithSpec()).thenReturn(userDTOList);
+        lenient().when(messageSource.getMessage(any(), any(), any())).thenReturn("message.getAll.user.success");
         this.mockMvc.perform(get("/api/user/spec")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -163,6 +170,7 @@ public class UserControllerTest {
     @Test
     public void GetAllUserStatusTrue() throws Exception {
         lenient().when(userService.getAllUserStatusTrue()).thenReturn(userDTOList);
+        lenient().when(messageSource.getMessage(any(), any(), any())).thenReturn("message.getAll.user.success");
         this.mockMvc.perform(get("/api/user/status")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -172,7 +180,8 @@ public class UserControllerTest {
     @Test
     public void GetAllUserWithSpecId() throws Exception {
         lenient().when(userService.getUserById(anyLong())).thenReturn(userDTOList);
-        this.mockMvc.perform(get("/api/user/spec/{id}",1L)
+        lenient().when(messageSource.getMessage(any(), any(), any())).thenReturn("message.getAll.user.success");
+        this.mockMvc.perform(get("/api/user/spec/{id}", 1L)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andDo(MockMvcResultHandlers.log());

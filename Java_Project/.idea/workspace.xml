@@ -1,24 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0dc4de3c-99f3-49e1-ac43-ebf386f52899" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/validations/EmailValidate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/validations/PasswordValidate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/validations/UserNameValidate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/validations/anotation/EmailContraint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/validations/anotation/PasswordContraint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/validations/anotation/UserNameConstraint.java" afterDir="false" />
+    <list default="true" id="71740e42-3442-40d1-9bb2-9a9844f1207f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/service/src/test/java/controllers/DetailTypeRoomControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/test/java/controllers/TypeRoomControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/test/java/repositories/CentralRepositoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/test/java/repositories/TypeRoomRepositoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/test/java/repositories/specification/TypeRoomSpecificationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/test/java/services/CentralServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/test/java/services/DetailTypeRoomServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/test/java/services/TypeRoomServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/APIResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/APIResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/CentralDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/CentralDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/RoleDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/RoleDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/StatusOTDTO.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/UserDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/validations/TitleConstraint.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/validations/anotation/TitleConstraint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/validations/TitleValidate.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/validations/TitleValidate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/ServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/ServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/config/SwaggerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/config/SwaggerConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/CentralController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/CentralController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/DetailTypeRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/DetailTypeRoomController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/HotelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/TypeRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/TypeRoomController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/UserSpecifications.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/UserSpecifications.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/entities/Central.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/entities/Central.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/entities/DetailTypeRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/entities/DetailTypeRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/entities/StatusOT.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/mappers/CentralConvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/mappers/CentralConvert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/CentralRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/CentralRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/CentralSpecification.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/CentralSpecification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/TypeRoomService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/TypeRoomService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/CentralServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/CentralServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/DetailTypeRoomServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/DetailTypeRoomServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/TypeRoomServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/TypeRoomServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/UserServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/UserServicesImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/main/resources/i18n/messages_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/resources/i18n/messages_en.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/resources/i18n/messages_vi.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/resources/i18n/messages_vi.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/test/java/controllers/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/test/java/controllers/UserControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/test/java/services/CityServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/test/java/services/CityServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/test/java/services/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/test/java/services/UserServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/test/java/services/UserSpecificationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/test/java/services/UserSpecificationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +71,7 @@
     </option>
   </component>
   <component name="ProjectId" id="1eRNR1G6Ap72QaYDPekCUz3Fbkz" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -299,33 +323,30 @@
           <line>162</line>
           <option name="timeStamp" value="41" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/UserServicesImpl.java</url>
-          <line>152</line>
-          <option name="timeStamp" value="42" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testFindUserByUserNameSuccess.ic" NAME="UserServiceTest.testFindUserByUserNameSuccess Coverage Results" MODIFIED="1594280892824" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>services.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest.ic" NAME="UserServiceTest Coverage Results" MODIFIED="1594281046129" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>services.*</FILTER>
-      <FILTER>com.smartosc.training.services.impl.UserServicesImpl</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testGetByIdSpecSuccess.ic" NAME="UserServiceTest.testGetByIdSpecSuccess Coverage Results" MODIFIED="1594285628306" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>services.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testCreateUserFail.ic" NAME="UserServiceTest.testCreateUserFail Coverage Results" MODIFIED="1594280912326" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>services.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testGetAllUserStatusSpecFail.ic" NAME="UserServiceTest.testGetAllUserStatusSpecFail Coverage Results" MODIFIED="1594280925373" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>services.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Fresher_Training$UserControllerTest.ic" NAME="UserControllerTest Coverage Results" MODIFIED="1594355226309" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Fresher_Training$CityControllerTest__1_.ic" NAME="CityControllerTest (1) Coverage Results" MODIFIED="1594262196537" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Fresher_Training$CityControllerTest_.ic" NAME="CityControllerTest  Coverage Results" MODIFIED="1594262241837" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.smartosc.training.controllers.CityController</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Fresher_Training$HotelControllerTest.ic" NAME="HotelControllerTest Coverage Results" MODIFIED="1594262862588" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.smartosc.training.controllers.HotelController</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Fresher_Training$HotelControllerTest_deleteHotelById.ic" NAME="HotelControllerTest.deleteHotelById Coverage Results" MODIFIED="1594262786519" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>controllers.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Fresher_Training$HotelServiceTest_deleteHotelByID.ic" NAME="HotelServiceTest.deleteHotelByID Coverage Results" MODIFIED="1594264195591" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>services.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Fresher_Training$CityServiceTest.ic" NAME="CityServiceTest Coverage Results" MODIFIED="1594263306514" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.smartosc.training.services.impl.CityServiceImpl</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Fresher_Training$HotelServiceTest.ic" NAME="HotelServiceTest Coverage Results" MODIFIED="1594264404115" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.smartosc.training.services.impl.HotelServiceImpl</FILTER>
     </SUITE>
   </component>
 </project>
