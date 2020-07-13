@@ -1,7 +1,10 @@
 package com.smartosc.training.dto;
 
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
@@ -20,6 +23,7 @@ public class RoleDTO {
     private Long id;
     private String name;
     List<UserDTO> userDTOS;
+
 
     public RoleDTO(Long id, String name) {
         this.id = id;

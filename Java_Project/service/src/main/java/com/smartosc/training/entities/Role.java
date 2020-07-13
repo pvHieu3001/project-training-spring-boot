@@ -1,20 +1,12 @@
 package com.smartosc.training.entities;
 
-import java.util.List;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-import javax.persistence.criteria.Root;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * testJWT
@@ -40,5 +32,9 @@ public class Role {
     @ManyToMany(mappedBy = "roles",fetch = FetchType.LAZY)
     private List<User> accounts;
 
+    public Role(Long id,String name){
+        this.roleId = id;
+        this.name = name;
+    }
 
 }

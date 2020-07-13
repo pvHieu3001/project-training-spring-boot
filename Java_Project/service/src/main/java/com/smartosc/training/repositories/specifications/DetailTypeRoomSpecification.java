@@ -1,7 +1,6 @@
 package com.smartosc.training.repositories.specifications;
 
 import com.smartosc.training.entities.DetailTypeRoom;
-import com.smartosc.training.entities.TypeRoom;
 import com.smartosc.training.entities.TypeRoom_;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;

@@ -1,9 +1,9 @@
 package com.smartosc.training.repositories;
 
 import com.smartosc.training.entities.Central;
+import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
-import org.springframework.data.jpa.repository.Query;
 
 /**
  * Fresher-Training
@@ -14,5 +14,5 @@ import org.springframework.data.jpa.repository.Query;
  * @since 03/07/2020
  */
 public interface CentralRepository extends JpaRepository<Central,Long>, JpaSpecificationExecutor<Central> {
-
+  Optional<Central> findByTitle(String title);
 }

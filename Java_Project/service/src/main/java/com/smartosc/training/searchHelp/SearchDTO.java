@@ -1,6 +1,6 @@
 package com.smartosc.training.searchHelp;
 
-import org.apache.commons.lang.builder.ToStringBuilder;
+import org.modelmapper.internal.util.ToStringBuilder;
 
 /**
  * Fresher-Training
@@ -33,8 +33,4 @@ public class SearchDTO {
         this.searchTerm = searchTerm;
     }
 
-    @Override
-    public String toString() {
-        return ToStringBuilder.reflectionToString(this);
-    }
 }

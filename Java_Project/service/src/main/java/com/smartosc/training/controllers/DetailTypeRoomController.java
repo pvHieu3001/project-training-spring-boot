@@ -36,13 +36,13 @@ public class DetailTypeRoomController {
         return new ResponseEntity(new APIResponse<>(
                 HttpStatus.OK.value(),
                 messageSource.getMessage("hello", null, locale),
-                typeRoomService.findTypeRoomById(id)
+                typeRoomService.findTypeRoomById(id, null)
         ), HttpStatus.OK);
     }
 
     @PutMapping
     public ResponseEntity<APIResponse<TypeRoomDTO>> updateTypeRoom(@RequestBody TypeRoomDTO typeRoomDTO, Locale locale) throws NotFoundException {
-        return new ResponseEntity(new APIResponse<>(
+        return new ResponseEntity<>(new APIResponse<>(
                 HttpStatus.OK.value(),
                 messageSource.getMessage("hello", null, locale),
                 typeRoomService.updateTypeRoom(typeRoomDTO)
@@ -51,7 +51,7 @@ public class DetailTypeRoomController {
 
     @PostMapping
     public ResponseEntity<APIResponse<TypeRoomDTO>> createTypeRoom(@RequestBody TypeRoomDTO typeRoomDTO, Locale locale){
-        return new ResponseEntity(new APIResponse<>(
+        return new ResponseEntity<>(new APIResponse<>(
                 HttpStatus.OK.value(),
                 messageSource.getMessage("hello", null, locale),
                 typeRoomService.createTypeRoom(typeRoomDTO)

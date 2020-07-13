@@ -27,7 +27,15 @@ public class TypeRoomSpecification {
     //find by id
     public TypeRoomSpecification typeRoomHasId(Long id) {
         personSpecs.add((Root<TypeRoom> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) ->
-                    criteriaBuilder.equal(root.get(TypeRoom_.ID), id)
+                    criteriaBuilder.equal(root.get(TypeRoom_.id), id)
+        );
+        return this;
+    }
+
+    //find by id
+    public TypeRoomSpecification typeRoomHasName(String name) {
+        personSpecs.add((Root<TypeRoom> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) ->
+                criteriaBuilder.like(root.get(TypeRoom_.name), "%" + name + "%")
         );
         return this;
     }

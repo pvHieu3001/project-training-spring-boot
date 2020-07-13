@@ -1,17 +1,17 @@
 package com.smartosc.training.services.impl;
 
 import com.smartosc.training.dto.CentralDTO;
-import com.smartosc.training.entities.Central;
 import com.smartosc.training.exceptions.NotFoundException;
 import com.smartosc.training.mappers.CentralConvert;
 import com.smartosc.training.repositories.CentralRepository;
 import com.smartosc.training.repositories.specifications.CentralSpecification;
 import com.smartosc.training.services.CentralService;
-import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
 
 /**
  * Fresher-Training
@@ -26,6 +26,15 @@ public class CentralServiceImpl implements CentralService {
 
   @Autowired private CentralRepository centralRepository;
 
+  @Override
+  public CentralDTO createCentral(CentralDTO centralDTO) {
+    if (!centralRepository.findByTitle(centralDTO.getTitle()).isPresent()) {
+      return CentralConvert.convertToDTO(
+          centralRepository.save(CentralConvert.convertToEntity(centralDTO)));
+    } else {
+      throw new DuplicateKeyException("Duplicate.central.title");
+    }
+  }
   // get central by title and id
   @Override
   public List<CentralDTO> getAllCentral(String keyword, Long id) {
@@ -36,19 +45,8 @@ public class CentralServiceImpl implements CentralService {
   }
 
   @Override
-  public CentralDTO createCentral(CentralDTO centralDTO) {
-    if (this.getAllCentral(centralDTO.getTitle(), null).isEmpty()) {
-      return CentralConvert.convertToDTO(
-          centralRepository.save(CentralConvert.convertToEntity(centralDTO)));
-    }
-    else {
-      throw new DuplicateKeyException("Duplicate.central.title");
-    }
-  }
-
-  @Override
   public CentralDTO updateCentral(Long id, CentralDTO centralDTO) {
-    if (this.getAllCentral(null, id).isEmpty()) {
+    if (centralRepository.findById(id).isPresent()) {
       throw new NotFoundException("NotFound.central.id");
     }
     centralDTO.setId(id);

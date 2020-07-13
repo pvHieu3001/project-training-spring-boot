@@ -1,19 +1,13 @@
 package com.smartosc.training.services.impl;
 
 import com.smartosc.training.dto.DetailTypeRoomDTO;
-import com.smartosc.training.dto.TypeRoomDTO;
 import com.smartosc.training.entities.DetailTypeRoom;
-import com.smartosc.training.entities.TypeRoom;
 import com.smartosc.training.exceptions.NotFoundException;
 import com.smartosc.training.repositories.DetailTypeRoomRepository;
-import com.smartosc.training.repositories.TypeRoomRepository;
 import com.smartosc.training.repositories.specifications.DetailTypeRoomSpecification;
-import com.smartosc.training.repositories.specifications.TypeRoomSpecification;
 import com.smartosc.training.services.DetailTypeRoomService;
-import com.smartosc.training.services.TypeRoomService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,8 +28,6 @@ public class DetailTypeRoomServiceImpl implements DetailTypeRoomService {
     private DetailTypeRoomRepository detailTypeRoomRepository;
     @Autowired
     private ModelMapper modelMapper;
-    @Autowired
-    private MessageSource messageSource;
 
     @Override
     public List<DetailTypeRoomDTO> findDetailTypeRoomById(Long id) {
@@ -52,9 +44,7 @@ public class DetailTypeRoomServiceImpl implements DetailTypeRoomService {
     public DetailTypeRoomDTO updateDetailTypeRoom(DetailTypeRoomDTO detailTypeRoomDTO)  {
         Optional<DetailTypeRoom> detailTypeRoomOptional = Optional.ofNullable(
                 detailTypeRoomRepository.findById(detailTypeRoomDTO.getId())
-                .orElseThrow(() -> {
-                    return new NotFoundException("aaa");
-                }));
+                .orElseThrow(() -> new NotFoundException("aaa")));
         DetailTypeRoom detailTypeRoom = detailTypeRoomOptional.get();
         detailTypeRoom.setAdditionalPrice(detailTypeRoomDTO.getAdditionalPrice());
         detailTypeRoom.setDefaultPerson(detailTypeRoomDTO.getDefaultPerson());
