@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Fresher-Training
  *
@@ -16,5 +18,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface TypeRoomRepository extends JpaRepository<TypeRoom, Long>, JpaSpecificationExecutor<TypeRoom> {
-    TypeRoom findByName(String name);
+    List<TypeRoom> findByName(String name);
 }

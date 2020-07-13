@@ -43,8 +43,13 @@ public class TypeRoomServiceImpl implements TypeRoomService {
     }
 
     @Override
-    public TypeRoomDTO findTypeRoomByName(String name) {
-        return modelMapper.map(typeRoomRepository.findByName(name),TypeRoomDTO.class);
+    public List<TypeRoomDTO> findTypeRoomByName(String name) {
+        return typeRoomRepository.findByName(name).stream().map(s -> modelMapper.map(s,TypeRoomDTO.class)).collect(Collectors.toList());
+    }
+
+    @Override
+    public TypeRoomDTO search(Long id) {
+        return modelMapper.map(typeRoomRepository.findById(id),TypeRoomDTO.class);
     }
 
     @Override
