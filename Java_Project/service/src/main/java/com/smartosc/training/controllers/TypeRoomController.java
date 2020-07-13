@@ -47,7 +47,7 @@ public class TypeRoomController {
         return new ResponseEntity(new APIResponse<>(
                 HttpStatus.OK.value(),
                 messageSource.getMessage("msg.success", null, locale),
-                typeRoomService.findTypeRoomById(id, pageable)
+                typeRoomService.findTypeRoomById(id, pageable).getContent()
         ), HttpStatus.OK);
     }
 

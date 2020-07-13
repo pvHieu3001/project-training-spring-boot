@@ -2,7 +2,8 @@ package com.smartosc.training.services;
 
 import com.smartosc.training.dto.TypeRoomDTO;
 
-import javassist.NotFoundException;
+import com.smartosc.training.exceptions.NotFoundException;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 
@@ -17,8 +18,7 @@ import java.util.List;
  * @since 02/07/2020
  */
 public interface TypeRoomService {
-    public List<TypeRoomDTO> findTypeRoomById(Long id, Pageable pageable);
+    public Page<TypeRoomDTO> findTypeRoomById(Long id, Pageable pageable);
     public TypeRoomDTO updateTypeRoom(TypeRoomDTO typeRoomRequest) throws NotFoundException;
     public TypeRoomDTO createTypeRoom(TypeRoomDTO typeRoomRequest);
-    public void deleteTypeRoom(Long[] id);
 }
