@@ -66,6 +66,7 @@ public class UserSpecificationTest {
 
         assertTrue(actual != null);
     }
+
 //
 //    @Test
 //    public void isSwitch_susscess() {

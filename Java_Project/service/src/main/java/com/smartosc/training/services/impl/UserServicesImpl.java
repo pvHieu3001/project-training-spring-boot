@@ -52,9 +52,27 @@ public class UserServicesImpl implements UserService {
         List<User> users = userRepository.findAll();
         List<UserDTO> list = new ArrayList<>(); // khai báo một list rỗng để chứa
         if (users.size() > 0) {
-            for (User user : users) {
-                UserDTO userRespone = modelMapper.map(user, UserDTO.class);
-                list.add(userRespone); // add data vào list
+            for (User userEntity : users) {
+                UserDTO userDTO = new UserDTO();
+                userDTO.setId(userEntity.getId());
+                userDTO.setUsername(userEntity.getUsername());
+                userDTO.setEmail(userEntity.getEmail());
+                userDTO.setPassword(userEntity.getPassword());
+                userDTO.setStatus(userEntity.getStatus());
+                List<Role> roleList = userEntity.getRoles();
+                List<RoleDTO> roleDTOS = new ArrayList<>();
+                for (Role role : roleList) {
+
+                    RoleDTO roleDTO = new RoleDTO();
+                    roleDTO.setId(role.getRoleId());
+                    roleDTO.setName(role.getName());
+                    roleDTOS.add(roleDTO);
+                }
+                userDTO.setRoleDTOS(roleDTOS);
+                List<CommentDTO> commentDTOS = new ArrayList<>();
+                userDTO.setCommentDTOS(commentDTOS);
+
+                list.add(userDTO);
             }
             log.info("Get all user success");
             return list;
@@ -68,11 +86,29 @@ public class UserServicesImpl implements UserService {
         List<User> users = userRepository.findAllByStatus1();
         List<UserDTO> list = new ArrayList<>(); // khai báo một list rỗng để chứa
         if (users.size() > 0) {
-            for (User user : users) {
-                UserDTO userRespone = modelMapper.map(user, UserDTO.class);
-                list.add(userRespone); // add data vào list
+            for (User userEntity : users) {
+                UserDTO userDTO = new UserDTO();
+                userDTO.setId(userEntity.getId());
+                userDTO.setUsername(userEntity.getUsername());
+                userDTO.setEmail(userEntity.getEmail());
+                userDTO.setPassword(userEntity.getPassword());
+                userDTO.setStatus(userEntity.getStatus());
+                List<Role> roleList = userEntity.getRoles();
+                List<RoleDTO> roleDTOS = new ArrayList<>();
+                for (Role role : roleList) {
+
+                    RoleDTO roleDTO = new RoleDTO();
+                    roleDTO.setId(role.getRoleId());
+                    roleDTO.setName(role.getName());
+                    roleDTOS.add(roleDTO);
+                }
+                userDTO.setRoleDTOS(roleDTOS);
+                List<CommentDTO> commentDTOS = new ArrayList<>();
+                userDTO.setCommentDTOS(commentDTOS);
+
+                list.add(userDTO);
             }
-            log.info("Get all user with status true success");
+            log.info("Get all user success");
             return list;
         }
         throw new NotFoundException("Not found user with status = 1");
@@ -83,9 +119,27 @@ public class UserServicesImpl implements UserService {
         List<UserDTO> list = new ArrayList<>(); // khai báo một list rỗng để chứa
         List<User> userEntitys = userRepository.findAll(userSpecifications.spec().all());
         if (userEntitys.size() > 0) {
-            for (User user : userEntitys) {
-                UserDTO userRespone = modelMapper.map(user, UserDTO.class);
-                list.add(userRespone);
+            for (User userEntity : userEntitys) {
+                    UserDTO userDTO = new UserDTO();
+                    userDTO.setId(userEntity.getId());
+                    userDTO.setUsername(userEntity.getUsername());
+                    userDTO.setEmail(userEntity.getEmail());
+                    userDTO.setPassword(userEntity.getPassword());
+                    userDTO.setStatus(userEntity.getStatus());
+                    List<Role> roleList = userEntity.getRoles();
+                    List<RoleDTO> roleDTOS = new ArrayList<>();
+                    for (Role role : roleList) {
+
+                        RoleDTO roleDTO = new RoleDTO();
+                        roleDTO.setId(role.getRoleId());
+                        roleDTO.setName(role.getName());
+                        roleDTOS.add(roleDTO);
+                    }
+                    userDTO.setRoleDTOS(roleDTOS);
+                    List<CommentDTO> commentDTOS = new ArrayList<>();
+                    userDTO.setCommentDTOS(commentDTOS);
+
+                    list.add(userDTO);
             }
             log.info("Get all user success");
             return list;

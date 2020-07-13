@@ -2,15 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0dc4de3c-99f3-49e1-ac43-ebf386f52899" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/service/src/test/java/services/UserSpecificationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/validations/EmailValidate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/validations/PasswordValidate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/validations/UserNameValidate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/validations/anotation/EmailContraint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/validations/anotation/PasswordContraint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/validations/anotation/UserNameConstraint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/CentralDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/CentralDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/validations/TitleConstraint.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/validations/anotation/TitleConstraint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/validations/TitleValidate.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/validations/TitleValidate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/controllers/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/UserSpecifications.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/UserSpecifications.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/UserServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/UserServicesImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/main/resources/i18n/messages_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/resources/i18n/messages_en.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/test/java/services/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/test/java/services/UserServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/test/java/services/UserSpecificationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/test/java/services/UserSpecificationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +31,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="AnnotationType" />
         <option value="Class" />
       </list>
     </option>
@@ -38,6 +47,9 @@
     </option>
   </component>
   <component name="ProjectId" id="1eRNR1G6Ap72QaYDPekCUz3Fbkz" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -55,25 +67,34 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Example Specification/jpa-spec" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
-  <component name="RunManager" selected="JUnit.UserServiceTest.testGetByIdSpecSuccess">
-    <configuration name="UserServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Spring Boot.ServiceApplication">
+    <configuration name="UserControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="service" />
-      <useClassPathOnly />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-        <pattern>
-          <option name="PATTERN" value="com.smartosc.training.services.impl.UserServicesImpl" />
+          <option name="PATTERN" value="controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="services" />
-      <option name="MAIN_CLASS_NAME" value="services.UserServiceTest" />
-      <option name="METHOD_NAME" value="" />
+      <option name="PACKAGE_NAME" value="controllers" />
+      <option name="MAIN_CLASS_NAME" value="controllers.UserControllerTest" />
       <option name="TEST_OBJECT" value="class" />
-      <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest.TestGetAllUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="controllers" />
+      <option name="MAIN_CLASS_NAME" value="controllers.UserControllerTest" />
+      <option name="METHOD_NAME" value="TestGetAllUser" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -124,17 +145,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.UserServiceTest" />
-      <item itemvalue="Spring Boot.ServiceApplication" />
       <item itemvalue="JUnit.UserServiceTest.testGetByIdSpecSuccess" />
       <item itemvalue="JUnit.UserSpecificationTest.all_susscess" />
+      <item itemvalue="JUnit.UserControllerTest" />
+      <item itemvalue="JUnit.UserControllerTest.TestGetAllUser" />
+      <item itemvalue="Spring Boot.ServiceApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserServiceTest.testGetByIdSpecSuccess" />
-        <item itemvalue="JUnit.UserSpecificationTest.all_susscess" />
         <item itemvalue="Spring Boot.ServiceApplication" />
-        <item itemvalue="JUnit.UserServiceTest" />
+        <item itemvalue="JUnit.UserServiceTest.testGetByIdSpecSuccess" />
+        <item itemvalue="JUnit.UserControllerTest.TestGetAllUser" />
+        <item itemvalue="JUnit.UserControllerTest" />
+        <item itemvalue="JUnit.UserSpecificationTest.all_susscess" />
       </list>
     </recent_temporary>
   </component>
@@ -150,6 +173,8 @@
       <updated>1594280433625</updated>
       <workItem from="1594280434841" duration="861000" />
       <workItem from="1594281308497" duration="8893000" />
+      <workItem from="1594350461776" duration="13380000" />
+      <workItem from="1594608514331" duration="2981000" />
     </task>
     <servers />
   </component>
@@ -157,6 +182,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="557" y="187" key="#UserControllerTest" timestamp="1594374802235">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="557" y="187" key="#UserControllerTest/0.0.1920.1040@0.0.1920.1040" timestamp="1594374802235" />
     <state x="557" y="187" key="#UserServiceTest" timestamp="1594280874225">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -169,6 +198,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594281040576" />
+    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1594610122782">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1594610122782" />
     <state x="690" y="296" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1594281005682">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -181,54 +214,54 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1594281768559" />
-    <state width="1877" height="227" key="GridCell.Tab.0.bottom" timestamp="1594293493615">
+    <state width="1877" height="405" key="GridCell.Tab.0.bottom" timestamp="1594611255137">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="227" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594293493615" />
-    <state width="1877" height="227" key="GridCell.Tab.0.center" timestamp="1594293493615">
+    <state width="1877" height="405" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594611255137" />
+    <state width="1877" height="405" key="GridCell.Tab.0.center" timestamp="1594611255137">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="227" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594293493615" />
-    <state width="1877" height="227" key="GridCell.Tab.0.left" timestamp="1594293493615">
+    <state width="1877" height="405" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594611255137" />
+    <state width="1877" height="405" key="GridCell.Tab.0.left" timestamp="1594611255137">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="227" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594293493615" />
-    <state width="1877" height="227" key="GridCell.Tab.0.right" timestamp="1594293493615">
+    <state width="1877" height="405" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594611255137" />
+    <state width="1877" height="405" key="GridCell.Tab.0.right" timestamp="1594611255137">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="227" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594293493615" />
-    <state width="1877" height="227" key="GridCell.Tab.1.bottom" timestamp="1594293493615">
+    <state width="1877" height="405" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594611255137" />
+    <state width="1877" height="405" key="GridCell.Tab.1.bottom" timestamp="1594611255138">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="227" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594293493615" />
-    <state width="1877" height="227" key="GridCell.Tab.1.center" timestamp="1594293493615">
+    <state width="1877" height="405" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594611255138" />
+    <state width="1877" height="405" key="GridCell.Tab.1.center" timestamp="1594611255137">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="227" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594293493615" />
-    <state width="1877" height="227" key="GridCell.Tab.1.left" timestamp="1594293493615">
+    <state width="1877" height="405" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594611255137" />
+    <state width="1877" height="405" key="GridCell.Tab.1.left" timestamp="1594611255137">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="227" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594293493615" />
-    <state width="1877" height="227" key="GridCell.Tab.1.right" timestamp="1594293493615">
+    <state width="1877" height="405" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594611255137" />
+    <state width="1877" height="405" key="GridCell.Tab.1.right" timestamp="1594611255138">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="227" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594293493615" />
-    <state width="1877" height="227" key="GridCell.Tab.2.bottom" timestamp="1594293493611">
+    <state width="1877" height="405" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594611255138" />
+    <state width="1877" height="254" key="GridCell.Tab.2.bottom" timestamp="1594380356897">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="227" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594293493611" />
-    <state width="1877" height="227" key="GridCell.Tab.2.center" timestamp="1594293493611">
+    <state width="1877" height="254" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594380356897" />
+    <state width="1877" height="254" key="GridCell.Tab.2.center" timestamp="1594380356897">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="227" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594293493611" />
-    <state width="1877" height="227" key="GridCell.Tab.2.left" timestamp="1594293493611">
+    <state width="1877" height="254" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594380356897" />
+    <state width="1877" height="254" key="GridCell.Tab.2.left" timestamp="1594380356897">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="227" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594293493611" />
-    <state width="1877" height="227" key="GridCell.Tab.2.right" timestamp="1594293493611">
+    <state width="1877" height="254" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594380356897" />
+    <state width="1877" height="254" key="GridCell.Tab.2.right" timestamp="1594380356897">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="227" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594293493611" />
+    <state width="1877" height="254" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594380356897" />
     <state x="490" y="175" key="Maven.ArtifactSearchDialog" timestamp="1594289356955">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -242,57 +275,34 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/service/src/test/java/services/UserServiceTest.java</url>
-          <line>141</line>
-          <option name="timeStamp" value="2" />
+          <url>file://$PROJECT_DIR$/service/src/test/java/controllers/UserControllerTest.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/UserSpecifications.java</url>
-          <line>28</line>
-          <properties>
-            <option name="lambda-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="3" />
+          <url>file://$PROJECT_DIR$/service/src/test/java/controllers/UserControllerTest.java</url>
+          <line>95</line>
+          <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/UserSpecifications.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/UserSpecifications.java</url>
-          <line>55</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/UserServicesImpl.java</url>
-          <line>98</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/UserServicesImpl.java</url>
-          <line>108</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/UserSpecifications.java</url>
-          <line>37</line>
-          <option name="timeStamp" value="11" />
+          <url>file://$PROJECT_DIR$/service/src/test/java/controllers/UserControllerTest.java</url>
+          <line>97</line>
+          <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/service/src/test/java/services/UserServiceTest.java</url>
-          <line>140</line>
-          <option name="timeStamp" value="18" />
+          <line>157</line>
+          <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/UserSpecifications.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="20" />
+          <url>file://$PROJECT_DIR$/service/src/test/java/services/UserServiceTest.java</url>
+          <line>162</line>
+          <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/UserSpecifications.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="21" />
+          <url>file://$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/UserServicesImpl.java</url>
+          <line>152</line>
+          <option name="timeStamp" value="42" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -313,6 +323,9 @@
     </SUITE>
     <SUITE FILE_PATH="coverage/Fresher_Training$UserServiceTest_testGetAllUserStatusSpecFail.ic" NAME="UserServiceTest.testGetAllUserStatusSpecFail Coverage Results" MODIFIED="1594280925373" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>services.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Fresher_Training$UserControllerTest.ic" NAME="UserControllerTest Coverage Results" MODIFIED="1594355226309" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>controllers.*</FILTER>
     </SUITE>
   </component>
 </project>

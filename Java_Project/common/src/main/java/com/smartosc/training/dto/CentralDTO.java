@@ -1,7 +1,7 @@
 package com.smartosc.training.dto;
 
 
-import com.smartosc.training.validations.TitleConstraint;
+import com.smartosc.training.validations.anotation.TitleConstraint;
 import java.util.List;
 import lombok.AllArgsConstructor;
 

@@ -25,6 +25,7 @@ import org.springframework.dao.DuplicateKeyException;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import javax.persistence.criteria.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -56,6 +57,23 @@ public class UserServiceTest {
 
     @Mock
     private UserSpecifications userSpecifications;
+    @Mock
+    private Root<User> root;
+
+    @Mock
+    private CriteriaQuery<?> query;
+
+    @Mock
+    private CriteriaBuilder cb;
+
+    @Mock
+    private Predicate predicate;
+
+    @Mock
+    private Path path;
+
+    @Mock
+    private Expression expression;
 
     private List<UserDTO> userDTOList;
     private List<User> userList;
@@ -137,8 +155,12 @@ public class UserServiceTest {
 
     @Test
     public void testGetByIdSpecSuccess() {
-        when(userRepository.findAll(Specification.where(userSpecifications.spec().hasId(anyLong())))).thenReturn(userList);
-        List<UserDTO> userDTOS = userService.getUserById(anyLong());
+        when( userRepository.findAll(Specification.where(userSpecifications.spec().hasId(anyLong())))).thenReturn(userList);
+//        when(root.get("code")).thenReturn(path);
+//        when(cb.equal(expression,any())).thenReturn(predicate);
+//        Specification<User> actual = userSpecifications.all();
+//        predicate = actual.toPredicate(root, query, cb);
+        List<UserDTO> userDTOS = userService.getUserById(1L);
         Assert.assertEquals(1, userDTOS.size());
     }
 

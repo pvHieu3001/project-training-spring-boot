@@ -1,6 +1,7 @@
 package com.smartosc.training.repositories.specifications;
 
 import com.smartosc.training.entities.User;
+import com.smartosc.training.entities.User_;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
@@ -38,21 +39,11 @@ public class UserSpecifications {
         return (root, query, criteriaBuilder) -> {
             query.distinct(true);
             if (id != null) {
-             //  return criteriaBuilder.equal(root.get(User_.ID), id);
-                return criteriaBuilder.equal(root.get("id"), criteriaBuilder.literal(id));
+               return criteriaBuilder.equal(root.get(User_.ID), id);
+               //return criteriaBuilder.equal(root.get("id"), criteriaBuilder.literal(id));
             } else {
                 return null;
             }
         };
     }
-//        return StringUtils.isEmpty(id) ? all() : (root, query, criteriaBuilder) -> {
-//            query.distinct(true);
-//            return criteriaBuilder.equal(root.get(User_.ID), id);
-//        };
-
-//}
-//
-//    public void byUserId(Long id) {
-//        specializations.add(hasId(id));
-//    }
 }
