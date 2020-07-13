@@ -6,6 +6,7 @@ import com.smartosc.training.exceptions.DuplicateException;
 import com.smartosc.training.exceptions.NotFoundException;
 import com.smartosc.training.repositories.CityRepository;
 import com.smartosc.training.repositories.HotelRepository;
+import com.smartosc.training.repositories.TypeRoomRepository;
 import com.smartosc.training.repositories.specifications.HotelSpecification;
 import com.smartosc.training.services.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,9 @@ public class HotelServiceImpl implements HotelService {
 
     @Autowired
     private CityRepository cityRepository;
+
+    @Autowired
+    private TypeRoomRepository typeRoomRepository;
 
     @Override
     public List<HotelDTO> getAllHotels() {
@@ -101,16 +105,35 @@ public class HotelServiceImpl implements HotelService {
     }
 
     @Override
-    public List<HotelDTO> geListHotelFollowedByCity(String key) {
+    public List<HotelDTO> getListHotelFollowedByCity(String key) {
         Optional<City> city = cityRepository.findByName(key);
+        if (city.isPresent()) {
+            List<Hotel> hotelList = hotelRepository.findAll(HotelSpecification.getHotelsByCity(key));
 
-        List<Hotel> hotelList = hotelRepository.findAll(HotelSpecification.getHotelsByCity(city.get()));
-
-        List<HotelDTO> hotelResponseList = new ArrayList<>();
-        for (Hotel hotel : hotelList) {
-            hotelResponseList.add(this.convertFromHotelToHotelDTO(hotel));
+            List<HotelDTO> hotelResponseList = new ArrayList<>();
+            for (Hotel hotel : hotelList) {
+                hotelResponseList.add(this.convertFromHotelToHotelDTO(hotel));
+            }
+            return hotelResponseList;
+        } else {
+            throw new NotFoundException("Không tồn tại tìm kiếm");
         }
-        return hotelResponseList;
+    }
+
+    @Override
+    public List<HotelDTO> getListHotelFollowedByTypeRoom(String key) {
+        Optional<TypeRoom> typeRoom = typeRoomRepository.findByName(key);
+        if (typeRoom.isPresent()) {
+            List<Hotel> hotelList = hotelRepository.findAll(HotelSpecification.getHotelsByTypeRoom(key));
+
+            List<HotelDTO> hotelResponseList = new ArrayList<>();
+            for (Hotel hotel : hotelList) {
+                hotelResponseList.add(this.convertFromHotelToHotelDTO(hotel));
+            }
+            return hotelResponseList;
+        } else {
+            throw new NotFoundException("Không tồn tại tìm kiếm");
+        }
     }
 
     private Hotel convertFromDtoToEntity(Hotel hotel, HotelDTO hotelDTO) {

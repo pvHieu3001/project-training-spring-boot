@@ -5,8 +5,6 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.criteria.*;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Fresher-Training
@@ -16,7 +14,6 @@ import java.util.List;
  */
 @Component
 public class HotelSpecification {
-    private final List<Specification<Hotel>> personSpecs = new ArrayList<>();
 
     public static Specification<Hotel> geHotelsByNameSpec(final String searchTerm) {
         return new Specification<Hotel>() {
@@ -28,6 +25,7 @@ public class HotelSpecification {
 
             private String getLikePattern(final String searchTerm) {
                 StringBuilder pattern = new StringBuilder();
+                pattern.append("%");
                 pattern.append(searchTerm.toLowerCase());
                 pattern.append("%");
                 return pattern.toString();
@@ -35,25 +33,21 @@ public class HotelSpecification {
         };
     }
 
-    public static Specification<Hotel> getHotelsByCity(City city) {
-        return new Specification<Hotel>() {
-            @Override
-            public Predicate toPredicate(Root<Hotel> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
-                Join<Hotel, City> hotelJoin = root.join(Hotel_.city);
-                Predicate equalPredicate = criteriaBuilder.equal(hotelJoin.get(City_.name), city);
-                return equalPredicate;
-            }
+    public static Specification<Hotel> getHotelsByCity(String city) {
+        return (root, query, criteriaBuilder) -> {
+            Join<Hotel, City> hotelJoin = root.join(Hotel_.city);
+            Predicate equalPredicate = criteriaBuilder.like(hotelJoin.get(City_.name),"%"+city+"%");
+            query.distinct(true);
+            return equalPredicate;
         };
     }
 
-    public static Specification<Hotel> getHotelsByTypeRoom(TypeRoom typeRoom) {
-        return new Specification<Hotel>() {
-            @Override
-            public Predicate toPredicate(Root<Hotel> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
-                Join<Hotel, TypeRoom> hotelJoin = root.join(Hotel_.TYPE_ROOMS);
-                Predicate equalPredicate = criteriaBuilder.equal(hotelJoin.get(TypeRoom_.name), typeRoom);
+    public static Specification<Hotel> getHotelsByTypeRoom(String typeRoom) {
+        return (root, query, criteriaBuilder) -> {
+                Join<Hotel, TypeRoom> hotelJoin = root.join(Hotel_.typeRooms);
+                Predicate equalPredicate = criteriaBuilder.like(hotelJoin.get(TypeRoom_.name),typeRoom);
+                query.distinct(true);
                 return equalPredicate;
-            }
         };
     }
 

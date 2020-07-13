@@ -1,5 +1,6 @@
 package com.smartosc.training.dto;
 
+import com.smartosc.training.validations.anotation.LengthOfNameConstraint;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,7 +21,10 @@ import java.util.List;
 @NoArgsConstructor
 public class HotelDTO {
     private Long id;
+
+    @LengthOfNameConstraint
     private String name;
+
     private String description;
     private String imgUrl;
     private BigDecimal totalRate;

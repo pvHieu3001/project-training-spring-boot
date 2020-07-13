@@ -23,5 +23,7 @@ public interface HotelService {
 
     List<HotelDTO> geHotelsByName(String key);
 
-    List<HotelDTO> geListHotelFollowedByCity(String key);
+    List<HotelDTO> getListHotelFollowedByCity(String key);
+
+    List<HotelDTO> getListHotelFollowedByTypeRoom(String key);
 }

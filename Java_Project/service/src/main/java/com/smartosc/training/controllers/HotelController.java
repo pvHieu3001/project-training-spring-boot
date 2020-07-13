@@ -1,6 +1,5 @@
 package com.smartosc.training.controllers;
 
-
 import com.smartosc.training.dto.APIResponse;
 import com.smartosc.training.dto.HotelDTO;
 import com.smartosc.training.services.HotelService;
@@ -89,7 +88,17 @@ public class HotelController {
     @GetMapping("/followedBy")
     public ResponseEntity<APIResponse<List<HotelDTO>>> geListHotelFollowedByCity(@RequestParam("key") String key, Locale locale) {
         APIResponse<List<HotelDTO>> apiResponse = new APIResponse<>();
-        List<HotelDTO> result = hotelService.geListHotelFollowedByCity(key);
+        List<HotelDTO> result = hotelService.getListHotelFollowedByCity(key);
+        apiResponse.setData(result);
+        apiResponse.setMessage(messageSource.getMessage("message.search.success",null, locale));
+        apiResponse.setStatus(HttpStatus.OK.value());
+        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
+    }
+
+    @GetMapping("/type-room")
+    public ResponseEntity<APIResponse<List<HotelDTO>>> getListHotelFollowedByTypeRoom(@RequestParam("key") String key, Locale locale) {
+        APIResponse<List<HotelDTO>> apiResponse = new APIResponse<>();
+        List<HotelDTO> result = hotelService.getListHotelFollowedByTypeRoom(key);
         apiResponse.setData(result);
         apiResponse.setMessage(messageSource.getMessage("message.search.success",null, locale));
         apiResponse.setStatus(HttpStatus.OK.value());
