@@ -85,8 +85,10 @@ public class LoggingAspect {
                             apiLog.setErrorMessage(e.getMessage());
                             throw e;
                         } finally {
-                            apiLog.setRetryNum(retryCount.get());
-                            apiLogService.saveApiLog(apiLog);
+                            if(retryCount.get()!=1){
+                                apiLog.setRetryNum(retryCount.get());
+                                apiLogService.saveApiLog(apiLog);
+                            }
                         }
                         log.error(String.join(", ", args));
                         return result;
