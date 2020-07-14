@@ -1,12 +1,10 @@
 package com.smartosc.training.repositories;
 
+import com.smartosc.training.entities.ApiLog;
 import com.smartosc.training.entities.TypeRoom;
-import org.modelmapper.ModelMapper;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 /**
  * Fresher-Training
@@ -17,6 +15,5 @@ import java.util.List;
  * @since 02/07/2020
  */
 @Repository
-public interface TypeRoomRepository extends JpaRepository<TypeRoom, Long>, JpaSpecificationExecutor<TypeRoom> {
-    List<TypeRoom> findByName(String name);
+public interface ApiLogRepository extends JpaRepository<ApiLog, Long> {
 }

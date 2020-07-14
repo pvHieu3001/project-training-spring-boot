@@ -18,6 +18,7 @@ import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.format.datetime.standard.DateTimeFormatterRegistrar;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
+import org.springframework.retry.annotation.EnableRetry;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -30,6 +31,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 @Configuration
+@EnableRetry
 public class WebMvcConfig implements WebMvcConfigurer {
 
     @Override
