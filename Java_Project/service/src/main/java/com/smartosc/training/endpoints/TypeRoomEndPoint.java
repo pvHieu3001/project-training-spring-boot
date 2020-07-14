@@ -25,13 +25,13 @@ public class TypeRoomEndPoint {
     private ModelMapper modelMapper;
 
 
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "typeRoomRequest")
-    @ResponsePayload
-    public TypeRoomResponse findById(@RequestPayload TypeRoomRequest typeRoomRequest) {
-        TypeRoomResponse typeRoomResponse = new TypeRoomResponse();
-        TypeRoomDTO typeRoomDTO = typeRoomService.search(Long.parseLong(typeRoomRequest.getId()));
-        return modelMapper.map(typeRoomDTO, TypeRoomResponse.class);
-    }
+//    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "typeRoomRequest")
+//    @ResponsePayload
+//    public TypeRoomResponse findById(@RequestPayload TypeRoomRequest typeRoomRequest) {
+//        TypeRoomResponse typeRoomResponse = new TypeRoomResponse();
+//        TypeRoomDTO typeRoomDTO = typeRoomService.search(Long.parseLong(typeRoomRequest.getId()));
+//        return modelMapper.map(typeRoomDTO, TypeRoomResponse.class);
+//    }
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "typeRoomRequest")
     @ResponsePayload

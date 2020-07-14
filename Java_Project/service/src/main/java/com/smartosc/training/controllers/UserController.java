@@ -87,7 +87,7 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<APIResponse<UserDTO>> updateUser(@RequestBody @Valid UserDTO userDTO, @PathVariable(value = "id") Long id, Locale locale) {
+    public ResponseEntity<APIResponse<UserDTO>> updateUser(@Valid @RequestBody UserDTO userDTO, @PathVariable(value = "id") Long id, Locale locale) {
         UserDTO userDTO1 = userService.updateUser(id, userDTO);
         APIResponse<UserDTO> apiResponse = new APIResponse<>();
         apiResponse.setStatus(HttpStatus.OK.value());

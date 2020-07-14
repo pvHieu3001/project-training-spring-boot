@@ -2,11 +2,9 @@ package services;
 
 import com.smartosc.training.dto.CommentDTO;
 import com.smartosc.training.dto.RoleDTO;
-import com.smartosc.training.dto.StatusOTDTO;
 import com.smartosc.training.dto.UserDTO;
 import com.smartosc.training.entities.Comment;
 import com.smartosc.training.entities.Role;
-import com.smartosc.training.entities.StatusOT;
 import com.smartosc.training.entities.User;
 import com.smartosc.training.exceptions.NotFoundException;
 import com.smartosc.training.repositories.UserRepository;
@@ -22,8 +20,10 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.modelmapper.ModelMapper;
 import org.springframework.dao.DuplicateKeyException;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import javax.persistence.criteria.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -55,6 +55,23 @@ public class UserServiceTest {
 
     @Mock
     private UserSpecifications userSpecifications;
+    @Mock
+    private Root<User> root;
+
+    @Mock
+    private CriteriaQuery<?> query;
+
+    @Mock
+    private CriteriaBuilder cb;
+
+    @Mock
+    private Predicate predicate;
+
+    @Mock
+    private Path path;
+
+    @Mock
+    private Expression expression;
 
     private List<UserDTO> userDTOList;
     private List<User> userList;
@@ -62,8 +79,6 @@ public class UserServiceTest {
     private List<Role> roleList;
     private List<CommentDTO> commentDTOS;
     private List<Comment> comments;
-    private StatusOTDTO statusOTDTO;
-    private StatusOT statusOT;
     private UserDTO userDTO;
     private UserDTO userDTO2;
     private User user;
@@ -74,20 +89,17 @@ public class UserServiceTest {
         userDTOList = new ArrayList<>();
         roleDTOList = new ArrayList<>();
         commentDTOS = new ArrayList<>();
-        statusOTDTO = new StatusOTDTO();
         userList = new ArrayList<>();
         role = new Role(1L,"ROLE_ADMIN");
         roleList = new ArrayList<>();
         roleList.add(role);
         comments = new ArrayList<>();
-        statusOT = new StatusOT();
-        user = new User(1L, "admin", "123", "admin@gmail.com", 1, roleList, comments, statusOT);
+        user = new User(1L, "admin", "123", "admin@gmail.com", 1, roleList, comments);
         userList.add(user);
-        userDTO = new UserDTO(1L, "admin", "123", "admin@gmail.com", 1, roleDTOList, commentDTOS, statusOTDTO);
-        userDTO2 = new UserDTO(2L, "admin2", "123456", "admin222@gmail.com", 1, roleDTOList, commentDTOS, statusOTDTO);
+        userDTO = new UserDTO(1L, "admin", "123", "admin@gmail.com", 1, roleDTOList, commentDTOS);
+        userDTO2 = new UserDTO(2L, "admin2", "123456", "admin222@gmail.com", 1, roleDTOList, commentDTOS);
         userDTOList.add(userDTO);
         userDTOList.add(userDTO2);
-        userSpecifications = userSpecifications.spec();
     }
 
     @Test
@@ -122,7 +134,7 @@ public class UserServiceTest {
 
     @Test
     public void testGetAllUserWithSpecSuccess() {
-        when(userRepository.findAll(userSpecifications.all())).thenReturn(userList);
+        when(userRepository.findAll(userSpecifications.spec().all())).thenReturn(userList);
         List<UserDTO> userDTOS = userService.getAllUserWithSpec();
         Assert.assertEquals(1, userDTOS.size());
     }
@@ -130,17 +142,20 @@ public class UserServiceTest {
     @Test(expected = NotFoundException.class)
     public void testGetAllUserStatusSpecFail() {
         List<User> users = new ArrayList<>();
-        userSpecifications = userSpecifications.spec();
-        when(userRepository.findAll(userSpecifications.all())).thenReturn(users);
+        when(userRepository.findAll(userSpecifications.spec().all())).thenReturn(users);
         List<UserDTO> userDTOS = userService.getAllUserWithSpec();
         Assert.assertEquals(NotFoundException.class, userDTOS);
     }
 
     @Test
     public void testGetByIdSpecSuccess() {
-        when(userRepository.findAll(userSpecifications.hasId(1L))).thenReturn(userList);
+        when( userRepository.findAll(Specification.where(userSpecifications.spec().hasId(anyLong())))).thenReturn(userList);
+//        when(root.get("code")).thenReturn(path);
+//        when(cb.equal(expression,any())).thenReturn(predicate);
+//        Specification<User> actual = userSpecifications.all();
+//        predicate = actual.toPredicate(root, query, cb);
         List<UserDTO> userDTOS = userService.getUserById(1L);
-        Assert.assertEquals(1, userList.size());
+        Assert.assertEquals(1, userDTOS.size());
     }
 
     @Test

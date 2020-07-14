@@ -24,35 +24,33 @@ import java.util.Optional;
 @Service
 public class CentralServiceImpl implements CentralService {
 
-    @Autowired
-    private CentralRepository centralRepository;
+  @Autowired private CentralRepository centralRepository;
 
-    // get central by title and id
-    @Override
-    public List<CentralDTO> getAllCentral(String keyword, Long id) {
-        CentralSpecification centralSpecification = CentralSpecification.spec();
-        Optional.ofNullable(keyword).ifPresent(centralSpecification::byTitle);
-        Optional.ofNullable(id).ifPresent(centralSpecification::byId);
-        return CentralConvert.convertListDto(centralRepository.findAll(centralSpecification.build()));
+  @Override
+  public CentralDTO createCentral(CentralDTO centralDTO) {
+    if (!centralRepository.findByTitle(centralDTO.getTitle()).isPresent()) {
+      return CentralConvert.convertToDTO(
+          centralRepository.save(CentralConvert.convertToEntity(centralDTO)));
+    } else {
+      throw new DuplicateKeyException("Duplicate.central.title");
     }
+  }
+  // get central by title and id
+  @Override
+  public List<CentralDTO> getAllCentral(String keyword, Long id) {
+    CentralSpecification centralSpecification = CentralSpecification.spec();
+    Optional.ofNullable(keyword).ifPresent(centralSpecification::byTitle);
+    Optional.ofNullable(id).ifPresent(centralSpecification::byId);
+    return CentralConvert.convertListDto(centralRepository.findAll(centralSpecification.build()));
+  }
 
-    @Override
-    public CentralDTO createCentral(CentralDTO centralDTO) {
-        if (this.getAllCentral(centralDTO.getTitle(), null).isEmpty()) {
-            return CentralConvert.convertToDTO(
-                    centralRepository.save(CentralConvert.convertToEntity(centralDTO)));
-        } else {
-            throw new DuplicateKeyException("Duplicate.central.title");
-        }
+  @Override
+  public CentralDTO updateCentral(Long id, CentralDTO centralDTO) {
+    if (centralRepository.findById(id).isPresent()) {
+      throw new NotFoundException("NotFound.central.id");
     }
-
-    @Override
-    public CentralDTO updateCentral(Long id, CentralDTO centralDTO) {
-        if (this.getAllCentral(null, id).isEmpty()) {
-            throw new NotFoundException("NotFound.central.id");
-        }
-        centralDTO.setId(id);
-        centralRepository.save(CentralConvert.convertToEntity(centralDTO));
-        return centralDTO;
-    }
+    centralDTO.setId(id);
+    centralRepository.save(CentralConvert.convertToEntity(centralDTO));
+    return centralDTO;
+  }
 }
