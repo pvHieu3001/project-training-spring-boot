@@ -54,6 +54,8 @@ public class LoggingAspect {
         String message = joinPoint.getSignature() + " exec in " + executionTime + " ms";
         if (executionTime >= executionLimitMs) {
             log.warn(message + " : SLOW QUERY");
+        }else {
+            log.warn(message);
         }
         return proceed;
     }

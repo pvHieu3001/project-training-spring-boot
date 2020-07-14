@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0dc4de3c-99f3-49e1-ac43-ebf386f52899" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/aop/LoggingAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/aop/LoggingAspect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/endpoints/TypeRoomEndPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/endpoints/TypeRoomEndPoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/TypeRoomRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/TypeRoomRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/TypeRoomService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/TypeRoomService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/TypeRoomServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/smartosc/training/services/impl/TypeRoomServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/resources/typeroom.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/resources/typeroom.xsd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/test/java/repositories/specification/TypeRoomSpecificationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/test/java/repositories/specification/TypeRoomSpecificationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,18 +32,18 @@
     <expand>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="hotelbooking@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="hotelbooking@192.90.20.232" type="feb32156:DbDataSourceImpl" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="hotelbooking@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="hotelbooking@192.90.20.232" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="hotelbooking@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="hotelbooking@192.90.20.232" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="hotelbooking: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="hotelbooking: schema" type="ebfa3cd1:MariaImplModel$Schema" />
       </path>
     </expand>
     <select />
@@ -106,7 +106,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/service/src/test/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../soap-demo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
@@ -198,19 +198,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Spring Boot.ServiceApplication" />
       <item itemvalue="JUnit.TypeRoomSpecificationTest$SpecificationReturnNull.testGreaterThanOrEqualToFromDateReturnNullWhenInputNull" />
       <item itemvalue="JUnit.TypeRoomSpecificationTest$SpecificationReturnData" />
       <item itemvalue="JUnit.TypeRoomSpecificationTest" />
       <item itemvalue="JUnit.TypeRoomSpecificationTest$SpecificationReturnData.testGreaterThanOrEqualToFromDateReturnNullWhenInputNull" />
+      <item itemvalue="Spring Boot.ServiceApplication" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.ServiceApplication" />
+        <item itemvalue="JUnit.TypeRoomSpecificationTest$SpecificationReturnNull.testGreaterThanOrEqualToFromDateReturnNullWhenInputNull" />
         <item itemvalue="JUnit.TypeRoomSpecificationTest$SpecificationReturnData.testGreaterThanOrEqualToFromDateReturnNullWhenInputNull" />
         <item itemvalue="JUnit.TypeRoomSpecificationTest$SpecificationReturnData" />
         <item itemvalue="JUnit.TypeRoomSpecificationTest" />
-        <item itemvalue="JUnit.TypeRoomSpecificationTest$SpecificationReturnNull.testGreaterThanOrEqualToFromDateReturnNullWhenInputNull" />
       </list>
     </recent_temporary>
   </component>
@@ -227,6 +227,7 @@
       <workItem from="1594280434841" duration="605000" />
       <workItem from="1594281716549" duration="9462000" />
       <workItem from="1594370592343" duration="5630000" />
+      <workItem from="1594692899833" duration="9842000" />
     </task>
     <servers />
   </component>
@@ -250,10 +251,10 @@
     </state>
     <state x="557" y="170" key="#UserServiceTest.testFindUserByUserNameSuccess/0.0.1920.1040@0.0.1920.1040" timestamp="1594280908541" />
     <state x="557" y="187" key="#UserServiceTest/0.0.1920.1040@0.0.1920.1040" timestamp="1594280874225" />
-    <state x="619" y="359" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594637969999">
+    <state x="619" y="356" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594701672136">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="619" y="359" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594637969999" />
+    <state x="619" y="356" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594701672136" />
     <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1594638361471">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -270,54 +271,54 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1594607049063" />
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1594639164991">
+    <state width="1877" height="308" key="GridCell.Tab.0.bottom" timestamp="1594703521169">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594639164991" />
-    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1594639164991">
+    <state width="1877" height="308" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594703521169" />
+    <state width="1877" height="308" key="GridCell.Tab.0.center" timestamp="1594703521169">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594639164991" />
-    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1594639164991">
+    <state width="1877" height="308" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594703521169" />
+    <state width="1877" height="308" key="GridCell.Tab.0.left" timestamp="1594703521168">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594639164991" />
-    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1594639164991">
+    <state width="1877" height="308" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594703521168" />
+    <state width="1877" height="308" key="GridCell.Tab.0.right" timestamp="1594703521169">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594639164991" />
-    <state width="1877" height="308" key="GridCell.Tab.1.bottom" timestamp="1594639164826">
+    <state width="1877" height="308" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594703521169" />
+    <state width="1877" height="308" key="GridCell.Tab.1.bottom" timestamp="1594703521169">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="308" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594639164826" />
-    <state width="1877" height="308" key="GridCell.Tab.1.center" timestamp="1594639164826">
+    <state width="1877" height="308" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594703521169" />
+    <state width="1877" height="308" key="GridCell.Tab.1.center" timestamp="1594703521169">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="308" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594639164826" />
-    <state width="1877" height="308" key="GridCell.Tab.1.left" timestamp="1594639164826">
+    <state width="1877" height="308" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594703521169" />
+    <state width="1877" height="308" key="GridCell.Tab.1.left" timestamp="1594703521169">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="308" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594639164826" />
-    <state width="1877" height="308" key="GridCell.Tab.1.right" timestamp="1594639164826">
+    <state width="1877" height="308" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594703521169" />
+    <state width="1877" height="308" key="GridCell.Tab.1.right" timestamp="1594703521169">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="308" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594639164826" />
-    <state width="1877" height="348" key="GridCell.Tab.2.bottom" timestamp="1594639164815">
+    <state width="1877" height="308" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594703521169" />
+    <state width="1877" height="348" key="GridCell.Tab.2.bottom" timestamp="1594639476168">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594639164815" />
-    <state width="1877" height="348" key="GridCell.Tab.2.center" timestamp="1594639164815">
+    <state width="1877" height="348" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594639476168" />
+    <state width="1877" height="348" key="GridCell.Tab.2.center" timestamp="1594639476168">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594639164815" />
-    <state width="1877" height="348" key="GridCell.Tab.2.left" timestamp="1594639164815">
+    <state width="1877" height="348" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594639476168" />
+    <state width="1877" height="348" key="GridCell.Tab.2.left" timestamp="1594639476168">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594639164815" />
-    <state width="1877" height="348" key="GridCell.Tab.2.right" timestamp="1594639164815">
+    <state width="1877" height="348" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594639476168" />
+    <state width="1877" height="348" key="GridCell.Tab.2.right" timestamp="1594639476168">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594639164815" />
+    <state width="1877" height="348" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594639476168" />
     <state x="776" y="298" key="chooseDestDirectoryDialog" timestamp="1594280744995">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -338,22 +339,22 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/service/src/main/java/com/smartosc/training/endpoints/TypeRoomEndPoint.java</url>
-          <line>31</line>
+          <line>32</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/service/src/main/java/com/smartosc/training/endpoints/TypeRoomEndPoint.java</url>
-          <line>29</line>
+          <line>30</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/service/src/test/java/repositories/specification/TypeRoomSpecificationTest.java</url>
-          <line>23</line>
+          <line>44</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/service/src/test/java/repositories/specification/TypeRoomSpecificationTest.java</url>
-          <line>32</line>
+          <line>53</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -370,6 +371,21 @@
           <url>file://$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/TypeRoomSpecification.java</url>
           <line>45</line>
           <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/TypeRoomSpecification.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/TypeRoomSpecification.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/service/src/main/java/com/smartosc/training/repositories/specifications/TypeRoomSpecification.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

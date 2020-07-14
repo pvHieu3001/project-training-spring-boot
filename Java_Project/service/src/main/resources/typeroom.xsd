@@ -7,20 +7,24 @@
                 <xs:element name="img_url" type="xs:string"/>
                 <xs:element name="name" type="xs:string"/>
                 <xs:element name="total_price" type="xs:string"/>
-                <xs:element name="hotel_id" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="typeRoomResponse">
+    <xs:element name="typeRoomResponseList">
         <xs:complexType>
-            <xs:sequence>
-                <xs:element name="id" type="xs:string"/>
-                <xs:element name="img_url" type="xs:string"/>
-                <xs:element name="name" type="xs:string"/>
-                <xs:element name="total_price" type="xs:string"/>
-                <xs:element name="hotel_id" type="xs:string"/>
+            <xs:sequence maxOccurs="unbounded">
+                <xs:element name="id" type="tns:typeRoomResponse"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+
+    <xs:complexType name="typeRoomResponse">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string"/>
+            <xs:element name="img_url" type="xs:string"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="total_price" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
 </xs:schema>

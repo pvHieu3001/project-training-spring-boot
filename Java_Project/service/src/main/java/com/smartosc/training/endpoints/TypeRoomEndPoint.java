@@ -2,6 +2,7 @@ package com.smartosc.training.endpoints;
 
 import com.example.TypeRoomRequest;
 import com.example.TypeRoomResponse;
+import com.example.TypeRoomResponseList;
 import com.smartosc.training.dto.TypeRoomDTO;
 import com.smartosc.training.services.TypeRoomService;
 import org.modelmapper.ModelMapper;
@@ -29,24 +30,18 @@ public class TypeRoomEndPoint {
     public TypeRoomResponse findById(@RequestPayload TypeRoomRequest typeRoomRequest) {
         TypeRoomResponse typeRoomResponse = new TypeRoomResponse();
         TypeRoomDTO typeRoomDTO = typeRoomService.search(Long.parseLong(typeRoomRequest.getId()));
-        return toTypeRoomRespone(typeRoomDTO);
+        return modelMapper.map(typeRoomDTO, TypeRoomResponse.class);
     }
 
-//    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "typeRoomRequest")
-//    @ResponsePayload
-//    public List<TypeRoomResponse> findByName(@RequestPayload TypeRoomRequest typeRoomRequest) {
-//        List<TypeRoomResponse> typeRoomResponse = typeRoomService.findTypeRoomByName(typeRoomRequest.getName())
-//                .stream().map(s->toTypeRoomRespone(s)).collect(Collectors.toList());
-//
-//        return typeRoomResponse;
-//    }
-
-    public TypeRoomResponse toTypeRoomRespone(TypeRoomDTO typeRoomDTO){
-        TypeRoomResponse typeRoomResponse = new TypeRoomResponse();
-        typeRoomResponse.setImgUrl(typeRoomDTO.getImgUrl());
-        typeRoomResponse.setName(typeRoomDTO.getName());
-        typeRoomResponse.setTotalPrice(String.valueOf(typeRoomDTO.getTotalPrice()));
-        typeRoomResponse.setId(String.valueOf(typeRoomDTO.getId()));
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "typeRoomRequest")
+    @ResponsePayload
+    public TypeRoomResponseList findByName(@RequestPayload TypeRoomRequest typeRoomRequest) {
+        TypeRoomResponseList typeRoomResponse = new TypeRoomResponseList();
+        List<TypeRoomResponse> typeRoomResponses = typeRoomService.findTypeRoomByName(typeRoomRequest.getName())
+                                                    .stream().map(s->modelMapper.map(s, TypeRoomResponse.class))
+                                                    .collect(Collectors.toList());
+        typeRoomResponse.setId(typeRoomResponses);
         return typeRoomResponse;
     }
+
 }
