@@ -40,7 +40,7 @@ public class TypeRoomEndPoint {
         List<TypeRoomResponse> typeRoomResponses = typeRoomService.findTypeRoomByName(typeRoomRequest.getName())
                                                     .stream().map(s->modelMapper.map(s, TypeRoomResponse.class))
                                                     .collect(Collectors.toList());
-        typeRoomResponse.setId(typeRoomResponses);
+        //typeRoomResponse.setId(typeRoomResponses);
         return typeRoomResponse;
     }
 

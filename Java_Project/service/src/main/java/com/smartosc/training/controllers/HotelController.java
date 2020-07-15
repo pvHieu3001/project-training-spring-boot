@@ -4,6 +4,7 @@ package com.smartosc.training.controllers;
 import com.smartosc.training.dto.APIResponse;
 import com.smartosc.training.dto.HotelDTO;
 import com.smartosc.training.services.HotelService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
@@ -21,6 +22,7 @@ import java.util.Locale;
  */
 @RestController
 @RequestMapping("/api/hotels")
+@Slf4j
 public class HotelController {
     @Autowired
     private HotelService hotelService;
@@ -40,6 +42,7 @@ public class HotelController {
 
     @GetMapping("/{id}")
     public ResponseEntity<APIResponse<HotelDTO>> getHotelByID(@PathVariable("id") Long id, Locale locale) {
+        log.info("haghaghaghgha");
         APIResponse<HotelDTO> apiResponse = new APIResponse<>();
         HotelDTO result = hotelService.getHotelByID(id);
         apiResponse.setData(result);

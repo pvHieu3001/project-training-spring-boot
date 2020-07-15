@@ -2,12 +2,9 @@ package com.smartosc.training.config;
 
 import com.smartosc.training.securities.JwtUserDetailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.ws.config.annotation.EnableWs;
@@ -28,8 +25,6 @@ import java.util.List;
 @EnableWs
 public class XmlConfiguration extends WsConfigurerAdapter {
 
-//    @Autowired
-//    JwtUserDetailServiceImpl userDetailsService;
 
     @Bean
     public ServletRegistrationBean messageDispatcherServlet(ApplicationContext applicationContext) {

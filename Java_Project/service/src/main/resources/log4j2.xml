@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration>
+  <Properties>
+    <property name="LOG_LEVEL">INFO</property>
+  </Properties>
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <JSONLayout compact="true"
+                  eventEol="true"
+                  stacktraceAsString="true"
+                  properties="true"
+      />
+    </Console>
+    <RollingFile name="RollingFile"
+                 fileName="../logs/smartoc-training.log"
+                 filePattern="../logs/$${date:yyyy-MM}/smartoc_training_%d{yyyy-MM-dd}.log">
+      <PatternLayout>
+        <pattern>%d %p %C{1.} [%t] %m%n</pattern>
+      </PatternLayout>
+      <Policies>
+        <OnStartupTriggeringPolicy />
+        <SizeBasedTriggeringPolicy
+                size="50 MB" />
+        <TimeBasedTriggeringPolicy />
+      </Policies>
+    </RollingFile>
+  </Appenders>
+  <Loggers>
+    <!-- LOG everything at INFO level -->
+    <Root level="${LOG_LEVEL}">
+      <AppenderRef ref="Console" />
+      <AppenderRef ref="RollingFile" />
+    </Root>
+    <!-- LOG "com.viettel.arpu*" at TRACE level -->
+    <logger name="com.smartosc.training" level="trace">
+      <appender-ref ref="RollingFile" />
+      <appender-ref ref="Console" />
+    </logger>
+
+  </Loggers>
+
+</Configuration>
