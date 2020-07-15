@@ -17,7 +17,7 @@ import org.springframework.web.client.ResourceAccessException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Fresher-Training
@@ -33,8 +33,6 @@ import java.util.concurrent.atomic.AtomicReference;
 public class LoggingAspect {
     @Value("${application.repository.query-limit-warning-ms}")
     private int executionLimitMs;
-
-    private int retryCount = 0;
 
     @Autowired
     private ApiLogServiceImpl apiLogService;
@@ -62,6 +60,7 @@ public class LoggingAspect {
 
     @Around("execution(* com.smartosc.training.services.*.*(..))")
     public Object logAroundController(ProceedingJoinPoint joinPoint) throws Throwable {
+        AtomicInteger retryCount = new AtomicInteger(0);
                     CodeSignature codeSignature = (CodeSignature) joinPoint.getSignature();
                     ApiLog apiLog = new ApiLog();
                     apiLog.setCalledTime(Calendar.getInstance().getTime());
@@ -75,7 +74,7 @@ public class LoggingAspect {
                     retryTemplate.execute(retryCallback -> {
                         Object result;
                         try {
-                            log.info("Attempting at {} time(s)", ++retryCount);
+                            log.info("Attempting at {} time(s)", retryCount.incrementAndGet());
                             result = joinPoint.proceed();
                         } catch (ResourceAccessException e) {
                             log.error("time out exception");
@@ -86,8 +85,10 @@ public class LoggingAspect {
                             apiLog.setErrorMessage(e.getMessage());
                             throw e;
                         } finally {
-                            apiLog.setRetryNum(retryCount);
-                            apiLogService.saveApiLog(apiLog);
+                            if(retryCount.get()!=1){
+                                apiLog.setRetryNum(retryCount.get());
+                                apiLogService.saveApiLog(apiLog);
+                            }
                         }
                         log.error(String.join(", ", args));
                         return result;

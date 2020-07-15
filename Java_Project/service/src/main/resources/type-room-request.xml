@@ -1,0 +1,12 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:us="http://example.com">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <us:typeRoomRequest>
+            <us:id>Sam</us:id>
+            <us:img_url>Sam</us:img_url>
+            <us:name>Sam</us:name>
+            <us:total_price>Sam</us:total_price>
+        </us:typeRoomRequest>
+    </soapenv:Body>
+</soapenv:Envelope>
