@@ -1,7 +1,9 @@
 package com.smartosc.training;
 
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 /**
  * Fresher-Training
@@ -12,6 +14,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @since 01/07/2020
  */
 @SpringBootApplication
+@EnableEurekaServer
 public class ClientApplication {
     public static void main(String[] args) {
         SpringApplication.run(ClientApplication.class, args);

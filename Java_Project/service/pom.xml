@@ -21,6 +21,8 @@
         <powermock.version>2.0.0</powermock.version>
         <assertj.version>3.12.0</assertj.version>
         <h2.version>1.4.198</h2.version>
+        <docker.image.prefix>smartosc-training</docker.image.prefix>
+
     </properties>
 
     <dependencies>
@@ -172,7 +174,17 @@
             <version>${springfox-swagger2.version}</version>
         </dependency>
 
-        <!-- Soap library -->
+        <!-- log library -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.6.1</version>
+        </dependency>
 
         <!-- Soap security library -->
         <dependency>
@@ -184,6 +196,12 @@
             <groupId>org.springframework.ws</groupId>
             <artifactId>spring-ws-security</artifactId>
         </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>org.flywaydb</groupId>-->
+<!--            <artifactId>flyway-core</artifactId>-->
+<!--        </dependency>-->
+
     </dependencies>
 
     <build>

@@ -43,6 +43,9 @@ public class HotelController {
     @GetMapping("/{id}")
     public ResponseEntity<APIResponse<HotelDTO>> getHotelByID(@PathVariable("id") Long id, Locale locale) {
         log.info("haghaghaghgha");
+        log.debug("Debug Message Logged !!!");
+        log.info("Info Message Logged !!!");
+        log.error("Error Message Logged !!!", new NullPointerException("NullError"));
         APIResponse<HotelDTO> apiResponse = new APIResponse<>();
         HotelDTO result = hotelService.getHotelByID(id);
         apiResponse.setData(result);
