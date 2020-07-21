@@ -39,8 +39,8 @@ public class CentralServiceImpl implements CentralService {
   @Override
   public List<CentralDTO> getAllCentral(String keyword, Long id) {
     CentralSpecification centralSpecification = CentralSpecification.spec();
-    Optional.ofNullable(keyword).ifPresent(centralSpecification::byTitle);
-    Optional.ofNullable(id).ifPresent(centralSpecification::byId);
+    Optional.ofNullable(keyword).ifPresent(centralSpecification::hasTitle);
+    Optional.ofNullable(id).ifPresent(centralSpecification::hasId);
     return CentralConvert.convertListDto(centralRepository.findAll(centralSpecification.build()));
   }
 

@@ -4,6 +4,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.lenient;
+import static org.mockito.Mockito.when;
 
 import com.smartosc.training.dto.CentralDTO;
 import com.smartosc.training.dto.CityDTO;
@@ -41,7 +42,7 @@ public class CentralServiceTest {
   @Mock private CentralRepository centralRepository;
   @InjectMocks private CentralServiceImpl centralService;
   @Mock private ModelMapper modelMapper;
-  @Mock private CentralSpecification centralSpecification = CentralSpecification.spec();
+  @Mock private CentralSpecification centralSpecification;
 
   private List<Central> centrals = new ArrayList<>();
   private List<CentralDTO> centralDTOS = new ArrayList<>();
@@ -59,14 +60,17 @@ public class CentralServiceTest {
     this.centrals.add(central);
     this.centralDTO = new CentralDTO(1L, "namcx", "abc.jpg", this.cityDTOS);
     this.centralDTOS.add(centralDTO);
+    centralSpecification = CentralSpecification.spec();
   }
 
   @Test
-  public void getAllCentral(){
-//    lenient().doAnswer(invocationOnMock -> {
-//
-//    }).when(centralSpecification).byId(anyLong());
-
+  public void getAllCentral() {
+    String keyword = null;
+    Long id = null;
+    lenient().when(centralRepository.findAll(centralSpecification.build())).thenReturn(centrals);
+    lenient().when(modelMapper.map(any(), any())).thenReturn(centralDTOS);
+    List<CentralDTO> centralDTOList = centralService.getAllCentral(keyword, id);
+    Assertions.assertEquals(centralDTOList.size(), centralDTOS.size());
   }
 
   @Test

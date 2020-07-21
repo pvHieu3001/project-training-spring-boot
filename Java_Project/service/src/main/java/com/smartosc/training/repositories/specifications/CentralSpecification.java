@@ -28,30 +28,22 @@ public class CentralSpecification {
     return new CentralSpecification();
   }
 
-  public void byTitle(String title) {
-    specifications.add(hasTitle(title));
+  public CentralSpecification hasTitle(String title) {
+    if (!StringUtils.isEmpty(title)) {
+      specifications.add(
+          (root, criteriaQuery, criteriaBuilder) ->
+              criteriaBuilder.like(root.get(Central_.TITLE), "%" + title + "%"));
+    }
+    return this;
   }
 
-  private Specification<Central> hasTitle(String title) {
-    return StringUtils.isEmpty(title)
-        ? all()
-        : (root, criteriaQuery, criteriaBuilder) -> {
-          criteriaQuery.distinct(true);
-          return criteriaBuilder.like(root.get(Central_.TITLE), "%" + title + "%");
-        };
-  }
-
-  public void byId(Long id) {
-    specifications.add(hasId(id));
-  }
-
-  private Specification<Central> hasId(Long id) {
-    return StringUtils.isEmpty(id)
-        ? all()
-        : ((root, criteriaQuery, criteriaBuilder) -> {
-          criteriaQuery.distinct(true);
-          return criteriaBuilder.equal(root.get(Central_.ID), id);
-        });
+  public CentralSpecification hasId(Long id) {
+    if (!StringUtils.isEmpty(id)) {
+      specifications.add(
+          (root, criteriaQuery, criteriaBuilder) ->
+              criteriaBuilder.equal(root.get(Central_.ID), id));
+    }
+    return this;
   }
 
   public static Specification<Central> all() {
