@@ -27,45 +27,45 @@ import static org.mockito.Mockito.when;
  * @created_at 09/07/2020 - 5:08 PM
  * @created_by Huupd
  */
-@SpringBootTest
-@RunWith(PowerMockRunner.class)
-@PowerMockIgnore({"javax.management.*", "com.sun.org.apache.xerces.*", "javax.xml.*", "org.xml.*", "org.w3c.dom.*"})
-@PrepareForTest({UserSpecifications.class})
+//@SpringBootTest
+//@RunWith(PowerMockRunner.class)
+//@PowerMockIgnore({"javax.management.*", "com.sun.org.apache.xerces.*", "javax.xml.*", "org.xml.*", "org.w3c.dom.*"})
+//@PrepareForTest({UserSpecifications.class})
 public class UserSpecificationTest {
-    @Mock
-    private Root<User> root;
-
-    @Mock
-    private CriteriaQuery<?> query;
-
-    @Mock
-    private CriteriaBuilder cb;
-
-    @Mock
-    private Predicate predicate;
-
-    @Mock
-    private Path path;
-
-    @Mock
-    private Expression expression;
-
-
-    @Before
-    public void init() {
-        MockitoAnnotations.initMocks(this);
-    }
-
-    @Test
-    public void all_susscess() {
-        UserSpecifications userSpecifications = UserSpecifications.spec();
-        when(root.get("code")).thenReturn(path);
-        when(cb.equal(expression,any())).thenReturn(predicate);
-        Specification<User> actual = userSpecifications.all();
-        predicate = actual.toPredicate(root, query, cb);
-
-        assertTrue(actual != null);
-    }
+//    @Mock
+//    private Root<User> root;
+//
+//    @Mock
+//    private CriteriaQuery<?> query;
+//
+//    @Mock
+//    private CriteriaBuilder cb;
+//
+//    @Mock
+//    private Predicate predicate;
+//
+//    @Mock
+//    private Path path;
+//
+//    @Mock
+//    private Expression expression;
+//
+//
+//    @Before
+//    public void init() {
+//        MockitoAnnotations.initMocks(this);
+//    }
+//
+//    @Test
+//    public void all_susscess() {
+//        UserSpecifications userSpecifications = UserSpecifications.spec();
+//        when(root.get("code")).thenReturn(path);
+//        when(cb.equal(expression,any())).thenReturn(predicate);
+//        Specification<User> actual = userSpecifications.all();
+//        predicate = actual.toPredicate(root, query, cb);
+//
+//        assertTrue(actual != null);
+//    }
 
 //
 //    @Test

@@ -147,16 +147,16 @@ public class UserServiceTest {
         Assert.assertEquals(NotFoundException.class, userDTOS);
     }
 
-    @Test
-    public void testGetByIdSpecSuccess() {
-        when( userRepository.findAll(Specification.where(userSpecifications.spec().hasId(anyLong())))).thenReturn(userList);
-//        when(root.get("code")).thenReturn(path);
-//        when(cb.equal(expression,any())).thenReturn(predicate);
-//        Specification<User> actual = userSpecifications.all();
-//        predicate = actual.toPredicate(root, query, cb);
-        List<UserDTO> userDTOS = userService.getUserById(1L);
-        Assert.assertEquals(1, userDTOS.size());
-    }
+//    @Test
+//    public void testGetByIdSpecSuccess() {
+//        when( userRepository.findAll(Specification.where(userSpecifications.spec().hasId(anyLong())))).thenReturn(userList);
+////        when(root.get("code")).thenReturn(path);
+////        when(cb.equal(expression,any())).thenReturn(predicate);
+////        Specification<User> actual = userSpecifications.all();
+////        predicate = actual.toPredicate(root, query, cb);
+//        List<UserDTO> userDTOS = userService.getUserById(1L);
+//        Assert.assertEquals(1, userDTOS.size());
+//    }
 
     @Test
     public void testCreateUserSuccess(){

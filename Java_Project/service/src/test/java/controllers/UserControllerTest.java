@@ -100,27 +100,27 @@ public class UserControllerTest {
     }
 
     // test create user
-    @Test
-    public void TestCreateUser() throws Exception {
-        lenient().when(userService.createUser(any(UserDTO.class))).thenReturn(userDTO);
-        lenient().when(messageSource.getMessage(any(), any(), any())).thenReturn("message.getAll.user.success");
-        this.mockMvc.perform(post(url, userDTO).contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(userDTO)))
-                .andExpect(status().isOk())
-                .andDo(MockMvcResultHandlers.log());
-    }
+//    @Test
+//    public void TestCreateUser() throws Exception {
+//        lenient().when(userService.createUser(any(UserDTO.class))).thenReturn(userDTO);
+//        lenient().when(messageSource.getMessage(any(), any(), any())).thenReturn("message.getAll.user.success");
+//        this.mockMvc.perform(post(url, userDTO).contentType(MediaType.APPLICATION_JSON)
+//                .content(objectMapper.writeValueAsString(userDTO)))
+//                .andExpect(status().isOk())
+//                .andDo(MockMvcResultHandlers.log());
+//    }
 
     // test update user
-    @Test
-    public void TestUpdateUser() throws Exception {
-        lenient().when(userService.updateUser(anyLong(), any(UserDTO.class))).thenReturn(userDTO);
-        lenient().when(messageSource.getMessage(any(), any(), any())).thenReturn("message.getAll.user.success");
-        this.mockMvc.perform(put("/api/user/{id}", userDTO.getId(), userDTO)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(userDTO)))
-                .andExpect(status().isOk())
-                .andDo(MockMvcResultHandlers.log());
-    }
+//    @Test
+//    public void TestUpdateUser() throws Exception {
+//        lenient().when(userService.updateUser(anyLong(), any(UserDTO.class))).thenReturn(userDTO);
+//        lenient().when(messageSource.getMessage(any(), any(), any())).thenReturn("message.getAll.user.success");
+//        this.mockMvc.perform(put("/api/user/{id}", userDTO.getId(), userDTO)
+//                .contentType(MediaType.APPLICATION_JSON)
+//                .content(objectMapper.writeValueAsString(userDTO)))
+//                .andExpect(status().isOk())
+//                .andDo(MockMvcResultHandlers.log());
+//    }
 
     // test delete userById
     @Test

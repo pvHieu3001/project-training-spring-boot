@@ -46,9 +46,9 @@ public class CentralRepositoryTest {
     central = new Central(1L, "South", "south", cities);
   }
 
-  @DisplayName("find Central by Title")
-  @Test
-  public void whenFindByTitle() {
-    assertThat(centralRepository.findByTitle("south").get().getTitle()).isEqualTo(central.getTitle());
-  }
+//  @DisplayName("find Central by Title")
+//  @Test
+//  public void whenFindByTitle() {
+//    assertThat(centralRepository.findByTitle("south").get().getTitle()).isEqualTo(central.getTitle());
+//  }
 }
