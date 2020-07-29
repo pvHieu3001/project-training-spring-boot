@@ -8,10 +8,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Fresher-Training" />
-        <module name="common" />
-        <module name="client" />
         <module name="admin" />
         <module name="service" />
+        <module name="eurekaserver" />
+        <module name="client" />
+        <module name="common" />
       </profile>
     </annotationProcessing>
   </component>
@@ -20,6 +21,7 @@
       <module name="admin" options="-parameters" />
       <module name="client" options="-parameters" />
       <module name="common" options="-parameters" />
+      <module name="eurekaserver" options="-parameters" />
       <module name="service" options="-parameters" />
     </option>
   </component>

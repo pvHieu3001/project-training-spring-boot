@@ -29,6 +29,8 @@
         <module>client</module>
         <module>admin</module>
         <module>service</module>
+        <module>eurekaserver</module>
+        <module>zuul</module>
     </modules>
 
 
