@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="hotelbooking@192.90.20.232" uuid="8a699cd4-99bd-4448-b06d-da7bc98aa1be">
-      <driver-ref>mysql.8</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://192.90.20.232:3306/hotelbooking?createDatabaseIfNotExist=true&amp;useUnicode=yes&amp;characterEncoding=UTF-8&amp;useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</jdbc-url>
-    </data-source>
     <data-source source="LOCAL" name="hotelbooking@localhost" uuid="4258eeb6-3a45-4a9a-8618-9bd7dbc39932">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>

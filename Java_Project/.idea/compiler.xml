@@ -7,9 +7,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="gatewayservice" />
         <module name="Fresher-Training" />
-        <module name="admin" />
         <module name="service" />
+        <module name="admin" />
+        <module name="service-security" />
         <module name="eurekaserver" />
         <module name="client" />
         <module name="common" />
@@ -22,7 +24,9 @@
       <module name="client" options="-parameters" />
       <module name="common" options="-parameters" />
       <module name="eurekaserver" options="-parameters" />
+      <module name="gatewayservice" options="-parameters" />
       <module name="service" options="-parameters" />
+      <module name="service-security" options="-parameters" />
     </option>
   </component>
 </project>

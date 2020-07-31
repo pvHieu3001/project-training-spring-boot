@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * Fresher-Training
@@ -61,38 +62,40 @@ public class LoggingAspect {
     @Around("execution(* com.smartosc.training.services.*.*(..))")
     public Object logAroundController(ProceedingJoinPoint joinPoint) throws Throwable {
         AtomicInteger retryCount = new AtomicInteger(0);
-                    CodeSignature codeSignature = (CodeSignature) joinPoint.getSignature();
-                    ApiLog apiLog = new ApiLog();
-                    apiLog.setCalledTime(Calendar.getInstance().getTime());
-                    List<String> args = new ArrayList<>();
-                    String[] argNames = codeSignature.getParameterNames();
-                    Object[] argValues = joinPoint.getArgs();
-                    for (int i = 0; i < argNames.length; i++) {
-                        args.add(argNames[i] + ":" + argValues[i].toString());
-                    }
-                    apiLog.setData(String.join(", ", args));
-                    retryTemplate.execute(retryCallback -> {
-                        Object result;
-                        try {
-                            log.info("Attempting at {} time(s)", retryCount.incrementAndGet());
-                            result = joinPoint.proceed();
-                        } catch (ResourceAccessException e) {
-                            log.error("time out exception");
-                            apiLog.setErrorMessage(e.getMessage());
-                            throw e;
-                        } catch (Exception e) {
-                            log.error("Server exception");
-                            apiLog.setErrorMessage(e.getMessage());
-                            throw e;
-                        } finally {
-                            if(retryCount.get()!=1){
-                                apiLog.setRetryNum(retryCount.get());
-                                apiLogService.saveApiLog(apiLog);
-                            }
-                        }
-                        log.error(String.join(", ", args));
-                        return result;
-                    });
-        return joinPoint.proceed();
+        AtomicReference<Object> result1 = new AtomicReference<>();
+        CodeSignature codeSignature = (CodeSignature) joinPoint.getSignature();
+        ApiLog apiLog = new ApiLog();
+        apiLog.setCalledTime(Calendar.getInstance().getTime());
+        List<String> args = new ArrayList<>();
+        String[] argNames = codeSignature.getParameterNames();
+        Object[] argValues = joinPoint.getArgs();
+        for (int i = 0; i < argNames.length; i++) {
+            args.add(argNames[i] + ":" + argValues[i].toString());
+        }
+        apiLog.setData(String.join(", ", args));
+        retryTemplate.execute(retryCallback -> {
+            Object result;
+            try {
+                log.info("Attempting at {} time(s)", retryCount.incrementAndGet());
+                result = joinPoint.proceed();
+                result1.set(result);
+            } catch (ResourceAccessException e) {
+                log.error("time out exception");
+                apiLog.setErrorMessage(e.getMessage());
+                throw e;
+            } catch (Exception e) {
+                log.error("Server exception");
+                apiLog.setErrorMessage(e.getMessage());
+                throw e;
+            } finally {
+                if(retryCount.get()!=1){
+                    apiLog.setRetryNum(retryCount.get());
+                    apiLogService.saveApiLog(apiLog);
+                }
+            }
+            log.error(String.join(", ", args));
+            return null;
+        });
+        return result1.get();
     }
 }

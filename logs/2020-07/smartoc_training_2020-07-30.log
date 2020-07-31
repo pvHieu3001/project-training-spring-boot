@@ -1,0 +1,77 @@
+2020-07-30 15:46:04,509 INFO o.s.b.StartupInfoLogger [main] Starting ServiceApplication on DESKTOP-C2K9OKI with PID 14856 (C:\Users\PC\Documents\Github\hanoi-java-fresher-proj\review\Java_Project\service\target\classes started by PC in C:\Users\PC\Documents\Github\hanoi-java-fresher-proj\review\Java_Project)
+2020-07-30 15:46:04,562 INFO o.s.b.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-07-30 15:46:05,309 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-07-30 15:46:05,398 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 83ms. Found 8 JPA repository interfaces.
+2020-07-30 15:46:05,588 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] Bean 'xmlConfiguration' of type [com.smartosc.training.config.XmlConfiguration$$EnhancerBySpringCGLIB$$8edb6b07] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-30 15:46:05,589 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$f164c9df] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-30 15:46:05,613 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] Bean 'payloadLoggingInterceptor' of type [org.springframework.ws.server.endpoint.interceptor.PayloadLoggingInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-30 15:46:05,618 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] Bean 'typeRoomSchema' of type [org.springframework.xml.xsd.SimpleXsdSchema] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-30 15:46:05,649 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] Bean 'payloadValidatingInterceptor' of type [org.springframework.ws.soap.server.endpoint.interceptor.PayloadValidatingInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-30 15:46:05,651 INFO o.s.w.s.a.s.AbstractAddressingEndpointMapping [main] Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2020-07-30 15:46:05,673 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] Bean 'org.springframework.retry.annotation.RetryConfiguration' of type [org.springframework.retry.annotation.RetryConfiguration$$EnhancerBySpringCGLIB$$42909d05] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-30 15:46:05,692 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-30 15:46:05,756 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-30 15:46:05,758 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-30 15:46:05,761 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@4b476233' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-30 15:46:05,764 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-30 15:46:05,772 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-30 15:46:06,010 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat initialized with port(s): 8004 (http)
+2020-07-30 15:46:06,015 INFO o.a.j.l.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8004"]
+2020-07-30 15:46:06,016 INFO o.a.j.l.DirectJDKLog [main] Starting service [Tomcat]
+2020-07-30 15:46:06,017 INFO o.a.j.l.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-07-30 15:46:06,120 INFO o.a.j.l.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2020-07-30 15:46:06,121 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1534 ms
+2020-07-30 15:46:06,312 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-30 15:46:06,362 INFO o.h.Version [main] HHH000412: Hibernate Core {5.4.9.Final}
+2020-07-30 15:46:06,433 INFO o.h.a.c.r.j.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-30 15:46:06,498 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2020-07-30 15:46:07,084 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2020-07-30 15:46:07,095 INFO o.h.d.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-07-30 15:46:10,000 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-30 15:46:10,009 INFO o.s.o.j.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-30 15:46:10,570 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-30 15:46:11,308 INFO s.d.s.w.PropertySourcedRequestMappingHandlerMapping [main] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-07-30 15:46:11,495 INFO o.s.s.w.DefaultSecurityFilterChain [main] Creating filter chain: Ant [pattern='/resources/**'], []
+2020-07-30 15:46:11,495 INFO o.s.s.w.DefaultSecurityFilterChain [main] Creating filter chain: Ant [pattern='/static/**'], []
+2020-07-30 15:46:11,495 INFO o.s.s.w.DefaultSecurityFilterChain [main] Creating filter chain: Ant [pattern='/css/**'], []
+2020-07-30 15:46:11,495 INFO o.s.s.w.DefaultSecurityFilterChain [main] Creating filter chain: Ant [pattern='/js/**'], []
+2020-07-30 15:46:11,496 INFO o.s.s.w.DefaultSecurityFilterChain [main] Creating filter chain: Ant [pattern='/images/**'], []
+2020-07-30 15:46:11,557 INFO o.s.s.w.DefaultSecurityFilterChain [main] Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5180f430, org.springframework.security.web.context.SecurityContextPersistenceFilter@915c47b, org.springframework.security.web.header.HeaderWriterFilter@296ddfc7, org.springframework.security.web.authentication.logout.LogoutFilter@291fba9, com.smartosc.training.securities.RequestFilter@4d1f6e1c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7d14efc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7a80b2e6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@717b4de2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4e7d77ec, org.springframework.security.web.session.SessionManagementFilter@2a742ee4, org.springframework.security.web.access.ExceptionTranslationFilter@33e6176b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@67e7fe73]
+2020-07-30 15:46:11,696 INFO o.s.s.c.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-30 15:46:11,915 INFO s.d.s.w.p.DocumentationPluginsBootstrapper [main] Context refreshed
+2020-07-30 15:46:11,928 INFO s.d.s.w.p.DocumentationPluginsBootstrapper [main] Found 1 custom documentation plugin(s)
+2020-07-30 15:46:11,962 INFO s.d.s.w.s.ApiListingReferenceScanner [main] Scanning for api listing references
+2020-07-30 15:46:11,999 INFO s.b.v.p.p.SizeAnnotationPlugin [main] searching for @size: false
+2020-07-30 15:46:12,068 INFO s.b.v.p.p.SizeAnnotationPlugin [main] searching for @size: false
+2020-07-30 15:46:12,072 INFO s.b.v.p.p.SizeAnnotationPlugin [main] searching for @size: false
+2020-07-30 15:46:12,073 INFO s.b.v.p.p.SizeAnnotationPlugin [main] searching for @size: false
+2020-07-30 15:46:12,075 INFO s.b.v.p.p.SizeAnnotationPlugin [main] searching for @size: false
+2020-07-30 15:46:12,076 INFO s.b.v.p.p.SizeAnnotationPlugin [main] searching for @size: false
+2020-07-30 15:46:12,080 INFO s.b.v.p.p.SizeAnnotationPlugin [main] searching for @size: false
+2020-07-30 15:46:12,085 INFO s.b.v.p.p.SizeAnnotationPlugin [main] searching for @size: false
+2020-07-30 15:46:12,094 INFO s.b.v.p.p.SizeAnnotationPlugin [main] searching for @size: false
+2020-07-30 15:46:12,095 INFO s.b.v.p.p.SizeAnnotationPlugin [main] searching for @size: false
+2020-07-30 15:46:12,097 INFO s.b.v.p.p.SizeAnnotationPlugin [main] searching for @size: false
+2020-07-30 15:46:12,100 INFO s.b.v.p.p.SizeAnnotationPlugin [main] searching for @size: false
+2020-07-30 15:46:12,101 INFO s.b.v.p.p.SizeAnnotationPlugin [main] searching for @size: false
+2020-07-30 15:46:12,102 INFO s.b.v.p.p.SizeAnnotationPlugin [main] searching for @size: false
+2020-07-30 15:46:12,106 INFO s.b.v.p.p.SizeAnnotationPlugin [main] searching for @size: false
+2020-07-30 15:46:12,108 INFO s.b.v.p.p.SizeAnnotationPlugin [main] searching for @size: false
+2020-07-30 15:46:12,111 INFO s.b.v.p.p.SizeAnnotationPlugin [main] searching for @size: false
+2020-07-30 15:46:12,112 INFO s.b.v.p.p.SizeAnnotationPlugin [main] searching for @size: false
+2020-07-30 15:46:12,114 INFO s.b.v.p.p.SizeAnnotationPlugin [main] searching for @size: false
+2020-07-30 15:46:12,115 INFO s.d.s.w.r.o.CachingOperationNameGenerator [main] Generating unique operation named: updateInformationUsingPUT_1
+2020-07-30 15:46:12,116 INFO s.b.v.p.p.SizeAnnotationPlugin [main] searching for @size: false
+2020-07-30 15:46:12,116 INFO s.d.s.w.r.o.CachingOperationNameGenerator [main] Generating unique operation named: createTypeRoomUsingPOST_1
+2020-07-30 15:46:12,118 INFO s.b.v.p.p.SizeAnnotationPlugin [main] searching for @size: false
+2020-07-30 15:46:12,120 INFO s.b.v.p.p.SizeAnnotationPlugin [main] searching for @size: false
+2020-07-30 15:46:12,124 INFO s.b.v.p.p.SizeAnnotationPlugin [main] searching for @size: false
+2020-07-30 15:46:12,125 INFO s.d.s.w.r.o.CachingOperationNameGenerator [main] Generating unique operation named: updateTypeRoomUsingPUT_1
+2020-07-30 15:46:12,129 INFO s.b.v.p.p.SizeAnnotationPlugin [main] searching for @size: false
+2020-07-30 15:46:12,130 INFO s.b.v.p.p.SizeAnnotationPlugin [main] searching for @size: false
+2020-07-30 15:46:12,136 INFO s.b.v.p.p.SizeAnnotationPlugin [main] searching for @size: false
+2020-07-30 15:46:12,139 INFO s.b.v.p.p.SizeAnnotationPlugin [main] searching for @size: false
+2020-07-30 15:46:12,140 INFO s.b.v.p.p.SizeAnnotationPlugin [main] searching for @size: false
+2020-07-30 15:46:12,156 INFO o.a.j.l.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8004"]
+2020-07-30 15:46:12,176 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat started on port(s): 8004 (http) with context path ''
+2020-07-30 15:46:12,177 INFO o.s.b.StartupInfoLogger [main] Started ServiceApplication in 7.962 seconds (JVM running for 8.912)

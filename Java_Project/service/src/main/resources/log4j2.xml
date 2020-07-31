@@ -33,10 +33,10 @@
       <AppenderRef ref="RollingFile" />
     </Root>
     <!-- LOG "com.viettel.arpu*" at TRACE level -->
-    <logger name="com.smartosc.training.controllers" level="${LOG_LEVEL}">
-      <appender-ref ref="RollingFile" />
-      <appender-ref ref="Console" />
-    </logger>
+<!--    <logger name="com.smartosc.training.controllers" level="trace">-->
+<!--      <appender-ref ref="RollingFile" />-->
+<!--      <appender-ref ref="Console" />-->
+<!--    </logger>-->
 
   </Loggers>
 
