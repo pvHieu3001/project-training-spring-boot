@@ -1,21 +1,5 @@
 version: '3.3'
 services:
-  db:
-    image: mysql:5.7
-    restart: always
-    environment:
-      MYSQL_DATABASE: 'hotel'
-      MYSQL_USER: 'user'
-      MYSQL_PASSWORD: '1234'
-      MYSQL_ROOT_PASSWORD: '1234'
-    ports:
-      - '4307:3306'
-    expose:
-      - '3306'
-    volumes:
-      - my-db:/var/lib/mysql
-    networks:
-      - app_net1
   app:
     image: smartosc-training:latest
     build:
@@ -23,13 +7,6 @@ services:
       dockerfile: DockerFile
     ports:
       - "8004:8004"
-    networks:
-      - app_net1
-
-networks:
-  app_net1:
-    driver: 'bridge'
-
 # Names our volume
 volumes:
   my-db:

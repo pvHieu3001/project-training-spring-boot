@@ -1,5 +1,6 @@
 package com.smartosc.training.entities;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -12,10 +13,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
+import lombok.*;
+import org.springframework.data.redis.core.RedisHash;
 
 /**
  * Fresher-Training
@@ -31,8 +31,8 @@ import lombok.Setter;
 @Table
 @Getter
 @Setter
-public class TypeRoom {
-
+public class TypeRoom implements Serializable {
+  private static final long serialVersionUID = 7156526077883281623L;
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
