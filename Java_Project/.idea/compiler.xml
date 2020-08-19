@@ -7,14 +7,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="gatewayservice" />
-        <module name="Fresher-Training" />
+        <module name="eurekaserver" />
+        <module name="common" />
         <module name="service" />
         <module name="admin" />
         <module name="service-security" />
-        <module name="eurekaserver" />
         <module name="client" />
-        <module name="common" />
+        <module name="Fresher-Training" />
+        <module name="gatewayservice" />
       </profile>
     </annotationProcessing>
   </component>

@@ -33,12 +33,12 @@
             <version>5.2.2.Final</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/com.oracle/ojdbc14 -->
-        <dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc14</artifactId>
-            <version>10.2.0.4.0</version>
-        </dependency>
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/com.oracle/ojdbc14 &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.oracle</groupId>-->
+<!--            <artifactId>ojdbc14</artifactId>-->
+<!--            <version>10.2.0.4.0</version>-->
+<!--        </dependency>-->
 
 
         <dependency>

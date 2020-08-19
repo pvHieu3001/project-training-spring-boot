@@ -3,8 +3,8 @@ package com.smartosc.training.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.hateoas.Link;
-import org.springframework.hateoas.server.mvc.ControllerLinkBuilder;
+//import org.springframework.hateoas.Link;
+
 
 import java.io.Serializable;
 
@@ -29,8 +29,8 @@ public class APIResponse<T> implements Serializable {
     @JsonProperty("data")
     private T data;
 
-    @JsonProperty("_links")
-    Link links;
+//    @JsonProperty("_links")
+//    Link links;
 
     public APIResponse(int status, String message) {
         this.status = status;
@@ -43,10 +43,10 @@ public class APIResponse<T> implements Serializable {
         this.data = data;
     }
 
-    public APIResponse(int status, String message, T data, Link links) {
-        this.status = status;
-        this.message = message;
-        this.data = data;
-        this.links = links;
-    }
+//    public APIResponse(int status, String message, T data, Link links) {
+//        this.status = status;
+//        this.message = message;
+//        this.data = data;
+//        this.links = links;
+//    }
 }

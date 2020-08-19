@@ -37,10 +37,7 @@ public class TypeRoomEndPoint {
     @ResponsePayload
     public TypeRoomResponseList findByName(@RequestPayload TypeRoomRequest typeRoomRequest) {
         TypeRoomResponseList typeRoomResponse = new TypeRoomResponseList();
-        List<TypeRoomResponse> typeRoomResponses = typeRoomService.findTypeRoomByName(typeRoomRequest.getName())
-                                                    .stream().map(s->modelMapper.map(s, TypeRoomResponse.class))
-                                                    .collect(Collectors.toList());
-        //typeRoomResponse.setId(typeRoomResponses);
+         typeRoomService.findTypeRoomByName(typeRoomRequest.getName()).forEach(s->typeRoomResponse.getId().add(modelMapper.map(s, TypeRoomResponse.class)));
         return typeRoomResponse;
     }
 

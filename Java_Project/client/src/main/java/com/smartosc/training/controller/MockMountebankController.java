@@ -5,15 +5,12 @@ import com.smartosc.training.dto.UserDTO;
 import com.smartosc.training.service.RestTemplateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.hateoas.Link;
 import org.springframework.http.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 /**
  * Fresher-Training
@@ -30,8 +27,8 @@ public class MockMountebankController {
 
     @GetMapping("/mountebank")
     public ResponseEntity<APIResponse<List<UserDTO>>> findByTypeRoomName(){
-        final Link selfLink = linkTo(
-                methodOn(MockMountebankController.class).findByTypeRoomName()).withSelfRel();
+//        final Link selfLink = linkTo(
+//                methodOn(MockMountebankController.class).findByTypeRoomName()).withSelfRel();
 
         String url = "http://localhost:8090/api/v1/rest/series/search";
         HttpHeaders header = new HttpHeaders();
@@ -41,8 +38,7 @@ public class MockMountebankController {
         return new ResponseEntity(new APIResponse<>(
                 HttpStatus.OK.value(),
                 "",
-                data,
-                selfLink
+                data
         ), HttpStatus.OK);
     }
 }
