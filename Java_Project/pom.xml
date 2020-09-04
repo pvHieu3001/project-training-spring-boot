@@ -26,12 +26,9 @@
 
     <modules>
         <module>common</module>
-        <module>client</module>
-        <module>admin</module>
         <module>service</module>
         <module>eurekaserver</module>
         <module>gatewayservice</module>
-        <module>service-security</module>
         <module>service-order</module>
         <module>service-shipping</module>
         <module>service-invoice</module>

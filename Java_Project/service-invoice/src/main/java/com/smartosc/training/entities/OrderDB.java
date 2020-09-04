@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Order {
+public class OrderDB {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
