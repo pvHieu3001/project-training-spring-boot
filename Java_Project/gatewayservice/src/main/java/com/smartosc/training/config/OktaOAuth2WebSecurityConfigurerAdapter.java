@@ -8,7 +8,7 @@ public class OktaOAuth2WebSecurityConfigurerAdapter extends WebSecurityConfigure
     protected void configure(HttpSecurity http) throws Exception {
         // @formatter:off
         http
-                .authorizeRequests().anyRequest().permitAll()
+                .authorizeRequests().anyRequest().authenticated()
                 .and()
                 .oauth2Login()
                 .and()
