@@ -1,13 +1,10 @@
 package com.smartosc.training.config;
 
-import com.smartosc.training.apigateway.UserFeignClientInterceptor;
 import com.smartosc.training.filter.*;
-import feign.RequestInterceptor;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
-import org.springframework.security.oauth2.client.OAuth2AuthorizedClientService;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
@@ -55,13 +52,5 @@ public class ZuulConfig {
         return bean;
     }
 
-    @Bean
-    public RequestInterceptor getUserFeignClientInterceptor(OAuth2AuthorizedClientService clientService) {
-        return new UserFeignClientInterceptor(clientService);
-    }
 
-    @Bean
-    public AuthorizationHeaderFilter authHeaderFilter(OAuth2AuthorizedClientService clientService) {
-        return new AuthorizationHeaderFilter(clientService);
-    }
 }

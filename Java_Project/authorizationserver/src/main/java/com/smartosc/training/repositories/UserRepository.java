@@ -1,4 +1,4 @@
-package com.smartosc.training.repository;
+package com.smartosc.training.repositories;
 
 import com.smartosc.training.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;

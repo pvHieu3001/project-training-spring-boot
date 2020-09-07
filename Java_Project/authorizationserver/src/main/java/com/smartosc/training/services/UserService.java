@@ -1,7 +1,8 @@
-package com.smartosc.training.service;
+package com.smartosc.training.services;
 
 
 import com.smartosc.training.dto.UserDTO;
+import com.smartosc.training.entities.User;
 import javassist.NotFoundException;
 
 import java.util.List;
@@ -19,8 +20,5 @@ public interface UserService {
     UserDTO findUserByUserName(String name) throws NotFoundException;
 
     UserDTO getUserById(Long id) throws NotFoundException;
-
-
-
 
 }

@@ -1,9 +1,9 @@
-package com.smartosc.training.service.impl;
+package com.smartosc.training.services.impl;
 
 import com.smartosc.training.dto.RoleDTO;
 import com.smartosc.training.entities.Role;
-import com.smartosc.training.repository.RoleRepository;
-import com.smartosc.training.service.RoleService;
+import com.smartosc.training.repositories.RoleRepository;
+import com.smartosc.training.services.RoleService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

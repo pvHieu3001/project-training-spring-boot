@@ -1,19 +1,16 @@
-package com.smartosc.training.service.impl;
+package com.smartosc.training.services.impl;
 
 import com.smartosc.training.dto.CommentDTO;
 import com.smartosc.training.dto.RoleDTO;
 import com.smartosc.training.dto.UserDTO;
 import com.smartosc.training.entities.Role;
 import com.smartosc.training.entities.User;
-import com.smartosc.training.repository.UserRepository;
-import com.smartosc.training.service.UserService;
+import com.smartosc.training.repositories.UserRepository;
+import com.smartosc.training.services.UserService;
 import javassist.NotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DuplicateKeyException;
-import org.springframework.data.jpa.domain.Specification;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -29,7 +26,7 @@ import java.util.Optional;
  */
 @Service
 @Slf4j
-public class UserServicesImpl implements UserService {
+public class UserServiceImpl implements UserService {
     @Autowired
     UserRepository userRepository;
 

@@ -1,4 +1,4 @@
-package com.smartosc.training.repository;
+package com.smartosc.training.repositories;
 
 import com.smartosc.training.entities.Role;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,4 +1,4 @@
-package com.smartosc.training.service;
+package com.smartosc.training.services;
 
 import com.smartosc.training.dto.RoleDTO;
 
