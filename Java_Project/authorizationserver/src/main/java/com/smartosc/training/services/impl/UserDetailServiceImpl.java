@@ -1,14 +1,11 @@
 package com.smartosc.training.services.impl;
 
-import com.smartosc.training.dto.RoleDTO;
-import com.smartosc.training.dto.UserDTO;
-import com.smartosc.training.services.UserService;
+import com.smartosc.training.entities.AuthUserDetail;
+import com.smartosc.training.entities.User;
+import com.smartosc.training.repositories.UserRepository;
 import lombok.SneakyThrows;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.authentication.AccountStatusUserDetailsChecker;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -16,29 +13,24 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
-@Service
+@Service("userDetailService")
 public class UserDetailServiceImpl implements UserDetailsService {
-    private static Logger logger = LoggerFactory.getLogger(UserDetailServiceImpl.class);
-
     @Autowired
-    private UserService userService;
+    private UserRepository userRepository;
 
-    @SneakyThrows
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserDTO user = userService.findUserByUserName(username);
-        if (user == null) {
-            throw new UsernameNotFoundException("User not found");
-        }
-        String password = user.getPassword();
-        List<RoleDTO> roles = user.getRoleDTOS();
-        List<GrantedAuthority> userGrants = new ArrayList<>();
-        for(RoleDTO role : roles){
-            GrantedAuthority userGrant = new SimpleGrantedAuthority(role.getName());
-            userGrants.add(userGrant);
-        }
-        logger.info("user roles : {}",  roles);
-        return new org.springframework.security.core.userdetails.User(username, password, userGrants);
+    public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
+
+        Optional<User> optionalUser = Optional.ofNullable(userRepository.findByUsername(name));
+
+        optionalUser.orElseThrow(() -> new UsernameNotFoundException("Username or password wrong"));
+
+        UserDetails userDetails = new AuthUserDetail(optionalUser.get());
+        new AccountStatusUserDetailsChecker().check(userDetails);
+        return userDetails;
+
+
     }
 }

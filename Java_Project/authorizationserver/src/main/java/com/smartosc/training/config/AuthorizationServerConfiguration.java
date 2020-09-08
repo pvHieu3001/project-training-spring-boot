@@ -2,60 +2,40 @@ package com.smartosc.training.config;
 
 import javax.sql.DataSource;
 
-import com.smartosc.training.services.impl.UserDetailServiceImpl;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
-import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
+import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
-import org.springframework.security.oauth2.provider.code.AuthorizationCodeServices;
-import org.springframework.security.oauth2.provider.token.AuthorizationServerTokenServices;
-import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
-import org.springframework.security.oauth2.provider.token.TokenEnhancer;
-import org.springframework.security.oauth2.provider.token.TokenStore;
 
+import org.springframework.security.oauth2.provider.token.TokenStore;
+import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
 
 
 @Configuration
-@EnableAuthorizationServer
-public class AuthorizationServerConfiguration extends AuthorizationServerConfigurerAdapter {
-
-  private static String REALM = "MICRO_SERVICE_OAUTH";
-
+public class AuthorizationServerConfiguration implements AuthorizationServerConfigurer {
   @Autowired
-  private TokenStore tokenStore;
-
-  @Autowired
-  private AuthorizationCodeServices authorizationCodeServices;
-
-
-  @Autowired
-  private UserDetailServiceImpl userDetailService;
-
-  @Autowired
-  @Qualifier("authenticationManagerBean")
-  private AuthenticationManager authenticationManager;
-
+  private PasswordEncoder passwordEncoder;
   @Autowired
   private DataSource dataSource;
-
   @Autowired
-  private BCryptPasswordEncoder passwordEncoder;
+  private AuthenticationManager authenticationManager;
 
-  @Autowired
-  private OauthTokenEnhancer tokenEnhancer;
-  
-  final static Logger logger = LoggerFactory.getLogger(AuthorizationServerConfiguration.class);
 
+  @Bean
+  TokenStore jdbcTokenStore() {
+    return new JdbcTokenStore(dataSource);
+  }
+
+  @Override
+  public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
+    security.checkTokenAccess("isAuthenticated()").tokenKeyAccess("permitAll()");
+
+  }
 
   @Override
   public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
@@ -65,25 +45,8 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 
   @Override
   public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-
-    endpoints.tokenStore(tokenStore).authorizationCodeServices(authorizationCodeServices)
-        .userDetailsService(userDetailService)
-        .authenticationManager(authenticationManager).tokenEnhancer(tokenEnhancer)
-        .approvalStoreDisabled();
+    endpoints.tokenStore(jdbcTokenStore());
+    endpoints.authenticationManager(authenticationManager);
   }
 
-  @Override
-  public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-    security.realm(REALM + "/client").passwordEncoder(passwordEncoder);
-  }
-
-  @Bean
-  @Primary
-  public AuthorizationServerTokenServices tokenServices() {
-    DefaultTokenServices tokenServices = new DefaultTokenServices();
-    tokenServices.setTokenStore(tokenStore);
-    tokenServices.setSupportRefreshToken(true);
-    tokenServices.setTokenEnhancer(tokenEnhancer);
-    return tokenServices;
-  }
 }

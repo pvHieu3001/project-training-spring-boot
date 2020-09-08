@@ -54,13 +54,12 @@ public class UserServiceImpl implements UserService {
             userDTO.setUsername(userEntity.getUsername());
             userDTO.setEmail(userEntity.getEmail());
             userDTO.setPassword(userEntity.getPassword());
-            userDTO.setStatus(userEntity.getStatus());
             List<Role> roleList = userEntity.getRoles();
             List<RoleDTO> roleDTOS = new ArrayList<>();
             for (Role role : roleList) {
 
                 RoleDTO roleDTO = new RoleDTO();
-                roleDTO.setId(role.getRoleId());
+                roleDTO.setId(role.getId());
                 roleDTO.setName(role.getName());
                 roleDTOS.add(roleDTO);
             }

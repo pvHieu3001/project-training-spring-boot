@@ -21,18 +21,13 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserDTO {
-    private Long id;
-
-    @UserNameConstraint
+    private Integer id;
     private String username;
-
-    @PasswordContraint
     private String password;
-
-    @EmailContraint
     private String email;
-
-    private int status;
+    private boolean enabled;
+    private boolean accountNonExpired;
+    private boolean credentialsNonExpired;
+    private boolean accountNonLocked;
     private List<RoleDTO> roleDTOS;
-    private List<CommentDTO> commentDTOS;
 }

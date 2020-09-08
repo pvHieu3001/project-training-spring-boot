@@ -24,17 +24,15 @@ import java.util.List;
 @AllArgsConstructor
 public class Role {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long roleId;
-    @Column
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+    @Column(name = "name")
     private String name;
 
-    @ManyToMany(mappedBy = "roles",fetch = FetchType.LAZY)
-    private List<User> accounts;
-
-    public Role(Long id,String name){
-        this.roleId = id;
-        this.name = name;
-    }
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "permission_role", joinColumns = {
+            @JoinColumn(name = "role_id", referencedColumnName = "id")}, inverseJoinColumns = {
+            @JoinColumn(name = "permission_id", referencedColumnName = "id")})
+    private List<Permission> permissions;
 
 }
