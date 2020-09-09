@@ -33,6 +33,7 @@
         <module>service-shipping</module>
         <module>service-invoice</module>
         <module>authorizationserver</module>
+        <module>basecore</module>
     </modules>
 
 

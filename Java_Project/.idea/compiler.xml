@@ -11,6 +11,7 @@
         <module name="common" />
         <module name="service" />
         <module name="auth-server" />
+        <module name="basecore" />
         <module name="Fresher-Training" />
         <module name="service-order" />
         <module name="service-shipping" />
@@ -31,6 +32,7 @@
       <module name="admin" options="-parameters" />
       <module name="auth-server" options="-parameters" />
       <module name="authorizationserver" options="-parameters" />
+      <module name="basecore" options="-parameters" />
       <module name="client" options="-parameters" />
       <module name="common" options="-parameters" />
       <module name="eurekaserver" options="-parameters" />

@@ -35,30 +35,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0dc4de3c-99f3-49e1-ac43-ebf386f52899" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/authorizationserver/src/main/java/com/smartosc/training/config/CustomTokenEnhancer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authorizationserver/src/main/java/com/smartosc/training/config/OAuth2Config.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authorizationserver/src/main/java/com/smartosc/training/config/WebSecurityConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-order/src/main/java/com/smartosc/training/configs/JwtConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-order/src/main/java/com/smartosc/training/configs/SecurityConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-order/src/main/java/com/smartosc/training/entities/AccessTokenMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/basecore/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/basecore/src/main/java/com/smartosc/training/BaseCoreApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/basecore/src/main/java/com/smartosc/training/thread/HelloMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/basecore/src/main/java/com/smartosc/training/thread/HelloThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authorizationserver/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/authorizationserver/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authorizationserver/src/main/java/com/smartosc/training/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/authorizationserver/src/main/java/com/smartosc/training/config/AppConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authorizationserver/src/main/java/com/smartosc/training/config/AuthorizationServerConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/authorizationserver/src/main/java/com/smartosc/training/entities/AuthUserDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/authorizationserver/src/main/java/com/smartosc/training/entities/AuthUserDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authorizationserver/src/main/java/com/smartosc/training/entities/Permission.java" beforeDir="false" afterPath="$PROJECT_DIR$/authorizationserver/src/main/java/com/smartosc/training/entities/Permission.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authorizationserver/src/main/java/com/smartosc/training/entities/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/authorizationserver/src/main/java/com/smartosc/training/entities/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authorizationserver/src/main/java/com/smartosc/training/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/authorizationserver/src/main/java/com/smartosc/training/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authorizationserver/src/main/java/com/smartosc/training/repositories/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/authorizationserver/src/main/java/com/smartosc/training/repositories/RoleRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authorizationserver/src/main/java/com/smartosc/training/services/impl/RoleServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/authorizationserver/src/main/java/com/smartosc/training/services/impl/RoleServicesImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authorizationserver/src/main/java/com/smartosc/training/services/impl/UserDetailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/authorizationserver/src/main/java/com/smartosc/training/services/impl/UserDetailServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authorizationserver/src/main/java/com/smartosc/training/services/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/authorizationserver/src/main/java/com/smartosc/training/services/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authorizationserver/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/authorizationserver/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/smartosc/training/dto/UserDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-order/src/main/java/com/smartosc/training/controllers/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-order/src/main/java/com/smartosc/training/controllers/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-order/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service-order/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +129,20 @@
       <command value="javac Run" />
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.OrderApp">
+  <component name="RunManager" selected="Application.HelloMain">
+    <configuration name="HelloMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.smartosc.training.thread.HelloMain" />
+      <module name="basecore" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.smartosc.training.thread.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ShippingApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.smartosc.training.ShippingApp" />
       <module name="service-shipping" />
@@ -155,6 +152,17 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -188,19 +196,6 @@
     <configuration name="GatewayServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="gatewayservice" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.smartosc.training.GatewayServiceApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="InvoiceApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="service-invoice" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.smartosc.training.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.smartosc.training.InvoiceApp" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -262,17 +257,17 @@
       <item itemvalue="Spring Boot.GatewayServiceApplication" />
       <item itemvalue="Spring Boot.ServiceApplication" />
       <item itemvalue="Spring Boot.ShippingApp" />
-      <item itemvalue="Spring Boot.InvoiceApp" />
       <item itemvalue="Spring Boot.OrderApp" />
       <item itemvalue="Spring Boot.AuthorizationServerApplication" />
+      <item itemvalue="Application.HelloMain" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.HelloMain" />
         <item itemvalue="Spring Boot.OrderApp" />
         <item itemvalue="Spring Boot.AuthorizationServerApplication" />
         <item itemvalue="Database Script.schema.sql" />
         <item itemvalue="Application.ShippingApp" />
-        <item itemvalue="Spring Boot.InvoiceApp" />
       </list>
     </recent_temporary>
   </component>
@@ -329,6 +324,7 @@
       <workItem from="1599446134687" duration="17459000" />
       <workItem from="1599531799072" duration="16525000" />
       <workItem from="1599618301275" duration="15752000" />
+      <workItem from="1599644169740" duration="2177000" />
     </task>
     <servers />
   </component>
@@ -515,11 +511,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="605" y="247" width="710" height="546" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595840358774" />
-    <state x="342" y="246" width="1372" height="592" key="new project wizard" timestamp="1599460917956">
+    <state x="342" y="246" width="1372" height="592" key="new project wizard" timestamp="1599644782930">
       <screen x="0" y="27" width="1920" height="1020" />
     </state>
     <state x="342" y="223" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1597025666022" />
-    <state x="342" y="246" width="1372" height="592" key="new project wizard/0.27.1920.1020@0.27.1920.1020" timestamp="1599460917956" />
+    <state x="342" y="246" width="1372" height="592" key="new project wizard/0.27.1920.1020@0.27.1920.1020" timestamp="1599644782930" />
     <state x="371" y="253" width="1372" height="592" key="new project wizard/35.27.1885.1053@35.27.1885.1053" timestamp="1598930342629" />
     <state x="448" y="304" key="org.sonarlint.intellij.config.global.wizard.SQServerWizard$SonarQubeWizard" timestamp="1597203282278">
       <screen x="67" y="27" width="1853" height="1053" />
