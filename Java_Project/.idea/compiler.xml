@@ -10,7 +10,7 @@
         <module name="eurekaserver" />
         <module name="common" />
         <module name="service" />
-        <module name="authorizationserver" />
+        <module name="auth-server" />
         <module name="Fresher-Training" />
         <module name="service-order" />
         <module name="service-shipping" />
@@ -20,6 +20,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="admin" target="1.8" />
+      <module name="authorizationserver" target="1.8" />
       <module name="client" target="1.8" />
       <module name="oktaclient" target="1.8" />
       <module name="service-security" target="1.8" />
@@ -28,6 +29,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="admin" options="-parameters" />
+      <module name="auth-server" options="-parameters" />
       <module name="authorizationserver" options="-parameters" />
       <module name="client" options="-parameters" />
       <module name="common" options="-parameters" />

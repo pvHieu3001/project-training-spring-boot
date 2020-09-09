@@ -32,7 +32,6 @@
         <module>service-order</module>
         <module>service-shipping</module>
         <module>service-invoice</module>
-        <module>oktaclient</module>
         <module>authorizationserver</module>
     </modules>
 

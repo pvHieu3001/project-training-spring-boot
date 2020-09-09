@@ -65,7 +65,6 @@ public class UserServiceImpl implements UserService {
             }
             userDTO.setRoleDTOS(roleDTOS);
             List<CommentDTO> commentDTOS = new ArrayList<>();
-            userDTO.setCommentDTOS(commentDTOS);
             log.info("Find User by name success!");
             return userDTO;
 

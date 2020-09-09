@@ -3,6 +3,7 @@ package com.smartosc.training.controllers;
 import com.smartosc.training.entities.OrderDB;
 import com.smartosc.training.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,8 +23,21 @@ public class OrderController {
         return orderService.order(order);
     }
 
-    @GetMapping("/find-all")
+    @GetMapping("/find-order")
+    @PreAuthorize("hasRole('read_profile')")
     public String getAll(){
         return "may khong thoat dc dau con trai. tu bi con ti niu!";
+    }
+
+    @GetMapping("/edit-order")
+    @PreAuthorize("hasRole('update_profile')")
+    public String editorder(){
+        return "edit  thanh cong!";
+    }
+
+    @GetMapping("/delete-order")
+    @PreAuthorize("hasRole('delete_profile')")
+    public String deleteorder(){
+        return "delete  thanh cong!";
     }
 }

@@ -5,6 +5,7 @@
 
 package com.smartosc.training.config;
 
+import com.smartosc.training.services.impl.UserDetailServiceImpl;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,30 +25,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Configuration
-public class AppConfig extends WebSecurityConfigurerAdapter {
+public class AppConfig {
     @Bean
     public ModelMapper modelMapper() {
         return new ModelMapper();
     }
 
-    @Qualifier("userDetailServiceImpl")
-    @Autowired
-    private UserDetailsService userDetailsService;
 
-    @Bean
-    protected AuthenticationManager getAuthenticationManager() throws Exception {
-        return super.authenticationManagerBean();
-    }
-
-    @Bean
-    PasswordEncoder passwordEncoder() {
-        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
-    }
-
-
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-    }
 
 }

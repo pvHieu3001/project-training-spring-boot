@@ -21,7 +21,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserDTO {
-    private Integer id;
+    private Long id;
     private String username;
     private String password;
     private String email;

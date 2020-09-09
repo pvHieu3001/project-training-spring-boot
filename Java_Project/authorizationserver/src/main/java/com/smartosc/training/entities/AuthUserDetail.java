@@ -9,8 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class AuthUserDetail extends User implements UserDetails {
     public AuthUserDetail(User user) {
         super(user);
