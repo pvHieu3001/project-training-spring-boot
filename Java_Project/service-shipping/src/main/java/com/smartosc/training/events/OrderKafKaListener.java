@@ -1,20 +1,18 @@
 package com.smartosc.training.events;
 
-import com.smartosc.training.entities.OrderDB;
-import com.smartosc.training.entities.Shipping;
+import com.smartosc.training.domain.order.OrderDB;
+import com.smartosc.training.domain.shipping.Shipping;
 import com.smartosc.training.services.ShippingService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.stereotype.Component;
 
+@Slf4j
 @Component
 public class OrderKafKaListener {
-    private final Logger log = LoggerFactory.getLogger(OrderKafKaListener.class);
-
-    private ShippingService shippingService;
+    private final ShippingService shippingService;
     @Autowired
     public OrderKafKaListener(ShippingService shippingService) {
         super();

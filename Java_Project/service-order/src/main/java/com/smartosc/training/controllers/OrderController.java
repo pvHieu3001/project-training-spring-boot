@@ -1,6 +1,6 @@
 package com.smartosc.training.controllers;
 
-import com.smartosc.training.entities.OrderDB;
+import com.smartosc.training.domain.order.OrderDB;
 import com.smartosc.training.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;

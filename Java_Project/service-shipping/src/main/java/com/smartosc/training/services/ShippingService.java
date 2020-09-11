@@ -1,7 +1,8 @@
 package com.smartosc.training.services;
 
-import com.smartosc.training.entities.Shipping;
+
+import com.smartosc.training.domain.shipping.Shipping;
 
 public interface ShippingService {
-    public Shipping createShipment(Shipping shipping);
+    void createShipment(Shipping shipping);
 }

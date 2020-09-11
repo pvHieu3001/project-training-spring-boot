@@ -1,7 +1,8 @@
 package com.smartosc.training.events;
 
-import com.smartosc.training.entities.Invoice;
-import com.smartosc.training.entities.OrderDB;
+
+import com.smartosc.training.domain.invoice.Invoice;
+import com.smartosc.training.domain.order.OrderDB;
 import com.smartosc.training.services.InvoiceService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

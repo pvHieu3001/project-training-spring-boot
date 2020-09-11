@@ -1,6 +1,6 @@
 package com.smartosc.training.services;
 
-import com.smartosc.training.entities.OrderDB;
+import com.smartosc.training.domain.order.OrderDB;
 import com.smartosc.training.repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
