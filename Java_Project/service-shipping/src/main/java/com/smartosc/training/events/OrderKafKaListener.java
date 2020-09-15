@@ -1,7 +1,6 @@
 package com.smartosc.training.events;
 
-import com.smartosc.training.domain.order.OrderDB;
-import com.smartosc.training.domain.shipping.Shipping;
+import com.smartosc.training.domains.Shipping;
 import com.smartosc.training.services.ShippingService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,6 @@
 package com.smartosc.training.repositories;
 
-import com.smartosc.training.domain.order.OrderDB;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.smartosc.training.entities.OrderDB;
 
-public interface OrderRepository extends JpaRepository<OrderDB,Long> {
+public interface OrderRepository extends BaseRepository<OrderDB, Long> {
 }

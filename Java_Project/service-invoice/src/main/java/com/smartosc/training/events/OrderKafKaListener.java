@@ -1,8 +1,7 @@
 package com.smartosc.training.events;
 
 
-import com.smartosc.training.domain.invoice.Invoice;
-import com.smartosc.training.domain.order.OrderDB;
+import com.smartosc.training.dto.InvoiceDto;
 import com.smartosc.training.services.InvoiceService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,9 +24,9 @@ public class OrderKafKaListener {
     @KafkaListener(topics = "order")
     public void order(OrderDB order, Acknowledgment acknowledgment) {
         log.info("Received order " + order.getId());
-        Invoice invoice = new Invoice();
+        InvoiceDto invoice = new InvoiceDto();
         invoice.setCode("testcode");
-        invoiceService.createInvoice(invoice);
+        invoiceService.save(invoice);
         acknowledgment.acknowledge();
     }
 }

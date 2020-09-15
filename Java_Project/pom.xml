@@ -34,9 +34,6 @@
         <module>service-invoice</module>
         <module>authorizationserver</module>
         <module>basecore</module>
-        <module>domain</module>
-        <module>repository</module>
-        <module>baseservice</module>
     </modules>
 
 

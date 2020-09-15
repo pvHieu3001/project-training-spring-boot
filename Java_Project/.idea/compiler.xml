@@ -11,22 +11,23 @@
         <module name="Fresher-Training" />
         <module name="service-order" />
         <module name="service-shipping" />
-        <module name="repository" />
         <module name="gatewayservice" />
         <module name="eurekaserver" />
         <module name="common" />
         <module name="service" />
-        <module name="domain" />
         <module name="basecore" />
-        <module name="baseservice" />
         <module name="service-invoice" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="admin" target="1.8" />
       <module name="authorizationserver" target="1.8" />
+      <module name="baseservice" target="1.8" />
       <module name="client" target="1.8" />
+      <module name="domain" target="1.8" />
       <module name="oktaclient" target="1.8" />
+      <module name="repository" target="1.8" />
+      <module name="service-impl" target="1.8" />
       <module name="service-security" target="1.8" />
     </bytecodeTargetLevel>
   </component>
@@ -45,6 +46,7 @@
       <module name="oktaclient" options="-parameters" />
       <module name="repository" options="-parameters" />
       <module name="service" options="-parameters" />
+      <module name="service-impl" options="-parameters" />
       <module name="service-invoice" options="-parameters" />
       <module name="service-order" options="-parameters" />
       <module name="service-security" options="-parameters" />

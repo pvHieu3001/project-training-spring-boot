@@ -1,8 +1,8 @@
 package com.smartosc.training.services;
 
 
-import com.smartosc.training.domain.invoice.Invoice;
+import com.smartosc.training.domains.Invoice;
+import com.smartosc.training.dto.InvoiceDto;
 
-public interface InvoiceService {
-    public Invoice createInvoice(Invoice invoice);
+public interface InvoiceService extends BaseService<Invoice, InvoiceDto, Long> {
 }

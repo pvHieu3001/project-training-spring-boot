@@ -1,6 +1,6 @@
 package com.smartosc.training.objectoutputstream;
 
-import com.smartosc.training.domain.order.OrderDto;
+import com.smartosc.training.dto.OrderDto;
 
 import java.io.*;
 
