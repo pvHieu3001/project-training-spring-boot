@@ -7,16 +7,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="auth-server" />
-        <module name="Fresher-Training" />
-        <module name="service-order" />
-        <module name="service-shipping" />
-        <module name="gatewayservice" />
         <module name="eurekaserver" />
         <module name="common" />
         <module name="service" />
+        <module name="auth-server" />
         <module name="basecore" />
+        <module name="Fresher-Training" />
+        <module name="service-order" />
+        <module name="service-shipping" />
         <module name="service-invoice" />
+        <module name="gatewayservice" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
