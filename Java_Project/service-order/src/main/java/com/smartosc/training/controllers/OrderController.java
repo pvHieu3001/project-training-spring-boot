@@ -1,7 +1,8 @@
 package com.smartosc.training.controllers;
 
-import com.smartosc.training.base.BaseService;
-import com.smartosc.training.domains.order.OrderDto;
+import com.smartosc.training.dto.OrderDto;
+import com.smartosc.training.entities.OrderDB;
+import com.smartosc.training.services.BaseService;
 import com.smartosc.training.services.impls.OrderServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;

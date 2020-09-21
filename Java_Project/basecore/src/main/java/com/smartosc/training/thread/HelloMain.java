@@ -34,19 +34,23 @@ public class HelloMain {
 //        executorService.awaitTermination(1, TimeUnit.DAYS);
 //
 //        System.out.println("All tasks completed.");
+//
+//
+//        //Thread countdown latch
+//
+//        ExecutorService executorService1 = Executors.newFixedThreadPool(1);
+//        CountDownLatch countDownLatch = new CountDownLatch(3);
+//        long start = System.currentTimeMillis();
+//        for(int i = 0; i < 3; i++){
+//            executorService1.submit(new ProcessorLatch(countDownLatch));
+//        }
+//
+//        countDownLatch.await();
+//        long end = System.currentTimeMillis();
+//        System.out.println("Completed in "+ (end-start));
 
-
-        //Thread countdown latch
-
-        ExecutorService executorService1 = Executors.newFixedThreadPool(1);
-        CountDownLatch countDownLatch = new CountDownLatch(3);
-        long start = System.currentTimeMillis();
-        for(int i = 0; i < 3; i++){
-            executorService1.submit(new ProcessorLatch(countDownLatch));
-        }
-
-        countDownLatch.await();
-        long end = System.currentTimeMillis();
-        System.out.println("Completed in "+ (end-start));
+        System.out.println(true | false ^ true);
+        System.out.println((true | false) ^ true);
+        System.out.println(true ^ false ^ !true);
     }
 }

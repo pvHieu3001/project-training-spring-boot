@@ -1,7 +1,8 @@
 package com.smartosc.training.controllers;
 
-import com.smartosc.training.base.BaseService;
-import com.smartosc.training.base.IdDto;
+import com.smartosc.training.dto.IdDto;
+import com.smartosc.training.entities.BaseEntity;
+import com.smartosc.training.services.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

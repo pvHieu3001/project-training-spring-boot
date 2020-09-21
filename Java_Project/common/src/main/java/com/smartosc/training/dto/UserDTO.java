@@ -20,8 +20,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDTO {
-    private Long id;
+public class UserDTO extends IdDto{
     private String username;
     private String password;
     private String email;

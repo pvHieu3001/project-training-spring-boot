@@ -19,15 +19,10 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class RoleDTO {
-    private Long id;
+public class RoleDTO extends IdDto{
     private String name;
     List<UserDTO> userDTOS;
 
 
-    public RoleDTO(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
 
 }
